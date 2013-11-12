@@ -1,0 +1,33 @@
+.sh_window .tb {
+  border-bottom: 1px solid #aaa;
+  background-color: #eee;
+  padding: 10px;
+}
+
+.sh_window select {
+  margin-left: 6px;
+}
+
+.sh_window  .ta {
+  padding: 4px;
+}
+
+.sh_window .ta textarea {
+  width: 100%;
+  border: 0;
+  background: none;
+  font-size: 9.5pt;
+  color: #930F08;
+}
+
+.sh_window .btm {
+  text-align: right;
+  padding: 10px;
+  border-top: 1px solid #aaa;
+  background-color: #fafafa;
+  border-top: 1px solid #aaa;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+}

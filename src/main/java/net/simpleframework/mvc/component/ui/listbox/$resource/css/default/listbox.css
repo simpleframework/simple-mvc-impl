@@ -1,0 +1,54 @@
+.listbox {
+	overflow-y: auto;
+	position: relative;
+}
+
+.listbox .item {
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+	padding: 5px 8px;
+}
+
+.listbox .item:hover {
+	background: #DFEEF3;
+}
+
+.listbox .odd {
+	background: #fefefe;
+}
+
+.listbox .even {
+	background: #f9f9f9;
+}
+
+.listbox .checked {
+	background: #FFF8C2;
+}
+
+.listbox .select {
+	background: #DFEEF3;
+}
+
+.listbox .item .uncheck {
+	width: 16px;
+	height: 16px;
+	padding: 0px;
+	margin: 0px;
+	background: transparent url(images/check1.gif) no-repeat;
+}
+
+.listbox .item .uncheck:hover {
+	background: transparent url(images/check_over1.gif) no-repeat;
+}
+
+.listbox .item .check {
+	width: 16px;
+	height: 16px;
+	padding: 0px;
+	margin: 0px;
+	background: transparent url(images/check2.gif) no-repeat;
+}
+
+.listbox .item .check:hover {
+	background: transparent url(images/check_over2.gif) no-repeat;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://simpleframework.net/xsd/default/simple.xsd">
+
+	<components>
+		<ajaxRequest name="ajaxTablePagerExport"
+			handleClass="net.simpleframework.mvc.component.ui.pager.TablePagerAction"
+			handleMethod="doExport" confirmMessage="#(tablepager_export.5)">
+		</ajaxRequest>
+
+		<progressbar name="tablepager_export_pbar" containerId="tablepager_export_pbar"
+			startAfterCreate="false" showAbortAction="false" showDetailAction="false"
+			handleClass="net.simpleframework.mvc.component.ui.pager.TablePagerExportProgressBar">
+		</progressbar>
+	</components>
+</page>

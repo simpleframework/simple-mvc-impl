@@ -1,0 +1,114 @@
+.tafelTree {
+	text-align: left;
+	direction: ltr;
+	cursor: default;
+	-moz-user-select: none;  
+	-webkit-user-select: none;  
+	-ms-user-select: none;
+}
+
+.tafelTree .tafelTree_root,
+.tafelTree .tafelTree_row {
+	line-height: 14px;
+}
+
+.tafelTree .addbtn {
+	padding-left: 14px;
+	background: url(images/add.png) no-repeat 0 center;
+	background-position: 0px 1px\0;
+	color: #c77 !important;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.tafelTree .addbtn:hover {
+	background: url(images/add_hover.png) no-repeat 0 center;
+	background-position: 0px 1px\0;
+	color: #744 !important;
+}
+
+.tafelTree,
+.tafelTree span,
+.tafelTree img,
+.tafelTree div {
+	margin: 0;
+	padding: 0;
+}
+
+.tafelTree_row * {
+	vertical-align: middle;
+}
+
+.tafelTree table {
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+}
+
+.tafelTree table tr,
+.tafelTree table td {
+	margin: 0;
+	padding: 0;
+}
+
+.tafelTree table td {
+	white-space: nowrap;
+	vertical-align: top;
+}
+
+.tafelTree .tafelTreedrag {
+}
+
+.tafelTree .tafelTreecontent a {
+	display: block;
+	line-height: 14px;
+}
+
+.tafelTree .tafelTreecontent {
+	border: 1px dotted transparent;
+	_border: 0px; /* ie6 */
+	padding: 0px 1px;
+	float: left;
+	line-height: 16px;
+}
+
+.tafelTree .tafelTreepostfix {
+	margin-left: 2px;
+	vertical-align: inherit;
+}
+
+.tafelTree .tafelTreecanevas {	
+}
+
+.tafelTree .tafelTreeselected,
+.tafelTree .tafelTreedragOver {
+	background-color: #60B8F3;
+	color: #f4f4f4;
+	border: 1px dotted #ddd;
+	_border: 0px; /* ie6 */
+}
+
+.tafelTree .tafelTreeeditable {
+	display: none;
+	padding: 0 0.2em;
+	border: 1px solid #CCCCFF;
+	background-color: #EEEEFF;
+}
+
+/**
+ * Multiline
+ */
+.tafelTree table td.tafelTreemultiline {
+	background-repeat: repeat-y;
+	background-position: top left;
+}
+
+.tafelTree table td.tafelTreemultiline2 {
+	background-repeat: repeat-y;
+	background-position: top left;
+}
+
+.tafelTree_tooltip {
+	max-width: 350px;	
+}

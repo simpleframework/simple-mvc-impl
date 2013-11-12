@@ -1,0 +1,14 @@
+.cke_top {
+	padding: 5px 4px 0 !important;
+	background-image: none !important;
+	background-color: #fcfcfc !important;
+  filter: none !important;
+}
+
+.cke_reset_all, .cke_reset_all * {
+	font-family: inherit !important;
+}
+
+.cke_reset_all a:hover {
+	text-decoration: none !important;
+}

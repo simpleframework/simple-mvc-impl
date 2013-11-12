@@ -1,0 +1,61 @@
+.dictionary .toptb {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #aaa;
+  padding: 3px;
+}
+
+.dictionary .tree {
+  overflow: auto;
+  position: relative;
+  padding: 4px 0;
+}
+
+.dictionary .okcancel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #aaa;
+  background: #f4f4f4;
+  padding: 8px;
+}
+
+div.color_block {
+  float: left;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  padding: 1px;
+  border: 1px dashed #ddd;
+}
+
+.dictionary_smiley {
+  text-align: center;
+  padding-top: 5px;
+}
+
+.dictionary_smiley img {
+  cursor: pointer;
+  border: 1px solid #aaa;
+  margin: 0 1px;
+}
+
+.dictionary_smiley img:hover {
+  border-color: #444;
+  background: #f1f1f1;
+}
+
+.dictionary_font {
+  margin-bottom: 6px;
+}
+
+.dictionary_font .formeditor {
+  border: 0;
+}
+
+.dictionary_font .okcancel {
+  border-top: 1px solid #bbb;
+  padding: 20px 6px 0;
+}

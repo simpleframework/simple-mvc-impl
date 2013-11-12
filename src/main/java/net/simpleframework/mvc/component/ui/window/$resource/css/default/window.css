@@ -1,0 +1,338 @@
+.ui-window {
+  position: absolute;
+  -webkit-box-shadow: 0px 0px 15px #888;
+  box-shadow: 0px 0px 15px #888;
+}
+
+@-moz-document url-prefix() {
+  .ui-window {
+    -moz-box-shadow: 0px 0px 10px #888;
+    box-shadow: 0px 0px 10px #888;
+  }		
+}
+
+.ui-window .move_handle {
+  cursor: move !important;
+}
+
+.ui-window .resize_handle {
+  line-height: 1px;
+  font-size: 1px;
+  width: 8px;
+  height: 8px;
+  z-index: 90;
+  position: absolute;
+}
+
+.ui-window .se_sizer {
+  cursor: se-resize;
+  z-index: 100;
+  bottom: 0;
+  right: 0;
+}
+
+.ui-window .sw_sizer {
+  cursor: sw-resize;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+}
+
+.ui-window .nw_sizer {
+  cursor: nw-resize;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+
+.ui-window .ne_sizer {
+  cursor: ne-resize;
+  z-index: 100;
+  top: 0;
+  right: 0;
+}
+
+.ui-window .n_sizer {
+  cursor: n-resize;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.ui-window .s_sizer {
+  cursor: s-resize;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.ui-window .e_sizer {
+  cursor: e-resize;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+.ui-window .w_sizer {
+  cursor: w-resize;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.ui-window .content {
+  overflow: auto;
+  position: relative;
+  padding: 0;
+}
+
+.window_default .nw {
+  background: url(window_default/top.png) no-repeat scroll 0 -27px;
+  height: 27px;
+  padding-left: 4px;
+}
+
+.window_default .ne {
+  background: url(window_default/top.png) no-repeat scroll right 0;
+  height: 27px;
+  padding-right: 4px;
+}
+
+.window_default .n {
+  background: url(window_default/t.png) repeat-x scroll 0 0px;
+  font-size: 15px;
+  text-shadow: 2px 2px 2px #777;
+  height: 27px;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  overflow: hidden;
+  padding-left: 5px;
+  line-height: 27px;
+  color: #602928;
+}
+
+.window_default .content {
+  background-color: #FDFDFD;
+  overflow: hidden;
+  font-size: 9pt;
+}
+
+.window_default.resizable .content {
+  overflow: auto;
+}
+
+.window_default .w {
+  background: url(window_default/border.png) repeat-y scroll 0px 0px;
+  font-size: 2px;
+  padding-left: 4px;
+}
+
+.window_default .e {
+  background: url(window_default/border.png) repeat-y scroll right 0;
+  font-size: 2px;
+  padding-right: 4px;
+}
+
+.window_default .sw {
+  background: url(window_default/bottom.png) no-repeat scroll 0 -48px;
+  font-size: 2px;
+  height: 24px;
+  padding-left: 22px;
+}
+
+.window_default .se {
+  background: url(window_default/bottom.png) no-repeat scroll right 0;
+  font-size: 2px;
+  height: 24px;
+  padding-right: 22px;
+}
+
+.window_default .s {
+  background: url(window_default/bottom.png) repeat-x scroll 0 -24px;
+  font-size: 14px;
+  line-height: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+
+.window_default .se_resize_handle {
+  background: url(window_default/bottom.png) no-repeat scroll right 0;
+  font-size: 2px;
+  height: 24px;
+  padding-right: 22px;
+}
+
+.window_default .se_sizer {
+  width: 12px;
+  height: 12px;
+}
+
+.window_default .buttons {
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  height: 20px;
+}
+
+.window_default .buttons a.close {
+  background: url(window_default/buttons.gif) no-repeat 0 -51px;
+  display: block;
+  height: 17px;
+  float: left;
+  width: 43px;
+  font-size: 1px;
+  padding-top: 2px;
+  /* padding-top = buttons order, it will be reset to 0, do not use padding, use margin*/
+}
+
+.window_default_focused .buttons a.close {
+  background: url(window_default/buttons.gif) no-repeat 0 0px;
+}
+
+.window_default_focused .buttons a.close:hover {
+  background: #aaa url(window_default/buttons_hover.gif) no-repeat 0 0px;
+  -webkit-box-shadow: 0px 3px 3px #aaa;
+  -moz-box-shadow: 0px 3px 3px #aaa;
+  box-shadow: 0px 3px 3px #aaa;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.window_default .buttons a.maximize {
+  margin-right: -1px;
+  background: url(window_default/buttons.gif) no-repeat 0 -68px;
+  display: block;
+  height: 17px;
+  float: left;
+  width: 27px;
+  font-size: 1px;
+  padding-top: 1px;
+  /* padding-top = buttons order, it will be reset to 0, do not use padding, use margin*/
+}
+
+.window_default_focused .buttons a.maximize {
+  background: url(window_default/buttons.gif) no-repeat 0 -17px;
+}
+
+.window_default .buttons a.minimize {
+  margin-right: -1px;
+  background: url(window_default/buttons.gif) no-repeat 0 -85px;
+  display: block;
+  height: 17px;
+  float: left;
+  width: 27px;
+  font-size: 1px;
+  padding-top: 0px;
+  /* padding-top = buttons order, it will be reset to 0, do not use padding, use margin*/
+}
+
+.window_default_focused .buttons a.minimize {
+  background: url(window_default/buttons.gif) no-repeat 0 -34px;
+}
+
+.window_default .buttons a.minimize.disabled,
+.window_default .buttons.over a.minimize.disabled {
+  background: none;
+}
+
+.window_default_overlay,
+.popup_overlay {
+  background-color: #fff;
+  filter: alpha(opacity = 60);
+  -moz-opacity: 0.6;
+  opacity: 0.6;
+}
+
+.window_default_wired {
+  background: #FFF;
+  border: 1px #000 dashed;
+  filter: alpha(opacity = 50);
+  opacity: 0.5;
+  -moz-opacity: 0.5;
+  position: absolute;
+}
+
+.popup {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.popup .nw {
+  height: 23px;
+  border: 1px solid #999;
+  -moz-border-radius: 3px 3px 0px 0px;
+  -webkit-border-radius: 3px 3px 0px 0px;
+  border-radius: 3px 3px 0px 0px;
+  background: #e0e0e0;
+}
+
+.popup .n {
+  color: #200;
+  text-shadow: 2px 2px 1px #ccc;
+  overflow: hidden;
+  padding-left: 6px;
+  line-height: 23px;
+  font-size: 9.5pt;
+}
+
+.popup .sw {
+  border: 1px solid #999;
+  background: #eee;
+  height: 5px;
+  -moz-border-radius: 0px 0px 4px 4px;
+  -webkit-border-radius: 0px 0px 4px 4px;
+  border-radius: 0px 0px 4px 4px;
+}
+
+.popup .se {
+}
+
+.popup .s {
+  overflow: hidden;
+}
+
+.popup .e {
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+}
+
+/*Centre*/
+.popup .content {
+  background: #fff;
+  overflow: auto;
+  font-size: 9pt;
+}
+
+/*Button*/
+.popup .buttons {
+  position: absolute;
+  top: 0px;
+  right: 6px;
+  height: 20px;
+}
+
+.popup .buttons a.close {
+  float: left;
+  background: url(popup/button_unactive.png) no-repeat 0 0;
+  height: 15px;
+  width: 14px;
+  margin: 6px 2px 0 0;
+  padding-top: 0px;
+  overflow: hidden;
+}
+
+.popup .buttons a:hover.close {
+  background: url(popup/button_over.png) no-repeat 0 0px !important;
+}
+
+.popup .buttons a.minimize {
+  padding-top: 1px;
+}
+
+.popup .buttons a.maximize {
+  padding-top: 2px;
+}

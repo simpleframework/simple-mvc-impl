@@ -1,0 +1,17 @@
+:root 
+.ui-window .tabs .simple_tabs_content {
+	margin-top: 0\0; /* ie9 */
+}
+
+.ui-window .content .simple_tabs_content {
+  -moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	border-left: 0;
+	border-right: 0; 
+}
+
+.ui-window .content ul.simple_tabs {
+  margin-top: 3px;
+  margin-left: 6px;
+}

@@ -1,0 +1,155 @@
+.calendar_date_select {
+	border: 1px solid #999;
+	-moz-border-radius: 8px 8px 5px 5px;
+	-webkit-border-radius: 8px 8px 5px 5px;
+	border-radius: 8px 8px 5px 5px;
+	box-shadow: 2px 2px 4px #999;
+	-webkit-box-shadow: 2px 2px 4px #999;
+	-moz-box-shadow: 2px 2px 4px #999;
+	z-index: 1000; *
+	width: 205px;
+}
+
+/* dow headings */
+.calendar_date_select thead th {
+	background: url(images/hrow.gif) repeat-x;
+	font-weight: normal;
+	height: 20px;
+	color: #A22E03;
+}
+
+.calendar_date_select .cds_buttons {
+	text-align: center;
+	padding: 3px 0;
+	vertical-align: middle;
+	background: #f2f2f2;
+	border-top: 1px solid #D1D1D1;
+}
+
+.calendar_date_select .cds_buttons br {
+	margin-bottom: 4px;
+}
+
+.calendar_date_select .cds_buttons .button_seperator {
+	color: #999;
+	vertical-align: middle;
+}
+
+.calendar_date_select .cds_buttons .seperator {
+	margin: 0px 1px;
+	vertical-align: middle;
+}
+
+/* bottom line */
+.calendar_date_select .cds_footer {
+	background-color: #ddd;
+	padding: 3px;
+	text-align: center;
+	-moz-border-radius: 0px 0px 5px 5px;
+	-webkit-border-radius: 0px 0px 5px 5px;
+	border-radius: 0px 0px 5px 5px;
+}
+
+.calendar_date_select table {
+	margin: 0px;
+	padding: 0px;
+	border-collapse: separate;
+}
+
+.calendar_date_select .cds_header {
+	padding: 3px 0;
+	background-color: #ddd;
+	text-align: center;
+	-moz-border-radius: 8px 8px 0px 0px;
+	-webkit-border-radius: 8px 8px 0px 0px;
+	border-radius: 8px 8px 0px 0px;
+}
+
+.calendar_date_select .cds_header span {
+}
+
+.calendar_date_select select {
+}
+
+.calendar_date_select .cds_header a:hover {
+}
+
+.calendar_date_select .cds_header a {
+	width: 18px;
+	height: 18px;
+	text-decoration: none;
+}
+
+.calendar_date_select .cds_header a.prev {
+	float: left;
+	background: url(images/pre.png) no-repeat center center;
+}
+
+.calendar_date_select .cds_header a.next {
+	float: right;
+	background: url(images/next.png) no-repeat center center;
+}
+
+.calendar_date_select .cds_header select.month {
+	margin-left: 2px;
+}
+
+.calendar_date_select .cds_header select.year {
+}
+
+.calendar_date_select .cds_buttons a {
+	vertical-align: middle;
+}
+
+/* weekday */
+.calendar_date_select td { 
+	padding: 1px;
+	background-color: white;
+	vertical-align: middle;
+}
+
+/* weekend */
+.calendar_date_select td.weekend { 
+	color: #A22E03;
+}
+
+/* days */
+.calendar_date_select td { 
+	width: 25px;
+	height: 15px;
+	color: black;
+	border: 1px solid white;
+	text-align: center;
+}
+
+.calendar_date_select td.other {
+	color: #ccc;
+}
+
+/* selected date */
+.calendar_date_select td.selected { 
+	border: 1px solid #aaa;
+	background-color: #f2f2f2;
+	color: red;
+}
+
+.calendar_date_select td.selected {
+}
+
+.calendar_date_select td:hover {
+	border: 1px solid #aaa;
+	background-color: #f2f2f2;
+}
+
+/* current date */
+.calendar_date_select td.today { 
+	color: #f00;
+}
+
+.calendar_date_select td.disabled {
+	color: #454545;
+}
+
+.fieldWithErrors .calendar_date_select {
+	border: 2px solid red;
+}

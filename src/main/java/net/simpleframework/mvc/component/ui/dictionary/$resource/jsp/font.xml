@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://simpleframework.net/xsd/default/simple.xsd">
+  <components>
+    <propEditor name="_dict_fontEditor" runImmediately="false">
+      <jsLoadedCallback>_dict_fontEditor_loaded();</jsLoadedCallback>
+      <field label="#(font.jsp.0)" labelStyle="width:80px;">
+        <component type="select" name="dict_font_family" defaultValue="#(font.jsp.1)">
+        </component>
+      </field>
+      <field label="#(font.jsp.2)" labelStyle="width:80px;">
+        <component type="select" name="dict_font_style" defaultValue="#(font.jsp.3)">
+        </component>
+      </field>
+      <field label="#(font.jsp.4)" labelStyle="width:80px;">
+        <component type="select" name="dict_font_weight" defaultValue="#(font.jsp.5)">
+        </component>
+      </field>
+      <field label="大小" labelStyle="width:80px;">
+        <component type="textButton" name="dict_font_size">
+          <event name="click">$Actions["_dict_fontSize"]();</event>
+        </component>
+      </field>
+      <field label="#(font.jsp.6)" labelStyle="width:80px;">
+        <component type="hidden" name="dict_font_color"></component>
+        <component name="d_dict_font_color" type="div" attributes="className:color_block">
+          <event name="click">$Actions["_dict_fontColorSelect"]();</event>
+        </component>
+        <component type="div" defaultValue="#(font.jsp.7)" style="float:left;width:40px;cursor:pointer;">
+          <event name="click">
+            <![CDATA[
+              var d = $("dict_font_color");
+              if (d) d.clear();
+              d = $("d_dict_font_color");
+              if (d) d.setStyle('background-color:transparent;');
+            ]]>
+          </event>
+        </component>
+      </field>
+    </propEditor>
+    <colorpalette name="_dict_ColorPalette"></colorpalette>
+    <dictionary name="_dict_fontColorSelect" bindingId="dict_font_color">
+      <color ref="_dict_ColorPalette" />
+      <jsSelectCallback>
+        <![CDATA[
+          var d = $("d_dict_font_color");
+          if (d) {
+            d.setStyle("background-color:#" + value);
+            $("dict_font_color").value = "#" + value;
+          }
+        ]]>
+      </jsSelectCallback>
+    </dictionary>
+    <listbox name="_dict_fontSize_list">
+      <item text="xx-small" />
+      <item text="x-small" />
+      <item text="small" />
+      <item text="medium" />
+      <item text="large" />
+      <item text="x-large" />
+      <item text="xx-large" />
+      <item text="smaller" />
+      <item text="larger" />
+    </listbox>
+    <dictionary name="_dict_fontSize" bindingText="dict_font_size" title="#(font.jsp.8)">
+      <list ref="_dict_fontSize_list" />
+    </dictionary>
+  </components>
+</page>

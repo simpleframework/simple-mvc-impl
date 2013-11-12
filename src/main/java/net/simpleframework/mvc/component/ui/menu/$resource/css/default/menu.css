@@ -1,0 +1,260 @@
+.mm {
+	cursor: default;
+	height: 19px;
+	line-height: 18px;
+	*line-height: 19px; /* ie7 */
+	padding: 0px 6px;
+	padding-top: 1px\0;
+	height: 18px\0; /* ie8 */
+	margin: 0 2px 0 1px;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+:root
+.mm { /* ie9 */
+	padding-top: 0\0;
+	height: 19px\0;
+}
+
+.ms {
+	border-left: 1px solid #999;
+	border-right: 1px solid #fff;
+	height: 19px;
+}
+
+.menu {
+	cursor: default;
+	position: absolute;
+}
+
+.menu a {
+	display: block;
+	cursor: default;
+	outline: none;
+}
+
+.menu a:hover {
+	text-decoration: none;
+}
+
+.menu .separator {
+	display: block;
+	height: 1px;
+	line-height: 1px;
+	/* ie7 */
+	*height: auto; 
+}
+
+.menu ul {
+	width: 100%;
+	list-style: none;
+}
+
+.menu ul,
+.menu li {
+	margin: 0;
+	padding: 0;
+}
+
+.menu .submenu {
+	position: relative;
+}
+
+.mm,
+.menu {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* skin: desktop */
+.mm.desktop {
+  -moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid transparent;
+}
+
+.mm.desktop:hover,
+.mm.desktop.active {
+  color: #fff;
+  background-color: #999;
+  background-image: -webkit-linear-gradient(top, #999, #bbb, #999);
+  background-image: -moz-linear-gradient(top, #999, #bbb, #999);
+  background-image: -ms-linear-gradient(top, #999, #bbb, #999);
+  background-image: linear-gradient(to bottom, #999, #bbb, #999);
+	border: 1px solid #666;
+	text-decoration: none;
+}
+
+.mm.desktop.active2 {
+  -moz-border-radius: 2px 2px 0 0;
+	-webkit-border-radius: 2px 2px 0 0;
+	border-radius: 2px 2px 0 0;
+}
+
+.menu.desktop {
+	background-color: #eee;
+	border: 1px solid #666;
+	box-shadow: 2px 2px 4px #999;
+	-webkit-box-shadow: 2px 2px 4px #999;
+	-moz-box-shadow: 2px 2px 4px #999;
+	/* ie7 */
+	*width: 1px;
+}
+
+.menu.desktop ul {
+	padding: 3px 0;
+}
+
+.menu.desktop li {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.menu.desktop li:hover {
+  background-color: #ddd;
+  border-color: #666;
+  -moz-transition: background-color 0.2s ease-in 0s;
+  -webkit-transition: background-color 0.2s ease-in 0s;
+  -ms-transition: background-color 0.2s ease-in 0s;
+  transition: background-color 0.2s ease-in 0s;
+}
+
+.menu.desktop .separator {
+	border-bottom: 1px solid #bbb;
+	border-top: 0;
+	margin: 2px 0 3px;
+}
+
+.menu.desktop .separator:hover {
+  background-color: transparent;
+  border-color: #bbb;
+}
+
+.menu.desktop a {
+	padding: 2px 15px 2px 24px;
+	margin: 0px 3px;
+	color: #444;
+	height: 17px;
+	line-height: 16px;
+	line-height: 20px\9; /* ie */
+}
+
+.menu.desktop a:hover {
+  color: #444;
+  text-decoration: none;
+}
+
+:root 
+.menu.desktop a {
+	line-height: 17px\0; /* ie9 */
+}
+
+.menu.desktop .icon {
+	background-repeat: no-repeat;
+	background-position: 7px 50%;
+}
+
+.menu.desktop .more {
+	background-image: url(images/more.png);
+	background-repeat: no-repeat;
+	background-position: 95% 50%;
+}
+
+.menu.desktop .checked {
+	background: url(images/check2.gif) no-repeat 7px 45%;
+}
+
+.menu.desktop .checked:hover {
+	background: url(images/check_over2.gif) no-repeat 7px 45%;
+}
+
+.menu.desktop .unchecked {
+	background: url(images/check1.gif) no-repeat 7px 45%;
+}
+
+.menu.desktop .unchecked:hover {
+	background: url(images/check_over1.gif) no-repeat 7px 45%;
+}
+
+.menu.desktop a.disabled {
+	color: #bbb;
+}
+
+.menu.desktop a.disabled:hover {
+	background: #F4F5EB;
+	color: #bbb;
+}
+
+/* icon */
+
+.menu_icon_about {
+	background-image: url(images/icons/about.png);
+}
+
+.menu_icon_add {
+	background-image: url(images/icons/add.png);
+}
+
+.menu_icon_collapse {
+	background-image: url(images/icons/collapse.png);
+}
+
+.menu_icon_delete {
+	background-image: url(images/icons/delete.png);
+}
+
+.menu_icon_down {
+	background-image: url(images/icons/down.png);
+}
+
+.menu_icon_down2 {
+	background-image: url(images/icons/down2.png);
+}
+
+.menu_icon_edit {
+	background-image: url(images/icons/edit.png);
+}
+
+.menu_icon_expand {
+	background-image: url(images/icons/expand.png);
+}
+
+.menu_icon_key {
+	background-image: url(images/icons/key.png);
+}
+
+.menu_icon_mail {
+	background-image: url(images/icons/mail.png);
+}
+
+.menu_icon_move {
+	background-image: url(images/icons/move.png);
+}
+
+.menu_icon_option {
+	background-image: url(images/icons/option.png);
+}
+
+.menu_icon_refresh {
+	background-image: url(images/icons/refresh.png);
+}
+
+.menu_icon_up {
+	background-image: url(images/icons/up.png);
+}
+
+.menu_icon_up2 {
+	background-image: url(images/icons/up2.png);
+}
+
+.menu_icon_user {
+	background-image: url(images/icons/user.png);
+}
+
+.menu_icon_log {
+	background-image: url(images/icons/log.png);
+}

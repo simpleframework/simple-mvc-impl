@@ -1,0 +1,173 @@
+.pager_no_result {
+  text-align: center;
+  color: #888;
+  font-size: large;
+  font-weight: bold;
+  line-height: normal;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-top: 0;
+  background-color: #f9f9f9;
+  *margin-top: -14px;
+}
+
+.pager {
+  margin: 0;
+  padding: 0;
+}
+
+.pager .pager_block_top,
+.pager .pager_block_bottom {
+  overflow: hidden;
+  padding: 6px 8px;
+  text-align: left;
+}
+
+#tp_filter_r1,
+#tp_filter_r2 {
+  padding: 2px; 
+  width: 95%;
+}
+
+.pager .pager_title {
+  float: left;
+  margin-top: 2px;
+  height: 20px;
+  line-height: 17px;
+  line-height: 20px\0;
+}
+
+.pager .pager_title a.simple_btn {
+  top: -3px;
+}
+
+.pager .pager_title select {
+  position: relative;
+  top: -3px;
+}
+
+.pager .pager_head {
+  font-family: verdana;
+  float: right;
+  color: #777;
+}
+
+.pager .pager_head span,
+.pager .pager_head a,
+.pager .pager_head input {
+  vertical-align: middle;
+}
+
+.pager .pager_head a {
+  font-size: 8.5pt;
+  border: 1px solid #aaa;
+  margin-right: -1px;
+  padding: 1px;
+  vertical-align: middle;
+  text-decoration: none;
+  height: 16px;
+  line-height: 15px;
+  text-align: center;
+  *padding-top: 0px;
+  *padding-bottom: 2px; /* ie7 */
+  -webkit-box-shadow: 1px 1px 0 #FFFFFF inset;
+	-moz-box-shadow: 1px 1px 0 #FFFFFF inset;
+  box-shadow: 1px 1px 0 #FFFFFF inset;
+  display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.pager .pager_head a {
+  color: #666;
+}
+
+.pager .pager_head a.num {
+  min-width: 15px;
+  width: auto;
+  background: #fff;
+}
+
+.pager .pager_head a:hover,
+.pager .pager_head a.current {
+  color: #116f01;
+  background: #f4f4dd;
+}
+
+.pager .pager_head .export_icon {
+  margin-left: 6px;
+  height: 16px;
+  width: 16px;
+  background: url("images/export.png") no-repeat center center;
+  cursor: pointer;
+  vertical-align: middle;
+  display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.pager .pager_head a.p1,
+.pager .pager_head a.n1 {
+  width: 9px;
+}
+
+.pager .pager_head a.p2,
+.pager .pager_head a.n2 {
+  width: 12px;
+}
+
+.pager .pager_head a.p1 {
+  background: #eef9ee url("images/p1.png") no-repeat center center;
+}
+
+.pager .pager_head a.p2 {
+  background: #eef9ee url("images/p2.png") no-repeat center center;
+}
+
+.pager .pager_head a.n1 {
+  background: #eef9ee url("images/n1.png") no-repeat center center;
+}
+
+.pager .pager_head a.n2 {
+  background: #eef9ee url("images/n2.png") no-repeat center center;
+}
+
+.pager .pager_head a.p1:hover {
+  background-image: url("images/p1_hover.png");
+}
+
+.pager .pager_head a.p2:hover {
+  background-image: url("images/p2_hover.png");
+}
+
+.pager .pager_head a.n1:hover {
+  background-image: url("images/n1_hover.png");
+}
+
+.pager .pager_head a.n2:hover {
+  background-image: url("images/n2_hover.png");
+}
+
+.pager .pager_head .num2 {
+  color: #a00;
+  font-family: Candara;
+  margin: 0 1px;
+  vertical-align: text-top;
+  display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.down_menu_image {
+	background: url(images/down_menu.png) no-repeat center center;
+	width: 12px;
+	height: 7px;
+	cursor: pointer;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.down_menu_image:hover {
+	background: url(images/down_menu_hover.png) no-repeat center center;
+}

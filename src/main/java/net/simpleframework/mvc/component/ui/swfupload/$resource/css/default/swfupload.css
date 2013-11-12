@@ -1,0 +1,39 @@
+.swfupload .swf_btns {
+	height: 24px;
+  margin: 4px;
+}
+
+.swfupload .message {
+	color: #8D3212;
+}
+
+.swfupload .queue {
+  border-top: 1px solid #ccc;
+}
+
+.swfupload .queue .message {
+  margin-top: 2px;
+}
+
+.swfupload input[type=button] {
+	vertical-align: text-bottom;
+}
+
+.swfupload .item {
+	border-bottom: 1px solid #ccc;
+	padding: 6px 0;
+}
+
+.swfupload .item:hover {
+	background: #f2f9f2;
+}
+
+.swfupload .fs {
+	padding-left: 8px;
+	color: #999;
+}
+
+.swfupload .bar {
+	height: 16px;
+	margin: 4px 0px;
+}
