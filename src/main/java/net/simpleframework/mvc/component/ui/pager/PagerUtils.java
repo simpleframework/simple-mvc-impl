@@ -25,14 +25,7 @@ import net.simpleframework.mvc.component.ComponentParameter;
  *         http://www.simpleframework.net
  */
 public abstract class PagerUtils {
-	public static final String BEAN_ID_NAME = "__pager_beanId_name";
-
 	public static final String BEAN_ID = "pager_@bid";
-
-	private static String beanId(final HttpServletRequest request) {
-		final String beanIdName = request.getParameter(BEAN_ID_NAME);
-		return StringUtils.hasText(beanIdName) ? beanIdName : BEAN_ID;
-	}
 
 	public static ComponentParameter get(final PageRequestResponse rRequest) {
 		return ComponentParameter.get(rRequest, BEAN_ID);
@@ -40,7 +33,7 @@ public abstract class PagerUtils {
 
 	public static ComponentParameter get(final HttpServletRequest request,
 			final HttpServletResponse response) {
-		return ComponentParameter.get(request, response, beanId(request));
+		return ComponentParameter.get(request, response, BEAN_ID);
 	}
 
 	public static List<?> getPagerList(final PageRequestResponse rRequest) {

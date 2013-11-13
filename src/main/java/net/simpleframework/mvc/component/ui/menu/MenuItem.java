@@ -158,6 +158,20 @@ public class MenuItem extends AbstractElementBean {
 		return this;
 	}
 
+	public MenuItem setOnclick_act(final String act, final String idKey) {
+		return setOnclick_act(act, idKey, null);
+	}
+
+	public MenuItem setOnclick_act(final String act, final String rowId, final String params) {
+		final StringBuilder sb = new StringBuilder();
+		sb.append("$Actions['").append(act).append("']('");
+		if (StringUtils.hasText(params)) {
+			sb.append(params).append("&");
+		}
+		sb.append(rowId).append("=' + $pager_action(item).rowId());");
+		return setOnclick(sb.toString());
+	}
+
 	@Override
 	protected String[] elementAttributes() {
 		return new String[] { "onclick", "oncheck", "description" };

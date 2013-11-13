@@ -29,7 +29,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 	@Override
 	public Map<String, Object> getFormParameters(final ComponentParameter cp) {
 		final Map<String, Object> parameters = super.getFormParameters(cp);
-		for (final String k : new String[] { PagerUtils.BEAN_ID_NAME, getBeanIdName(),
+		for (final String k : new String[] { PagerUtils.BEAN_ID,
 				(String) cp.getBeanProperty("pageNumberParameterName"),
 				(String) cp.getBeanProperty("pageItemsParameterName") }) {
 			parameters.put(k, cp.getParameter(k));
@@ -39,10 +39,6 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 
 	public IDataQuery<?> createDataObjectQuery(final ComponentParameter cp) {
 		return null;
-	}
-
-	protected String getBeanIdName() {
-		return PagerUtils.BEAN_ID;
 	}
 
 	protected static final String QUERY_CACHE = "__query_cache";

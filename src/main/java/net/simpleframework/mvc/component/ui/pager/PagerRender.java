@@ -23,15 +23,10 @@ public class PagerRender extends ComponentHtmlRenderEx {
 		super(componentRegistry);
 	}
 
-	private String getBeanIdName(final ComponentParameter cp) {
-		final AbstractPagerHandler hdl = (AbstractPagerHandler) cp.getComponentHandler();
-		return hdl == null ? PagerUtils.BEAN_ID_NAME : hdl.getBeanIdName();
-	}
-
 	@Override
 	protected String getRelativePath(final ComponentParameter cp) {
 		final StringBuilder sb = new StringBuilder();
-		sb.append("/jsp/pager.jsp?").append(getBeanIdName(cp));
+		sb.append("/jsp/pager.jsp?").append(PagerUtils.BEAN_ID);
 		sb.append("=").append(cp.hashId());
 		return sb.toString();
 	}
@@ -39,7 +34,6 @@ public class PagerRender extends ComponentHtmlRenderEx {
 	@Override
 	public IForward getResponseForward(final ComponentParameter cp) {
 		final StringBuilder sb = new StringBuilder();
-		sb.append(PagerUtils.BEAN_ID_NAME).append("=").append(getBeanIdName(cp));
 		final String xpParameter = PagerUtils.getXmlPathParameter(cp);
 		if (StringUtils.hasText(xpParameter)) {
 			if (xpParameter.charAt(0) != '&') {
@@ -75,7 +69,7 @@ public class PagerRender extends ComponentHtmlRenderEx {
 		sb.append("var af = $Actions[\"__doPager\"];");
 		sb.append("af.container = p.up();");
 		sb.append("af.selector = \"").append(cp.getBeanProperty("selector")).append("\";");
-		sb.append("af(\"").append(getBeanIdName(cp)).append("=");
+		sb.append("af(\"").append(PagerUtils.BEAN_ID).append("=");
 		sb.append(cp.hashId()).append("\".addParameter(params));");
 		sb.append("};");
 		return sb.toString();
