@@ -891,6 +891,7 @@ ul.simple_tabs .tmenu:hover {
 	border-radius: 0px 3px 3px 0px;
 	vertical-align: middle;
 	height: 24px;
+	line-height: 24px;
 }
 
 .sech_pane .btn:hover {
