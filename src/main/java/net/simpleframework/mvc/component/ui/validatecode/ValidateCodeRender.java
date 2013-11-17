@@ -5,6 +5,7 @@ import static net.simpleframework.common.I18n.$m;
 import java.util.UUID;
 
 import net.simpleframework.common.object.ObjectUtils;
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.TextForward;
 import net.simpleframework.mvc.common.element.BlockElement;
@@ -52,9 +53,9 @@ public class ValidateCodeRender extends ComponentHtmlRenderEx {
 	@Override
 	public IForward getResponseForward(final ComponentParameter cp) {
 		final StringBuilder sb = new StringBuilder(getHtml(cp));
-		sb.append(TAG_SCRIPT_START);
+		sb.append(HtmlConst.TAG_SCRIPT_START);
 		sb.append("$('").append(inputId).append("').focus();");
-		sb.append(TAG_SCRIPT_END);
+		sb.append(HtmlConst.TAG_SCRIPT_END);
 		return new TextForward(sb.toString());
 	}
 }

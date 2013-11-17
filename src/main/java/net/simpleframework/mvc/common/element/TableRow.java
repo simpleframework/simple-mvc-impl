@@ -10,7 +10,7 @@ import net.simpleframework.common.web.html.HtmlConst;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public class TableRow extends AbstractArrayListEx<TableRow, RowField> implements HtmlConst {
+public class TableRow extends AbstractArrayListEx<TableRow, RowField> {
 
 	private BlockElement blankElement;
 
@@ -92,7 +92,7 @@ public class TableRow extends AbstractArrayListEx<TableRow, RowField> implements
 				}
 				sb.append(">");
 				if (li.isStarMark()) {
-					sb.append("<span style='color:red'>*</span>").append(NBSP);
+					sb.append("<span style='color:red'>*</span>").append(HtmlConst.NBSP);
 				}
 				sb.append(label);
 				sb.append("</td>");

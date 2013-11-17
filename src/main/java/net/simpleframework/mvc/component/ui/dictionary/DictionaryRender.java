@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.JavascriptUtils;
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.IComponentRegistry;
@@ -30,20 +31,20 @@ public class DictionaryRender extends WindowRender {
 		if (StringUtils.hasText(clearAction)) {
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<a onclick=\"clear_").append(hashThis).append("();\">#(Clear)</a>");
-			sb.append(TAG_SCRIPT_START);
+			sb.append(HtmlConst.TAG_SCRIPT_START);
 			sb.append("function clear_").append(hashThis).append("() {");
 			sb.append(clearAction).append("}");
-			sb.append(TAG_SCRIPT_END);
+			sb.append(HtmlConst.TAG_SCRIPT_END);
 			al.add(sb.toString());
 		}
 		final String refreshAction = dictionaryBean.getRefreshAction(cp);
 		if (StringUtils.hasText(refreshAction)) {
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<a onclick=\"refresh_").append(hashThis).append("();\">#(Refresh)</a>");
-			sb.append(TAG_SCRIPT_START);
+			sb.append(HtmlConst.TAG_SCRIPT_START);
 			sb.append("function refresh_").append(hashThis).append("() {");
 			sb.append(refreshAction).append("}");
-			sb.append(TAG_SCRIPT_END);
+			sb.append(HtmlConst.TAG_SCRIPT_END);
 			al.add(sb.toString());
 		}
 		return al.size() > 0 ? StringUtils.join(al, SpanElement.SEP.toString()) : "";

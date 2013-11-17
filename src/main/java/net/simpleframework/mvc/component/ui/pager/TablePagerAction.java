@@ -8,6 +8,7 @@ import java.util.Map;
 
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.AbstractUrlForward;
 import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.JavascriptForward;
@@ -95,11 +96,11 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 					protected Object getValue(final Map<String, Object> rowData,
 							final TablePagerColumn pagerColumn) {
 						if (!pagerColumn.isEditable()) {
-							return NBSP;
+							return HtmlConst.NBSP;
 						}
 						final AbstractElement<?> element = hdl.toRowEditorHTML(nCP, pagerColumn, rowId,
 								getElementName(pagerColumn, rowId), null);
-						return element != null ? element : NBSP;
+						return element != null ? element : HtmlConst.NBSP;
 					}
 				}));
 

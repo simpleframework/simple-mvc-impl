@@ -25,7 +25,7 @@ import net.simpleframework.mvc.common.element.Option;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public class TablePagerColumn extends AbstractElementBean implements HtmlConst {
+public class TablePagerColumn extends AbstractElementBean {
 
 	/* 表格列名称，数据的key值 */
 	private String columnName, columnSqlName;
@@ -329,12 +329,13 @@ public class TablePagerColumn extends AbstractElementBean implements HtmlConst {
 	}
 
 	public static final TablePagerColumn ICON() {
-		return col(ICON, NBSP).setWidth(20).setSort(false).setFilter(false).setResize(false)
-				.setTextAlign(ETextAlign.right).setExport(false).setEditable(false);
+		return col(ICON, HtmlConst.NBSP).setWidth(20).setSort(false).setFilter(false)
+				.setResize(false).setTextAlign(ETextAlign.right).setExport(false).setEditable(false);
 	}
 
 	public static final TablePagerColumn BLANK() {
-		return col(BLANK, NBSP).setExport(false).setSort(false).setFilter(false).setEditable(false);
+		return col(BLANK, HtmlConst.NBSP).setExport(false).setSort(false).setFilter(false)
+				.setEditable(false);
 	}
 
 	public static final TablePagerColumn DESCRIPTION() {

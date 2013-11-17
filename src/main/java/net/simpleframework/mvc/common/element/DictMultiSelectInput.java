@@ -5,6 +5,7 @@ import java.util.Map;
 
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.JavascriptUtils;
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.common.web.html.HtmlEncoder;
 
 /**
@@ -69,7 +70,7 @@ public class DictMultiSelectInput extends DictInput {
 			sb.append("></span>");
 		}
 		sb.append("</div>");
-		sb.append(TAG_SCRIPT_START);
+		sb.append(HtmlConst.TAG_SCRIPT_START);
 		sb.append("(function() {");
 		sb.append(" var r = $('").append(getId()).append("');");
 		sb.append(" if (!r) return;");
@@ -90,7 +91,7 @@ public class DictMultiSelectInput extends DictInput {
 			sb.append("};");
 		}
 		sb.append("})();");
-		sb.append(TAG_SCRIPT_END);
+		sb.append(HtmlConst.TAG_SCRIPT_END);
 		return sb.toString();
 	}
 }

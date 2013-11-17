@@ -1,6 +1,7 @@
 package net.simpleframework.mvc.common.element;
 
 import net.simpleframework.common.object.ObjectUtils;
+import net.simpleframework.common.web.html.HtmlConst;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -44,11 +45,11 @@ public class PwdStrength extends AbstractTagElement<PwdStrength> {
 		sb.append(" <span class='pwds'></span>");
 		sb.append("</span>");
 		sb.append("<span class='lbl'></span>");
-		sb.append(TAG_SCRIPT_START);
+		sb.append(HtmlConst.TAG_SCRIPT_START);
 		sb.append("(function() { $UI.pwdStrength_update('").append(getId()).append("', '")
 				.append(textInput).append("', true); }");
 		sb.append(")();");
-		sb.append(TAG_SCRIPT_END);
+		sb.append(HtmlConst.TAG_SCRIPT_END);
 		return sb.toString();
 	}
 
