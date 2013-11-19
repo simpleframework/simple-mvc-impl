@@ -20,10 +20,10 @@ import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.IMVCContextVar;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.JsonForward;
-import net.simpleframework.mvc.LocalSessionCache;
 import net.simpleframework.mvc.MVCContext;
 import net.simpleframework.mvc.MVCUtils;
 import net.simpleframework.mvc.PageParameter;
+import net.simpleframework.mvc.SessionCache;
 import net.simpleframework.mvc.component.ComponentException;
 import net.simpleframework.mvc.component.ComponentParameter;
 
@@ -69,11 +69,11 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 						// if (StringUtils.hasText(method)) {
 						// dKey += "#" + method;
 						// }
-						final Boolean bObj = (Boolean) LocalSessionCache.get(dKey);
+						final Boolean bObj = (Boolean) SessionCache.lget(dKey);
 						if (bObj != null && bObj.booleanValue()) {
 							doing = true;
 						} else {
-							LocalSessionCache.put(dKey, Boolean.TRUE);
+							SessionCache.lput(dKey, Boolean.TRUE);
 						}
 					}
 					if (!doing) {
@@ -93,7 +93,7 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 							forward = new JsonForward("exception", createException(cp, th));
 						} finally {
 							if (dKey != null) {
-								LocalSessionCache.remove(dKey);
+								SessionCache.lremove(dKey);
 							}
 						}
 					}
