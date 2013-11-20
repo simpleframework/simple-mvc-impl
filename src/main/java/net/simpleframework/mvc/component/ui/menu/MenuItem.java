@@ -206,7 +206,7 @@ public class MenuItem extends AbstractElementBean {
 	}
 
 	public static MenuItem itemLog() {
-		return new MenuItem().setTitle($m("Button.Log")).setIconClass(ICON_LOG);
+		return new MenuItem().setTitle($m("Button.Log"));
 	}
 
 	public static final String ICON_ADD = "menu_icon_add";
