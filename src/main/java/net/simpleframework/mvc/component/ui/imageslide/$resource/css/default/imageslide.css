@@ -19,12 +19,12 @@
 }
 
 .imageslide .s_title {
-	bottom: 20px;
-	left: 8px;
-	margin-right: 6px;
-	overflow: hidden;
-	font-size: 10.5pt;
+	bottom: 10px;
+	left: 10px;
+	font-size: 12.5pt;
+	font-weight: bold;
 	width: 80%;
+	overflow: hidden;
 }
 
 .imageslide .s_title a {

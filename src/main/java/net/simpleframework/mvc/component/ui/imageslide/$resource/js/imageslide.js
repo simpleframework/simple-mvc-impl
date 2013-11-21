@@ -22,14 +22,15 @@ $UI.ImageSlide = Class.create({
 		});
 		container.update(this.element);
 	
+		var th = this.options.titleHeight;
 		var bar = new Element("div", {
 			className : "s_bar",
-			style : "height:" + (this.options.titleHeight + 25) + "px"
+			style : "height:" + (th + 20) + "px"
 		}).setOpacity(this.options.titleOpacity);
 		
 		var title = new Element("div", {
 			className : "s_title",
-			style : "height:" + this.options.titleHeight + "px"
+			style : "height:" + th + "px; line-height: " + (th / 2) + "px"
 		}).update("Title");
 
 		var nav = new Element("div", {
