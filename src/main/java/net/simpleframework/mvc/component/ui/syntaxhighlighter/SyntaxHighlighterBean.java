@@ -25,7 +25,7 @@ public class SyntaxHighlighterBean extends AbstractComponentBean {
 	}
 
 	public ESyntaxHighlighterTheme getShTheme() {
-		return shTheme == null ? ESyntaxHighlighterTheme.shThemeEclipse : shTheme;
+		return shTheme == null ? ESyntaxHighlighterTheme.shThemeDefault : shTheme;
 	}
 
 	public void setShTheme(final ESyntaxHighlighterTheme shTheme) {
