@@ -45,7 +45,7 @@
 
 .imageslide .s_nav a {
 	border: #ccc 1px solid;
-	margin-right: 2px;
+	margin-right: -1px;
 	padding: 1px;
 	text-decoration: none;
 	text-align: center;
