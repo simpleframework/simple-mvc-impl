@@ -3266,7 +3266,10 @@ Ajax.PeriodicalUpdater = Class.create(Ajax.Base, {
     return false;
   }
 
-  var HTMLOBJECTELEMENT_PROTOTYPE_BUGGY =
+  // 既然只有ie系列可能不支持原型，不如加个Browser.IE的条件
+  // 因为chrome调用document.createElement('object')会不停的闪动。原因不清楚
+  // cknet 2013-11-34
+  var HTMLOBJECTELEMENT_PROTOTYPE_BUGGY = Browser.IE &&
    checkElementPrototypeDeficiency('object');
 
   function extendElementWith(element, methods) {
