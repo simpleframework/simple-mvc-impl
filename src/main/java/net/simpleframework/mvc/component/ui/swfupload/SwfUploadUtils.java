@@ -13,7 +13,6 @@ import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.common.web.JavascriptUtils;
 import net.simpleframework.mvc.IMVCContextVar;
-import net.simpleframework.mvc.JsessionidUtils;
 import net.simpleframework.mvc.MultipartPageRequest;
 import net.simpleframework.mvc.PageRequestResponse;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -50,7 +49,7 @@ public abstract class SwfUploadUtils implements IMVCContextVar {
 		sb.append("var act = $Actions['" + cp.getComponentName() + "'];");
 		sb.append("var swf=").append("new SWFUpload({");
 		sb.append("upload_url: \"").append(homePath).append("/jsp/swfupload_action.jsp;jsessionid=")
-				.append(JsessionidUtils.getId()).append("\",");
+				.append(cp.getSessionId()).append("\",");
 		// sb.append("?").append(BEAN_ID).append("=").append(beanId);
 		// sb.append("\",");
 		sb.append("flash_url: \"").append(homePath).append("/flash/swfupload.swf\",");
