@@ -29,7 +29,7 @@ public class CalendarRender extends ComponentJavascriptRender {
 		}
 		final String closeCallback = (String) cp.getBeanProperty("closeCallback");
 		if (StringUtils.hasText(closeCallback)) {
-			sb.append("onclose: function(cal) {");
+			sb.append("onclose: function(date) {");
 			sb.append(closeCallback);
 			sb.append("},");
 		}

@@ -847,6 +847,7 @@ ul.simple_tabs .tmenu:hover {
 
 .sech_pane,
 .sech_pane span,
+.text_button,
 .text_button .sbtn,
 .multi_dselect .sbtn,
 .multi_dselect .item,
@@ -930,6 +931,7 @@ ul.simple_tabs .tmenu:hover {
 	overflow: hidden;
 	padding: 0;
 	margin: 0;
+	vertical-align: middle;
 }
 
 .form_tbl .v .text_button {

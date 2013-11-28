@@ -25,10 +25,6 @@ Date.padded2 = function(hour) {
 	return padded2;
 };
 
-Date.prototype.stripTime = function() {
-	return new Date(this.getFullYear(), this.getMonth(), this.getDate());
-};
-
 Date.prototype.daysDistance = function(compare_date) {
 	return Math.round((compare_date - this) / Date.one_day);
 };
@@ -84,7 +80,7 @@ CalendarDateSelect.prototype = {
 			dateFormat : "yyyy-MM-dd",
 			showTime : false,
 			clearButton : true,
-			yearRange : 100,
+			yearRange : 50,
 			minuteInterval : 1,
 			embedded : null,
 			onclose : null,
@@ -321,7 +317,7 @@ CalendarDateSelect.prototype = {
 	},
 
 	refreshCalendarGrid : function() {
-		this.beginning_date = new Date(this.date).stripTime();
+		this.beginning_date = new Date(this.date).clearTime();
 		this.beginning_date.setDate(1);
 		this.beginning_date.setHours(12);
 
@@ -333,7 +329,7 @@ CalendarDateSelect.prototype = {
 
 		var iterator = new Date(this.beginning_date);
 
-		var today = new Date().stripTime();
+		var today = new Date().clearTime();
 		var this_month = this.date.getMonth();
 		vdc = this.options.oncheck;
 		for ( var cell_index = 0; cell_index < 42; cell_index++) {
@@ -351,7 +347,7 @@ CalendarDateSelect.prototype = {
 			cell.month = month;
 			cell.year = iterator.getFullYear();
 			if (vdc) {
-				if (vdc(iterator.stripTime()))
+				if (vdc(iterator.clearTime()))
 					cell.removeClassName("disabled");
 				else
 					cell.addClassName("disabled");
@@ -363,7 +359,7 @@ CalendarDateSelect.prototype = {
 			this.today_cell.removeClassName("today");
 
 		if ($R(0, 41).include(
-				days_until = this.beginning_date.stripTime().daysDistance(today))) {
+				days_until = this.beginning_date.clearTime().daysDistance(today))) {
 			this.today_cell = this.calendar_day_grid[days_until];
 			this.today_cell.addClassName("today");
 		}
@@ -429,8 +425,8 @@ CalendarDateSelect.prototype = {
 			return;
 		this.clearSelectedClass();
 		if ($R(0, 42).include(
-				days_until = this.beginning_date.stripTime().daysDistance(
-						this.selected_date.stripTime()))) {
+				days_until = this.beginning_date.clearTime().daysDistance(
+						this.selected_date.clearTime()))) {
 			this.selected_cell = this.calendar_day_grid[days_until];
 			this.selected_cell.addClassName("selected");
 		}
@@ -482,12 +478,12 @@ CalendarDateSelect.prototype = {
 		var parts = $H(partsOrElement);
 		if (parts.get("day")) {
 			var t_selected_date = this.selected_date, vdc = this.options.oncheck;
-			for ( var x = 0; x <= 3; x++)
-				t_selected_date.setDate(parts.get("day"));
+//			for ( var x = 0; x <= 3; x++)
+			t_selected_date.setDate(parts.get("day"));
 			t_selected_date.setYear(parts.get("year"));
 			t_selected_date.setMonth(parts.get("month"));
 
-			if (vdc && !vdc(t_selected_date.stripTime())) {
+			if (vdc && !vdc(t_selected_date.clearTime())) {
 				return false;
 			}
 			this.selected_date = t_selected_date;
@@ -502,18 +498,18 @@ CalendarDateSelect.prototype = {
 
 		if (this.selection_made)
 			this.updateValue();
-		if (via_click && this.closeOnClick(this)) {
+		if (via_click && this.closeOnClick(t_selected_date.clearTime())) {
 			this.close();
 		}
 	},
 
-	closeOnClick : function() {
+	closeOnClick : function(time) {
 		if (this.embedded)
 			return false;
 		if (this.options.onclose === null)
 			return true;
 		else
-			return (this.options.onclose);
+			return this.options.onclose(time);
 	},
 
 	navMonth : function(month) {
