@@ -3,18 +3,15 @@ package net.simpleframework.mvc.component.base.ajaxrequest;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.simpleframework.common.Convert;
 import net.simpleframework.common.I18n;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.common.logger.Log;
 import net.simpleframework.common.logger.LogFactory;
-import net.simpleframework.common.object.ObjectUtils;
 import net.simpleframework.mvc.AbstractBasePage;
 import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.IMVCContextVar;
@@ -22,7 +19,6 @@ import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.JsonForward;
 import net.simpleframework.mvc.MVCContext;
 import net.simpleframework.mvc.MVCUtils;
-import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.SessionCache;
 import net.simpleframework.mvc.component.ComponentException;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -49,7 +45,7 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 			if (request.getSession().isNew()) {
 				forward = new JavascriptForward("$Actions.reloc();");
 			} else {
-				forward = new JsonForward("exception", createException(cp,
+				forward = new JsonForward("exception", MVCUtils.createException(cp,
 						ComponentException.of(I18n.$m("AjaxRequestUtils.0"))));
 			}
 		} else {
@@ -90,7 +86,7 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 						} catch (Throwable th) {
 							th = MVCUtils.convertThrowable(th);
 							log.error(th);
-							forward = new JsonForward("exception", createException(cp, th));
+							forward = new JsonForward("exception", MVCUtils.createException(cp, th));
 						} finally {
 							if (dKey != null) {
 								SessionCache.lremove(dKey);
@@ -101,7 +97,7 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 
 				json.add("id", cp.getBeanProperty("ajaxRequestId"));
 			} catch (final Throwable th) {
-				forward = new JsonForward("exception", createException(cp, th));
+				forward = new JsonForward("exception", MVCUtils.createException(cp, th));
 			}
 		}
 
@@ -118,15 +114,5 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 		}
 		out.write(json.toJSON());
 		out.flush();
-	}
-
-	public static Map<String, Object> createException(final PageParameter pp, final Throwable th) {
-		final KVMap exception = new KVMap();
-		exception.put("title", ctx.getThrowableMessage(th));
-		final String detail = Convert.toString(th);
-		exception.put("detail", detail);
-		exception.put("hash", ObjectUtils.hashStr(detail));
-		exception.put("more", pp.getLogin().isManager());
-		return exception;
 	}
 }
