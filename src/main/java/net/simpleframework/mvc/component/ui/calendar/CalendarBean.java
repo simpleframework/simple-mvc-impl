@@ -20,7 +20,9 @@ public class CalendarBean extends AbstractContainerBean {
 	private String dateFormat = BeanDefaults.getString(getClass(), "dateFormat", "yyyy-MM-dd");
 
 	/* 是否显示时间 */
-	private boolean showTime = BeanDefaults.getBool(getClass(), "showTime", false);;
+	private boolean showTime = BeanDefaults.getBool(getClass(), "showTime", false);
+
+	private boolean clearButton = BeanDefaults.getBool(getClass(), "clearButton", true);
 
 	private String closeCallback;
 
@@ -56,6 +58,15 @@ public class CalendarBean extends AbstractContainerBean {
 
 	public CalendarBean setShowTime(final boolean showTime) {
 		this.showTime = showTime;
+		return this;
+	}
+
+	public boolean isClearButton() {
+		return clearButton;
+	}
+
+	public CalendarBean setClearButton(final boolean clearButton) {
+		this.clearButton = clearButton;
 		return this;
 	}
 

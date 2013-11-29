@@ -34,6 +34,7 @@ public class CalendarRender extends ComponentJavascriptRender {
 			sb.append("},");
 		}
 		sb.append("showTime: ").append(cp.getBeanProperty("showTime")).append(",");
+		sb.append("clearButton: ").append(cp.getBeanProperty("clearButton")).append(",");
 		sb.append("effects: Browser.effects && ").append(cp.getBeanProperty("effects"));
 		sb.append("});");
 

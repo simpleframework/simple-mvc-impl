@@ -99,6 +99,7 @@
 
 .calendar_date_select .cds_buttons a {
 	vertical-align: middle;
+	text-decoration: none;
 }
 
 /* weekday */
