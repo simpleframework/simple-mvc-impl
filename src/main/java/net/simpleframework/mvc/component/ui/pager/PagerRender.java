@@ -32,30 +32,21 @@ public class PagerRender extends ComponentHtmlRenderEx {
 
 	@Override
 	public IForward getResponseForward(final ComponentParameter cp) {
-		final StringBuilder sb = new StringBuilder();
+		String url = ComponentUtils.getResourceHomePath(PagerBean.class) + getRelativePath(cp);
 		final String xpParameter = PagerUtils.getXmlPathParameter(cp);
 		if (StringUtils.hasText(xpParameter)) {
-			if (xpParameter.charAt(0) != '&') {
-				sb.append("&");
-			}
-			sb.append(xpParameter);
+			url = HttpUtils.addParameters(url, xpParameter);
 		}
 		final String pageItemsParameterName = (String) cp.getBeanProperty("pageItemsParameterName");
 		final String pageItems = cp.getParameter(pageItemsParameterName);
 		if (StringUtils.hasText(pageItems)) {
-			sb.append("&").append(pageItemsParameterName);
-			sb.append("=").append(pageItems);
+			url = HttpUtils.addParameters(url, pageItemsParameterName + "=" + pageItems);
 		}
 		final String parameters = (String) cp.getBeanProperty("parameters");
 		if (StringUtils.hasText(parameters)) {
-			if (parameters.charAt(0) != '&') {
-				sb.append("&");
-			}
-			sb.append(parameters);
+			url = HttpUtils.addParameters(url, parameters);
 		}
-		return new UrlForward(HttpUtils.addParameters(
-				ComponentUtils.getResourceHomePath(PagerBean.class) + getRelativePath(cp),
-				sb.toString()));
+		return new UrlForward(url);
 	}
 
 	@Override
