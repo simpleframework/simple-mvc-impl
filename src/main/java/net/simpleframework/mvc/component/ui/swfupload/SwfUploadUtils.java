@@ -78,8 +78,8 @@ public abstract class SwfUploadUtils implements IMVCContextVar {
 		sb.append("button_text: \"<span class='swf-button'>").append($m("SwfUploadUtils.0"))
 				.append("<\\/span>\",");
 		sb.append("button_text_style: \".swf-button { color: #014060; text-align: center; }\",");
-		sb.append("button_text_top_padding: ").append(cp.getUserAgentParser().isWebKit() ? 4 : 2)
-				.append(",");
+		sb.append("button_text_top_padding: ")
+				.append(cp.getUserAgent().indexOf("AppleWebKit/") > -1 ? 4 : 2).append(",");
 		if (swfUpload.isMultiFileSelected()) {
 			sb.append("button_action: SWFUpload.BUTTON_ACTION.SELECT_FILES,");
 		} else {
