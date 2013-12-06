@@ -1,5 +1,7 @@
 package net.simpleframework.mvc.component.base.ajaxrequest;
 
+import static net.simpleframework.common.I18n.$m;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
@@ -7,7 +9,6 @@ import java.lang.reflect.Method;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.simpleframework.common.I18n;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.common.logger.Log;
@@ -43,10 +44,11 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 		if (cp.componentBean == null) {
 			// session过期
 			if (request.getSession().isNew()) {
-				forward = new JavascriptForward("$Actions.reloc();");
+				forward = new JavascriptForward("if (confirm('").append($m("AjaxRequestUtils.1"))
+						.append("')) { $Actions.reloc(); }");
 			} else {
 				forward = new JsonForward("exception", MVCUtils.createException(cp,
-						ComponentException.of(I18n.$m("AjaxRequestUtils.0"))));
+						ComponentException.of($m("AjaxRequestUtils.0"))));
 			}
 		} else {
 			try {
