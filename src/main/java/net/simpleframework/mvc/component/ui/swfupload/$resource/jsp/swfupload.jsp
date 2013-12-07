@@ -4,9 +4,9 @@
 <%@ page import="net.simpleframework.mvc.component.ComponentParameter"%>
 <%
 	final ComponentParameter nCP = SwfUploadUtils
-	.get(request, response);
-	final String uploadName = (String) nCP.getComponentName();
+			.get(request, response);
 	final String beanId = nCP.hashId();
+	final String uploadName = (String) nCP.getComponentName();
 %>
 <div class="swfupload">
   <%=ComponentRenderUtils.genParameters(nCP)%>

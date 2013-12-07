@@ -7,12 +7,13 @@
 <%@ page import="net.simpleframework.common.StringUtils"%>
 <%@ page import="net.simpleframework.mvc.component.ComponentRenderUtils"%>
 <%
-	final ComponentParameter nCP = DictionaryUtils.get(request, response);
+	final ComponentParameter nCP = DictionaryUtils.get(request,
+			response);
 	final DictionaryBean dictionaryBean = (DictionaryBean) nCP.componentBean;
 	final String beanId = dictionaryBean.hashId();
 	final String name = (String) nCP.getComponentName();
 	final DictionaryListBean list = (DictionaryListBean) dictionaryBean
-	.getDictionaryTypeBean();
+			.getDictionaryTypeBean();
 %>
 <div class="dictionary" style="padding-left: 0;">
   <%=ComponentRenderUtils.genParameters(nCP)%>

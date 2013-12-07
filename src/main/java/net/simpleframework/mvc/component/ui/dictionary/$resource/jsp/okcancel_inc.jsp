@@ -6,9 +6,9 @@
 <%@ page import="net.simpleframework.mvc.component.ui.dictionary.DictionaryBean"%>
 <%@ page import="net.simpleframework.common.StringUtils"%>
 <%
-	final ComponentParameter nCP = DictionaryUtils.get(request, response);
-	final DictionaryBean dictionaryBean = (DictionaryBean) nCP.componentBean;
-	final String beanId = dictionaryBean.hashId();
+	final ComponentParameter nCP = DictionaryUtils.get(request,
+			response);
+	final String beanId = nCP.hashId();
 	final String name = (String) nCP.getComponentName();
 %>
 <div class="okcancel clear_float">
@@ -21,7 +21,7 @@
   	if (Convert.toBool(nCP.getBeanProperty("showHelpTooltip"))) {
   %><div style="float: left">
     <img id="help<%=beanId%>"
-      src="<%=dictionaryBean.getComponentRegistry().getPageResourceProvider()
+      src="<%=nCP.componentBean.getComponentRegistry().getPageResourceProvider()
 						.getCssResourceHomePath(nCP)%>/images/help.png" />
   </div>
   <%

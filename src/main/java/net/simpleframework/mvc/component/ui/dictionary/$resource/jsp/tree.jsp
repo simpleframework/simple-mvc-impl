@@ -10,13 +10,13 @@
 <%
 	final ComponentParameter nCP = DictionaryUtils.get(request,
 			response);
+	final IDictionaryHandle hdl = (IDictionaryHandle) nCP
+			.getComponentHandler();
 	final String beanId = nCP.hashId();
 	final String name = (String) nCP.getComponentName();
 	final DictionaryTreeBean tree = (DictionaryTreeBean) ((DictionaryBean) nCP.componentBean)
 			.getDictionaryTypeBean();
-	final IDictionaryHandle hdl = (IDictionaryHandle) nCP
-			.getComponentHandler();
-	final String barHTML = hdl != null ? hdl.toToolbarHTML(nCP) : null;
+	final String barHTML = hdl == null ? "" : hdl.toToolbarHTML(nCP);
 %>
 <div class="dictionary">
   <%=ComponentRenderUtils.genParameters(nCP)%>

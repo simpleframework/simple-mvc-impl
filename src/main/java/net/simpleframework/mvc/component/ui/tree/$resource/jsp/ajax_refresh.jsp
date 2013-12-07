@@ -5,13 +5,13 @@
 <%@ page import="net.simpleframework.mvc.component.ui.tree.TreeUtils"%>
 <%
 	final ComponentParameter nCP = ComponentParameter.get(request,
-	response, TreeUtils.BEAN_ID);
+			response, TreeUtils.BEAN_ID);
 	final TreeRender render = (TreeRender) nCP.componentBean
-	.getComponentRegistry().getComponentRender();
+			.getComponentRegistry().getComponentRender();
 
 	final StringBuilder sb = new StringBuilder();
 	sb.append("var act = $Actions['").append(nCP.getComponentName())
-	.append("'];");
+			.append("'];");
 	sb.append("try {");
 	sb.append(ComponentRenderUtils.genJSON(nCP, "act"));
 	sb.append("act.createTree(");

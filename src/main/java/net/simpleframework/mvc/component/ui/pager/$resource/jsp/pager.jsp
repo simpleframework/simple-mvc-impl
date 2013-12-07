@@ -13,10 +13,7 @@
 <%
 	final ComponentParameter cp = PagerUtils.get(request, response);
 	final IPagerHandler hdl = (IPagerHandler) cp.getComponentHandler();
-	if (hdl == null) {
-		return;
-	}
-
+  
 	final int count = hdl.getCount(cp);
 	final int pageNumber = PagerUtils.getPageNumber(cp);
 	int start;

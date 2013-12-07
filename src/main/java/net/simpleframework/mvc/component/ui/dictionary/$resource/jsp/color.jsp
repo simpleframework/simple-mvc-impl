@@ -7,15 +7,16 @@
 <%@ page import="net.simpleframework.mvc.component.ui.dictionary.DictionaryUtils"%>
 <%@ page import="net.simpleframework.mvc.component.ComponentParameter"%>
 <%
-	final ComponentParameter nCP = DictionaryUtils.get(request, response);
+	final ComponentParameter nCP = DictionaryUtils.get(request,
+			response);
 	DictionaryBean dictionaryBean = (DictionaryBean) nCP.componentBean;
 	final String beanId = dictionaryBean.hashId();
 	final DictionaryColorBean color = (DictionaryColorBean) dictionaryBean
 			.getDictionaryTypeBean();
 	final ColorPaletteBean colorPalette = (ColorPaletteBean) nCP
 			.getComponentBeanByName(color.getRef());
-	final ColorPaletteRender r = (ColorPaletteRender) colorPalette.getComponentRegistry()
-			.getComponentRender();
+	final ColorPaletteRender r = (ColorPaletteRender) colorPalette
+			.getComponentRegistry().getComponentRender();
 %>
 <div class="dictionary" style="padding: 0px;">
   <div id="color<%=beanId%>"><%=r.getHtml(ComponentParameter.get(request, response, colorPalette))%></div>
