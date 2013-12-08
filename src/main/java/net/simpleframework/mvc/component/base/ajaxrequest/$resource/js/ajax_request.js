@@ -4,12 +4,12 @@
  *         http://www.simpleframework.net
  */
 $UI.AjaxRequest = Class.create({
-	initialize : function(container, responseText, id, isJSON, permission) {
+	initialize : function(container, responseText, id, isJSON, bUpdate) {
 		if (Object.isUndefined(responseText) || isJSON)
 			return;
 		
 		container = $(container);
-		if (container && !permission) {
+		if (container && bUpdate) {
 			container.update(responseText.stripStylesheets().stripScripts());
 		}
 		
@@ -150,7 +150,9 @@ function __ajax_actions_init(actionFunc, name) {
 			  if (act && act.window)
 			    actionFunc.container = act.window.content;
 			}
-			new $UI.AjaxRequest(actionFunc.container, rt, rJSON.id, rJSON.isJSON, rJSON.permission);
+			
+			var bUpdate = !rJSON.isJavascript && !rJSON.hasPermission;
+			new $UI.AjaxRequest(actionFunc.container, rt, rJSON.id, rJSON.isJSON, bUpdate);
 
 			(function(req, responseText, json, trigger) {
 				var err = json["exception"];
@@ -158,7 +160,7 @@ function __ajax_actions_init(actionFunc, name) {
 					$error(err, alert);
 					return;
 				}
-				if (rJSON.permission)
+				if (rJSON.hasPermission)
 					return;
 				if (rJSON.isJavascript) {
 				  $call(responseText);

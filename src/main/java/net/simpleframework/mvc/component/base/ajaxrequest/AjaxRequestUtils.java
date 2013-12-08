@@ -105,9 +105,9 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 
 		final String responseText = forward != null ? forward.getResponseText(cp) : "";
 		json.add("rt", responseText.replace("\t", ""));
-		json.add("pagePermission", bPermission);
 		json.add("isJavascript", forward instanceof JavascriptForward);
 		json.add("isJSON", forward instanceof JsonForward);
+		json.add("hasPermission", bPermission);
 		PrintWriter out;
 		try {
 			out = response.getWriter();
