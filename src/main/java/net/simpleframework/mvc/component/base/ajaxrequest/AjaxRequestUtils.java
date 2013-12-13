@@ -13,6 +13,7 @@ import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.common.logger.Log;
 import net.simpleframework.common.logger.LogFactory;
+import net.simpleframework.common.th.RuntimeExceptionEx;
 import net.simpleframework.mvc.AbstractBasePage;
 import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.IMVCContextVar;
@@ -87,7 +88,11 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 							}
 						} catch (Throwable th) {
 							th = MVCUtils.convertThrowable(th);
-							log.error(th);
+							if (th instanceof RuntimeExceptionEx && th.getCause() == null) {
+								log.error(th.getClass().getName() + ": " + th.getMessage());
+							} else {
+								log.error(th);
+							}
 							forward = new JsonForward("exception", MVCUtils.createException(cp, th));
 						} finally {
 							if (dKey != null) {
