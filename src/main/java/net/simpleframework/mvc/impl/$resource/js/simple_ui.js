@@ -266,20 +266,17 @@ Object.extend($UI, {
 				document.setCookie("toggle_" + image.identify(), target.visible());
 			}
 		};
+		
+		var _show = options.open;
 		if (options.cookie) {
-			var s = document.getCookie("toggle_" + image.identify());
-			if (s == "true") {
-				target.show();
-			} else if (s == "false") {
-				target.hide();
-			} else {
-				if (options.open) {
-					target.show();
-				} else {
-					target.hide();
-				}
-			}
+		  _show = (document.getCookie("toggle_" + image.identify()) == "true");
 		}
+		if (_show) {
+      target.show();
+    } else {
+      target.hide();
+    }
+		
 		image.observe("click", function() {
 			if (target.visible()) {
 				target.hide();

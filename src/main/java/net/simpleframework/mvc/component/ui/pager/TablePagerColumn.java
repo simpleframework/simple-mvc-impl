@@ -28,7 +28,7 @@ import net.simpleframework.mvc.common.element.Option;
 public class TablePagerColumn extends AbstractElementBean {
 
 	/* 表格列名称，数据的key值 */
-	private String columnName, columnSqlName;
+	private String columnName, columnAlias;
 
 	/* 表格列的显示名称 */
 	private String columnText;
@@ -106,12 +106,12 @@ public class TablePagerColumn extends AbstractElementBean {
 		return this;
 	}
 
-	public String getColumnSqlName() {
-		return StringUtils.text(columnSqlName, getColumnName());
+	public String getColumnAlias() {
+		return StringUtils.hasText(columnAlias) ? columnAlias : getColumnName();
 	}
 
-	public TablePagerColumn setColumnSqlName(final String columnSqlName) {
-		this.columnSqlName = columnSqlName;
+	public TablePagerColumn setColumnAlias(final String columnAlias) {
+		this.columnAlias = columnAlias;
 		return this;
 	}
 

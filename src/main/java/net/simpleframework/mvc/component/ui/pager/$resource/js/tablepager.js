@@ -334,7 +334,7 @@ function $table_pager_addMethods(pa) {
 		tablepager.select('.plus>img').each(function(img) {
 			$UI.doImageToggle(img, img.up('.titem').next(), {
 				cookie : false,
-				open : false
+				open : pa.json["isExpandDetailField"]
 			});
 		});
 	}

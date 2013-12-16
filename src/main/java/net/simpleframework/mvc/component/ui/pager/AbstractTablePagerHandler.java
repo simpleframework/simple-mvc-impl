@@ -609,6 +609,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 		}
 		final String detailField = (String) cp.getBeanProperty("detailField");
 		kv.put("isDetailField", StringUtils.hasText(detailField));
+		kv.put("isExpandDetailField", cp.getBeanProperty("expandDetailField"));
 		kv.put("isGroup", TablePagerUtils.isGroup(cp));
 		return kv;
 	}

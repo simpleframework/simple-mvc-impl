@@ -50,6 +50,9 @@ public class TablePagerBean extends PagerBean {
 	/* 是否显示详细信息 */
 	private String detailField;
 
+	/* 是否缺省展开详细信息 */
+	private boolean expandDetailField = BeanDefaults.getBool(getClass(), "expandDetailField", false);
+
 	/* 分组字段 */
 	private String groupColumn;
 
@@ -197,6 +200,15 @@ public class TablePagerBean extends PagerBean {
 
 	public TablePagerBean setDetailField(final String detailField) {
 		this.detailField = detailField;
+		return this;
+	}
+
+	public boolean isExpandDetailField() {
+		return expandDetailField;
+	}
+
+	public TablePagerBean setExpandDetailField(final boolean expandDetailField) {
+		this.expandDetailField = expandDetailField;
 		return this;
 	}
 
