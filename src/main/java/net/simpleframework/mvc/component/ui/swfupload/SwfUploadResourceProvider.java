@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.ui.swfupload;
 
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.component.IComponentRegistry;
 import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComponentResourceProvider;
 import net.simpleframework.mvc.component.ui.progressbar.ProgressBarRegistry;
 
@@ -12,10 +11,6 @@ import net.simpleframework.mvc.component.ui.progressbar.ProgressBarRegistry;
  *         http://www.simpleframework.net
  */
 public class SwfUploadResourceProvider extends AbstractComponentResourceProvider {
-
-	public SwfUploadResourceProvider(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	public String[] getDependentComponents(final PageParameter pp) {

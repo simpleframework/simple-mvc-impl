@@ -14,10 +14,6 @@ import net.simpleframework.mvc.component.base.ajaxrequest.DefaultAjaxRequestHand
  */
 public abstract class ComponentHtmlRenderEx extends ComponentHtmlRender {
 
-	public ComponentHtmlRenderEx(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
-
 	@Override
 	public String getHtmlJavascriptCode(final ComponentParameter cp) {
 		final AbstractContainerBean containerBean = (AbstractContainerBean) cp.componentBean;

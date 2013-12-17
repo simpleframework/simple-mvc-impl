@@ -2,7 +2,6 @@ package net.simpleframework.mvc.component.ui.listbox;
 
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.component.AbstractComponentBean;
-import net.simpleframework.mvc.component.IComponentRegistry;
 import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComponentResourceProvider;
 import net.simpleframework.mvc.component.ui.tooltip.TooltipRegistry;
 
@@ -13,10 +12,6 @@ import net.simpleframework.mvc.component.ui.tooltip.TooltipRegistry;
  *         http://www.simpleframework.net
  */
 public class ListboxResourceProvider extends AbstractComponentResourceProvider {
-
-	public ListboxResourceProvider(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	public String[] getDependentComponents(final PageParameter pp) {

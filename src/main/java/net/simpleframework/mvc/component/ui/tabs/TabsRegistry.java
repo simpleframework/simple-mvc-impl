@@ -14,6 +14,7 @@ import net.simpleframework.mvc.component.ComponentException;
 import net.simpleframework.mvc.component.ComponentName;
 import net.simpleframework.mvc.component.ComponentRender;
 import net.simpleframework.mvc.component.ComponentResourceProvider;
+import net.simpleframework.mvc.component.ComponentUtils;
 import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
 
 /**
@@ -54,7 +55,7 @@ public class TabsRegistry extends AbstractComponentRegistry {
 					if (componentBean2 instanceof AjaxRequestBean) {
 						((AjaxRequestBean) componentBean2).setShowLoading(false);
 					}
-					tab.setContent(getLoadingContent());
+					tab.setContent(ComponentUtils.getLoadingContent());
 				}
 			} else {
 				tab.setBeanFromElementAttributes(scriptEval, new String[] { "content" });

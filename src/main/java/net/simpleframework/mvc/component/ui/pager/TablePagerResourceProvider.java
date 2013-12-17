@@ -2,7 +2,6 @@ package net.simpleframework.mvc.component.ui.pager;
 
 import net.simpleframework.common.coll.ArrayUtils;
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.component.IComponentRegistry;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -11,10 +10,6 @@ import net.simpleframework.mvc.component.IComponentRegistry;
  *         http://www.simpleframework.net
  */
 public class TablePagerResourceProvider extends PagerResourceProvider {
-
-	public TablePagerResourceProvider(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	public String[] getCssPath(final PageParameter pp) {

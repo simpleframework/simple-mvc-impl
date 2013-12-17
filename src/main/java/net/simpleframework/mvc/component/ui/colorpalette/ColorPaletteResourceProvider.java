@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.ui.colorpalette;
 
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.component.IComponentRegistry;
 import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComponentResourceProvider;
 import net.simpleframework.mvc.component.ui.slider.SliderRegistry;
 
@@ -12,10 +11,6 @@ import net.simpleframework.mvc.component.ui.slider.SliderRegistry;
  *         http://www.simpleframework.net
  */
 public class ColorPaletteResourceProvider extends AbstractComponentResourceProvider {
-
-	public ColorPaletteResourceProvider(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	public String[] getDependentComponents(final PageParameter pp) {

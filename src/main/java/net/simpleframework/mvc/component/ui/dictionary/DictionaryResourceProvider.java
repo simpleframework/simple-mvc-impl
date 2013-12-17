@@ -3,7 +3,6 @@ package net.simpleframework.mvc.component.ui.dictionary;
 import net.simpleframework.common.coll.ArrayUtils;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.component.AbstractComponentBean;
-import net.simpleframework.mvc.component.IComponentRegistry;
 import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComponentResourceProvider;
 import net.simpleframework.mvc.component.ui.dictionary.DictionaryBean.AbstractDictionaryTypeBean;
 import net.simpleframework.mvc.component.ui.dictionary.DictionaryBean.DictionaryListBean;
@@ -20,10 +19,6 @@ import net.simpleframework.mvc.component.ui.window.WindowRegistry;
  *         http://www.simpleframework.net
  */
 public class DictionaryResourceProvider extends AbstractComponentResourceProvider {
-
-	public DictionaryResourceProvider(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	public String[] getDependentComponents(final PageParameter pp) {

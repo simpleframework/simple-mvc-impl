@@ -7,7 +7,6 @@ import net.simpleframework.common.web.JavascriptUtils;
 import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.component.ComponentParameter;
-import net.simpleframework.mvc.component.IComponentRegistry;
 import net.simpleframework.mvc.component.ui.window.WindowRender;
 
 /**
@@ -17,10 +16,6 @@ import net.simpleframework.mvc.component.ui.window.WindowRender;
  *         http://www.simpleframework.net
  */
 public class DictionaryRender extends WindowRender {
-
-	public DictionaryRender(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	public static String getActions(final ComponentParameter cp) {
 		final DictionaryBean dictionaryBean = (DictionaryBean) cp.componentBean;

@@ -2,7 +2,6 @@ package net.simpleframework.mvc.component.ui.swfupload;
 
 import net.simpleframework.mvc.component.ComponentHtmlRenderEx;
 import net.simpleframework.mvc.component.ComponentParameter;
-import net.simpleframework.mvc.component.IComponentRegistry;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -11,9 +10,6 @@ import net.simpleframework.mvc.component.IComponentRegistry;
  *         http://www.simpleframework.net
  */
 public class SwfUploadRender extends ComponentHtmlRenderEx {
-	public SwfUploadRender(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	protected String getRelativePath(final ComponentParameter cp) {

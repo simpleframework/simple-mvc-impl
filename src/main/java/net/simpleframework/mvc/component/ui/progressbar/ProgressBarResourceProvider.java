@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.ui.progressbar;
 
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.component.IComponentRegistry;
 import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComponentResourceProvider;
 import net.simpleframework.mvc.component.ui.menu.MenuRegistry;
 
@@ -12,10 +11,6 @@ import net.simpleframework.mvc.component.ui.menu.MenuRegistry;
  *         http://www.simpleframework.net
  */
 public class ProgressBarResourceProvider extends AbstractComponentResourceProvider {
-
-	public ProgressBarResourceProvider(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	public String[] getDependentComponents(final PageParameter pp) {

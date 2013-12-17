@@ -8,7 +8,6 @@ import net.simpleframework.mvc.component.ComponentHtmlRenderEx;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentRenderUtils;
 import net.simpleframework.mvc.component.ComponentUtils;
-import net.simpleframework.mvc.component.IComponentRegistry;
 import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
 
 /**
@@ -18,9 +17,6 @@ import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
  *         http://www.simpleframework.net
  */
 public class PagerRender extends ComponentHtmlRenderEx {
-	public PagerRender(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	protected String getRelativePath(final ComponentParameter cp) {

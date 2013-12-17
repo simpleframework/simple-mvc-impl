@@ -9,6 +9,7 @@ import net.simpleframework.mvc.component.ComponentException;
 import net.simpleframework.mvc.component.ComponentName;
 import net.simpleframework.mvc.component.ComponentRender;
 import net.simpleframework.mvc.component.ComponentResourceProvider;
+import net.simpleframework.mvc.component.ComponentUtils;
 import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
 
 /**
@@ -36,7 +37,7 @@ public class WindowRegistry extends AbstractComponentRegistry {
 				}
 			} else {
 				ref.setRunImmediately(false);
-				windowBean.setContent(getLoadingContent());
+				windowBean.setContent(ComponentUtils.getLoadingContent());
 				if (ref instanceof AjaxRequestBean) {
 					((AjaxRequestBean) ref).setShowLoading(false);
 				}

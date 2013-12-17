@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.ui.imageslide;
 
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.component.IComponentRegistry;
 import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComponentResourceProvider;
 import net.simpleframework.mvc.component.ui.menu.MenuRegistry;
 import net.simpleframework.mvc.impl.DefaultPageResourceProvider;
@@ -13,10 +12,6 @@ import net.simpleframework.mvc.impl.DefaultPageResourceProvider;
  *         http://www.simpleframework.net
  */
 public class ImageSlideResourceProvider extends AbstractComponentResourceProvider {
-
-	public ImageSlideResourceProvider(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	public String[] getCssPath(final PageParameter pp) {

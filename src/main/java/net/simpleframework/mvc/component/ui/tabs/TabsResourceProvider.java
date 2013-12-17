@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.ui.tabs;
 
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.component.IComponentRegistry;
 import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComponentResourceProvider;
 
 /**
@@ -11,10 +10,6 @@ import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComp
  *         http://www.simpleframework.net
  */
 public class TabsResourceProvider extends AbstractComponentResourceProvider {
-
-	public TabsResourceProvider(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	public String[] getCssPath(final PageParameter pp) {

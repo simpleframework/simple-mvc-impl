@@ -4,7 +4,6 @@ import static net.simpleframework.common.I18n.$m;
 import net.simpleframework.common.ClassUtils;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
-import net.simpleframework.common.object.ObjectFactory;
 import net.simpleframework.mvc.component.AbstractComponentBean;
 import net.simpleframework.mvc.component.ComponentHandlerException;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -191,15 +190,15 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 	public IComponentHandler createComponentHandler(final ComponentParameter cp) {
 		final AbstractComponentBean componentBean = cp.componentBean;
 		if (componentBean instanceof AjaxRequestBean) {
-			return ObjectFactory.singleton(AjaxRequest.class);
+			return singleton(AjaxRequest.class);
 		} else if (componentBean instanceof SubmitBean) {
-			return ObjectFactory.singleton(Submit.class);
+			return singleton(Submit.class);
 		} else if (componentBean instanceof TreeBean) {
-			return ObjectFactory.singleton(Tree.class);
+			return singleton(Tree.class);
 		} else if (componentBean instanceof ListboxBean) {
-			return ObjectFactory.singleton(Listbox.class);
+			return singleton(Listbox.class);
 		} else if (componentBean instanceof MenuBean) {
-			return ObjectFactory.singleton(Menu.class);
+			return singleton(Menu.class);
 		}
 		return null;
 	}

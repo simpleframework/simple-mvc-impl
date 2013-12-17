@@ -9,7 +9,6 @@ import net.simpleframework.mvc.common.element.EElementEvent;
 import net.simpleframework.mvc.component.AbstractComponentRender.ComponentJavascriptRender;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentRenderUtils;
-import net.simpleframework.mvc.component.IComponentRegistry;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -18,9 +17,6 @@ import net.simpleframework.mvc.component.IComponentRegistry;
  *         http://www.simpleframework.net
  */
 public class TooltipRender extends ComponentJavascriptRender {
-	public TooltipRender(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	public String getJavascriptCode(final ComponentParameter cp) {

@@ -13,7 +13,6 @@ import net.simpleframework.mvc.common.element.InputElement;
 import net.simpleframework.mvc.component.ComponentHtmlRenderEx;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentUtils;
-import net.simpleframework.mvc.component.IComponentRegistry;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -22,10 +21,6 @@ import net.simpleframework.mvc.component.IComponentRegistry;
  *         http://www.simpleframework.net
  */
 public class ValidateCodeRender extends ComponentHtmlRenderEx {
-
-	public ValidateCodeRender(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	private final String inputId = "input_" + ObjectUtils.hashStr(this);
 

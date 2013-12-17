@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.ui.tree;
 
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.component.IComponentRegistry;
 import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComponentResourceProvider;
 import net.simpleframework.mvc.component.ui.tooltip.TooltipRegistry;
 import net.simpleframework.mvc.impl.DefaultPageResourceProvider;
@@ -13,10 +12,6 @@ import net.simpleframework.mvc.impl.DefaultPageResourceProvider;
  *         http://www.simpleframework.net
  */
 public class TreeResourceProvider extends AbstractComponentResourceProvider {
-
-	public TreeResourceProvider(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	public String[] getCssPath(final PageParameter pp) {

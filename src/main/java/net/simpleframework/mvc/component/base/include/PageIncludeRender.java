@@ -4,7 +4,6 @@ import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.UrlForward;
 import net.simpleframework.mvc.component.ComponentHtmlRenderEx;
 import net.simpleframework.mvc.component.ComponentParameter;
-import net.simpleframework.mvc.component.IComponentRegistry;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -13,10 +12,6 @@ import net.simpleframework.mvc.component.IComponentRegistry;
  *         http://www.simpleframework.net
  */
 public class PageIncludeRender extends ComponentHtmlRenderEx {
-
-	public PageIncludeRender(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	public IForward getResponseForward(final ComponentParameter cp) {

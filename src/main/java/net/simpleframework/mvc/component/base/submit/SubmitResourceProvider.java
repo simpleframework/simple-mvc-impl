@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.base.submit;
 
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.component.IComponentRegistry;
 import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComponentResourceProvider;
 import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestRegistry;
 
@@ -12,10 +11,6 @@ import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestRegistry;
  *         http://www.simpleframework.net
  */
 public class SubmitResourceProvider extends AbstractComponentResourceProvider {
-
-	public SubmitResourceProvider(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	public String[] getDependentComponents(final PageParameter pp) {

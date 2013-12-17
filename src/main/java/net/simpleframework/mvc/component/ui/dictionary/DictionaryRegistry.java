@@ -3,12 +3,12 @@ package net.simpleframework.mvc.component.ui.dictionary;
 import net.simpleframework.ctx.common.xml.XmlElement;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.component.AbstractComponentBean;
-import net.simpleframework.mvc.component.AbstractComponentRegistry;
 import net.simpleframework.mvc.component.ComponentBean;
 import net.simpleframework.mvc.component.ComponentName;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentRender;
 import net.simpleframework.mvc.component.ComponentResourceProvider;
+import net.simpleframework.mvc.component.ComponentUtils;
 import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
 import net.simpleframework.mvc.component.ui.dictionary.DictionaryBean.AbstractDictionaryTypeBean;
 import net.simpleframework.mvc.component.ui.dictionary.DictionaryBean.DictionaryColorBean;
@@ -55,8 +55,7 @@ public class DictionaryRegistry extends WindowRegistry {
 				.setAttr("$$dictionary", dictionaryBean);
 		cp.addComponentBean(ajaxRequest);
 
-		dictionaryBean.setContentRef(ajaxRequestName)
-				.setContent(AbstractComponentRegistry.getLoadingContent())
+		dictionaryBean.setContentRef(ajaxRequestName).setContent(ComponentUtils.getLoadingContent())
 				.setAttr(ATTRI_AJAXREQUEST, ajaxRequest);
 		return ajaxRequest;
 	}

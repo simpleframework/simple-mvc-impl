@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.ui.menu;
 
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.component.IComponentRegistry;
 import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComponentResourceProvider;
 
 /**
@@ -11,10 +10,6 @@ import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComp
  *         http://www.simpleframework.net
  */
 public class MenuResourceProvider extends AbstractComponentResourceProvider {
-
-	public MenuResourceProvider(final IComponentRegistry componentRegistry) {
-		super(componentRegistry);
-	}
 
 	@Override
 	public String[] getCssPath(final PageParameter pp) {
