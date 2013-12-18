@@ -1,8 +1,6 @@
 package net.simpleframework.mvc.component.ui.progressbar;
 
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -27,15 +25,6 @@ public class ProgressBarBean extends AbstractContainerBean {
 	private int detailHeight = BeanDefaults.getInt(getClass(), "detailHeights", 120);
 
 	private String changeCallback;
-
-	public ProgressBarBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-		setHeight("17");
-	}
-
-	public ProgressBarBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public float getInterval() {
 		return interval;
@@ -107,5 +96,9 @@ public class ProgressBarBean extends AbstractContainerBean {
 	public ProgressBarBean setChangeCallback(final String changeCallback) {
 		this.changeCallback = changeCallback;
 		return this;
+	}
+
+	{
+		setHeight("17");
 	}
 }

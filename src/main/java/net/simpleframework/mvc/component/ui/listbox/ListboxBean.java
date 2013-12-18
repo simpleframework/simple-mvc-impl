@@ -1,8 +1,6 @@
 package net.simpleframework.mvc.component.ui.listbox;
 
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -20,16 +18,6 @@ public class ListboxBean extends AbstractContainerBean {
 	private boolean tooltip = BeanDefaults.getBool(getClass(), "tooltip", false);
 
 	private String jsClickCallback, jsDblclickCallback;
-
-	public ListboxBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-		setWidth("200");
-		setHeight("180");
-	}
-
-	public ListboxBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public boolean isCheckbox() {
 		return checkbox;
@@ -82,5 +70,10 @@ public class ListboxBean extends AbstractContainerBean {
 	@Override
 	protected String[] elementAttributes() {
 		return new String[] { "jsClickCallback", "jsDblclickCallback" };
+	}
+
+	{
+		setWidth("200");
+		setHeight("180");
 	}
 }

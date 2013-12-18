@@ -1,8 +1,6 @@
 package net.simpleframework.mvc.component.ui.tree;
 
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -17,16 +15,6 @@ public class FolderTreeBean extends TreeBean {
 	private boolean showRoot = BeanDefaults.getBool(getClass(), "showRoot", true);
 
 	private boolean showFile = BeanDefaults.getBool(getClass(), "showFile", false);
-
-	public FolderTreeBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-		setDynamicLoading(true);
-		setHandleClass(FolderTreeHandler.class);
-	}
-
-	public FolderTreeBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public String getRootFolderPath() {
 		return rootFolderPath;
@@ -50,5 +38,10 @@ public class FolderTreeBean extends TreeBean {
 
 	public void setShowFile(final boolean showFile) {
 		this.showFile = showFile;
+	}
+
+	{
+		setDynamicLoading(true);
+		setHandleClass(FolderTreeHandler.class);
 	}
 }

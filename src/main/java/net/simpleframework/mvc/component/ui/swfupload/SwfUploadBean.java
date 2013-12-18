@@ -2,8 +2,6 @@ package net.simpleframework.mvc.component.ui.swfupload;
 
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -27,14 +25,6 @@ public class SwfUploadBean extends AbstractContainerBean {
 	private String jsCompleteCallback;
 
 	private String roleUpload;
-
-	public SwfUploadBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-	}
-
-	public SwfUploadBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public String getFileSizeLimit() {
 		return fileSizeLimit;

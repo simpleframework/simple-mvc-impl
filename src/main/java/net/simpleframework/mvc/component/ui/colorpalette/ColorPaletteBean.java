@@ -1,8 +1,6 @@
 package net.simpleframework.mvc.component.ui.colorpalette;
 
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -18,14 +16,6 @@ public class ColorPaletteBean extends AbstractContainerBean {
 	private String startHex = BeanDefaults.getString(getClass(), "startHex", "CCCCCC");
 
 	private String changeCallback;
-
-	public ColorPaletteBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-	}
-
-	public ColorPaletteBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public EColorMode getStartMode() {
 		return startMode == null ? EColorMode.h : startMode;

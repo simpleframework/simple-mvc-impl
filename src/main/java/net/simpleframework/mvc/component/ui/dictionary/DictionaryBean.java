@@ -6,7 +6,6 @@ import net.simpleframework.common.coll.ArrayUtils;
 import net.simpleframework.ctx.common.bean.BeanDefaults;
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
 import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.PageRequestResponse;
 import net.simpleframework.mvc.component.ComponentException;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -36,14 +35,9 @@ public class DictionaryBean extends WindowBean {
 
 	private String jsSelectCallback;
 
-	public DictionaryBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
+	public DictionaryBean() {
 		setDestroyOnClose(false);
 		setWidth(240);
-	}
-
-	public DictionaryBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
 	}
 
 	public String getJsSelectCallback() {

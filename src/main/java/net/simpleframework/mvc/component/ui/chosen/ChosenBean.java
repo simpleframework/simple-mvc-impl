@@ -1,8 +1,6 @@
 package net.simpleframework.mvc.component.ui.chosen;
 
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractComponentBean;
 
 /**
@@ -14,14 +12,6 @@ import net.simpleframework.mvc.component.AbstractComponentBean;
 public class ChosenBean extends AbstractComponentBean {
 	/* 可查找 */
 	private boolean enableSearch = BeanDefaults.getBool(getClass(), "enableSearch", false);
-
-	public ChosenBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-	}
-
-	public ChosenBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public boolean isEnableSearch() {
 		return enableSearch;

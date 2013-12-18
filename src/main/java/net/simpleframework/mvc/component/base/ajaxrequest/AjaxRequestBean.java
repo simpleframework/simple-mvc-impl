@@ -2,8 +2,6 @@ package net.simpleframework.mvc.component.base.ajaxrequest;
 
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractComponentBean;
 
 /**
@@ -60,15 +58,6 @@ public class AjaxRequestBean extends AbstractComponentBean {
 
 	/* 组件调用完成后，前端执行的js */
 	private String jsCompleteCallback;
-
-	public AjaxRequestBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-		setRunImmediately(false);
-	}
-
-	public AjaxRequestBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public String getHandleMethod() {
 		return handleMethod;
@@ -220,5 +209,9 @@ public class AjaxRequestBean extends AbstractComponentBean {
 	@Override
 	protected String[] elementAttributes() {
 		return new String[] { "confirmMessage", "jsCompleteCallback", "urlForward" };
+	}
+
+	{
+		setRunImmediately(false);
 	}
 }

@@ -1,7 +1,5 @@
 package net.simpleframework.mvc.component.ui.videoplayer;
 
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -16,16 +14,6 @@ public class VideoPlayerBean extends AbstractContainerBean {
 	private boolean autoPlay;
 
 	private String jsLoadedCallback;
-
-	public VideoPlayerBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-		setWidth("420");
-		setHeight("300");
-	}
-
-	public VideoPlayerBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public String getVideoUrl() {
 		return videoUrl;
@@ -54,5 +42,10 @@ public class VideoPlayerBean extends AbstractContainerBean {
 	@Override
 	protected String[] elementAttributes() {
 		return new String[] { "jsLoadedCallback" };
+	}
+
+	{
+		setWidth("420");
+		setHeight("300");
 	}
 }

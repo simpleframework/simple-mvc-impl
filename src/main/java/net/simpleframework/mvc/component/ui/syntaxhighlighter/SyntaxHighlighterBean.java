@@ -1,7 +1,5 @@
 package net.simpleframework.mvc.component.ui.syntaxhighlighter;
 
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractComponentBean;
 
 /**
@@ -14,15 +12,6 @@ public class SyntaxHighlighterBean extends AbstractComponentBean {
 	private ESyntaxHighlighterTheme shTheme;
 
 	private String jsSelectedCallback; // editor
-
-	public SyntaxHighlighterBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-		setHandleClass(DefaultSyntaxHighlighterHandler.class);
-	}
-
-	public SyntaxHighlighterBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public ESyntaxHighlighterTheme getShTheme() {
 		return shTheme == null ? ESyntaxHighlighterTheme.shThemeDefault : shTheme;
@@ -43,5 +32,9 @@ public class SyntaxHighlighterBean extends AbstractComponentBean {
 	@Override
 	protected String[] elementAttributes() {
 		return new String[] { "jsSelectedCallback" };
+	}
+
+	{
+		setHandleClass(DefaultSyntaxHighlighterHandler.class);
 	}
 }

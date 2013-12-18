@@ -1,7 +1,5 @@
 package net.simpleframework.mvc.component.ui.validatecode;
 
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -14,15 +12,6 @@ public class ValidateCodeBean extends AbstractContainerBean {
 
 	private String inputName;
 
-	public ValidateCodeBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-		setHandleClass(DefaultValidateCodeHandler.class);
-	}
-
-	public ValidateCodeBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
-
 	public String getInputName() {
 		return inputName;
 	}
@@ -30,5 +19,9 @@ public class ValidateCodeBean extends AbstractContainerBean {
 	public ValidateCodeBean setInputName(final String inputName) {
 		this.inputName = inputName;
 		return this;
+	}
+
+	{
+		setHandleClass(DefaultValidateCodeHandler.class);
 	}
 }

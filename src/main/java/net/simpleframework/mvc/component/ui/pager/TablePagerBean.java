@@ -1,8 +1,6 @@
 package net.simpleframework.mvc.component.ui.pager;
 
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.ComponentUtils;
 
 /**
@@ -59,15 +57,6 @@ public class TablePagerBean extends PagerBean {
 	private String jsRowClick, jsRowDblclick;
 
 	private TablePagerColumns columns;
-
-	public TablePagerBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-		setExportAction(null);
-	}
-
-	public TablePagerBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public TablePagerColumns getColumns() {
 		if (columns == null) {
@@ -242,5 +231,9 @@ public class TablePagerBean extends PagerBean {
 	@Override
 	protected String[] elementAttributes() {
 		return new String[] { "jsRowClick", "jsRowDblclick", "jsLoadedCallback" };
+	}
+
+	{
+		setExportAction(null);
 	}
 }

@@ -3,9 +3,7 @@ package net.simpleframework.mvc.component.ui.pager;
 import static net.simpleframework.common.I18n.$m;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
 import net.simpleframework.ctx.permission.IPermissionConst;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -61,15 +59,6 @@ public class PagerBean extends AbstractContainerBean {
 
 	/* 当分页组件被装载完后，触发的前端js事件 */
 	private String jsLoadedCallback;
-
-	public PagerBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-		setRole(IPermissionConst.ROLE_ANONYMOUS).setNoResultDesc($m("pager.0"));
-	}
-
-	public PagerBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public String getTitle() {
 		return title;
@@ -222,5 +211,9 @@ public class PagerBean extends AbstractContainerBean {
 	@Override
 	protected String[] elementAttributes() {
 		return new String[] { "jsLoadedCallback" };
+	}
+
+	{
+		setRole(IPermissionConst.ROLE_ANONYMOUS).setNoResultDesc($m("pager.0"));
 	}
 }

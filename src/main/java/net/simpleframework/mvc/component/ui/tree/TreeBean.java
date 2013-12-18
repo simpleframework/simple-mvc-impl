@@ -1,8 +1,6 @@
 package net.simpleframework.mvc.component.ui.tree;
 
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -53,14 +51,6 @@ public class TreeBean extends AbstractContainerBean {
 
 	/* 定义拖动的角色 */
 	private String roleDrop;
-
-	public TreeBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-	}
-
-	public TreeBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public boolean isDynamicLoading() {
 		return dynamicLoading;

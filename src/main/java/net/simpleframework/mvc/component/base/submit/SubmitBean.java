@@ -2,8 +2,6 @@ package net.simpleframework.mvc.component.base.submit;
 
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractComponentBean;
 
 /**
@@ -26,16 +24,6 @@ public class SubmitBean extends AbstractComponentBean {
 	private String confirmMessage;
 
 	private String role;
-
-	public SubmitBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-		setRunImmediately(false);
-		setIncludeRequestData("pa");
-	}
-
-	public SubmitBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public String getFormName() {
 		return formName;
@@ -93,5 +81,10 @@ public class SubmitBean extends AbstractComponentBean {
 	@Override
 	protected String[] elementAttributes() {
 		return new String[] { "confirmMessage" };
+	}
+
+	{
+		setRunImmediately(false);
+		setIncludeRequestData("pa");
 	}
 }

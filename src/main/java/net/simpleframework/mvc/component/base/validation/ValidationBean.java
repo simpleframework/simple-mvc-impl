@@ -1,8 +1,6 @@
 package net.simpleframework.mvc.component.base.validation;
 
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractComponentBean;
 
 /**
@@ -19,14 +17,6 @@ public class ValidationBean extends AbstractComponentBean {
 	private String triggerSelector;
 
 	private Validators validators;
-
-	public ValidationBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-	}
-
-	public ValidationBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public Validators getValidators() {
 		if (validators == null) {

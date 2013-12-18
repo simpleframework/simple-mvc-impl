@@ -1,8 +1,6 @@
 package net.simpleframework.mvc.component.ui.imageslide;
 
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -28,14 +26,6 @@ public class ImageSlideBean extends AbstractContainerBean {
 	private boolean showPreAction = BeanDefaults.getBool(getClass(), "showPreAction", true);
 
 	private boolean showNextAction = BeanDefaults.getBool(getClass(), "showNextAction", true);
-
-	public ImageSlideBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-	}
-
-	public ImageSlideBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public ImageItems getImageItems() {
 		if (imageItems == null) {

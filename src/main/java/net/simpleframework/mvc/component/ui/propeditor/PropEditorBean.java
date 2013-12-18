@@ -1,8 +1,6 @@
 package net.simpleframework.mvc.component.ui.propeditor;
 
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -20,14 +18,6 @@ public class PropEditorBean extends AbstractContainerBean {
 	private String jsLoadedCallback;
 
 	private PropFields propFields;
-
-	public PropEditorBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-	}
-
-	public PropEditorBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public PropFields getFormFields() {
 		if (propFields == null) {

@@ -1,7 +1,5 @@
 package net.simpleframework.mvc.component.base.include;
 
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -12,14 +10,6 @@ import net.simpleframework.mvc.component.AbstractContainerBean;
  */
 public class PageIncludeBean extends AbstractContainerBean {
 	private String pageUrl;
-
-	public PageIncludeBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-	}
-
-	public PageIncludeBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public String getPageUrl() {
 		return pageUrl;

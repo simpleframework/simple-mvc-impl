@@ -3,8 +3,6 @@ package net.simpleframework.mvc.component.ui.tooltip;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractComponentBean;
 
 /**
@@ -16,14 +14,6 @@ import net.simpleframework.mvc.component.AbstractComponentBean;
 public class TooltipBean extends AbstractComponentBean {
 
 	private Collection<TipBean> tips;
-
-	public TooltipBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-	}
-
-	public TooltipBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public Collection<TipBean> getTips() {
 		if (tips == null) {

@@ -1,8 +1,6 @@
 package net.simpleframework.mvc.component.ui.htmleditor;
 
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -33,14 +31,6 @@ public class HtmlEditorBean extends AbstractContainerBean {
 	private Toolbar toolbar;
 
 	private String jsLoadedCallback;
-
-	public HtmlEditorBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-	}
-
-	public HtmlEditorBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public Toolbar getToolbar() {
 		return toolbar == null ? Toolbar.BASIC : toolbar;

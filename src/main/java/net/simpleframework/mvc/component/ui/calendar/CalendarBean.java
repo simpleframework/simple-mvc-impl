@@ -1,8 +1,6 @@
 package net.simpleframework.mvc.component.ui.calendar;
 
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -25,14 +23,6 @@ public class CalendarBean extends AbstractContainerBean {
 	private boolean clearButton = BeanDefaults.getBool(getClass(), "clearButton", true);
 
 	private String closeCallback;
-
-	public CalendarBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-	}
-
-	public CalendarBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public String getInputField() {
 		return inputField;

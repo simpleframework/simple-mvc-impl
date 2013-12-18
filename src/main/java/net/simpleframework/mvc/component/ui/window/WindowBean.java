@@ -1,8 +1,6 @@
 package net.simpleframework.mvc.component.ui.window;
 
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractComponentBean;
 
 /**
@@ -56,15 +54,6 @@ public class WindowBean extends AbstractComponentBean {
 
 	/* 客户端窗口显示、隐藏后的js事件 */
 	private String jsShownCallback, jsHiddenCallback;
-
-	public WindowBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-		setRunImmediately(false);
-	}
-
-	public WindowBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public String getContentRef() {
 		return contentRef;
@@ -294,5 +283,9 @@ public class WindowBean extends AbstractComponentBean {
 	@Override
 	protected String[] elementAttributes() {
 		return new String[] { "jsShownCallback", "jsHiddenCallback", "content" };
+	}
+
+	{
+		setRunImmediately(false);
 	}
 }

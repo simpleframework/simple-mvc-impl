@@ -1,7 +1,5 @@
 package net.simpleframework.mvc.component.ui.menu;
 
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -19,15 +17,6 @@ public class MenuBean extends AbstractContainerBean {
 	private String minWidth;
 
 	private String jsBeforeShowCallback;
-
-	public MenuBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-		setMinWidth("120");
-	}
-
-	public MenuBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public MenuItems getMenuItems() {
 		if (menuItems == null) {
@@ -76,5 +65,9 @@ public class MenuBean extends AbstractContainerBean {
 	@Override
 	protected String[] elementAttributes() {
 		return new String[] { "jsBeforeShowCallback" };
+	}
+
+	{
+		setMinWidth("120");
 	}
 }

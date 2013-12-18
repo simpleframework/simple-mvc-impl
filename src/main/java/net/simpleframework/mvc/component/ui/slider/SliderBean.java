@@ -1,7 +1,5 @@
 package net.simpleframework.mvc.component.ui.slider;
 
-import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.mvc.PageDocument;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -17,14 +15,6 @@ public class SliderBean extends AbstractContainerBean {
 	private String arrowImage;
 
 	private String jsChangeCallback;
-
-	public SliderBean(final PageDocument pageDocument, final XmlElement xmlElement) {
-		super(pageDocument, xmlElement);
-	}
-
-	public SliderBean(final PageDocument pageDocument) {
-		this(pageDocument, null);
-	}
 
 	public int getXminValue() {
 		return xminValue;
