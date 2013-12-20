@@ -142,7 +142,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 			sb.append(1);
 		} else if (pagerPosition == EPagerPosition.left) {
 			sb.append(currentPageNumber > 1 ? (currentPageNumber - 1) : 1);
-		} else if (pagerPosition == EPagerPosition.number) {
+		} else if (pagerPosition == EPagerPosition.number || pagerPosition == EPagerPosition.skip) {
 			sb.append(pageNumber);
 		} else if (pagerPosition == EPagerPosition.right) {
 			sb.append(currentPageNumber >= pageCount ? pageCount : currentPageNumber + 1);
@@ -169,7 +169,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 		if (pagerPosition == EPagerPosition.left2) {
 			link.setClassName("p2").setTitle("#(pager_head.3)");
 		} else if (pagerPosition == EPagerPosition.left) {
-			link.setClassName("p1").setTitle("#(pager_head.4)");
+			link.setClassName("p1").setText("#(pager_head.4)");
 		} else if (pagerPosition == EPagerPosition.number) {
 			if (pageNumber != currentPageNumber) {
 				link.setClassName("num");
@@ -177,17 +177,21 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 				link.setClassName("current num");
 			}
 			link.setText(pageNumber);
+		} else if (pagerPosition == EPagerPosition.skip) {
+			link.setClassName("num skip").setText(pageNumber);
 		} else if (pagerPosition == EPagerPosition.right) {
-			link.setClassName("n1").setTitle("#(pager_head.5)");
+			link.setClassName("n1").setText("#(pager_head.5)");
 		} else if (pagerPosition == EPagerPosition.right2) {
-			link.setClassName("n2").setTitle("#(pager_head.6)");
+			return "";
+			// link.setClassName("n2").setTitle("#(pager_head.6)");
 		}
 		return link.toString();
 	}
 
 	protected AbstractElement<?> createHeadStatElement(final int count, final String pTitle) {
 		return new SpanElement(
-				$m("pager_head.1", new SpanElement(count).setClassName("num2"), pTitle));
+				$m("pager_head.1", new SpanElement(count).setClassName("num2"), pTitle))
+				.setStyle("margin-left: 6px;");
 	}
 
 	@Override

@@ -14,6 +14,8 @@ public enum EPagerPosition {
 
 	number,
 
+	skip,
+
 	right,
 
 	right2,

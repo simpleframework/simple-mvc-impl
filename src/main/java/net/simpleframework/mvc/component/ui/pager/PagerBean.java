@@ -28,7 +28,7 @@ public class PagerBean extends AbstractContainerBean {
 	private int pageItems = BeanDefaults.getInt(getClass(), "pageItems", 15);
 
 	/* 定义分页按钮的个数 */
-	private int indexPages = BeanDefaults.getInt(getClass(), "indexPages", 9);
+	private int indexPages = BeanDefaults.getInt(getClass(), "indexPages", 6);
 
 	/* 分页组件数据内容的路径 */
 	private String dataPath;

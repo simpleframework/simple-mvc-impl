@@ -22,22 +22,25 @@
     <pg:index export="pageCount">
       <pg:page export="firstItem,lastItem"><%
       	_firstItem = firstItem;
-      				_lastItem = lastItem;
-      				_pageCount = pageCount;
-      				_currentPageNumber = currentPageNumber;
-      %><%=hdl.toPagerNavigationHTML(cp,
-								EPagerPosition.left2, _pageCount,
-								_currentPageNumber, _pageNumber)%><%=hdl.toPagerNavigationHTML(cp,
-								EPagerPosition.left, _pageCount,
-								_currentPageNumber, _pageNumber)%><pg:pages><%
+      	_lastItem = lastItem;
+      	_pageCount = pageCount;
+      	_currentPageNumber = currentPageNumber;
+      %><%=
+        hdl.toPagerNavigationHTML(cp, EPagerPosition.left2, _pageCount,
+					  _currentPageNumber, _pageNumber)%><%=
+        hdl.toPagerNavigationHTML(cp, EPagerPosition.left, _pageCount, 
+            _currentPageNumber, _pageNumber)%><pg:pages><%
       	_pageNumber = pageNumber;
-      %><%=hdl.toPagerNavigationHTML(cp,
-									EPagerPosition.number, _pageCount,
-									_currentPageNumber, _pageNumber)%></pg:pages><%=hdl.toPagerNavigationHTML(cp,
-								EPagerPosition.right, _pageCount,
-								_currentPageNumber, _pageNumber)%><%=hdl.toPagerNavigationHTML(cp,
-								EPagerPosition.right2, _pageCount,
-								_currentPageNumber, _pageNumber)%></pg:page>
+      %><%=
+        hdl.toPagerNavigationHTML(cp, EPagerPosition.number, _pageCount,
+			      _currentPageNumber, _pageNumber)%></pg:pages><pg:skip pages="10"><%=
+        hdl.toPagerNavigationHTML(cp,
+             EPagerPosition.skip, _pageCount, _currentPageNumber, pageNumber)%></pg:skip><%=
+        hdl.toPagerNavigationHTML(cp,
+						 EPagerPosition.right, _pageCount, _currentPageNumber, _pageNumber)%><%=
+        hdl.toPagerNavigationHTML(cp,
+						 EPagerPosition.right2, _pageCount, _currentPageNumber, _pageNumber)%></pg:page>
     </pg:index>
-  </pg:pager><%=hdl.toPagerActionsHTML(cp, count, _firstItem, _lastItem)%> 
+  </pg:pager>
+  <%=hdl.toPagerActionsHTML(cp, count, _firstItem, _lastItem)%> 
 </div>
