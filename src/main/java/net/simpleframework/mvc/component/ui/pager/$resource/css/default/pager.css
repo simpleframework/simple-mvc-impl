@@ -113,11 +113,11 @@
 }
 
 .pager .pager_head a.p2 {
-  background: url("images/p2.png") no-repeat center center;
+  background: url("images/p2.png") no-repeat center center #f1f1f1;
 }
 
 .pager .pager_head a.n2 {
-  background: url("images/n2.png") no-repeat center center;
+  background: url("images/n2.png") no-repeat center center #f1f1f1;
 }
 
 .pager .pager_head a.p2:hover {

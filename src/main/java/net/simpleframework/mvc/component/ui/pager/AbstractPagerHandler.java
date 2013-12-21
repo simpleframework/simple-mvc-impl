@@ -182,8 +182,8 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 		} else if (pagerPosition == EPagerPosition.right) {
 			link.setClassName("n1").setText("#(pager_head.5)");
 		} else if (pagerPosition == EPagerPosition.right2) {
-			return "";
-			// link.setClassName("n2").setTitle("#(pager_head.6)");
+			// return "";
+			link.setClassName("n2").setTitle("#(pager_head.6)");
 		}
 		return link.toString();
 	}
