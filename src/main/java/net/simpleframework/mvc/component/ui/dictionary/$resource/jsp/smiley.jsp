@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="net.simpleframework.mvc.component.ui.htmleditor.HtmlEditorBean"%>
 <%@ page import="net.simpleframework.mvc.component.ComponentUtils"%>
+<%@ page import="net.simpleframework.mvc.component.ui.dictionary.DictionaryBean"%>
 <%@ page import="net.simpleframework.mvc.component.ui.dictionary.DictionaryUtils"%>
 <%@ page import="net.simpleframework.mvc.component.ComponentParameter"%>
 <%@ page import="net.simpleframework.common.StringUtils"%>
 <%
 	final ComponentParameter nCP = DictionaryUtils.get(request,
 			response);
-  final String beanId = nCP.hashId();
+	final String beanId = nCP.hashId();
 	final String rPath = ComponentUtils
-			.getResourceHomePath(HtmlEditorBean.class);
+			.getResourceHomePath(DictionaryBean.class);
 %>
 <div class="dictionary_smiley">
   <%

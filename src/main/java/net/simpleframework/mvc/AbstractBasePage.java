@@ -14,7 +14,6 @@ import net.simpleframework.mvc.component.base.submit.AbstractSubmitHandler;
 import net.simpleframework.mvc.component.base.submit.SubmitBean;
 import net.simpleframework.mvc.component.base.validation.ValidationBean;
 import net.simpleframework.mvc.component.ui.dictionary.DictionaryBean;
-import net.simpleframework.mvc.component.ui.htmleditor.HtmlEditorBean;
 import net.simpleframework.mvc.component.ui.listbox.AbstractListboxHandler;
 import net.simpleframework.mvc.component.ui.listbox.ListItems;
 import net.simpleframework.mvc.component.ui.listbox.ListboxBean;
@@ -88,17 +87,6 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 			final boolean multiple) {
 		return addComponentBean(pp, new KVMap().add("name", name).add("multiple", multiple),
 				DictionaryBean.class);
-	}
-
-	/* HtmlEditorBean */
-	protected HtmlEditorBean addHtmlEditorBean(final PageParameter pp, final String name) {
-		return addComponentBean(pp, name, HtmlEditorBean.class);
-	}
-
-	protected HtmlEditorBean addHtmlEditorBean(final PageParameter pp, final String name,
-			final boolean codeEnabled) {
-		return addComponentBean(pp, new KVMap().add("name", name).add("codeEnabled", codeEnabled),
-				HtmlEditorBean.class);
 	}
 
 	public static class AjaxRequest extends DefaultAjaxRequestHandler {

@@ -5,7 +5,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import net.simpleframework.mvc.component.ComponentUtils;
-import net.simpleframework.mvc.component.ui.htmleditor.HtmlEditorBean;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -29,7 +28,7 @@ public abstract class SmileyUtils {
 				sb.setLength(0);
 				sb.append(tmp.substring(0, result.start(1) - 4));
 				sb.append("<img style=\"vertical-align: middle;\" src=\"").append(
-						ComponentUtils.getResourceHomePath(HtmlEditorBean.class));
+						ComponentUtils.getResourceHomePath(DictionaryBean.class));
 				sb.append("/smiley/").append(group).append(".gif\">");
 				sb.append(tmp.substring(result.end(1) + 1));
 			} else {
