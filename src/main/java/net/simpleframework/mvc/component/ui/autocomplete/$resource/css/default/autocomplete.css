@@ -1,0 +1,9 @@
+.Autocomplete {
+  min-width: 300px;
+  height: 200px;
+  overflow: auto;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  position: absolute;
+  z-index: 10000;
+}
