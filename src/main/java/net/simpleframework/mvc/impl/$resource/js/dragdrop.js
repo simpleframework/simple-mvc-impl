@@ -68,7 +68,7 @@ var Droppables = {
       ((!drop.accept) ||
         (Element.classNames(element).detect(
           function(v) { return drop.accept.include(v) } ) )) &&
-      Position.within(drop.element, point[0], point[1]) );
+      Position.withinIncludingScrolloffsets(drop.element, point[0], point[1]) );
   },
 
   deactivate: function(drop) {
@@ -97,7 +97,7 @@ var Droppables = {
 
     if(this.last_active && this.last_active != drop) this.deactivate(this.last_active);
     if (drop) {
-      Position.within(drop.element, point[0], point[1]);
+      Position.withinIncludingScrolloffsets(drop.element, point[0], point[1]);
       if(drop.onHover)
         drop.onHover(element, drop.element, Position.overlap(drop.overlap, drop.element));
 
@@ -311,6 +311,12 @@ var Draggable = Class.create({
 
       var pointer = [Event.pointerX(event), Event.pointerY(event)];
       var pos     = this.element.cumulativeOffset();
+      
+      if(this.options.scroll) {
+        pointer[0] += this.options.scroll.scrollLeft;
+        pointer[1] += this.options.scroll.scrollTop;
+      }
+         
       this.offset = [0,1].map( function(i) { return (pointer[i] - pos[i]) });
 
       Draggables.activate(this);
@@ -361,12 +367,12 @@ var Draggable = Class.create({
     }
 
     Draggables.notify('onDrag', this, event);
-
-    this.draw(pointer);
-    if(this.options.change) this.options.change(this);
-
+    
     if(this.options.scroll) {
       this.stopScrolling();
+      
+      pointer = new Array(pointer[0] + this.options.scroll.scrollLeft, 
+          pointer[1] + this.options.scroll.scrollTop);
 
       var p;
       if (this.options.scroll == window) {
@@ -385,6 +391,9 @@ var Draggable = Class.create({
       if(pointer[1] > (p[3]-this.options.scrollSensitivity)) speed[1] = pointer[1]-(p[3]-this.options.scrollSensitivity);
       this.startScrolling(speed);
     }
+    
+    this.draw(pointer);
+    if(this.options.change) this.options.change(this);
 
     // fix AppleWebKit rendering
     if(Prototype.Browser.WebKit) window.scrollBy(0,0);

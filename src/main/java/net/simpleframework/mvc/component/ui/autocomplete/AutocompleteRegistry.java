@@ -1,6 +1,7 @@
 package net.simpleframework.mvc.component.ui.autocomplete;
 
 import net.simpleframework.mvc.IForward;
+import net.simpleframework.mvc.JsonForward;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.component.AbstractComponentRegistry;
 import net.simpleframework.mvc.component.ComponentBean;
@@ -30,16 +31,27 @@ public class AutocompleteRegistry extends AbstractComponentRegistry {
 		final AutocompleteBean autocomplete = (AutocompleteBean) super.createComponentBean(pp,
 				attriData);
 		final ComponentParameter nCP = ComponentParameter.get(pp, autocomplete);
-		pp.addComponentBean("ajax_" + nCP.getComponentName(), AjaxRequestBean.class).setHandleClass(
-				AutocompleteAjaxRequestHandler.class);
+		pp.addComponentBean("ajax_" + nCP.getComponentName(), AjaxRequestBean.class)
+				.setHandleClass(AutocompleteAjaxRequestHandler.class)
+				.setAttr("_ajaxComponent", autocomplete);
 		return autocomplete;
 	}
 
 	public static class AutocompleteAjaxRequestHandler extends DefaultAjaxRequestHandler {
 		@Override
 		public IForward ajaxProcess(final ComponentParameter cp) {
-			System.out.println(cp);
-			return null;
+			final AutocompleteBean autocomplete = (AutocompleteBean) cp.componentBean
+					.getAttr("_ajaxComponent");
+			final ComponentParameter nCP = ComponentParameter.get(cp, autocomplete);
+			final JsonForward json = new JsonForward();
+			final IAutocompleteHandler aHandler = ((IAutocompleteHandler) nCP.getComponentHandler());
+			if (aHandler != null) {
+				final String[] data = aHandler.getData(nCP, cp.getParameter("val"));
+				if (data != null) {
+					json.put("data", data);
+				}
+			}
+			return json;
 		}
 	}
 }

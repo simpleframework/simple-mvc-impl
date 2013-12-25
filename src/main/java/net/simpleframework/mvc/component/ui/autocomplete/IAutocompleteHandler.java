@@ -1,5 +1,6 @@
 package net.simpleframework.mvc.component.ui.autocomplete;
 
+import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.IComponentHandler;
 
 /**
@@ -9,4 +10,12 @@ import net.simpleframework.mvc.component.IComponentHandler;
  *         http://www.simpleframework.net
  */
 public interface IAutocompleteHandler extends IComponentHandler {
+
+	/**
+	 * 
+	 * @param cp
+	 * @param val
+	 * @return
+	 */
+	String[] getData(ComponentParameter cp, String val);
 }

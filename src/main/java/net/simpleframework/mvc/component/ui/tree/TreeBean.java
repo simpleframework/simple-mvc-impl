@@ -52,6 +52,9 @@ public class TreeBean extends AbstractContainerBean {
 	/* 定义拖动的角色 */
 	private String roleDrop;
 
+	/* 定义拖动时Scroll的元素 */
+	private String dragScroll;
+
 	public boolean isDynamicLoading() {
 		return dynamicLoading;
 	}
@@ -193,6 +196,15 @@ public class TreeBean extends AbstractContainerBean {
 
 	public TreeBean setRoleDrop(final String roleDrop) {
 		this.roleDrop = roleDrop;
+		return this;
+	}
+
+	public String getDragScroll() {
+		return dragScroll;
+	}
+
+	public TreeBean setDragScroll(final String dragScroll) {
+		this.dragScroll = dragScroll;
 		return this;
 	}
 
