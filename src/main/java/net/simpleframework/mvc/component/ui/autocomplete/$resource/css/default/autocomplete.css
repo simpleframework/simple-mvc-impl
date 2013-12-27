@@ -17,7 +17,6 @@
   padding: 3px 6px;
 }
 
-.Autocomplete ul .selected,
-.Autocomplete ul li:hover {
+.Autocomplete ul .selected {
   background-color: #eee;
 }
