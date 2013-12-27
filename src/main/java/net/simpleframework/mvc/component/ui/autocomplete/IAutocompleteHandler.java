@@ -17,5 +17,5 @@ public interface IAutocompleteHandler extends IComponentHandler {
 	 * @param val
 	 * @return
 	 */
-	String[] getData(ComponentParameter cp, String val);
+	Object[] getData(ComponentParameter cp, String val);
 }

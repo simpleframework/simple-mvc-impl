@@ -46,7 +46,7 @@ public class AutocompleteRegistry extends AbstractComponentRegistry {
 			final ComponentParameter nCP = ComponentParameter.get(cp, autocomplete);
 			final JsonForward json = new JsonForward();
 			final IAutocompleteHandler aHandler = ((IAutocompleteHandler) nCP.getComponentHandler());
-			String[] data = null;
+			Object[] data = null;
 			if (aHandler != null && (data = aHandler.getData(nCP, cp.getParameter("val"))) != null) {
 				final int maxResults = Convert.toInt(nCP.getBeanProperty("maxResults"));
 				if (maxResults > 0 && maxResults < data.length) {
