@@ -63,29 +63,29 @@ $UI.Autocomplete = Class
           }
         }
 
-        var callback = (function(req, responseText, json) {
-          if (!json.data)
-            return;
+        var act = $Actions[opts.ajax];
+        if (!act.jsCompleteCallback) {
+          act.jsCompleteCallback = (function(req, responseText, json) {
+            if (!json.data)
+              return;
+            var d = "<ul>";
+            json.data.each(function(li) {
+              d += "<li>" + li + "</li>";
+            });
+            d += "</ul>";
+            r.innerHTML = d;
 
-          var d = "<ul>";
-          json.data.each(function(li) {
-            d += "<li>" + li + "</li>";
-          });
-          d += "</ul>";
-          r.innerHTML = d;
-
-          if (!r.visible()) {
-            var p = $UI.getPopupOffsets(r, input);
-            r.style.left = p[0] + "px";
-            r.style.top = p[1] + "px";
-            r.show();
-          }
-          this._markSelected(false);
-        }).bind(this);
-
+            if (!r.visible()) {
+              var p = $UI.getPopupOffsets(r, input);
+              r.style.left = p[0] + "px";
+              r.style.top = p[1] + "px";
+              r.show();
+            }
+            this._markSelected(false);
+          }).bind(this);
+        }
+        
         (function() {
-          var act = $Actions[opts.ajax];
-          act.jsCompleteCallback = callback;
           act('val=' + txt);
         }).delay(0.1);
       },
@@ -117,7 +117,8 @@ $UI.Autocomplete = Class
             } else {
               var p = txt.lastIndexOf(sep);
               if (p > 0) {
-                input.value = txt.substring(0, p + 1) + this.currentItem.innerHTML;
+                input.value = txt.substring(0, p + sep.length) 
+                            + this.currentItem.innerHTML;
               } else {
                 input.value = this.currentItem.innerHTML;
               }

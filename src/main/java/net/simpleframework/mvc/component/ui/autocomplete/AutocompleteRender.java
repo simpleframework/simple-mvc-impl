@@ -19,6 +19,7 @@ public class AutocompleteRender extends ComponentJavascriptRender {
 		sb.append(actionFunc).append(".autocomplete = new $UI.Autocomplete('")
 				.append(cp.getBeanProperty("inputField")).append("', {");
 		sb.append("ajax: 'ajax_").append(cp.getComponentName()).append("',");
+		sb.append("sepChar: '").append(cp.getBeanProperty("sepChar")).append("',");
 		sb.append("width: ").append(cp.getBeanProperty("width")).append(",");
 		sb.append("height: ").append(cp.getBeanProperty("height"));
 		sb.append("});");

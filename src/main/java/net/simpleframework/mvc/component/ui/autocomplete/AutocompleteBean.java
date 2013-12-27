@@ -18,7 +18,10 @@ public class AutocompleteBean extends AbstractComponentBean {
 	private int height = BeanDefaults.getInt(getClass(), "height", 200);
 
 	/* 返回最大数量 */
-	private int maxResults = BeanDefaults.getInt(getClass(), "height", 100);
+	private int maxResults = BeanDefaults.getInt(getClass(), "maxResults", 50);
+
+	/* 条目分割符 */
+	private String sepChar = BeanDefaults.getString(getClass(), "sepChar", " ");
 
 	public String getInputField() {
 		return inputField;
@@ -53,6 +56,15 @@ public class AutocompleteBean extends AbstractComponentBean {
 
 	public AutocompleteBean setMaxResults(final int maxResults) {
 		this.maxResults = maxResults;
+		return this;
+	}
+
+	public String getSepChar() {
+		return sepChar;
+	}
+
+	public AutocompleteBean setSepChar(final String sepChar) {
+		this.sepChar = sepChar;
 		return this;
 	}
 }
