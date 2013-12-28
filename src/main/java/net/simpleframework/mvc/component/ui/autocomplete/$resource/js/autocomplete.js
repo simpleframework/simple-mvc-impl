@@ -66,11 +66,18 @@ $UI.Autocomplete = Class
         var act = $Actions[opts.ajax];
         if (!act.jsCompleteCallback) {
           act.jsCompleteCallback = (function(req, responseText, json) {
-            if (!json.data)
+            if (!json.list || json.list.length == 0) {
+              if (r.visible())
+                r.hide();
               return;
+            }
+            var v = json.val;
             var d = "<ul>";
-            json.data.each(function(li) {
-              d += "<li>" + li + "</li>";
+            json.list.each(function(li) {
+              d += "<li _data=\"" + li.replace("\"", "&quot;") + "\">";
+              if (v) 
+                li = li.replace(v, "<span class='match'>" + v + "</span>");
+              d += li + "</li>";
             });
             d += "</ul>";
             r.innerHTML = d;
@@ -107,19 +114,19 @@ $UI.Autocomplete = Class
         if (this.currentItem && (r = this.results)) {
           var input = this.inputField;
           var sep = this.options.sepChar;
+          var val = this.currentItem.getAttribute("_data");
           if (!sep || sep == '') {
-            input.value = this.currentItem.innerHTML;
+            input.value = val;
           } else {
             var txt = $F(input);
             if (txt.endsWith(sep)) {
-              input.value = txt + this.currentItem.innerHTML;
+              input.value = txt + val;
             } else {
               var p = txt.lastIndexOf(sep);
               if (p > 0) {
-                input.value = txt.substring(0, p + sep.length) 
-                            + this.currentItem.innerHTML;
+                input.value = txt.substring(0, p + sep.length) + val;
               } else {
-                input.value = this.currentItem.innerHTML;
+                input.value = val;
               }
             }
           }     

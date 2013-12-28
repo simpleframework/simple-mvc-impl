@@ -1,6 +1,7 @@
 package net.simpleframework.mvc.component.ui.autocomplete;
 
 import net.simpleframework.common.Convert;
+import net.simpleframework.common.StringUtils;
 import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.JsonForward;
 import net.simpleframework.mvc.PageParameter;
@@ -46,15 +47,20 @@ public class AutocompleteRegistry extends AbstractComponentRegistry {
 			final ComponentParameter nCP = ComponentParameter.get(cp, autocomplete);
 			final JsonForward json = new JsonForward();
 			final IAutocompleteHandler aHandler = ((IAutocompleteHandler) nCP.getComponentHandler());
-			Object[] data = null;
+			AutocompleteData data = null;
 			if (aHandler != null && (data = aHandler.getData(nCP, cp.getParameter("val"))) != null) {
 				final int maxResults = Convert.toInt(nCP.getBeanProperty("maxResults"));
-				if (maxResults > 0 && maxResults < data.length) {
+				final Object[] list = data.getList();
+				if (maxResults > 0 && maxResults < list.length) {
 					final String[] dest = new String[maxResults];
-					System.arraycopy(data, 0, dest, 0, maxResults);
-					json.put("data", dest);
+					System.arraycopy(list, 0, dest, 0, maxResults);
+					json.put("list", dest);
 				} else {
-					json.put("data", data);
+					json.put("list", list);
+				}
+				final String val = data.getVal();
+				if (StringUtils.hasText(val)) {
+					json.put("val", val);
 				}
 			}
 			return json;

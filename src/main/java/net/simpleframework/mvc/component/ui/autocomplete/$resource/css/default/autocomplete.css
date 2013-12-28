@@ -20,3 +20,8 @@
 .Autocomplete ul .selected {
   background-color: #eee;
 }
+
+.Autocomplete ul li .match {
+  color: #a00;
+  font-weight: bold;
+}

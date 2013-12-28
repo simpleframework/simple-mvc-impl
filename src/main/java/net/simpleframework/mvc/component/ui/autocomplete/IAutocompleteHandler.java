@@ -12,10 +12,9 @@ import net.simpleframework.mvc.component.IComponentHandler;
 public interface IAutocompleteHandler extends IComponentHandler {
 
 	/**
-	 * 
 	 * @param cp
 	 * @param val
 	 * @return
 	 */
-	Object[] getData(ComponentParameter cp, String val);
+	AutocompleteData getData(ComponentParameter cp, String val);
 }
