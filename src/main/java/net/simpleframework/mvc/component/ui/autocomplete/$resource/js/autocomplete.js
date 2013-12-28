@@ -99,8 +99,7 @@ $UI.Autocomplete = Class
           this._markSelected(false);
           Event.stop(ev);
         } else if (code == Event.KEY_RETURN) {
-          this._select();
-          Event.stop(ev);
+          this._select(ev);
         }
       },
 
@@ -130,6 +129,7 @@ $UI.Autocomplete = Class
               input.focus();
             }).delay(0.1);
         }
+        Event.stop(ev);
       },
 
       _setSelected : function(item) {
