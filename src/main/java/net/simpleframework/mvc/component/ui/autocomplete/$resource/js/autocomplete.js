@@ -66,17 +66,19 @@ $UI.Autocomplete = Class
         var act = $Actions[opts.ajax];
         if (!act.jsCompleteCallback) {
           act.jsCompleteCallback = (function(req, responseText, json) {
-            if (!json.list || json.list.length == 0) {
+            var data = json.data;
+            if (!data || data.length == 0) {
               if (r.visible())
                 r.hide();
               return;
             }
             var v = json.val;
             var d = "<ul>";
-            json.list.each(function(li) {
+            data.each(function(li) {
               d += "<li _data=\"" + li.replace("\"", "&quot;") + "\">";
-              if (v) 
+              if (v) {
                 li = li.replace(v, "<span class='match'>" + v + "</span>");
+              }
               d += li + "</li>";
             });
             d += "</ul>";

@@ -45,25 +45,37 @@ public class AutocompleteRegistry extends AbstractComponentRegistry {
 			final AutocompleteBean autocomplete = (AutocompleteBean) cp.componentBean
 					.getAttr("_ajaxComponent");
 			final ComponentParameter nCP = ComponentParameter.get(cp, autocomplete);
-			final JsonForward json = new JsonForward();
-			final IAutocompleteHandler aHandler = ((IAutocompleteHandler) nCP.getComponentHandler());
-			AutocompleteData data = null;
-			if (aHandler != null && (data = aHandler.getData(nCP, cp.getParameter("val"))) != null) {
-				final int maxResults = Convert.toInt(nCP.getBeanProperty("maxResults"));
-				final Object[] list = data.getList();
-				if (maxResults > 0 && maxResults < list.length) {
-					final String[] dest = new String[maxResults];
-					System.arraycopy(list, 0, dest, 0, maxResults);
-					json.put("list", dest);
-				} else {
-					json.put("list", list);
-				}
-				final String val = data.getVal();
-				if (StringUtils.hasText(val)) {
-					json.put("val", val);
+
+			final String val = nCP.getParameter("val");
+			String val2 = val;
+			final String sepChar = (String) nCP.getBeanProperty("sepChar");
+			if (StringUtils.hasText(sepChar)) {
+				int p;
+				if ((p = val.lastIndexOf(sepChar)) > -1) {
+					val2 = val.substring(p + sepChar.length());
 				}
 			}
-			return json;
+			val2 = val2.trim();
+
+			final JsonForward json = new JsonForward();
+			if (val2.length() == 0) {
+				return json;
+			}
+
+			Object[] data = null;
+			final IAutocompleteHandler aHandler = ((IAutocompleteHandler) nCP.getComponentHandler());
+			if (aHandler != null && (data = aHandler.getData(nCP, val, val2)) != null) {
+				final int maxResults = Convert.toInt(nCP.getBeanProperty("maxResults"));
+				if (maxResults > 0 && maxResults < data.length) {
+					final String[] dest = new String[maxResults];
+					System.arraycopy(data, 0, dest, 0, maxResults);
+					json.put("data", dest);
+				} else {
+					json.put("data", data);
+				}
+			}
+
+			return json.put("val", val2);
 		}
 	}
 }
