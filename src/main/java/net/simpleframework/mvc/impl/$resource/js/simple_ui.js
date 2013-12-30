@@ -98,7 +98,7 @@
 				className : "sy_error_dialog"
 			}).insert(new Element("div", {
 				className : "et wrap_text"
-			}).update(err.title.convertHtmlLines()));
+			}).update((err.title || "").convertHtmlLines()));
 
 			var right = new Element("div", {
 				style : "float: right;"
