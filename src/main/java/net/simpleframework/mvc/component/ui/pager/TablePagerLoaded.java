@@ -39,14 +39,24 @@ public class TablePagerLoaded extends PagerLoaded {
 		final ITablePagerHandler tptbl = (ITablePagerHandler) nCP.getComponentHandler();
 		final String hashId = nCP.hashId();
 
-		// 列头的 tip
-		final TooltipBean tooltip = nCP.addComponentBean("tpTooltip_" + hashId, TooltipBean.class);
-		tooltip.getTips().add(
-				new TipBean(tooltip).setStem(ETipPosition.bottomMiddle).setDelay(0.5).setHideAfter(0.5)
-						.setOffsetY(5)
-						.setHook(new Hook(ETipPosition.topMiddle, ETipPosition.bottomMiddle))
-						.setHideOn(new HideOn(ETipElement.target, EElementEvent.mouseleave))
-						.setWidth(240));
+		boolean bTooltip = false;
+		for (final TablePagerColumn col : TablePagerUtils.getTablePagerData(nCP)
+				.getTablePagerColumns(nCP)) {
+			if (StringUtils.hasText(col.getTooltip())) {
+				bTooltip = true;
+				break;
+			}
+		}
+		if (bTooltip) {
+			// 列头的 tip
+			final TooltipBean tooltip = nCP.addComponentBean("tpTooltip_" + hashId, TooltipBean.class);
+			tooltip.getTips().add(
+					new TipBean(tooltip).setStem(ETipPosition.bottomMiddle).setDelay(0.5)
+							.setHideAfter(0.5).setOffsetY(5)
+							.setHook(new Hook(ETipPosition.topMiddle, ETipPosition.bottomMiddle))
+							.setHideOn(new HideOn(ETipElement.target, EElementEvent.mouseleave))
+							.setWidth(240));
+		}
 
 		// 添加菜单组件
 		MenuBean menuBean = (MenuBean) nCP.addComponentBean("ml_" + hashId + "_Menu", MenuBean.class)
