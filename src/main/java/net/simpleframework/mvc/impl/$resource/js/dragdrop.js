@@ -312,7 +312,8 @@ var Draggable = Class.create({
       var pointer = [Event.pointerX(event), Event.pointerY(event)];
       var pos     = this.element.cumulativeOffset();
       
-      if(this.options.scroll) {
+      // cknet 2014-1-2
+      if(this.options.scroll && this.options.scroll != window) {
         pointer[0] += this.options.scroll.scrollLeft;
         pointer[1] += this.options.scroll.scrollTop;
       }
@@ -371,13 +372,14 @@ var Draggable = Class.create({
     if(this.options.scroll) {
       this.stopScrolling();
       
-      pointer = new Array(pointer[0] + this.options.scroll.scrollLeft, 
-          pointer[1] + this.options.scroll.scrollTop);
-
       var p;
       if (this.options.scroll == window) {
         with(this._getWindowScroll(this.options.scroll)) { p = [ left, top, left+width, top+height ]; }
       } else {
+        // cknet 2014-1-2
+        pointer = new Array(pointer[0] + this.options.scroll.scrollLeft, 
+            pointer[1] + this.options.scroll.scrollTop);
+        
         p = Position.page(this.options.scroll).toArray();
         p[0] += this.options.scroll.scrollLeft + Position.deltaX;
         p[1] += this.options.scroll.scrollTop + Position.deltaY;
