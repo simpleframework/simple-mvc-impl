@@ -9,9 +9,9 @@ import net.simpleframework.common.ClassUtils;
 import net.simpleframework.common.I18n;
 import net.simpleframework.common.ID;
 import net.simpleframework.common.coll.KVMap;
+import net.simpleframework.ctx.common.xml.XmlAttri;
 import net.simpleframework.ctx.common.xml.XmlDocument;
 import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.ctx.common.xml.XmlElement.Attri;
 import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.component.ComponentParameter;
 
@@ -64,7 +64,7 @@ public abstract class AbstractTablePagerSchema {
 						_columns.add(tablePagerColumn = new TablePagerColumn());
 						final Iterator<?> attributes = ele.attributeIterator();
 						while (attributes.hasNext()) {
-							final Attri attri = (Attri) attributes.next();
+							final XmlAttri attri = (XmlAttri) attributes.next();
 							BeanUtils.setProperty(tablePagerColumn, attri.getName(),
 									I18n.replaceI18n(attri.getValue()));
 						}

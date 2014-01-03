@@ -6,9 +6,9 @@ import java.util.Iterator;
 import net.simpleframework.common.BeanUtils;
 import net.simpleframework.common.ClassUtils;
 import net.simpleframework.common.I18n;
+import net.simpleframework.ctx.common.xml.XmlAttri;
 import net.simpleframework.ctx.common.xml.XmlDocument;
 import net.simpleframework.ctx.common.xml.XmlElement;
-import net.simpleframework.ctx.common.xml.XmlElement.Attri;
 import net.simpleframework.mvc.component.ui.menu.MenuBean;
 import net.simpleframework.mvc.component.ui.menu.MenuItem;
 import net.simpleframework.mvc.component.ui.menu.MenuItems;
@@ -45,7 +45,7 @@ public class ComponentHandlerEx extends AbstractComponentHandler {
 		final MenuItem item = new MenuItem();
 		Iterator<?> it = xmlElement.attributeIterator();
 		while (it.hasNext()) {
-			final Attri attri = (Attri) it.next();
+			final XmlAttri attri = (XmlAttri) it.next();
 			BeanUtils.setProperty(item, attri.getName(), I18n.replaceI18n(attri.getValue()));
 			item.setOnclick(xmlElement.elementText("onclick"));
 		}
