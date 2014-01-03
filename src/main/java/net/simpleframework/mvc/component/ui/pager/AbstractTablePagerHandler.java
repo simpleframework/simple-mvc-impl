@@ -338,7 +338,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 	 * 
 	 * @return
 	 */
-	protected boolean addFirstAndLastData() {
+	protected boolean addFirstAndLastData(final ComponentParameter cp) {
 		return false;
 	}
 
@@ -346,7 +346,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 	public void process(final ComponentParameter cp, final int start) {
 		super.process(cp, start);
 		IDataQuery<?> dataQuery;
-		if (addFirstAndLastData()
+		if (addFirstAndLastData(cp)
 				&& (dataQuery = (IDataQuery<?>) cp.getRequestAttr(DATA_QUERY)) != null) {
 			dataQuery.move(-1);
 			cp.setRequestAttr(FIRST_ITEM, dataQuery.next());

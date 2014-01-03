@@ -244,7 +244,8 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 				.addElements(new Option("15").setSelected(pageItems == 15),
 						new Option("30").setSelected(pageItems == 30),
 						new Option("50").setSelected(pageItems == 50),
-						new Option("100").setSelected(pageItems == 100))
+						new Option("100").setSelected(pageItems == 100),
+						new Option("500").setSelected(pageItems == 500))
 				.setStyle("vertical-align: middle;").setOnchange(onchange);
 		return input;
 	}
