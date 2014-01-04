@@ -17,7 +17,7 @@ public class DefaultAjaxRequestHandler extends AbstractComponentHandler implemen
 	public static final String JK_ERROR = "error";
 
 	@Override
-	public IForward ajaxProcess(final ComponentParameter cp) {
+	public IForward ajaxProcess(final ComponentParameter cp) throws Exception {
 		return null;
 	}
 

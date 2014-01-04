@@ -18,5 +18,5 @@ public interface IAjaxRequestHandler extends IComponentHandler {
 	 * @param compParameter
 	 * @return
 	 */
-	IForward ajaxProcess(ComponentParameter cp);
+	IForward ajaxProcess(ComponentParameter cp) throws Exception;
 }
