@@ -98,6 +98,11 @@ public abstract class AbstractButtonEx<T extends AbstractLinkElement<T>> extends
 		return (T) this;
 	}
 
+	public T corner() {
+		setLeftCorner(true);
+		return setRightCorner(true);
+	}
+
 	@Override
 	public String getText() {
 		final StringBuilder sb = new StringBuilder();

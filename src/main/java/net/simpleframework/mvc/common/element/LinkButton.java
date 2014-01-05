@@ -35,12 +35,16 @@ public class LinkButton extends AbstractButtonEx<LinkButton> {
 				Icon.off);
 	}
 
+	public static final LinkButton logBtn() {
+		return new LinkButton($m("Button.Log"));
+	}
+
 	public static LinkButton of(final Object text) {
 		return new LinkButton(text);
 	}
 
 	public static LinkButton corner(final Object text) {
-		return of(text).setLeftCorner(true).setRightCorner(true);
+		return of(text).corner();
 	}
 
 	public LinkButton() {
