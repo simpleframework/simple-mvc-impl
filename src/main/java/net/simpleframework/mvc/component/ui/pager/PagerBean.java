@@ -52,7 +52,10 @@ public class PagerBean extends AbstractContainerBean {
 	private boolean loadingModal = BeanDefaults.getBool(getClass(), "loadingModal", false);
 
 	/* 定义当前分页号、当前页数据大小的参数名称，一般不需要关心这两个属性 */
-	private String pageNumberParameterName, pageItemsParameterName;
+	private String pageNumberParameterName = BeanDefaults.getString(getClass(),
+			"pageNumberParameterName", "pageNumber");
+	private String pageItemsParameterName = BeanDefaults.getString(getClass(),
+			"pageItemsParameterName", "pageItems");
 
 	/* 定义分页组件的角色 */
 	private String role;
@@ -168,12 +171,8 @@ public class PagerBean extends AbstractContainerBean {
 		return this;
 	}
 
-	static final String PAGE_NUMBER = "pageNumber";
-
-	static final String PAGE_ITEMs = "pageItems";
-
 	public String getPageNumberParameterName() {
-		return StringUtils.text(pageNumberParameterName, PAGE_NUMBER);
+		return pageNumberParameterName;
 	}
 
 	public PagerBean setPageNumberParameterName(final String pageNumberParameterName) {
@@ -182,7 +181,7 @@ public class PagerBean extends AbstractContainerBean {
 	}
 
 	public String getPageItemsParameterName() {
-		return StringUtils.text(pageItemsParameterName, PAGE_ITEMs);
+		return pageItemsParameterName;
 	}
 
 	public PagerBean setPageItemsParameterName(final String pageItemsParameterName) {
