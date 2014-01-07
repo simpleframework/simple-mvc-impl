@@ -1044,7 +1044,7 @@ ul.simple_tabs .tmenu:hover {
 	color: #222;
 	font-size: 14pt;
 	font-weight: bold;
-	padding: 8px 6px;
+	padding: 10px 8px;
 	background: #f7f7f7;
 }
 
@@ -1059,6 +1059,6 @@ ul.simple_tabs .tmenu:hover {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	padding: 6px;
+	padding: 0 8px 8px 0;
 	text-align: right;
 }
