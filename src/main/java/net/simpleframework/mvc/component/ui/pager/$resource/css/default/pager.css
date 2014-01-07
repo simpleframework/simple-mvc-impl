@@ -137,8 +137,8 @@
 
 .down_menu_image {
 	background: url(images/down_menu.png) no-repeat center center;
-	width: 12px;
-	height: 7px;
+	width: 10px;
+	height: 6px;
 	cursor: pointer;
 }
 
