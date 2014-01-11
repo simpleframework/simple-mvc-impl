@@ -144,6 +144,14 @@
 
 .down_menu_image:hover {
 	background: url(images/down_menu_hover.png) no-repeat center center;
+	-webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -moz-transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+	-ms-transition: all 0.4s;
+	transition: all 0.4s;
 }
 
 .pager .pager_head a,
