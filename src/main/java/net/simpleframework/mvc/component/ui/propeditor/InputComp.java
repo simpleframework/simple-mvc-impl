@@ -14,6 +14,18 @@ import net.simpleframework.mvc.common.element.EElementEvent;
  */
 public class InputComp extends AbstractElementBean {
 
+	public static InputComp select(final String name) {
+		return new InputComp(name).setType(EInputCompType.select);
+	}
+
+	public static InputComp select(final String name, final Class<? extends Enum<?>> eClass) {
+		return select(name).setDefaultValue(eClass.getEnumConstants());
+	}
+
+	public static InputComp checkbox(final String name) {
+		return new InputComp(name).setType(EInputCompType.checkbox).setDefaultValue("true");
+	}
+
 	private String name;
 
 	private EInputCompType type;
