@@ -2114,6 +2114,7 @@ TafelTreeBaseBranch.prototype = {
       fixed : true,
       hideOthers : true,
       hideAfter : 0.1,
+      delay : 0.8,
       hideOn : {
         element : "tip",
         event : "mouseenter"
