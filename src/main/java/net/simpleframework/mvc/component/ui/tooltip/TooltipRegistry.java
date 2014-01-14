@@ -61,7 +61,8 @@ public class TooltipRegistry extends AbstractComponentRegistry {
 
 			final XmlElement hookElement = ele.element("hook");
 			if (hookElement != null) {
-				final TipBean.Hook hook = new TipBean.Hook(hookElement);
+				final TipBean.Hook hook = new TipBean.Hook();
+				hook.setBeanElement(hookElement);
 				hook.parseElement(scriptEval);
 				tip.setHook(hook);
 			}

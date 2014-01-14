@@ -36,7 +36,7 @@ public class ValidationRegistry extends AbstractComponentRegistry {
 		final Iterator<?> it = xmlElement.elementIterator("validator");
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
-			final Validator validator = new Validator(ele);
+			final Validator validator = (Validator) new Validator().setBeanElement(ele);
 			validator.parseElement(scriptEval);
 			final String message = ele.elementText("message");
 			if (StringUtils.hasText(message)) {

@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.ui.tabs;
 
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
-import net.simpleframework.ctx.common.xml.XmlElement;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -24,16 +23,10 @@ public class TabItem extends AbstractElementBean {
 
 	private String jsContentLoadedCallback;
 
-	public TabItem(final XmlElement xmlElement) {
-		super(xmlElement);
-	}
-
 	public TabItem() {
-		super(null);
 	}
 
 	public TabItem(final String title) {
-		super(null);
 		setTitle(title);
 	}
 

@@ -2,7 +2,6 @@ package net.simpleframework.mvc.component.base.validation;
 
 import net.simpleframework.common.Convert;
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
-import net.simpleframework.ctx.common.xml.XmlElement;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -22,16 +21,10 @@ public class Validator extends AbstractElementBean {
 
 	private String args;
 
-	public Validator(final XmlElement xmlElement) {
-		super(xmlElement);
-	}
-
 	public Validator() {
-		super(null);
 	}
 
 	public Validator(final EValidatorMethod method, final String selector, final Object args) {
-		super(null);
 		setMethod(method);
 		setSelector(selector);
 		setArgs(Convert.toString(args));

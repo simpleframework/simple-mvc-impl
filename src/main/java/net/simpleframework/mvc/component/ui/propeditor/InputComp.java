@@ -4,7 +4,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
-import net.simpleframework.ctx.common.xml.XmlElement;
 import net.simpleframework.mvc.common.element.EElementEvent;
 
 /**
@@ -30,16 +29,10 @@ public class InputComp extends AbstractElementBean {
 
 	private Map<EElementEvent, String> eventCallback;
 
-	public InputComp(final XmlElement xmlElement) {
-		super(xmlElement);
-	}
-
 	public InputComp() {
-		super(null);
 	}
 
 	public InputComp(final String name) {
-		super(null);
 		setName(name);
 	}
 

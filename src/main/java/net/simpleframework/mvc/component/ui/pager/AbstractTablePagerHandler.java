@@ -434,7 +434,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			final TablePagerColumn oCol) {
 		final Validators al = Validators.of();
 		if (Number.class.isAssignableFrom(oCol.propertyClass())) {
-			final Validator validator = new Validator(null);
+			final Validator validator = new Validator();
 			validator.setMethod(EValidatorMethod.number);
 			validator.setSelector("#tp_filter_v1, #tp_filter_v2");
 			al.add(validator);

@@ -42,7 +42,7 @@ public class MenuRegistry extends AbstractComponentRegistry {
 
 	void initMenuItem(final PageParameter pp, final MenuBean menuBean, final MenuItem parent,
 			final MenuItems children, final XmlElement xmlElement) {
-		final MenuItem menuItem = new MenuItem(xmlElement, parent);
+		final MenuItem menuItem = (MenuItem) new MenuItem(parent).setBeanElement(xmlElement);
 		menuItem.parseElement(pp.getScriptEval());
 		final String ref = menuItem.getRef();
 		if (StringUtils.hasText(ref)) {

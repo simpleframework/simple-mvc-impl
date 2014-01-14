@@ -276,16 +276,10 @@ public class TipBean extends AbstractElementBean {
 
 	public static class Hook extends AbstractElementBean {
 
-		public Hook(final XmlElement xmlElement) {
-			super(xmlElement);
-		}
-
 		public Hook() {
-			this(null);
 		}
 
 		public Hook(final ETipPosition target, final ETipPosition tip) {
-			this(null);
 			setTarget(target);
 			setTip(tip);
 		}

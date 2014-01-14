@@ -1,6 +1,5 @@
 package net.simpleframework.mvc.component.ui.listbox;
 
-import net.simpleframework.ctx.common.xml.XmlElement;
 import net.simpleframework.mvc.common.ItemUIBean;
 
 /**
@@ -13,13 +12,9 @@ public class ListItem extends ItemUIBean<ListItem> {
 
 	private final ListboxBean listboxBean;
 
-	public ListItem(final XmlElement xmlElement, final ListboxBean listboxBean, final Object data) {
-		super(xmlElement, data);
-		this.listboxBean = listboxBean;
-	}
-
 	public ListItem(final ListboxBean listboxBean, final Object data) {
-		this(null, listboxBean, data);
+		super(data);
+		this.listboxBean = listboxBean;
 	}
 
 	public ListboxBean getListboxBean() {

@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.ui.propeditor;
 
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
-import net.simpleframework.ctx.common.xml.XmlElement;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -19,16 +18,10 @@ public class PropField extends AbstractElementBean {
 
 	private InputComps inputComps;
 
-	public PropField(final XmlElement xmlElement) {
-		super(xmlElement);
-	}
-
 	public PropField() {
-		super(null);
 	}
 
 	public PropField(final String label) {
-		super(null);
 		setLabel(label);
 	}
 

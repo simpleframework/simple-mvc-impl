@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.ui.imageslide;
 
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
-import net.simpleframework.ctx.common.xml.XmlElement;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -17,12 +16,7 @@ public class ImageItem extends AbstractElementBean {
 
 	private String link;
 
-	public ImageItem(final XmlElement xmlElement) {
-		super(xmlElement);
-	}
-
 	public ImageItem(final String imageUrl, final String link, final String title) {
-		super(null);
 		this.imageUrl = imageUrl;
 		this.link = link;
 		this.title = title;

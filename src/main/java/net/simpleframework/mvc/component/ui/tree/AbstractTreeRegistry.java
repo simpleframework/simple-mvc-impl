@@ -34,13 +34,12 @@ public abstract class AbstractTreeRegistry extends AbstractComponentRegistry {
 		}
 	}
 
-	protected abstract TreeNode createTreeNode(XmlElement xmlElement, TreeBean treeBean,
-			TreeNode parent);
+	protected abstract TreeNode createTreeNode(TreeBean treeBean, TreeNode parent);
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void setTreeNode(final PageParameter pp, final TreeBean treeBean, final TreeNode parent,
 			final Collection children, final XmlElement xmlElement) {
-		final TreeNode node = createTreeNode(xmlElement, treeBean, parent);
+		final TreeNode node = (TreeNode) createTreeNode(treeBean, parent).setBeanElement(xmlElement);
 		if (node == null) {
 			return;
 		}

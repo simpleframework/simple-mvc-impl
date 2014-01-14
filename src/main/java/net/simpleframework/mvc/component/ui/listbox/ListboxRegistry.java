@@ -36,7 +36,7 @@ public class ListboxRegistry extends AbstractComponentRegistry {
 		final Iterator<?> it = xmlElement.elementIterator("item");
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
-			final ListItem item = new ListItem(ele, listboxBean, null);
+			final ListItem item = (ListItem) new ListItem(listboxBean, null).setBeanElement(ele);
 			item.parseElement(scriptEval);
 			listboxBean.getListItems().add(item);
 		}

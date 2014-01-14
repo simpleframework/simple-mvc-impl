@@ -3,7 +3,6 @@ package net.simpleframework.mvc.component.ui.tree;
 import java.util.LinkedList;
 
 import net.simpleframework.common.StringUtils;
-import net.simpleframework.ctx.common.xml.XmlElement;
 import net.simpleframework.mvc.common.ItemUIBean;
 
 /**
@@ -39,23 +38,18 @@ public class TreeNode extends ItemUIBean<TreeNode> {
 	// event
 	private String jsCheckCallback;
 
-	public TreeNode(final XmlElement xmlElement, final TreeBean treeBean, final TreeNode parent,
-			final Object data) {
-		super(xmlElement, data);
+	public TreeNode(final TreeBean treeBean, final TreeNode parent, final Object data) {
+		super(data);
 		this.parent = parent;
 		this.treeBean = treeBean;
 	}
 
-	public TreeNode(final XmlElement xmlElement, final TreeBean treeBean, final TreeNode parent) {
-		this(xmlElement, treeBean, parent, null);
-	}
-
-	public TreeNode(final TreeBean treeBean, final TreeNode parent, final Object data) {
-		this(null, treeBean, parent, data);
+	public TreeNode(final TreeBean treeBean, final TreeNode parent) {
+		this(treeBean, parent, null);
 	}
 
 	public TreeNode(final TreeBean treeBean, final Object data) {
-		this(null, treeBean, null, data);
+		this(treeBean, null, data);
 	}
 
 	public boolean isDynamicLoading() {

@@ -5,7 +5,6 @@ import net.simpleframework.common.I18n;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
-import net.simpleframework.ctx.common.xml.XmlElement;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -35,17 +34,12 @@ public class MenuItem extends AbstractElementBean {
 
 	private String description;
 
-	public MenuItem(final XmlElement xmlElement, final MenuItem parent) {
-		super(xmlElement);
+	public MenuItem(final MenuItem parent) {
 		this.parent = parent;
 	}
 
 	public MenuItem() {
 		this(null);
-	}
-
-	public MenuItem(final MenuItem parent) {
-		this(null, parent);
 	}
 
 	public MenuItems children() {

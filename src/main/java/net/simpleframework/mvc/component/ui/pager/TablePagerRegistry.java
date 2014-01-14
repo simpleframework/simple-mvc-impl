@@ -61,7 +61,8 @@ public class TablePagerRegistry extends PagerRegistry {
 			final Iterator<?> it = elements.elementIterator("column");
 			final TablePagerColumns columns = tablePager.getColumns();
 			while (it.hasNext()) {
-				final TablePagerColumn column = new TablePagerColumn((XmlElement) it.next());
+				final TablePagerColumn column = (TablePagerColumn) new TablePagerColumn()
+						.setBeanElement((XmlElement) it.next());
 				column.parseElement(scriptEval);
 				columns.add(column);
 			}

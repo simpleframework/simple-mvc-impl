@@ -42,7 +42,7 @@ public class TabsRegistry extends AbstractComponentRegistry {
 		final Collection<TabItem> coll = tabsBean.getTabItems();
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
-			final TabItem tab = new TabItem(ele);
+			final TabItem tab = (TabItem) new TabItem().setBeanElement(ele);
 			tab.parseElement(scriptEval);
 
 			final String contentRef = tab.getContentRef();

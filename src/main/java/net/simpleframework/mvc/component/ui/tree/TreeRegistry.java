@@ -1,6 +1,5 @@
 package net.simpleframework.mvc.component.ui.tree;
 
-import net.simpleframework.ctx.common.xml.XmlElement;
 import net.simpleframework.mvc.component.ComponentBean;
 import net.simpleframework.mvc.component.ComponentName;
 
@@ -16,8 +15,7 @@ public class TreeRegistry extends AbstractTreeRegistry {
 	public static final String TREE = "tree";
 
 	@Override
-	protected TreeNode createTreeNode(final XmlElement xmlElement, final TreeBean treeBean,
-			final TreeNode parent) {
-		return new TreeNode(xmlElement, treeBean, parent);
+	protected TreeNode createTreeNode(final TreeBean treeBean, final TreeNode parent) {
+		return new TreeNode(treeBean, parent);
 	}
 }

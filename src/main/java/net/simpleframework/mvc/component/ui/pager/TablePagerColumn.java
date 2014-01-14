@@ -13,7 +13,6 @@ import net.simpleframework.common.NumberUtils;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
-import net.simpleframework.ctx.common.xml.XmlElement;
 import net.simpleframework.mvc.PageRequestResponse;
 import net.simpleframework.mvc.common.element.ETextAlign;
 import net.simpleframework.mvc.common.element.LinkElement;
@@ -67,12 +66,7 @@ public class TablePagerColumn extends AbstractElementBean {
 
 	private String lblStyle;
 
-	public TablePagerColumn(final XmlElement xmlElement) {
-		super(xmlElement);
-	}
-
 	public TablePagerColumn(final String columnName, final String columnText, final int width) {
-		this((XmlElement) null);
 		setColumnName(columnName).setColumnText(columnText).setWidth(width);
 	}
 

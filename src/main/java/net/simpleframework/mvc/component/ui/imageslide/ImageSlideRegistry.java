@@ -37,7 +37,7 @@ public class ImageSlideRegistry extends AbstractComponentRegistry {
 		final Collection<ImageItem> coll = ((ImageSlideBean) componentBean).getImageItems();
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
-			final ImageItem imageItem = new ImageItem(ele);
+			final ImageItem imageItem = (ImageItem) new ImageItem().setBeanElement(ele);
 			imageItem.parseElement(scriptEval);
 			coll.add(imageItem);
 		}
