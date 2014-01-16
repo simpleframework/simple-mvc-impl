@@ -21,8 +21,8 @@ public class AjaxRequestBean extends AbstractComponentBean {
 	/* 返回更新的容器id */
 	private String updateContainerId;
 
-	/* 返回更新的组件容器 */
-	private String containerRef;
+	/* 返回更新的window组件 */
+	private String windowRef;
 
 	/* 返回更新是否缓存 */
 	private boolean updateContainerCache;
@@ -77,12 +77,12 @@ public class AjaxRequestBean extends AbstractComponentBean {
 		return this;
 	}
 
-	public String getContainerRef() {
-		return containerRef;
+	public String getWindowRef() {
+		return windowRef;
 	}
 
-	public AjaxRequestBean setContainerRef(final String containerRef) {
-		this.containerRef = containerRef;
+	public AjaxRequestBean setWindowRef(final String windowRef) {
+		this.windowRef = windowRef;
 		return this;
 	}
 

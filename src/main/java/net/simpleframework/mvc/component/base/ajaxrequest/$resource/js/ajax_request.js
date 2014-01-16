@@ -137,7 +137,7 @@ function __ajax_actions_init(actionFunc, name) {
 			triggerAct(true);
 	};
 
-	actionFunc.doComplete = function(req, containerRef, updateContainerCache, alert) {
+	actionFunc.doComplete = function(req, windowRef, updateContainerCache, alert) {
 		try {
 			var rJSON = req.responseText.evalJSON();
 			var rt = rJSON.rt;
@@ -146,7 +146,7 @@ function __ajax_actions_init(actionFunc, name) {
 				actionFunc.cache = rt;
 			
 			if (!actionFunc.container) {
-			  var act = $Actions[containerRef];
+			  var act = $Actions[windowRef];
 			  if (act && act.window)
 			    actionFunc.container = act.window.content;
 			}

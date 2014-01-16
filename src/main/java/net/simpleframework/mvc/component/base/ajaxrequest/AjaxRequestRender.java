@@ -66,9 +66,9 @@ public class AjaxRequestRender extends ComponentJavascriptRender {
 		}
 		sb.append("onComplete: function(req) {");
 		sb.append(actionFunc).append(".doComplete(req, ");
-		final String containerRef = (String) cp.getBeanProperty("containerRef");
-		if (StringUtils.hasText(containerRef)) {
-			sb.append("\"").append(containerRef).append("\", ");
+		final String windowRef = (String) cp.getBeanProperty("windowRef");
+		if (StringUtils.hasText(windowRef)) {
+			sb.append("\"").append(windowRef).append("\", ");
 		} else {
 			sb.append("null, ");
 		}
