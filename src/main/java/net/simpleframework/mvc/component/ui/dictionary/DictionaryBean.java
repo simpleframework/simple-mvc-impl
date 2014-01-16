@@ -35,11 +35,6 @@ public class DictionaryBean extends WindowBean {
 
 	private String jsSelectCallback;
 
-	public DictionaryBean() {
-		setDestroyOnClose(false);
-		setWidth(240);
-	}
-
 	public String getJsSelectCallback() {
 		return jsSelectCallback;
 	}
@@ -140,16 +135,6 @@ public class DictionaryBean extends WindowBean {
 	public DictionaryBean addSmiley(final PageRequestResponse rRequest) {
 		final ComponentParameter cp = ComponentParameter.get(rRequest, this);
 		return setDictionaryTypeBean(cp, new DictionarySmileyBean(this));
-	}
-
-	@Override
-	public boolean isPopup() {
-		return true;
-	}
-
-	@Override
-	public boolean isModal() {
-		return false;
 	}
 
 	@Override
@@ -344,5 +329,12 @@ public class DictionaryBean extends WindowBean {
 	protected String[] elementAttributes() {
 		return ArrayUtils.add(new String[] { "jsSelectCallback", "clearAction", "refreshAction" },
 				super.elementAttributes());
+	}
+
+	{
+		setDestroyOnClose(false);
+		setWidth(240);
+		setPopup(true);
+		setModal(false);
 	}
 }
