@@ -65,18 +65,22 @@ public class TextButton extends AbstractInputElement<TextButton> {
 		return super.addAttribute(key, val);
 	}
 
-	@Override
-	public String toString() {
+	protected String toInputHTML() {
 		final StringBuilder sb = new StringBuilder();
-		sb.append("<div class='text text_button'>");
-		sb.append(" <div class='d1'>");
-		sb.append("  <div class='d2'>");
 		sb.append(super.toString());
 		final InputElement hiddenField = getHiddenField();
 		if (hiddenField != null) {
 			sb.append(hiddenField);
 		}
-		sb.append("  </div>");
+		return sb.toString();
+	}
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder();
+		sb.append("<div class='text text_button'>");
+		sb.append(" <div class='d1'>");
+		sb.append("  <div class='d2'>").append(toInputHTML()).append("</div>");
 		sb.append(" </div>");
 		if (!super.isReadonly()) {
 			sb.append("<div class='sbtn'");
