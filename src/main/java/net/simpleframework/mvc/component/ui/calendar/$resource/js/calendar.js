@@ -120,7 +120,7 @@ CalendarDateSelect.prototype = {
 			this.calendar_div.style.top = (p[1] + 1) + "px";
 		}
 
-		this.calendar_div.$show({
+		$Effect.show(this.calendar_div, {
 			effects : this.options.effects
 		});
 	},
@@ -571,7 +571,7 @@ CalendarDateSelect.prototype = {
 		Event.stopObserving(document, "mousedown", this.closeIfClickedOut_handler);
 		Event.stopObserving(document, "keypress", this.keyPress_handler);
 		this.inputField.calendar_date_select = null;
-		this.calendar_div.$hide({
+		$Effect.hide(this.calendar_div, {
 			effects : this.options.effects
 		});
 		try {

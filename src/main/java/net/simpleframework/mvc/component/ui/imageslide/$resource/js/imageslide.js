@@ -159,7 +159,7 @@ $UI.ImageSlide = Class.create({
 			this.current.show();
 			this.exec_showImage = false;
 		} else {
-			this.current.$show({
+			$Effect.show(this.current, {
 				effects : this.options.effects,
 				duration : 0.8,
 				afterFinish : function() {

@@ -371,7 +371,7 @@ Object.extend($UI, {
 
 	shakeMsg : function(o, msg) {
 		o.innerHTML = msg;
-		o.$shake({
+		$Effect.shake(o, {
 			afterFinish : function() {
 				o.innerHTML = "";
 			}.delay(5)
@@ -584,8 +584,8 @@ Object.extend($UI, {
       var width = score * 2.2;
       if (width > 100)
         width = 100;
-      var pwds = m.down(".pwds");
-      pwds.$style("width:" + width + "px", {
+      var pwds = m.down(".pwds");      
+      $Effect.style(pwds, "width:" + width + "px", {
         "effects" : effects
       });
       var lbl = m.down(".lbl");

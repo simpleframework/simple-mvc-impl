@@ -72,7 +72,7 @@ var $Loading = {
 						+ document.viewport.getScrollDimensions().height + "px");
 				ele.modalOverlay.show();
 			}
-			ele.$show({
+			$Effect.show(ele, {
 				afterFinish : function() {
 					ele.showing = false;
 				}

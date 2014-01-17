@@ -112,13 +112,13 @@ public abstract class SwfUploadUtils implements IMVCContextVar {
 		sb.append("  item.down(\".delete_image\").observe(\"click\", function(e) {");
 		sb.append("    var fo = swf.getFile(file.id);");
 		sb.append("    if (!fo) {");
-		sb.append("      item.$remove();");
+		sb.append("      $Effect.remove(item);");
 		sb.append("      return;");
 		sb.append("    }");
 		sb.append("    if (fo.filestatus == SWFUpload.FILE_STATUS.IN_PROGRESS && !confirm(\"")
 				.append($m("SwfUploadUtils.5")).append("\")) return;");
 		sb.append("    swf.cancelUpload(file.id);");
-		sb.append("    item.$remove();");
+		sb.append("    $Effect.remove(item);");
 		sb.append("  });");
 		sb.append("  item.bar = new $UI.ProgressBar(item.down(\".bar\"), {");
 		sb.append("    maxProgressValue: file.size,");
@@ -158,7 +158,7 @@ public abstract class SwfUploadUtils implements IMVCContextVar {
 		sb.append("  } else {");
 		sb.append("    msgc.update(message);");
 		sb.append("  }");
-		sb.append("  msgc.$shake();");
+		sb.append("  $Effect.shake(msgc);");
 		sb.append("  (function() { msgc.update(\"\"); }).delay(2);");
 		sb.append("},");
 
@@ -182,7 +182,7 @@ public abstract class SwfUploadUtils implements IMVCContextVar {
 		sb.append("    message.update(json[\"error\"]);");
 		sb.append("  } else {");
 		sb.append("    message.update(\"").append($m("SwfUploadUtils.6")).append("\");");
-		sb.append("    (function() { item.$remove(); }).delay(2);");
+		sb.append("    (function() { $Effect.remove(item); }).delay(2);");
 		sb.append("  }");
 		sb.append("  var hasQueued = message.up(\".queue\").select(\".item\").any(function(item) {");
 		sb.append("	   var fo = swf.getFile(item.id.substring(5));");

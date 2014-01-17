@@ -89,7 +89,7 @@ $UI.ProgressBar = Class.create( {
 			});
 			this._createDetailMenu(detail);
 		}
-		detail.$show2({
+		$Effect.slideDown(detail, {
 			effects : this.options.effects
 		});
 	},
@@ -131,7 +131,7 @@ $UI.ProgressBar = Class.create( {
 		}, {
 			name : $MessageConst["Progressbar.5"],
 			onSelect : function(item, e) {
-				detail.$remove({
+				$Effect.remove(detail, {
 					effects : this.options.effects
 				});
 			}.bind(this)
@@ -191,7 +191,7 @@ $UI.ProgressBar = Class.create( {
 		var w = this._getBackgroundWidth();
 		var bg = this.progress.down(".bg");
 		w = w - Math.floor((this.step / this.options.maxProgressValue) * w);
-		bg.$style("width:" + w + "px", {
+		$Effect.style(bg, "width:" + w + "px", {
 			effects : this.options.effects,
 			afterFinish : function(effect) {
 				this.drawing = false;

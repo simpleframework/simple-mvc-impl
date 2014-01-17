@@ -88,7 +88,7 @@ $UI.Tabs = Class.create({
 						action.container = tab_c;
 					});
 		}
-		tab_c.$show({
+		$Effect.show(tab_c, {
 			effects : this.options.effects,
 			afterFinish : function(effect) {
 				if (tab.data.onActive)

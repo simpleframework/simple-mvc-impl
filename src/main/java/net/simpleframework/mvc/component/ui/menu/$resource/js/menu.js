@@ -85,13 +85,13 @@ $UI.Menu = Class.create({
 			zIndex : this.options.zIndex
 		});
 
-		menu.$show({
+		$Effect.show(menu, {
 			effects : this.options.effects
 		});
 	},
 
 	hide : function(menu) {
-		menu.$hide({
+	  $Effect.hide(menu, {
 			effects : this.options.effects
 		});
 	},

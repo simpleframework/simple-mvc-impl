@@ -209,7 +209,7 @@ UI.Window = Class.create(UI.Options, {
 
 		this.fire('showing');
 		this.addElements();
-		this.element.$show({
+		$Effect.show(this.element, {
 			effects : this.options.effects,
 			afterFinish : function(effect) {
 				this.fire('shown');
@@ -229,7 +229,7 @@ UI.Window = Class.create(UI.Options, {
 			return this;
 
 		this.fire('hiding');
-		this.element.$hide({
+		$Effect.hide(this.element, {
 			effects : this.options.effects,
 			afterFinish : function(effect) {
 			  this.windowManager.hide(this);

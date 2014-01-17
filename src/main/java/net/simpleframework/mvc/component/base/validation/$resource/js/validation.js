@@ -276,14 +276,17 @@ Validation.prototype = {
 						ele = ele.next();
 						ele.htmlEditor = htmlEditor;
 					} else {
-						if (!ele.$visible()) {
-							return;
-						}
+					  var _ele = ele;
+					  while (_ele.tagName != 'BODY') {
+					    if (!_ele.visible())
+					      return;
+					    _ele = _ele.parentNode;
+					  }
 						fv = $F(ele);
 					}
 					if (!this.getMethod(method)(fv, args)) {
 					  var message = Validation.format(validator['message'], args);
-						ele.$highlight("#FFEEEE");
+						$Effect.highlight(ele, "#FFEEEE");
 						var wt = validator['warnType'] || this.options.warnType;
 						if (wt == 'alert') {
 							alert(message);
@@ -291,7 +294,7 @@ Validation.prototype = {
 						} else {
 						  Validation.insertAfter(ele, message, wt == 'insertLast');
 						  if (ele.insertAfter)
-						    ele.insertAfter.$shake();
+						    $Effect.shake(ele.insertAfter);
             }
 						if (ele.htmlEditor) {
 							ele.htmlEditor.focus();

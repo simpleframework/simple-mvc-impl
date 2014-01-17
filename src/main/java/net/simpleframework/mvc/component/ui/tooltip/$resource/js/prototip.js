@@ -817,7 +817,7 @@ var Tip = Class.create({
   		}
   		Tips.addVisibile(this);
   		
-  		this.wrapper.$show({
+  		$Effect.show(this.wrapper, {
   			effects : this.options.effects,
   			afterFinish : function(effect) {
   				this.tooltip.show();
@@ -854,7 +854,7 @@ var Tip = Class.create({
   	if (Tips.fixIE) {
   		this.iframeShim.hide();
   	}
-    this.wrapper.$hide({
+  	$Effect.hide(this.wrapper, {
     	effects : this.options.effects,
     	afterFinish : function(effect) {
     		(this.borderFrame || this.tooltip).show();
