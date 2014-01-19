@@ -1417,9 +1417,10 @@ UI.WindowManager.Stack = Class.create(Enumerable, {
 	
 	window.$win.closeAll = function(pop) {
 	  var wm = UI.defaultWM;
-		if (wm && (!pop || !wm.modalOverlay)) {
+		if (wm) {
 		  wm.windows().each(function(win) {
-		    win.close();
+		    if (!pop || win.options.theme == 'popup') 
+		      win.close();
 			});
 		}
 	};
