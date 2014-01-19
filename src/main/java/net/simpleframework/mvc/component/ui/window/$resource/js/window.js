@@ -1415,9 +1415,9 @@ UI.WindowManager.Stack = Class.create(Enumerable, {
 		}
 	};
 	
-	window.$win.closePOPs = function() {
+	window.$win.closeAll = function(pop) {
 	  var wm = UI.defaultWM;
-		if (wm && !wm.modalOverlay) {
+		if (wm && (!pop || !wm.modalOverlay)) {
 		  wm.windows().each(function(win) {
 		    win.close();
 			});
