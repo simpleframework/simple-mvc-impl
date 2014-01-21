@@ -324,9 +324,8 @@
 .tablepager .group_t .t label,
 .tablepager .group_t .t a {
   text-align: left;
-  color: #600;
+  color: #900;
   font-size: 9.5pt;
-  font-weight: bold;
 }
 
 .tablepager .group_t .toggle {
@@ -335,7 +334,7 @@
 }
 
 .tablepager .group_t .toggle img {
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 
 .tablepager .group_t .toggle div {
