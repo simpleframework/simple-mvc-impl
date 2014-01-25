@@ -35,6 +35,8 @@ public class TabButtons extends AbstractArrayListEx<TabButtons, TabButton> {
 
 	private ElementList topElements;
 
+	private boolean vertical;
+
 	private TabButtons(final int selectedIndex) {
 		this.selectedIndex = selectedIndex;
 	}
@@ -43,8 +45,9 @@ public class TabButtons extends AbstractArrayListEx<TabButtons, TabButton> {
 		return selectedIndex;
 	}
 
-	public void setSelectedIndex(final int selectedIndex) {
+	public TabButtons setSelectedIndex(final int selectedIndex) {
 		this.selectedIndex = selectedIndex;
+		return this;
 	}
 
 	public String getTabsClass() {
@@ -65,6 +68,15 @@ public class TabButtons extends AbstractArrayListEx<TabButtons, TabButton> {
 		return this;
 	}
 
+	public boolean isVertical() {
+		return vertical;
+	}
+
+	public TabButtons setVertical(final boolean vertical) {
+		this.vertical = vertical;
+		return this;
+	}
+
 	public ElementList getTopElements() {
 		return topElements;
 	}
@@ -77,7 +89,11 @@ public class TabButtons extends AbstractArrayListEx<TabButtons, TabButton> {
 	public String toString(final PageRequestResponse rRequest) {
 		final StringBuilder sb = new StringBuilder();
 		final String id = UUID.randomUUID().toString();
-		sb.append("<ul class=\"").append(getTabsClass()).append("\" id=\"").append(id).append("\">");
+		sb.append("<ul class=\"").append(getTabsClass());
+		if (isVertical()) {
+			sb.append(" vertical");
+		}
+		sb.append("\" id=\"").append(id).append("\">");
 
 		final String requestURI = rRequest.stripContextPath(rRequest.stripJSessionId(rRequest
 				.getRequestURI()));

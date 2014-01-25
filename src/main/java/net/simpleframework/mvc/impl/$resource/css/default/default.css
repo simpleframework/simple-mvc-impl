@@ -727,6 +727,32 @@ ul.simple_tabs .tmenu:hover {
 	background: url(images/arrow-active.png) center center no-repeat;
 }
 
+ul.simple_tabs.vertical li {
+  float: none;
+}
+
+ul.simple_tabs.vertical a {
+  width: 12px;
+  border: 1px solid #aaa;
+  background-color: #eec;
+  margin-top: -1px;
+  padding: 10px 6px;
+  height: auto;
+  background-image: none;
+  line-height: 1.2;
+  word-wrap: break-word;
+  word-break: nomal;
+}
+
+ul.simple_tabs.vertical a.active {
+  background-color: #fdfdfd;
+  border-right-color: #fdfdfd;
+  -moz-border-radius: 5px 0 0 5px;
+  -webkit-border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 5px;
+  width: 16px;
+}
+
 /***************************************************/
 /*                 sy_error_dialog                 */
 /***************************************************/

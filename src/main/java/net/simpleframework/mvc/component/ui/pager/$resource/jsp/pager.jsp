@@ -10,9 +10,14 @@
 <%@ page import="net.simpleframework.mvc.component.ComponentParameter"%>
 <%@ page import="net.simpleframework.mvc.MVCUtils"%>
 <%@ page import="net.simpleframework.mvc.UrlForward"%>
+<%@ page import="net.simpleframework.mvc.component.ComponentHandlerException"%>
+<%@ page import="net.simpleframework.common.I18n"%>
 <%
 	final ComponentParameter cp = PagerUtils.get(request, response);
 	final IPagerHandler hdl = (IPagerHandler) cp.getComponentHandler();
+  if (hdl == null) {
+    throw ComponentHandlerException.of(I18n.$m("pager.1", cp.getComponentName()));
+  }
   
 	final int count = hdl.getCount(cp);
 	final int pageNumber = PagerUtils.getPageNumber(cp);
