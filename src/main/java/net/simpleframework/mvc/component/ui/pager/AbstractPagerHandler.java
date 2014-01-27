@@ -47,7 +47,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 		if (dataObjectQuery == null) {
 			cp.setRequestAttr(QUERY_CACHE, dataObjectQuery = createDataObjectQuery(cp));
 			if (dataObjectQuery != null) {
-				dataObjectQuery.setFetchSize(PagerUtils.getPageItems(cp));
+				dataObjectQuery.setFetchSize(PagerUtils.getPageItems(cp) * 2);
 			}
 		}
 		return dataObjectQuery;
