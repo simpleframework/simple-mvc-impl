@@ -13,6 +13,7 @@ import net.simpleframework.mvc.component.base.ajaxrequest.DefaultAjaxRequestHand
 import net.simpleframework.mvc.component.base.submit.AbstractSubmitHandler;
 import net.simpleframework.mvc.component.base.submit.SubmitBean;
 import net.simpleframework.mvc.component.base.validation.ValidationBean;
+import net.simpleframework.mvc.component.ui.calendar.CalendarBean;
 import net.simpleframework.mvc.component.ui.dictionary.DictionaryBean;
 import net.simpleframework.mvc.component.ui.listbox.AbstractListboxHandler;
 import net.simpleframework.mvc.component.ui.listbox.ListItems;
@@ -88,6 +89,11 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 			final boolean multiple) {
 		return addComponentBean(pp, new KVMap().add("name", name).add("multiple", multiple),
 				DictionaryBean.class);
+	}
+
+	/* CalendarBean */
+	protected CalendarBean addCalendarBean(final PageParameter pp, final String name) {
+		return addComponentBean(pp, name, CalendarBean.class);
 	}
 
 	public static class AjaxRequest extends DefaultAjaxRequestHandler {
