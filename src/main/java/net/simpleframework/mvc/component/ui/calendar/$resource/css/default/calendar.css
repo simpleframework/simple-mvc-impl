@@ -20,14 +20,14 @@
 
 .calendar_date_select .cds_buttons {
 	text-align: center;
-	padding: 3px 0;
+	padding: 4px 0;
 	vertical-align: middle;
 	background: #f2f2f2;
 	border-top: 1px solid #D1D1D1;
 }
 
-.calendar_date_select .cds_buttons br {
-	margin-bottom: 4px;
+.calendar_date_select .cds_buttons .minute {
+	margin-right: 8px;
 }
 
 .calendar_date_select .cds_buttons .button_seperator {

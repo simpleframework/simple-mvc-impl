@@ -236,9 +236,9 @@ CalendarDateSelect.prototype = {
 		var buttons_div = this.buttons_div;
 		if (this.options.showTime) {
 			var blank_time = [];
-			buttons_div.build("span", {
-				className : "at_sign"
-			});
+//			buttons_div.build("span", {
+//				className : "at_sign"
+//			});
 
 			this.hour_select = new SelectBox(buttons_div, blank_time.concat($R(0, 23)
 					.map(function(x) {
@@ -274,12 +274,12 @@ CalendarDateSelect.prototype = {
 				},
 				className : "minute"
 			});
-			buttons_div.build("br");
+//			buttons_div.build("br");
 		}
 
-		buttons_div.build("span", {
-			innerHTML : "&nbsp;"
-		});
+//		buttons_div.build("span", {
+//			innerHTML : "&nbsp;"
+//		});
 
 		b = buttons_div.build("a", {
 			innerHTML : $MessageConst["Calendar.1"],
@@ -425,8 +425,8 @@ CalendarDateSelect.prototype = {
 			return;
 		this.clearSelectedClass();
 		if ($R(0, 42).include(
-				days_until = this.beginning_date.clearTime().daysDistance(
-						this.selected_date.clearTime()))) {
+				days_until = new Date(this.beginning_date).clearTime().daysDistance(
+				    new Date(this.selected_date).clearTime()))) {
 			this.selected_cell = this.calendar_day_grid[days_until];
 			this.selected_cell.addClassName("selected");
 		}
