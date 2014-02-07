@@ -13,8 +13,8 @@ import net.simpleframework.mvc.common.element.EElementEvent;
  */
 public class TipBean extends AbstractElementBean {
 
-	public TipBean(final XmlElement xmlElement, final TooltipBean tooltipBean) {
-		super(xmlElement);
+	public TipBean(final XmlElement element, final TooltipBean tooltipBean) {
+		super(element);
 	}
 
 	public TipBean(final TooltipBean tooltipBean) {
@@ -237,8 +237,8 @@ public class TipBean extends AbstractElementBean {
 
 	public static class HideOn extends AbstractElementBean {
 
-		public HideOn(final XmlElement xmlElement) {
-			super(xmlElement);
+		public HideOn(final XmlElement element) {
+			super(element);
 		}
 
 		public HideOn() {

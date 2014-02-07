@@ -27,16 +27,16 @@ public class ListboxRegistry extends AbstractComponentRegistry {
 
 	@Override
 	protected void initComponentFromXml(final PageParameter pp,
-			final AbstractComponentBean componentBean, final XmlElement xmlElement) {
-		super.initComponentFromXml(pp, componentBean, xmlElement);
+			final AbstractComponentBean componentBean, final XmlElement element) {
+		super.initComponentFromXml(pp, componentBean, element);
 
 		final ListboxBean listboxBean = (ListboxBean) componentBean;
 		final IScriptEval scriptEval = pp.getScriptEval();
 
-		final Iterator<?> it = xmlElement.elementIterator("item");
+		final Iterator<?> it = element.elementIterator("item");
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
-			final ListItem item = (ListItem) new ListItem(listboxBean, null).setBeanElement(ele);
+			final ListItem item = (ListItem) new ListItem(listboxBean, null).setElement(ele);
 			item.parseElement(scriptEval);
 			listboxBean.getListItems().add(item);
 		}

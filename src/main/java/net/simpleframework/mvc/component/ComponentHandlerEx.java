@@ -41,17 +41,17 @@ public class ComponentHandlerEx extends AbstractComponentHandler {
 		return menuItems;
 	}
 
-	private void _create(final MenuItems children, final XmlElement xmlElement) {
+	private void _create(final MenuItems children, final XmlElement element) {
 		final MenuItem item = new MenuItem();
-		Iterator<?> it = xmlElement.attributeIterator();
+		Iterator<?> it = element.attributeIterator();
 		while (it.hasNext()) {
 			final XmlAttri attri = (XmlAttri) it.next();
 			BeanUtils.setProperty(item, attri.getName(), I18n.replaceI18n(attri.getValue()));
-			item.setOnclick(xmlElement.elementText("onclick"));
+			item.setOnclick(element.elementText("onclick"));
 		}
 		children.add(item);
 
-		it = xmlElement.elementIterator("item");
+		it = element.elementIterator("item");
 		while (it.hasNext()) {
 			_create(item.children(), (XmlElement) it.next());
 		}

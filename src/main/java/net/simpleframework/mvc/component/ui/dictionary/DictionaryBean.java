@@ -227,8 +227,8 @@ public class DictionaryBean extends WindowBean {
 
 		private String ref;
 
-		public DictionaryListBean(final DictionaryBean dictionaryBean, final XmlElement xmlElement) {
-			super(dictionaryBean, xmlElement);
+		public DictionaryListBean(final DictionaryBean dictionaryBean, final XmlElement element) {
+			super(dictionaryBean, element);
 		}
 
 		public DictionaryListBean(final DictionaryBean dictionaryBean) {
@@ -249,8 +249,8 @@ public class DictionaryBean extends WindowBean {
 
 		private String ref;
 
-		public DictionaryTreeBean(final DictionaryBean dictionaryBean, final XmlElement xmlElement) {
-			super(dictionaryBean, xmlElement);
+		public DictionaryTreeBean(final DictionaryBean dictionaryBean, final XmlElement element) {
+			super(dictionaryBean, element);
 		}
 
 		public DictionaryTreeBean(final DictionaryBean dictionaryBean) {
@@ -271,8 +271,8 @@ public class DictionaryBean extends WindowBean {
 
 		private String ref;
 
-		public DictionaryColorBean(final DictionaryBean dictionaryBean, final XmlElement xmlElement) {
-			super(dictionaryBean, xmlElement);
+		public DictionaryColorBean(final DictionaryBean dictionaryBean, final XmlElement element) {
+			super(dictionaryBean, element);
 		}
 
 		public DictionaryColorBean(final DictionaryBean dictionaryBean) {
@@ -291,8 +291,8 @@ public class DictionaryBean extends WindowBean {
 
 	public static class DictionaryFontBean extends AbstractDictionaryTypeBean {
 
-		public DictionaryFontBean(final DictionaryBean dictionaryBean, final XmlElement xmlElement) {
-			super(dictionaryBean, xmlElement);
+		public DictionaryFontBean(final DictionaryBean dictionaryBean, final XmlElement element) {
+			super(dictionaryBean, element);
 		}
 
 		public DictionaryFontBean(final DictionaryBean dictionaryBean) {
@@ -302,8 +302,8 @@ public class DictionaryBean extends WindowBean {
 
 	public static class DictionarySmileyBean extends AbstractDictionaryTypeBean {
 
-		public DictionarySmileyBean(final DictionaryBean dictionaryBean, final XmlElement xmlElement) {
-			super(dictionaryBean, xmlElement);
+		public DictionarySmileyBean(final DictionaryBean dictionaryBean, final XmlElement element) {
+			super(dictionaryBean, element);
 		}
 
 		public DictionarySmileyBean(final DictionaryBean dictionaryBean) {
@@ -315,8 +315,8 @@ public class DictionaryBean extends WindowBean {
 		private final DictionaryBean dictionaryBean;
 
 		public AbstractDictionaryTypeBean(final DictionaryBean dictionaryBean,
-				final XmlElement xmlElement) {
-			super(xmlElement);
+				final XmlElement element) {
+			super(element);
 			this.dictionaryBean = dictionaryBean;
 		}
 

@@ -28,16 +28,16 @@ public class ImageSlideRegistry extends AbstractComponentRegistry {
 
 	@Override
 	protected void initComponentFromXml(final PageParameter pp,
-			final AbstractComponentBean componentBean, final XmlElement xmlElement) {
-		super.initComponentFromXml(pp, componentBean, xmlElement);
+			final AbstractComponentBean componentBean, final XmlElement element) {
+		super.initComponentFromXml(pp, componentBean, element);
 
 		final IScriptEval scriptEval = pp.getScriptEval();
 
-		final Iterator<?> it = xmlElement.elementIterator("imageitem");
+		final Iterator<?> it = element.elementIterator("imageitem");
 		final Collection<ImageItem> coll = ((ImageSlideBean) componentBean).getImageItems();
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
-			final ImageItem imageItem = (ImageItem) new ImageItem().setBeanElement(ele);
+			final ImageItem imageItem = (ImageItem) new ImageItem().setElement(ele);
 			imageItem.parseElement(scriptEval);
 			coll.add(imageItem);
 		}

@@ -28,12 +28,12 @@ public class MenuRegistry extends AbstractComponentRegistry {
 
 	@Override
 	protected void initComponentFromXml(final PageParameter pp,
-			final AbstractComponentBean componentBean, final XmlElement xmlElement) {
-		super.initComponentFromXml(pp, componentBean, xmlElement);
+			final AbstractComponentBean componentBean, final XmlElement element) {
+		super.initComponentFromXml(pp, componentBean, element);
 
 		final MenuBean menuBean = (MenuBean) componentBean;
 
-		final Iterator<?> it = xmlElement.elementIterator("menuitem");
+		final Iterator<?> it = element.elementIterator("menuitem");
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
 			initMenuItem(pp, menuBean, null, menuBean.getMenuItems(), ele);
@@ -41,8 +41,8 @@ public class MenuRegistry extends AbstractComponentRegistry {
 	}
 
 	void initMenuItem(final PageParameter pp, final MenuBean menuBean, final MenuItem parent,
-			final MenuItems children, final XmlElement xmlElement) {
-		final MenuItem menuItem = (MenuItem) new MenuItem(parent).setBeanElement(xmlElement);
+			final MenuItems children, final XmlElement element) {
+		final MenuItem menuItem = (MenuItem) new MenuItem(parent).setElement(element);
 		menuItem.parseElement(pp.getScriptEval());
 		final String ref = menuItem.getRef();
 		if (StringUtils.hasText(ref)) {
@@ -55,7 +55,7 @@ public class MenuRegistry extends AbstractComponentRegistry {
 		} else {
 			children.add(menuItem);
 		}
-		final Iterator<?> it = xmlElement.elementIterator("menuitem");
+		final Iterator<?> it = element.elementIterator("menuitem");
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
 			initMenuItem(pp, menuBean, menuItem, menuItem.children(), ele);

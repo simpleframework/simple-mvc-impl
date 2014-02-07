@@ -28,15 +28,15 @@ public class ValidationRegistry extends AbstractComponentRegistry {
 
 	@Override
 	protected void initComponentFromXml(final PageParameter pp,
-			final AbstractComponentBean componentBean, final XmlElement xmlElement) {
-		super.initComponentFromXml(pp, componentBean, xmlElement);
+			final AbstractComponentBean componentBean, final XmlElement element) {
+		super.initComponentFromXml(pp, componentBean, element);
 
 		final IScriptEval scriptEval = pp.getScriptEval();
 
-		final Iterator<?> it = xmlElement.elementIterator("validator");
+		final Iterator<?> it = element.elementIterator("validator");
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
-			final Validator validator = (Validator) new Validator().setBeanElement(ele);
+			final Validator validator = (Validator) new Validator().setElement(ele);
 			validator.parseElement(scriptEval);
 			final String message = ele.elementText("message");
 			if (StringUtils.hasText(message)) {

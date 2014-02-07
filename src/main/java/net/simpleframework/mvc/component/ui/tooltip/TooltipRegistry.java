@@ -30,13 +30,13 @@ public class TooltipRegistry extends AbstractComponentRegistry {
 
 	@Override
 	protected void initComponentFromXml(final PageParameter pp,
-			final AbstractComponentBean componentBean, final XmlElement xmlElement) {
-		super.initComponentFromXml(pp, componentBean, xmlElement);
+			final AbstractComponentBean componentBean, final XmlElement element) {
+		super.initComponentFromXml(pp, componentBean, element);
 
 		final TooltipBean tooltipBean = (TooltipBean) componentBean;
 		final IScriptEval scriptEval = pp.getScriptEval();
 
-		final Iterator<?> it = xmlElement.elementIterator("tip");
+		final Iterator<?> it = element.elementIterator("tip");
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
 			final TipBean tip = new TipBean(ele, tooltipBean);
@@ -62,7 +62,7 @@ public class TooltipRegistry extends AbstractComponentRegistry {
 			final XmlElement hookElement = ele.element("hook");
 			if (hookElement != null) {
 				final TipBean.Hook hook = new TipBean.Hook();
-				hook.setBeanElement(hookElement);
+				hook.setElement(hookElement);
 				hook.parseElement(scriptEval);
 				tip.setHook(hook);
 			}

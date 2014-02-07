@@ -50,19 +50,19 @@ public class TablePagerRegistry extends PagerRegistry {
 
 	@Override
 	protected void initComponentFromXml(final PageParameter pp,
-			final AbstractComponentBean componentBean, final XmlElement xmlElement) {
-		super.initComponentFromXml(pp, componentBean, xmlElement);
+			final AbstractComponentBean componentBean, final XmlElement element) {
+		super.initComponentFromXml(pp, componentBean, element);
 
 		final TablePagerBean tablePager = (TablePagerBean) componentBean;
 		final IScriptEval scriptEval = pp.getScriptEval();
 
-		final XmlElement elements = xmlElement.element("columns");
+		final XmlElement elements = element.element("columns");
 		if (elements != null) {
 			final Iterator<?> it = elements.elementIterator("column");
 			final TablePagerColumns columns = tablePager.getColumns();
 			while (it.hasNext()) {
 				final TablePagerColumn column = (TablePagerColumn) new TablePagerColumn()
-						.setBeanElement((XmlElement) it.next());
+						.setElement((XmlElement) it.next());
 				column.parseElement(scriptEval);
 				columns.add(column);
 			}

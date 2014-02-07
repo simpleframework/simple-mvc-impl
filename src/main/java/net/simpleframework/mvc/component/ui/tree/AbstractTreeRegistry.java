@@ -22,12 +22,12 @@ public abstract class AbstractTreeRegistry extends AbstractComponentRegistry {
 
 	@Override
 	protected void initComponentFromXml(final PageParameter pp,
-			final AbstractComponentBean componentBean, final XmlElement xmlElement) {
-		super.initComponentFromXml(pp, componentBean, xmlElement);
+			final AbstractComponentBean componentBean, final XmlElement element) {
+		super.initComponentFromXml(pp, componentBean, element);
 
 		final TreeBean treeBean = (TreeBean) componentBean;
 
-		final Iterator<?> it = xmlElement.elementIterator("treenode");
+		final Iterator<?> it = element.elementIterator("treenode");
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
 			setTreeNode(pp, treeBean, null, treeBean.getTreeNodes(), ele);
@@ -38,14 +38,14 @@ public abstract class AbstractTreeRegistry extends AbstractComponentRegistry {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void setTreeNode(final PageParameter pp, final TreeBean treeBean, final TreeNode parent,
-			final Collection children, final XmlElement xmlElement) {
-		final TreeNode node = (TreeNode) createTreeNode(treeBean, parent).setBeanElement(xmlElement);
+			final Collection children, final XmlElement element) {
+		final TreeNode node = (TreeNode) createTreeNode(treeBean, parent).setElement(element);
 		if (node == null) {
 			return;
 		}
 		node.parseElement(pp.getScriptEval());
 		children.add(node);
-		final Iterator<?> it = xmlElement.elementIterator("treenode");
+		final Iterator<?> it = element.elementIterator("treenode");
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
 			setTreeNode(pp, treeBean, node, node.children(), ele);

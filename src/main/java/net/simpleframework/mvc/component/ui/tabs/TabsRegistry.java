@@ -32,17 +32,17 @@ public class TabsRegistry extends AbstractComponentRegistry {
 
 	@Override
 	protected void initComponentFromXml(final PageParameter pp,
-			final AbstractComponentBean componentBean, final XmlElement xmlElement) {
-		super.initComponentFromXml(pp, componentBean, xmlElement);
+			final AbstractComponentBean componentBean, final XmlElement element) {
+		super.initComponentFromXml(pp, componentBean, element);
 
 		final TabsBean tabsBean = (TabsBean) componentBean;
 		final IScriptEval scriptEval = pp.getScriptEval();
 
-		final Iterator<?> it = xmlElement.elementIterator("tab");
+		final Iterator<?> it = element.elementIterator("tab");
 		final Collection<TabItem> coll = tabsBean.getTabItems();
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
-			final TabItem tab = (TabItem) new TabItem().setBeanElement(ele);
+			final TabItem tab = (TabItem) new TabItem().setElement(ele);
 			tab.parseElement(scriptEval);
 
 			final String contentRef = tab.getContentRef();

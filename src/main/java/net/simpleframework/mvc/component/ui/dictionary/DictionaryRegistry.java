@@ -62,22 +62,22 @@ public class DictionaryRegistry extends WindowRegistry {
 
 	@Override
 	protected void initComponentFromXml(final PageParameter pp,
-			final AbstractComponentBean componentBean, final XmlElement xmlElement) {
-		super.initComponentFromXml(pp, componentBean, xmlElement);
+			final AbstractComponentBean componentBean, final XmlElement element) {
+		super.initComponentFromXml(pp, componentBean, element);
 
 		final DictionaryBean dictionaryBean = (DictionaryBean) componentBean;
 
 		AbstractDictionaryTypeBean type = null;
-		XmlElement ele = xmlElement.element("tree");
+		XmlElement ele = element.element("tree");
 		if (ele != null) {
 			type = new DictionaryTreeBean(dictionaryBean, ele);
-		} else if ((ele = xmlElement.element("list")) != null) {
+		} else if ((ele = element.element("list")) != null) {
 			type = new DictionaryListBean(dictionaryBean, ele);
-		} else if ((ele = xmlElement.element("color")) != null) {
+		} else if ((ele = element.element("color")) != null) {
 			type = new DictionaryColorBean(dictionaryBean, ele);
-		} else if ((ele = xmlElement.element("font")) != null) {
+		} else if ((ele = element.element("font")) != null) {
 			type = new DictionaryFontBean(dictionaryBean, ele);
-		} else if ((ele = xmlElement.element("smiley")) != null) {
+		} else if ((ele = element.element("smiley")) != null) {
 			type = new DictionarySmileyBean(dictionaryBean, ele);
 		}
 		if (type != null) {

@@ -30,23 +30,23 @@ public class PropEditorRegistry extends AbstractComponentRegistry {
 
 	@Override
 	protected void initComponentFromXml(final PageParameter pp,
-			final AbstractComponentBean componentBean, final XmlElement xmlElement) {
-		super.initComponentFromXml(pp, componentBean, xmlElement);
+			final AbstractComponentBean componentBean, final XmlElement element) {
+		super.initComponentFromXml(pp, componentBean, element);
 
 		final PropEditorBean formEditor = (PropEditorBean) componentBean;
 		final IScriptEval scriptEval = pp.getScriptEval();
 
-		final Iterator<?> it = xmlElement.elementIterator("field");
+		final Iterator<?> it = element.elementIterator("field");
 		while (it.hasNext()) {
 			final XmlElement ele = (XmlElement) it.next();
-			final PropField propField = (PropField) new PropField().setBeanElement(ele);
+			final PropField propField = (PropField) new PropField().setElement(ele);
 			propField.parseElement(scriptEval);
 			formEditor.getFormFields().add(propField);
 
 			final Iterator<?> it2 = ele.elementIterator("component");
 			while (it2.hasNext()) {
 				final XmlElement ele2 = (XmlElement) it2.next();
-				final InputComp inputComp = (InputComp) new InputComp().setBeanElement(ele2);
+				final InputComp inputComp = (InputComp) new InputComp().setElement(ele2);
 				inputComp.parseElement(scriptEval);
 
 				final Iterator<?> it3 = ele2.elementIterator("event");
