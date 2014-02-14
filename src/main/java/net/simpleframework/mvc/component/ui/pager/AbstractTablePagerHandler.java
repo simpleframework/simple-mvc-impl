@@ -24,7 +24,7 @@ import net.simpleframework.ado.EFilterRelation;
 import net.simpleframework.ado.EOrder;
 import net.simpleframework.ado.FilterItem;
 import net.simpleframework.ado.query.IDataQuery;
-import net.simpleframework.ado.query.ListDataObjectQuery;
+import net.simpleframework.ado.query.ListDataQuery;
 import net.simpleframework.common.BeanUtils;
 import net.simpleframework.common.Convert;
 import net.simpleframework.common.StringUtils;
@@ -231,13 +231,13 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private void doFilterList(final ComponentParameter cp, final ListDataObjectQuery<?> dataQuery) {
+	private void doFilterList(final ComponentParameter cp, final ListDataQuery<?> dataQuery) {
 		final Map<String, ColumnData> filterColumns = getFilterColumns(cp);
 		final String bKey = "backup_filterlist";
 		List oData = (List) dataQuery.getAttr(bKey);
 		if (filterColumns != null && filterColumns.size() > 0) {
 			if (oData == null) {
-				dataQuery.setAttr(bKey, oData = new ArrayList(dataQuery.getList()));
+				dataQuery.setAttr(bKey, oData = new ArrayList(dataQuery.list()));
 			}
 			final ArrayList result = new ArrayList(oData);
 			for (final ColumnData oCol : filterColumns.values()) {
@@ -272,13 +272,13 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 					}
 				}
 			}
-			final List data = dataQuery.getList();
+			final List data = dataQuery.list();
 			if (data.size() > result.size()) {
 				data.clear();
 				data.addAll(result);
 			}
 		} else if (oData != null) {
-			final List data = dataQuery.getList();
+			final List data = dataQuery.list();
 			data.clear();
 			data.addAll(oData);
 			dataQuery.removeAttr(bKey);
@@ -287,8 +287,8 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 
 	@Override
 	protected void doCount(final ComponentParameter cp, final IDataQuery<?> dataQuery) {
-		if (dataQuery instanceof ListDataObjectQuery) {
-			doFilterList(cp, (ListDataObjectQuery<?>) dataQuery);
+		if (dataQuery instanceof ListDataQuery) {
+			doFilterList(cp, (ListDataQuery<?>) dataQuery);
 		}
 		super.doCount(cp, dataQuery);
 	}
@@ -317,17 +317,16 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 	@Override
 	protected List<?> getData(final ComponentParameter cp, final int start) {
 		final IDataQuery<?> dataQuery = (IDataQuery<?>) cp.getRequestAttr(DATA_QUERY);
-		if (dataQuery instanceof ListDataObjectQuery) {
+		if (dataQuery instanceof ListDataQuery) {
 			final ColumnData dbColumn = getSortColumn(cp);
 			if (dbColumn != null) {
-				Collections.sort(((ListDataObjectQuery<?>) dataQuery).getList(),
-						new Comparator<Object>() {
+				Collections.sort(((ListDataQuery<?>) dataQuery).list(), new Comparator<Object>() {
 
-							@Override
-							public int compare(final Object o1, final Object o2) {
-								return doSort(dbColumn, o1, o2);
-							}
-						});
+					@Override
+					public int compare(final Object o1, final Object o2) {
+						return doSort(dbColumn, o1, o2);
+					}
+				});
 			}
 		}
 		return super.getData(cp, start);
