@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.ui.pager;
 
 import java.io.File;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import net.simpleframework.common.Convert;
 import net.simpleframework.common.FileUtils;
 import net.simpleframework.common.StringUtils;
+import net.simpleframework.common.coll.CollectionUtils;
 import net.simpleframework.mvc.IMVCConst;
 import net.simpleframework.mvc.MVCUtils;
 import net.simpleframework.mvc.PageRequestResponse;
@@ -37,7 +37,7 @@ public abstract class PagerUtils {
 
 	public static List<?> getPagerList(final PageRequestResponse rRequest) {
 		final List<?> l = (List<?>) rRequest.getRequestAttr(IPagerHandler.PAGER_LIST);
-		return l != null ? l : Collections.EMPTY_LIST;
+		return l != null ? l : CollectionUtils.EMPTY_LIST();
 	}
 
 	public static void setPageAttributes(final ComponentParameter nCP, final String key,

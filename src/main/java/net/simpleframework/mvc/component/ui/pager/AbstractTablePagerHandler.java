@@ -5,7 +5,6 @@ import static net.simpleframework.common.I18n.$m;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -28,6 +27,7 @@ import net.simpleframework.ado.query.ListDataQuery;
 import net.simpleframework.common.BeanUtils;
 import net.simpleframework.common.Convert;
 import net.simpleframework.common.StringUtils;
+import net.simpleframework.common.coll.ArrayUtils;
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.common.th.NotImplementedException;
 import net.simpleframework.lib.au.com.bytecode.opencsv.CSVWriter;
@@ -172,7 +172,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			return null;
 		}
 
-		final HashSet<String> sets = new LinkedHashSet<String>(Arrays.asList(StringUtils
+		final HashSet<String> sets = new LinkedHashSet<String>(ArrayUtils.asList(StringUtils
 				.split(StringUtils.blank(col))));
 		String filter = null;
 		if (StringUtils.hasText(ccol)) {

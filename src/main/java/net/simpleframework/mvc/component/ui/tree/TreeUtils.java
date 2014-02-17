@@ -1,12 +1,12 @@
 package net.simpleframework.mvc.component.ui.tree;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 
 import net.simpleframework.common.BeanUtils;
 import net.simpleframework.common.Convert;
 import net.simpleframework.common.StringUtils;
+import net.simpleframework.common.coll.ArrayUtils;
 import net.simpleframework.common.logger.Log;
 import net.simpleframework.common.logger.LogFactory;
 import net.simpleframework.common.web.JavascriptUtils;
@@ -86,7 +86,7 @@ public abstract class TreeUtils {
 	public static TreeNode getTreenodeById(final ComponentParameter cp, final String id) {
 		final String[] idArray = StringUtils.split(id, "_");
 		final Collection<TreeNode> treeNodes = getTreenodes(cp);
-		return idArray != null ? findTreenode(cp, new LinkedList<String>(Arrays.asList(idArray)),
+		return idArray != null ? findTreenode(cp, new LinkedList<String>(ArrayUtils.asList(idArray)),
 				treeNodes) : null;
 	}
 
