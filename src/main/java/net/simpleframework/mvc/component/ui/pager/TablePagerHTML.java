@@ -473,7 +473,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 				sb.append("<div class=\"group_t\">");
 				sb.append("<table style=\"width: 100%;\" cellpadding=\"0\"><tr>");
 				sb.append("<td class=\"toggle\"><img src=\"").append(imgPath);
-				sb.append("/images/toggle.png\" /></td>");
+				sb.append("/images/p_toggle.png\" /></td>");
 				sb.append("<td class=\"t\">").append(gw).append("</td>");
 				sb.append("</tr></table></div>");
 				sb.append("<div class=\"group_c\">");

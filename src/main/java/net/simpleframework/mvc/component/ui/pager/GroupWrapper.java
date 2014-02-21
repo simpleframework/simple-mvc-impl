@@ -48,7 +48,8 @@ public class GroupWrapper extends DescriptionObject<GroupWrapper> {
 	}
 
 	protected String toCountHTML() {
-		return new SupElement(getData().size()).setStyle("margin-left: 6px;").toString();
+		return new SupElement("(" + getData().size() + ")").setStyle("margin-left: 6px; color: #440")
+				.toString();
 	}
 
 	@Override

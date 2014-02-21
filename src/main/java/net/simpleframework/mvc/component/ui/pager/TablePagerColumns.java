@@ -24,13 +24,23 @@ public class TablePagerColumns extends AbstractArrayListEx<TablePagerColumns, Ta
 		addAll(columns);
 	}
 
-	public TablePagerColumn get(final String columnName) {
-		if (!StringUtils.hasText(columnName)) {
-			return null;
+	public TablePagerColumn remove(final String columnName) {
+		if (StringUtils.hasText(columnName)) {
+			for (final TablePagerColumn col : this) {
+				if (columnName.equals(col.getColumnName())) {
+					return remove(col) ? col : null;
+				}
+			}
 		}
-		for (final TablePagerColumn col : this) {
-			if (columnName.equals(col.getColumnName())) {
-				return col;
+		return null;
+	}
+
+	public TablePagerColumn get(final String columnName) {
+		if (StringUtils.hasText(columnName)) {
+			for (final TablePagerColumn col : this) {
+				if (columnName.equals(col.getColumnName())) {
+					return col;
+				}
 			}
 		}
 		return null;
