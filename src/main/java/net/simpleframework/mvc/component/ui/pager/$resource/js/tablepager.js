@@ -404,14 +404,12 @@ function $table_pager_addMethods(pa) {
 
 	// highlight
 	var items = tablepager.select(".titem");
-	items.invoke("observe", "click", function(evn) {
-		items.each(function(item) {
-			if (item.hasClassName("titem_selected")) {
-				item.removeClassName("titem_selected");
-			}
-		});
-		this.addClassName("titem_selected");
-	});
+	items.each(function(item) {
+    var cb = item.down(".cb input[type=checkbox]");
+    if (cb && cb.checked) {
+      item.addClassName("titem_selected");
+    }
+  });
 	tablepager.select(".cb input[type=checkbox]").invoke("observe", "click",
 			function(evn) {
 				var b = this.checked;

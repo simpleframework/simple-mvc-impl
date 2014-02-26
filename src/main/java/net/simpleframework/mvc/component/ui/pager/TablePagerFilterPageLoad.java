@@ -69,7 +69,7 @@ public class TablePagerFilterPageLoad extends DefaultPageHandler {
 
 		pp.addComponentBean("ajaxTablePagerFilterSave", AjaxRequestBean.class)
 				.setHandleMethod("doFilter").setHandleClass(TablePagerAction.class)
-				.setSelector(".tablepager_filter");
+				.setSelector(".filter_window");
 
 		// 加入验证
 		pp.addComponentBean(ValidationBean.class, TablePagerFilterValidation.class)

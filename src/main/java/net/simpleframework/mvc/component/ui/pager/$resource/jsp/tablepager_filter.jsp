@@ -23,7 +23,7 @@
 			.propertyClass());
 	final String fm = col.getFormat();
 %>
-<div class="tablepager_filter simple_window_tcb">
+<div class="filter_window simple_window_tcb">
   <div class="c">
     <input type="hidden" name="<%=TablePagerUtils.PARAM_FILTER_CUR_COL%>"
       value="<%=col.getColumnName()%>">

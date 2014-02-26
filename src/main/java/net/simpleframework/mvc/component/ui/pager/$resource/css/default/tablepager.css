@@ -90,7 +90,7 @@
   border: 1px solid #ccc;
   margin-top: -1px;
   overflow-x: hidden;
-  background-color: #fafafa;
+  background-color: #eef;
 }
 
 .tablepager .tfilter td {
@@ -152,12 +152,20 @@
   text-align: left;
 }
 
+.tablepager .titem.even:hover,
 .tablepager .titem:hover {
-  background-color: #f7f7ff !important;
-  -moz-transition: background-color 0.3s;
-  -webkit-transition: background-color 0.3s;
-  -ms-transition: background-color 0.3s;
-  transition: background-color 0.3s;
+  -moz-transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  transition: background-color 0.5s;  
+}
+
+.tablepager .titem:hover {
+  background-color: #fdfdff;
+}
+
+.tablepager .titem.even:hover {  
+  background-color: #fafaff;
 }
 
 .tablepager .titem input[type=text] {
@@ -174,7 +182,7 @@
 }
 
 .tablepager .titem_selected {
-  background-color: #ffe !important;
+  background-color: #eed !important;
 }
 
 .tablepager .itr>td {
@@ -343,19 +351,19 @@
   width: 16px;
 }
 
-.tablepager_filter {
+.filter_window {
   padding: 12px !important;
   background-color: #f9f9f9;
   border-bottom: 1px solid #aaa;
 }
 
-.tablepager_filter .b {
+.filter_window .b {
   bottom: 6px;  
   text-align: right; 
   margin-top: 6px;
 }
 
-.tablepager_filter input[type=text] {
+.filter_window input[type=text] {
   border-color: #999;
   height: 17px;
   padding: 3px;
@@ -394,7 +402,6 @@
 }
 
 .tablepager .thead,
-.tablepager .tfilter,
 .pager .pager_block_top,
 .pager .pager_block_bottom {
   -moz-box-shadow: 1px 1px 0 #fff inset;
