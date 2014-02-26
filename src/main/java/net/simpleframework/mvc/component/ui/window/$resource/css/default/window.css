@@ -1,13 +1,13 @@
 .ui-window {
   position: absolute;
-  -webkit-box-shadow: 0px 0px 15px #888;
-  box-shadow: 0px 0px 15px #888;
+  -webkit-box-shadow: 0px 0px 15px #666;
+  box-shadow: 0px 0px 15px #666;
 }
 
 @-moz-document url-prefix() {
   .ui-window {
-    -moz-box-shadow: 0px 0px 10px #888;
-    box-shadow: 0px 0px 10px #888;
+    -moz-box-shadow: 0px 0px 12px #666;
+    box-shadow: 0px 0px 12px #666;
   }		
 }
 
@@ -240,10 +240,10 @@
 
 .window_default_overlay,
 .popup_overlay {
-  background-color: #fff;
-  filter: alpha(opacity = 60);
-  -moz-opacity: 0.6;
-  opacity: 0.6;
+  background-color: #ccc;
+  filter: alpha(opacity = 50);
+  -moz-opacity: 0.5;
+  opacity: 0.5;
 }
 
 .window_default_wired {
