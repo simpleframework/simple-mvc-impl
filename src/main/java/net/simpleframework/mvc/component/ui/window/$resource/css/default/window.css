@@ -240,7 +240,7 @@
 
 .window_default_overlay,
 .popup_overlay {
-  background-color: #ccc;
+  background-color: #aaa;
   filter: alpha(opacity = 50);
   -moz-opacity: 0.5;
   opacity: 0.5;
