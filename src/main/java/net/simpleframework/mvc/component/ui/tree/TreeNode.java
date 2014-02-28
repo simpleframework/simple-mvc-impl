@@ -71,7 +71,7 @@ public class TreeNode extends ItemUIBean<TreeNode> {
 	}
 
 	public String getImageClose() {
-		return StringUtils.text(imageClose, getImage());
+		return StringUtils.hasText(imageClose) ? imageClose : getImage();
 	}
 
 	public TreeNode setImageClose(final String imageClose) {
@@ -80,7 +80,7 @@ public class TreeNode extends ItemUIBean<TreeNode> {
 	}
 
 	public String getImageOpen() {
-		return StringUtils.text(imageOpen, getImage());
+		return StringUtils.hasText(imageOpen) ? imageOpen : getImage();
 	}
 
 	public TreeNode setImageOpen(final String imageOpen) {

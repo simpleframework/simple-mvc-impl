@@ -42,6 +42,6 @@ public class FolderTreeBean extends TreeBean {
 
 	{
 		setDynamicLoading(true);
-		setHandleClass(FolderTreeHandler.class);
+		setHandlerClass(FolderTreeHandler.class);
 	}
 }

@@ -13,7 +13,7 @@ import net.simpleframework.mvc.component.AbstractComponentBean;
 public class AjaxRequestBean extends AbstractComponentBean {
 
 	/* 定义组件在业务handler中的执行方法，缺省为ajaxProcess。要注意的是参数和返回值必须和ajaxProcess的定义一样 */
-	private String handleMethod;
+	private String handlerMethod;
 
 	/* ajax请求的编码，默认为UTF-8 */
 	private String encoding;
@@ -59,12 +59,12 @@ public class AjaxRequestBean extends AbstractComponentBean {
 	/* 组件调用完成后，前端执行的js */
 	private String jsCompleteCallback;
 
-	public String getHandleMethod() {
-		return handleMethod;
+	public String getHandlerMethod() {
+		return handlerMethod;
 	}
 
-	public AjaxRequestBean setHandleMethod(final String handleMethod) {
-		this.handleMethod = handleMethod;
+	public AjaxRequestBean setHandlerMethod(final String handlerMethod) {
+		this.handlerMethod = handlerMethod;
 		return this;
 	}
 
@@ -177,7 +177,7 @@ public class AjaxRequestBean extends AbstractComponentBean {
 	}
 
 	public String getAjaxRequestId() {
-		return StringUtils.text(ajaxRequestId, getName());
+		return StringUtils.hasText(ajaxRequestId) ? ajaxRequestId : getName();
 	}
 
 	public AjaxRequestBean setAjaxRequestId(final String ajaxRequestId) {
@@ -186,7 +186,7 @@ public class AjaxRequestBean extends AbstractComponentBean {
 	}
 
 	public String getRole() {
-		return StringUtils.text(role, settings.getDefaultRole());
+		return StringUtils.hasText(role) ? role : settings.getDefaultRole();
 	}
 
 	public AjaxRequestBean setRole(final String role) {
@@ -195,15 +195,15 @@ public class AjaxRequestBean extends AbstractComponentBean {
 	}
 
 	@Override
-	public String getHandleClass() {
-		final String handleClass = super.getHandleClass();
+	public String getHandlerClass() {
+		final String handlerClass = super.getHandlerClass();
 		if (StringUtils.hasText(getUrlForward())) {
-			setHandleMethod("doUrlForward");
-			if (!StringUtils.hasText(handleClass)) {
+			setHandlerMethod("doUrlForward");
+			if (!StringUtils.hasText(handlerClass)) {
 				return DefaultAjaxRequestHandler.class.getName();
 			}
 		}
-		return handleClass;
+		return handlerClass;
 	}
 
 	@Override

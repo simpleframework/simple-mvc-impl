@@ -66,7 +66,7 @@ public class PagerRender extends ComponentHtmlRenderEx {
 		final AjaxRequestBean ajaxRequest = (AjaxRequestBean) cp
 				.addComponentBean("__doPager", AjaxRequestBean.class)
 				.setAjaxRequestId("ajaxRequest_" + pagerBean.hashId())
-				.setHandleClass(PagerAction.class);
+				.setHandlerClass(PagerAction.class);
 		ajaxRequest.setAttr("container", pagerBean);
 	}
 }

@@ -77,7 +77,7 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 					}
 					if (!doing) {
 						try {
-							final String method = (String) cp.getBeanProperty("handleMethod");
+							final String method = (String) cp.getBeanProperty("handlerMethod");
 							if (StringUtils.hasText(method)
 									&& !(ajaxRequestHandle instanceof AbstractBasePage.AjaxRequest)) {
 								final Method methodObject = ajaxRequestHandle.getClass().getMethod(method,

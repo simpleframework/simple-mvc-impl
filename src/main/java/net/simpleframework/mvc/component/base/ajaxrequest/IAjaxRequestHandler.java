@@ -13,7 +13,7 @@ import net.simpleframework.mvc.component.IComponentHandler;
 public interface IAjaxRequestHandler extends IComponentHandler {
 
 	/**
-	 * ajax请求的缺省执行方法。当指定handleMethod属性时，请参考该方法的定义
+	 * ajax请求的缺省执行方法。当指定handlerMethod属性时，请参考该方法的定义
 	 * 
 	 * @param compParameter
 	 * @return

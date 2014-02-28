@@ -22,6 +22,6 @@ public class ValidateCodeBean extends AbstractContainerBean {
 	}
 
 	{
-		setHandleClass(DefaultValidateCodeHandler.class);
+		setHandlerClass(DefaultValidateCodeHandler.class);
 	}
 }

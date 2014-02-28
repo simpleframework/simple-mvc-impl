@@ -65,8 +65,10 @@ public class DictionaryRender extends WindowRender {
 		sb.append("};");
 		sb.append("if((function(value) {");
 		final String callback = dictionaryBean.getJsSelectCallback();
-		final String binding = StringUtils.text(dictionaryBean.getBindingId(),
-				dictionaryBean.getBindingText());
+		String binding = dictionaryBean.getBindingId();
+		if (!StringUtils.hasText(binding)) {
+			binding = dictionaryBean.getBindingText();
+		}
 		if (StringUtils.hasText(callback)) {
 			sb.append(callback);
 		} else if (StringUtils.hasText(binding)) {

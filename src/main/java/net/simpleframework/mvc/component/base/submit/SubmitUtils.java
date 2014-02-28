@@ -40,7 +40,7 @@ public abstract class SubmitUtils implements IMVCContextVar {
 		final ComponentParameter nCP = get(request, response);
 		final ISubmitHandler submitHandle = (ISubmitHandler) nCP.getComponentHandler();
 		if (submitHandle != null) {
-			final String method = (String) nCP.getBeanProperty("handleMethod");
+			final String method = (String) nCP.getBeanProperty("handlerMethod");
 			AbstractUrlForward forward;
 			if ((Boolean) nCP.getBeanProperty("binary")) {
 				nCP.request = ctx.createMultipartPageRequest(request,

@@ -34,7 +34,7 @@ public class AutocompleteRegistry extends AbstractComponentRegistry {
 				attriData);
 		final ComponentParameter nCP = ComponentParameter.get(pp, autocomplete);
 		pp.addComponentBean("ajax_" + nCP.getComponentName(), AjaxRequestBean.class)
-				.setHandleClass(AutocompleteAjaxRequestHandler.class)
+				.setHandlerClass(AutocompleteAjaxRequestHandler.class)
 				.setAttr("_ajaxComponent", autocomplete);
 		return autocomplete;
 	}

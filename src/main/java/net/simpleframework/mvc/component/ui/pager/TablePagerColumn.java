@@ -92,7 +92,7 @@ public class TablePagerColumn extends AbstractElementBean {
 	}
 
 	public String getColumnText() {
-		return StringUtils.text(columnText, getColumnName());
+		return StringUtils.hasText(columnText) ? columnText : getColumnName();
 	}
 
 	public TablePagerColumn setColumnText(final String columnText) {
@@ -262,7 +262,7 @@ public class TablePagerColumn extends AbstractElementBean {
 	}
 
 	public String getFormat() {
-		return StringUtils.text(format, defaultFormats.get(propertyClass()));
+		return StringUtils.hasText(format) ? format : defaultFormats.get(propertyClass());
 	}
 
 	public TablePagerColumn setFormat(final String format) {

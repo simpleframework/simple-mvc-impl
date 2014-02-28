@@ -4,13 +4,13 @@
 
 	<components>
 		<ajaxRequest name="ajaxTablePagerExport"
-			handleClass="net.simpleframework.mvc.component.ui.pager.TablePagerAction"
-			handleMethod="doExport" confirmMessage="#(tablepager_export.5)">
+			handlerClass="net.simpleframework.mvc.component.ui.pager.TablePagerAction"
+			handlerMethod="doExport" confirmMessage="#(tablepager_export.5)">
 		</ajaxRequest>
 
 		<progressbar name="tablepager_export_pbar" containerId="tablepager_export_pbar"
 			startAfterCreate="false" showAbortAction="false" showDetailAction="false"
-			handleClass="net.simpleframework.mvc.component.ui.pager.TablePagerExportProgressBar">
+			handlerClass="net.simpleframework.mvc.component.ui.pager.TablePagerExportProgressBar">
 		</progressbar>
 	</components>
 </page>

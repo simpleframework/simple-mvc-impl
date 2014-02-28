@@ -40,7 +40,7 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 	/* AjaxRequestBean */
 	protected AjaxRequestBean addAjaxRequest(final PageParameter pp, final String name) {
 		return (AjaxRequestBean) addComponentBean(pp, name, AjaxRequestBean.class).setRole(
-				getRole(pp)).setHandleClass(getClass());
+				getRole(pp)).setHandlerClass(getClass());
 	}
 
 	/* AjaxRequestBean */
@@ -51,7 +51,7 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 	}
 
 	protected AjaxRequestBean addDeleteAjaxRequest(final PageParameter pp, final String name) {
-		return addAjaxRequest(pp, name).setConfirmMessage($m("Confirm.Delete")).setHandleMethod(
+		return addAjaxRequest(pp, name).setConfirmMessage($m("Confirm.Delete")).setHandlerMethod(
 				"doDelete");
 	}
 
@@ -62,12 +62,13 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 
 	/* TreeBean */
 	protected TreeBean addTreeBean(final PageParameter pp, final String name) {
-		return (TreeBean) addComponentBean(pp, name, TreeBean.class).setHandleClass(getClass());
+		return (TreeBean) addComponentBean(pp, name, TreeBean.class).setHandlerClass(getClass());
 	}
 
 	/* ListboxBean */
 	protected ListboxBean addListBoxBean(final PageParameter pp, final String name) {
-		return (ListboxBean) addComponentBean(pp, name, ListboxBean.class).setHandleClass(getClass());
+		return (ListboxBean) addComponentBean(pp, name, ListboxBean.class)
+				.setHandlerClass(getClass());
 	}
 
 	/* TablePagerBean */
@@ -103,10 +104,10 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 		public IForward ajaxProcess(final ComponentParameter cp) {
 			try {
 				final AjaxRequestBean ajaxRequestBean = (AjaxRequestBean) cp.componentBean;
-				final Class<AbstractMVCPage> handleClass = (Class<AbstractMVCPage>) ClassUtils
-						.forName(ajaxRequestBean.getHandleClass());
-				return (IForward) handleClass.getMethod(
-						StringUtils.text(ajaxRequestBean.getHandleMethod(), "ajaxProcess"),
+				final Class<AbstractMVCPage> handlerClass = (Class<AbstractMVCPage>) ClassUtils
+						.forName(ajaxRequestBean.getHandlerClass());
+				return (IForward) handlerClass.getMethod(
+						StringUtils.text(ajaxRequestBean.getHandlerMethod(), "ajaxProcess"),
 						ComponentParameter.class).invoke(AbstractMVCPage.get(cp), cp);
 			} catch (final Exception e) {
 				throw ComponentHandlerException.of(e);
@@ -121,9 +122,9 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 		public AbstractUrlForward submit(final ComponentParameter cp) {
 			try {
 				final SubmitBean submitBean = (SubmitBean) cp.componentBean;
-				final Class<AbstractMVCPage> handleClass = (Class<AbstractMVCPage>) ClassUtils
-						.forName(submitBean.getHandleClass());
-				return (AbstractUrlForward) handleClass.getMethod(submitBean.getHandleMethod(),
+				final Class<AbstractMVCPage> handlerClass = (Class<AbstractMVCPage>) ClassUtils
+						.forName(submitBean.getHandlerClass());
+				return (AbstractUrlForward) handlerClass.getMethod(submitBean.getHandlerMethod(),
 						ComponentParameter.class).invoke(AbstractMVCPage.get(cp), cp);
 			} catch (final Exception e) {
 				throw ComponentHandlerException.of(e);
@@ -138,9 +139,9 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 		public TreeNodes getTreenodes(final ComponentParameter cp, final TreeNode treeNode) {
 			try {
 				final TreeBean treeBean = (TreeBean) cp.componentBean;
-				final Class<AbstractMVCPage> handleClass = (Class<AbstractMVCPage>) ClassUtils
-						.forName(treeBean.getHandleClass());
-				return (TreeNodes) handleClass.getMethod("getTreenodes", ComponentParameter.class,
+				final Class<AbstractMVCPage> handlerClass = (Class<AbstractMVCPage>) ClassUtils
+						.forName(treeBean.getHandlerClass());
+				return (TreeNodes) handlerClass.getMethod("getTreenodes", ComponentParameter.class,
 						TreeNode.class).invoke(AbstractMVCPage.get(cp), cp, treeNode);
 			} catch (final Exception e) {
 				throw ComponentHandlerException.of(e);
@@ -154,9 +155,9 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 		public ListItems getListItems(final ComponentParameter cp) {
 			try {
 				final ListboxBean listbox = (ListboxBean) cp.componentBean;
-				final Class<AbstractMVCPage> handleClass = (Class<AbstractMVCPage>) ClassUtils
-						.forName(listbox.getHandleClass());
-				return (ListItems) handleClass.getMethod("getListItems", ComponentParameter.class)
+				final Class<AbstractMVCPage> handlerClass = (Class<AbstractMVCPage>) ClassUtils
+						.forName(listbox.getHandlerClass());
+				return (ListItems) handlerClass.getMethod("getListItems", ComponentParameter.class)
 						.invoke(AbstractMVCPage.get(cp), cp);
 			} catch (final Exception e) {
 				throw ComponentHandlerException.of(e);
@@ -171,9 +172,9 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 		public MenuItems getMenuItems(final ComponentParameter cp, final MenuItem menuItem) {
 			try {
 				final MenuBean menuBean = (MenuBean) cp.componentBean;
-				final Class<AbstractMVCPage> handleClass = (Class<AbstractMVCPage>) ClassUtils
-						.forName(menuBean.getHandleClass());
-				return (MenuItems) handleClass.getMethod("getMenuItems", ComponentParameter.class,
+				final Class<AbstractMVCPage> handlerClass = (Class<AbstractMVCPage>) ClassUtils
+						.forName(menuBean.getHandlerClass());
+				return (MenuItems) handlerClass.getMethod("getMenuItems", ComponentParameter.class,
 						MenuItem.class).invoke(AbstractMVCPage.get(cp), cp, menuItem);
 			} catch (final Exception e) {
 				throw ComponentHandlerException.of(e);

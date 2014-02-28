@@ -81,7 +81,7 @@ public class SwfUploadBean extends AbstractContainerBean {
 	}
 
 	public String getRoleUpload() {
-		return StringUtils.text(roleUpload, settings.getDefaultRole());
+		return StringUtils.hasText(roleUpload) ? roleUpload : settings.getDefaultRole();
 	}
 
 	public SwfUploadBean setRoleUpload(final String roleUpload) {

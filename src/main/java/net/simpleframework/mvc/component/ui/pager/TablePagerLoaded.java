@@ -62,7 +62,7 @@ public class TablePagerLoaded extends PagerLoaded {
 		MenuBean menuBean = (MenuBean) nCP.addComponentBean("ml_" + hashId + "_Menu", MenuBean.class)
 				.setMenuEvent(EMenuEvent.click)
 				.setJsBeforeShowCallback("TableUtils.contextMenu_ShowCallback(menu);")
-				.setHandleClass(TablePagerMenu.class);
+				.setHandlerClass(TablePagerMenu.class);
 		List<MenuItem> items;
 		if (tptbl instanceof AbstractTablePagerHandler) {
 			items = ((ComponentHandlerEx) tptbl).getContextMenu(nCP, menuBean, null);
@@ -73,7 +73,7 @@ public class TablePagerLoaded extends PagerLoaded {
 
 		menuBean = (MenuBean) nCP.addComponentBean("ml_" + hashId + "_Menu2", MenuBean.class)
 				.setMenuEvent(EMenuEvent.click).setMinWidth("140")
-				.setHandleClass(TablePagerMenu2.class);
+				.setHandlerClass(TablePagerMenu2.class);
 		items = tptbl.getHeaderMenu(nCP, menuBean);
 		if (items == null) {
 			nCP.removeComponentBean(menuBean);
@@ -82,11 +82,11 @@ public class TablePagerLoaded extends PagerLoaded {
 		if ((Boolean) nCP.getBeanProperty("showFilterBar")) {
 			// 删除过滤
 			nCP.addComponentBean("tpFilterDelete_" + hashId, AjaxRequestBean.class)
-					.setHandleMethod("doFilterDelete").setHandleClass(TablePagerAction.class);
+					.setHandlerMethod("doFilterDelete").setHandlerClass(TablePagerAction.class);
 
 			// 过滤
 			nCP.addComponentBean("tpFilter_" + hashId, AjaxRequestBean.class)
-					.setHandleMethod("doFilter2").setHandleClass(TablePagerAction.class);
+					.setHandlerMethod("doFilter2").setHandlerClass(TablePagerAction.class);
 
 			// 过滤高级窗口
 			nCP.addComponentBean("tpFilterPage_" + hashId, AjaxRequestBean.class).setUrlForward(
@@ -102,16 +102,16 @@ public class TablePagerLoaded extends PagerLoaded {
 
 			// 编辑行
 			nCP.addComponentBean("tpRowEdit_" + hashId, AjaxRequestBean.class)
-					.setHandleMethod("doRowEdit").setHandleClass(TablePagerAction.class);
+					.setHandlerMethod("doRowEdit").setHandlerClass(TablePagerAction.class);
 
 			// 添加行
 			nCP.addComponentBean("tpRowAdd_" + hashId, AjaxRequestBean.class).setParallel(true)
-					.setHandleMethod("doRowAdd").setHandleClass(TablePagerAction.class);
+					.setHandlerMethod("doRowAdd").setHandlerClass(TablePagerAction.class);
 
 			// 保存行数据
 			final AjaxRequestBean ajaxRequest = (AjaxRequestBean) nCP
 					.addComponentBean("tpRowSave_" + hashId, AjaxRequestBean.class)
-					.setHandleMethod("doRowSave").setHandleClass(TablePagerAction.class);
+					.setHandlerMethod("doRowSave").setHandlerClass(TablePagerAction.class);
 			final String msg = (String) nCP.getBeanProperty("rowSaveConfirmMessage");
 			if (StringUtils.hasText(msg)) {
 				ajaxRequest.setConfirmMessage(msg);

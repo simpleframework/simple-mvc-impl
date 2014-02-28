@@ -19,7 +19,7 @@ public class SubmitBean extends AbstractComponentBean {
 	// 单位： B、KB、MB、GB
 	private String fileSizeLimit = BeanDefaults.getString(getClass(), "fileSizeLimit", "1MB");
 
-	private String handleMethod;
+	private String handlerMethod;
 
 	private String confirmMessage;
 
@@ -34,12 +34,12 @@ public class SubmitBean extends AbstractComponentBean {
 		return this;
 	}
 
-	public String getHandleMethod() {
-		return handleMethod;
+	public String getHandlerMethod() {
+		return handlerMethod;
 	}
 
-	public SubmitBean setHandleMethod(final String handleMethod) {
-		this.handleMethod = handleMethod;
+	public SubmitBean setHandlerMethod(final String handlerMethod) {
+		this.handlerMethod = handlerMethod;
 		return this;
 	}
 
@@ -70,7 +70,7 @@ public class SubmitBean extends AbstractComponentBean {
 	}
 
 	public String getRole() {
-		return StringUtils.text(role, settings.getDefaultRole());
+		return StringUtils.hasText(role) ? role : settings.getDefaultRole();
 	}
 
 	public SubmitBean setRole(final String role) {

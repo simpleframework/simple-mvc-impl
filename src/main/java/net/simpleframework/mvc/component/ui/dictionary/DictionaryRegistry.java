@@ -51,7 +51,7 @@ public class DictionaryRegistry extends WindowRegistry {
 		final AjaxRequestBean ajaxRequest = (AjaxRequestBean) cp
 				.addComponentBean(ajaxRequestName, AjaxRequestBean.class).setShowLoading(false)
 				.setParameters(DictionaryUtils.BEAN_ID + "=" + dictionaryBean.hashId())
-				.setIncludeRequestData("pa").setHandleClass(DictionaryAction.class)
+				.setIncludeRequestData("pa").setHandlerClass(DictionaryAction.class)
 				.setAttr("$$dictionary", dictionaryBean);
 		cp.addComponentBean(ajaxRequest);
 
