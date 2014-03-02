@@ -19,7 +19,6 @@ import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.IMVCContextVar;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.JsonForward;
-import net.simpleframework.mvc.MVCContext;
 import net.simpleframework.mvc.MVCUtils;
 import net.simpleframework.mvc.SessionCache;
 import net.simpleframework.mvc.component.ComponentException;
@@ -53,7 +52,7 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 			}
 		} else {
 			try {
-				forward = MVCContext.permission().accessForward(cp, cp.getBeanProperty("role"));
+				forward = ctx.getPermission().accessForward(cp, cp.getBeanProperty("role"));
 				if (forward != null) {
 					bPermission = true;
 				}
