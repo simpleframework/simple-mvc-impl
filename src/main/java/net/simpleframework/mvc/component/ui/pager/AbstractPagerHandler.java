@@ -104,7 +104,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 	protected void wrapNavImage(final ComponentParameter cp, final StringBuilder sb) {
 		final Object times = cp.getSessionAttr(PROCESS_TIMES);
 		if (times != null) {
-			sb.append(new SpanElement("( " + times + "ms )").setStyle("margin-left: 8px;"));
+			sb.append(new SpanElement("( " + times + "ms )").addStyle("margin-left: 8px;"));
 			cp.removeSessionAttr(PROCESS_TIMES);
 		}
 		sb.insert(0, "<div class=\"nav0_image\">");
@@ -191,7 +191,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 	protected AbstractElement<?> createHeadStatElement(final int count, final String pTitle) {
 		return new SpanElement(
 				$m("pager_head.1", new SpanElement(count).setClassName("num2"), pTitle))
-				.setStyle("margin-left: 6px;");
+				.addStyle("margin-left: 6px;");
 	}
 
 	@Override
@@ -212,7 +212,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 			}
 		}
 		if (showEditPageItems) {
-			sb.append(new SpanElement("/").setStyle("margin: 0px 2px;"));
+			sb.append(new SpanElement("/").addStyle("margin: 0px 2px;"));
 			sb.append(createPageItemsInput(cp, pageItems));
 		}
 		String exportAction = (String) cp.getBeanProperty("exportAction");
@@ -246,7 +246,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 						new Option("50").setSelected(pageItems == 50),
 						new Option("100").setSelected(pageItems == 100),
 						new Option("500").setSelected(pageItems == 500))
-				.setStyle("vertical-align: middle;").setOnchange(onchange);
+				.addStyle("vertical-align: middle;").setOnchange(onchange);
 		return input;
 	}
 }

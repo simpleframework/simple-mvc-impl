@@ -574,7 +574,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			final Map<String, ColumnData> filterColumns = getFilterColumns(cp);
 			if (filterColumns != null && filterColumns.containsKey(columnName)) {
 				link.setClassName("del")
-						.setStyle("float: left;")
+						.addStyle("float: left;")
 						.setTitle("#(TablePagerUtils.8)")
 						.setOnclick(
 								"$Actions['" + componentName + "'].filterDelete(this, '"
