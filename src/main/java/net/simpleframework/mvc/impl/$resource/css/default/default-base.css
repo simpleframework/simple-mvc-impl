@@ -1,7 +1,4 @@
-html, body {
-	margin: 0px;
-	padding: 0px;
-}
+@import url("normalize.css");
 
 body {
 	font-size: 9pt;
@@ -73,16 +70,6 @@ form {
 	margin: 0px;
 }
 
-fieldset {
-	border: 1px solid #ccc;
-	padding: 6px;
-}
-
-fieldset legend {
-	*margin-left: 2px;
-	margin-left: 10px\0;
-}
-
 hr {
 	border: 0px;
 	border-top: 1px solid #ccc;
@@ -91,8 +78,6 @@ hr {
 
 table {
 	border: 0;
-	border-collapse: collapse; 
-	border-spacing: 0;
 }
 
 a {
@@ -116,10 +101,6 @@ blockquote {
 	padding-left: 20px;
 	padding-right: 8px;
 	border-left-width: 5px;
-}
-
-img {
-	border: none;
 }
 
 pre {
