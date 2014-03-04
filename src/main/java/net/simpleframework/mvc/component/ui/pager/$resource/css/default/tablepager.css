@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+.tablepager input[type=checkbox] {
+  vertical-align: middle;
+}
+
 .tablepager .thead {
   position: relative; /* for scroll */
   *position: static;
@@ -233,12 +237,6 @@
   width: 20px;
 }
 
-.tablepager .thead .cb input,
-.tablepager .tfilter .cb input,
-.tablepager .itr>.cb input {
-  vertical-align: middle;
-}
-
 .tablepager .thead .plus,
 .tablepager .tfilter .plus,
 .tablepager .itr>.plus {
@@ -381,10 +379,6 @@
   border-bottom: 1px solid #bbb;
   margin-bottom: 8px;
   padding: 8px;
-}
-
-.tablepager_export input[type=checkbox] {
-  vertical-align: middle;
 }
 
 .tablepager_export label {
