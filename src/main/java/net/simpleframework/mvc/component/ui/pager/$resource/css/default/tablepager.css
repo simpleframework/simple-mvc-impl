@@ -233,6 +233,12 @@
   width: 20px;
 }
 
+.tablepager .thead .cb input,
+.tablepager .tfilter .cb input,
+.tablepager .itr>.cb input {
+  vertical-align: middle;
+}
+
 .tablepager .thead .plus,
 .tablepager .tfilter .plus,
 .tablepager .itr>.plus {
