@@ -137,7 +137,7 @@ public class TabButtons extends AbstractArrayListEx<TabButtons, TabButton> {
 		return sb.toString();
 	}
 
-	private boolean match(final PageRequestResponse rRequest, final TabButton tab,
+	protected boolean match(final PageRequestResponse rRequest, final TabButton tab,
 			final String requestURI) {
 		String href = rRequest.stripContextPath(tab.getHref());
 		Map<String, Object> params = null;
