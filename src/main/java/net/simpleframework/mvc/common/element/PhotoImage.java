@@ -16,6 +16,10 @@ public class PhotoImage extends ImageElement {
 		return (PhotoImage) new PhotoImage(src).addClassName("icon16");
 	}
 
+	public static PhotoImage icon12(final String src) {
+		return (PhotoImage) new PhotoImage(src).addClassName("icon12");
+	}
+
 	public PhotoImage() {
 	}
 

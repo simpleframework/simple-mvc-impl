@@ -279,6 +279,11 @@ button:hover {
 	border-color: transparent !important;
 }
 
+.icon12 {
+  width: 12px;
+  height: 12px;
+}
+
 .icon16 {
   width: 16px;
   height: 16px;
