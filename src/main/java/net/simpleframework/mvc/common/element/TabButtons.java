@@ -37,7 +37,7 @@ public class TabButtons extends AbstractArrayListEx<TabButtons, TabButton> {
 
 	private boolean vertical;
 
-	private TabButtons(final int selectedIndex) {
+	protected TabButtons(final int selectedIndex) {
 		this.selectedIndex = selectedIndex;
 	}
 
