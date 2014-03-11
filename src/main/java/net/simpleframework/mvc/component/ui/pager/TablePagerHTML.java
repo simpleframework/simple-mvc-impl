@@ -394,13 +394,14 @@ public abstract class TablePagerHTML implements HtmlConst {
 
 				sb.append(">").append(handler.getValue(rowData, pagerColumn)).append("</div></td>");
 			}
-			sb.append("</tr></table></div>");
+			sb.append("</tr></table>");
 
 			if (StringUtils.hasText(detailVal)) {
 				sb.append("<div class=\"tdetail\" style=\"display: none;\">");
 				sb.append(HtmlUtils.convertHtmlLines(detailVal));
 				sb.append("</div>");
 			}
+			sb.append("</div>");
 			return sb.toString();
 		}
 	}

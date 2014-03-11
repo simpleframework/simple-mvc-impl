@@ -320,6 +320,13 @@ button:hover {
 	box-shadow: 2px 2px 2px #aaa; 
 }
 
+.icon_txt {
+  vertical-align: middle;
+  display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
 .ifocus:focus,
 .ifocus:focus {
   border-color: rgba(82, 168, 236, 0.8);

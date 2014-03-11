@@ -332,7 +332,7 @@ function $table_pager_addMethods(pa) {
 	// detailField
 	if (pa.json["isDetailField"]) {
 		tablepager.select('.plus>img').each(function(img) {
-			$UI.doImageToggle(img, img.up('.titem').next(), {
+			$UI.doImageToggle(img, img.up('.titem').down(".tdetail"), {
 				cookie : false,
 				open : pa.json["isExpandDetailField"]
 			});
