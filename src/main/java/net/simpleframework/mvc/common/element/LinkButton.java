@@ -9,42 +9,44 @@ import static net.simpleframework.common.I18n.$m;
  *         http://www.simpleframework.net
  */
 public class LinkButton extends AbstractButtonEx<LinkButton> {
-
-	public static final LinkButton okBtn() {
-		return new LinkButton().setText($m("Button.Ok"));
-	}
-
-	public static final LinkButton saveBtn() {
-		return new LinkButton().setText($m("Button.Save")).setIconClass(Icon.hdd);
-	}
-
-	public static final LinkButton addBtn() {
-		return new LinkButton().setText($m("Add")).setIconClass(Icon.file);
-	}
-
-	public static final LinkButton editBtn() {
-		return new LinkButton().setText($m("Edit")).setIconClass(Icon.edit);
-	}
-
-	public static final LinkButton deleteBtn() {
-		return new LinkButton().setText($m("Delete")).setIconClass(Icon.trash);
-	}
-
-	public static final LinkButton closeBtn() {
-		return new LinkButton("#(Button.Close)").setOnclick("$win(this).close();").setIconClass(
-				Icon.off);
-	}
-
-	public static final LinkButton logBtn() {
-		return new LinkButton($m("Button.Log"));
-	}
-
 	public static LinkButton of(final Object text) {
 		return new LinkButton(text);
 	}
 
+	public static final LinkButton okBtn() {
+		return of($m("Button.Ok"));
+	}
+
+	public static final LinkButton saveBtn() {
+		return of($m("Button.Save")).setIconClass(Icon.hdd);
+	}
+
+	public static final LinkButton addBtn() {
+		return of($m("Add")).setIconClass(Icon.file);
+	}
+
+	public static final LinkButton editBtn() {
+		return of($m("Edit")).setIconClass(Icon.edit);
+	}
+
+	public static final LinkButton deleteBtn() {
+		return of($m("Delete")).setIconClass(Icon.trash);
+	}
+
+	public static final LinkButton closeBtn() {
+		return of("#(Button.Close)").setOnclick("$win(this).close();").setIconClass(Icon.off);
+	}
+
+	public static final LinkButton logBtn() {
+		return of($m("Button.Log"));
+	}
+
 	public static LinkButton corner(final Object text) {
 		return of(text).corner();
+	}
+
+	public static LinkButton menu(final Object text) {
+		return of(text).setIconClass(Icon.eye_open).setMenuIcon(true);
 	}
 
 	public LinkButton() {
