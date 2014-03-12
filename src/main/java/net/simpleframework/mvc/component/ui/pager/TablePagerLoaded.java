@@ -60,7 +60,7 @@ public class TablePagerLoaded extends PagerLoaded {
 
 		// 添加菜单组件
 		MenuBean menuBean = (MenuBean) nCP.addComponentBean("ml_" + hashId + "_Menu", MenuBean.class)
-				.setMenuEvent(EMenuEvent.mouseenter)
+				.setMenuEvent(EMenuEvent.click)
 				.setJsBeforeShowCallback("TableUtils.contextMenu_ShowCallback(menu);")
 				.setHandlerClass(TablePagerMenu.class);
 		List<MenuItem> items;

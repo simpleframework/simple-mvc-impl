@@ -32,7 +32,7 @@ $UI.Menu = Class
             });
           }
         }
-
+        
         if (!MENU_DOCUMENT_CLICK) {
           document.observe("click", function(e) {
             if (!e.isRightClick()) {
@@ -101,11 +101,12 @@ $UI.Menu = Class
         });
       },
 
-      hideAll : function(e) {
+      hideAll : function(e, me) {
         this.shown.each(function(ele) {
-          if (ele.mi) {
+          if (me == ele)
+            return;
+          if (ele.mi) 
             ele.mi.removeClassName("active");
-          }
           ele.hide();
         });
       },
@@ -139,8 +140,8 @@ $UI.Menu = Class
           if (item.submenu) {
             d = oThis.createMenu(document.body, item.submenu);
           }
-          mi.observe("mouseover", (function(e) {
-            oThis.hideAll(e);
+          mi.observe("mouseenter", (function(e) {
+            oThis.hideAll(e, d);
             if (d) {
               d.mi = mi;
               mi.addClassName("active");
@@ -330,10 +331,10 @@ $UI.Menu = Class
           var m = a.getSubMenu();
           if (!m)
             return;
-          a.observe("mouseover", function(e) {
+          a.observe("mouseenter", function(e) {
             oThis.show(e, m, true);
           });
-          a.observe("mouseout", function(e) {
+          a.observe("mouseleave", function(e) {
             if (e.relatedTarget.descendantOf(a))
               return;
             oThis.hide(m);
@@ -381,6 +382,9 @@ $UI.Menu = Class
           _left = (o.getWidth() - 10) - (x - _left);
         }
 
+        if (this.options.menuEvent == "mouseenter") {
+          _top -= 5;
+        }
         return Object.clone(Object.extend(elDim, {
           left : _left,
           top : _top

@@ -134,9 +134,10 @@
 
 .down_menu_image {
 	background: url(images/down_menu.png) no-repeat center center;
-	width: 10px;
-	height: 6px;
+	width: 16px;
+	height: 16px;
 	cursor: pointer;
+	vertical-align: middle;
 }
 
 .down_menu_image:hover {
