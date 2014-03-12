@@ -46,7 +46,7 @@ public class LinkButton extends AbstractButtonEx<LinkButton> {
 	}
 
 	public static LinkButton menu(final Object text) {
-		return of(text).setIconClass(Icon.eye_open).setMenuIcon(true);
+		return of(text).setMenuIcon(true);
 	}
 
 	public LinkButton() {

@@ -20,5 +20,5 @@ public enum EMenuEvent {
 	/**
 	 * 移动事件
 	 */
-	mouseover
+	mouseenter
 }
