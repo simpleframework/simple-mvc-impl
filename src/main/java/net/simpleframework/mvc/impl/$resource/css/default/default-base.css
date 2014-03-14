@@ -314,7 +314,12 @@ button:hover {
   height: 128px;
 }
 
+.icon12, .icon16, .icon24, .icon32 {
+  vertical-align: middle;
+}
+
 .icon48, .icon64, .icon128 {
+  vertical-align: middle;
   -webkit-box-shadow: 2px 2px 2px #aaa;
 	-moz-box-shadow: 2px 2px 2px #aaa;
 	box-shadow: 2px 2px 2px #aaa; 
