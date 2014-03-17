@@ -301,7 +301,7 @@ img.photo_icon {
 }
 
 .nav_arrow {
-  background: url("images/icon/nav_arrow.png") 0 3px no-repeat;
+  background: url("images/icon/nav_arrow.png") 0 50% no-repeat;
   padding-left: 16px;
 }
 
