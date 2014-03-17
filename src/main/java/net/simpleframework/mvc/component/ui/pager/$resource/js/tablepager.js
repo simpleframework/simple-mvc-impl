@@ -101,6 +101,11 @@ function $table_pager_addMethods(pa) {
 		pa.rowData = function(i, o) {
 			return pa.row(o).select("td")[i].innerHTML.stripTags().strip();
 		};
+		
+		pa.rowSelect = function(o, b) {
+		  var row = pa.row(o);
+		  row[b ? "addClassName" : "removeClassName"]("titem_selected");
+    };
 
 		pa.add_row = function(params) {
 			var tp = pa.pager.down(".tablepager");
@@ -407,7 +412,7 @@ function $table_pager_addMethods(pa) {
 	items.each(function(item) {
     var cb = item.down(".cb input[type=checkbox]");
     if (cb && cb.checked) {
-      item.addClassName("titem_selected");
+      pa.rowSelect(item, true);
     }
   });
 	tablepager.select(".cb input[type=checkbox]").invoke("observe", "click",
@@ -415,10 +420,10 @@ function $table_pager_addMethods(pa) {
 				var b = this.checked;
 				var item = this.up(".titem");
 				if (item) {
-					item[b ? "addClassName" : "removeClassName"]("titem_selected");
+				  pa.rowSelect(item, b);
 				} else {
 					items.each(function(i) {
-						i[b ? "addClassName" : "removeClassName"]("titem_selected");
+					  pa.rowSelect(i, b);
 					});
 				}
 				evn.stopPropagation();
