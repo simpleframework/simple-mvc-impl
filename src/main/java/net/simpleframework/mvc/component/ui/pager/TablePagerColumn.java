@@ -324,7 +324,7 @@ public class TablePagerColumn extends AbstractElementBean {
 
 	public static final TablePagerColumn ICON() {
 		return col(ICON, HtmlConst.NBSP).setWidth(20).setSort(false).setFilter(false)
-				.setResize(false).setTextAlign(ETextAlign.right).setExport(false).setEditable(false);
+				.setResize(false).setTextAlign(ETextAlign.center).setExport(false).setEditable(false);
 	}
 
 	public static final TablePagerColumn BLANK() {
