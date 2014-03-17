@@ -137,7 +137,10 @@ public abstract class TablePagerHTML implements HtmlConst {
 				sb.append("'].checkAll(this);\" /></td>");
 			}
 
+			final boolean resize = (Boolean) cp.getBeanProperty("resize");
 			final int headHeight = (Integer) cp.getBeanProperty("headHeight");
+			final boolean showVerticalLine = (Boolean) cp.getBeanProperty("showVerticalLine");
+
 			int i = 0;
 			for (final TablePagerColumn pagerColumn : tablePagerData.getTablePagerColumns(cp)) {
 				if (!pagerColumn.isVisible()) {
@@ -152,8 +155,9 @@ public abstract class TablePagerHTML implements HtmlConst {
 				if (!pagerColumn.isNowrap()) {
 					sb.append(" class=\"wrap_text\"");
 				}
+				final boolean bResize = resize && pagerColumn.isResize();
 				sb.append(" columnName=\"").append(pagerColumn.getColumnName()).append("\" resize=\"")
-						.append(pagerColumn.isResize()).append("\"><div class=\"box\"");
+						.append(bResize).append("\"><div class=\"box\"");
 				if (headHeight > 0) {
 					sb.append(" style=\"height: ").append(headHeight).append("px;\"");
 				}
@@ -174,9 +178,8 @@ public abstract class TablePagerHTML implements HtmlConst {
 							img.append("/images/").append(sort).append(".png\" />");
 						}
 					}
-					sb.append("<a onclick=\"$Actions['").append(componentName);
-					sb.append("'].sort('").append(columnName).append("');\">");
-					sb.append(columnText).append("</a>");
+					sb.append("<a onclick=\"$Actions['").append(componentName).append("'].sort('")
+							.append(columnName).append("');\">").append(columnText).append("</a>");
 					if (img != null) {
 						sb.append(img);
 					}
@@ -184,8 +187,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 					sb.append(columnText);
 				}
 				sb.append("</div>");
-				if (((Boolean) cp.getBeanProperty("showVerticalLine") || pagerColumn.isResize())
-						&& (showCheckbox || i > 0)) {
+				if ((showVerticalLine || bResize) && (showCheckbox || i > 0)) {
 					sb.append("<div class=\"sep\"></div>");
 				}
 				sb.append("</div>");
@@ -376,22 +378,18 @@ public abstract class TablePagerHTML implements HtmlConst {
 				if (StringUtils.hasText(style)) {
 					sb.append(" style=\"").append(style).append("\"");
 				}
-				String className = "";
-				if (!pagerColumn.isNowrap()) {
-					className = "wrap_text";
-				}
-				if (showVerticalLine) {
-					className += " vline";
-				}
-				if (className.length() > 0) {
+				final String className = pagerColumn.toClassName(showVerticalLine);
+				if (StringUtils.hasText(className)) {
 					sb.append(" class=\"").append(className).append("\"");
 				}
 				sb.append("><div class=\"lbl\"");
-				final String lblStyle = pagerColumn.getLblStyle();
+				String lblStyle = pagerColumn.getLblStyle();
+				if (pagerColumn.isNowrap()) {
+					lblStyle = "overflow: hidden;" + (lblStyle != null ? lblStyle : "");
+				}
 				if (StringUtils.hasText(lblStyle)) {
 					sb.append(" style=\"").append(lblStyle).append("\"");
 				}
-
 				sb.append(">").append(handler.getValue(rowData, pagerColumn)).append("</div></td>");
 			}
 			sb.append("</tr></table>");

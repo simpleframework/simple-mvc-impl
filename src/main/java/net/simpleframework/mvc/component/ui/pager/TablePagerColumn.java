@@ -250,6 +250,17 @@ public class TablePagerColumn extends AbstractElementBean {
 		return set.size() > 0 ? StringUtils.join(set, ";") : null;
 	}
 
+	String toClassName(final boolean showVerticalLine) {
+		String className = "";
+		if (!isNowrap()) {
+			className = "wrap_text";
+		}
+		if (showVerticalLine) {
+			className += " vline";
+		}
+		return className;
+	}
+
 	public Class<?> propertyClass() {
 		final String clazz = getPropertyClass();
 		if (StringUtils.hasText(clazz)) {
@@ -312,7 +323,7 @@ public class TablePagerColumn extends AbstractElementBean {
 	}
 
 	public static final TablePagerColumn OPE() {
-		return col(OPE, $m("OPE")).setSort(false).setFilter(false).setExport(false)
+		return col(OPE, $m("OPE")).setNowrap(false).setSort(false).setFilter(false).setExport(false)
 				.setEditable(false);
 	}
 

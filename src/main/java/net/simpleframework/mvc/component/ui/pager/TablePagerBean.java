@@ -51,6 +51,9 @@ public class TablePagerBean extends PagerBean {
 	/* 是否缺省展开详细信息 */
 	private boolean expandDetailField = BeanDefaults.getBool(getClass(), "expandDetailField", false);
 
+	/* 表格列的宽度是否可以改变 */
+	private boolean resize = BeanDefaults.getBool(getClass(), "expandDetailField", true);
+
 	/* 分组字段 */
 	private String groupColumn;
 
@@ -198,6 +201,15 @@ public class TablePagerBean extends PagerBean {
 
 	public TablePagerBean setExpandDetailField(final boolean expandDetailField) {
 		this.expandDetailField = expandDetailField;
+		return this;
+	}
+
+	public boolean isResize() {
+		return resize;
+	}
+
+	public TablePagerBean setResize(final boolean resize) {
+		this.resize = resize;
 		return this;
 	}
 
