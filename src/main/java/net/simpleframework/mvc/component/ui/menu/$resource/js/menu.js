@@ -94,9 +94,7 @@ $UI.Menu = Class.create({
   },
 
   hide : function(menu) {
-    $Effect.hide(menu, {
-      effects : this.options.effects
-    });
+    menu.hide();
   },
 
   hideAll : function(e, me) {
@@ -326,16 +324,14 @@ $UI.Menu = Class.create({
     var oThis = this;
     menu.getItems().each(function(a) {
       var m = a.getSubMenu();
-      if (!m)
-        return;
-      a.observe("mouseenter", function(e) {
-        oThis.show(e, m, true);
-      });
-      a.observe("mouseleave", function(e) {
-        if (e.relatedTarget.descendantOf(a))
-          return;
-        oThis.hide(m);
-      });
+      if (m) {
+        a.observe("mouseenter", function(e) {
+          oThis.show(e, m, true);
+        });
+        a.observe("mouseleave", function(e) {
+          oThis.hide(m);
+        });
+      }    
     });
 
     this.shown.push(menu);
@@ -369,26 +365,26 @@ $UI.Menu = Class.create({
       x += vpOff.left;
     }
     var vpDim = document.viewport.getDimensions();
-    var elDim = menu.getDimensions();
+    var mDim = menu.getDimensions();
+    var mWidth = mDim.width, mHeight = mDim.height;
     var pOff = this.options.pageOffset;
-    var _left = (x + elDim.width + pOff) > vpDim.width ? (vpDim.width
-        - elDim.width - pOff) : x;
-    var _top = y ? ((y - vpOff.top + elDim.height) > vpDim.height
-        && (y - vpOff.top) > elDim.height ? (y - elDim.height) : y) : -2;
+    var _left = (x + mWidth + pOff) > vpDim.width ? (vpDim.width
+        - mWidth - pOff) : x;
+    var _top = y ? ((y - vpOff.top + mHeight) > vpDim.height
+        && (y - vpOff.top) > mHeight ? (y - mHeight) : y) : -2;
     if (r) {
       var d = x - _left;
-      var w = o.getWidth();
       if (d > 0) {
-        _left = -w + 2;
+        _left = -mWidth + 2;
       } else {
-        _left = w - d - 10;
+        _left = mWidth - d - 10;
       }
     }
 
     if (this.options.menuEvent == "mouseenter") {
       _top -= 5;
     }
-    return Object.clone(Object.extend(elDim, {
+    return Object.clone(Object.extend(mDim, {
       left : _left,
       top : _top
     }));
