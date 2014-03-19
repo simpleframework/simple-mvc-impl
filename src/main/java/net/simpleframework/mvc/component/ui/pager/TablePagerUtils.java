@@ -7,6 +7,7 @@ import static net.simpleframework.ado.EFilterRelation.like;
 import static net.simpleframework.ado.EFilterRelation.lt;
 import static net.simpleframework.ado.EFilterRelation.lt_equal;
 import static net.simpleframework.ado.EFilterRelation.not_equal;
+import static net.simpleframework.common.I18n.$m;
 
 import java.util.Date;
 
@@ -15,6 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.simpleframework.common.Convert;
 import net.simpleframework.common.StringUtils;
+import net.simpleframework.mvc.common.element.CalendarInput;
+import net.simpleframework.mvc.common.element.Checkbox;
+import net.simpleframework.mvc.common.element.InputElement;
+import net.simpleframework.mvc.common.element.Radio;
+import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.component.ComponentParameter;
 
 /**
@@ -84,8 +90,14 @@ public abstract class TablePagerUtils {
 				columns);
 	}
 
-	public static String toOptionHTML(final TablePagerColumn col) {
+	static boolean isGroup(final ComponentParameter cp) {
+		return cp.getComponentHandler() instanceof IGroupTablePagerHandler
+				&& StringUtils.hasText((String) cp.getBeanProperty("groupColumn"));
+	}
+
+	public static String toFilterSelectHTML(final TablePagerColumn col, final String id) {
 		final StringBuilder sb = new StringBuilder();
+		sb.append("<select name='").append(id).append("' id='").append(id).append("'>");
 		final Class<?> clazz = col.propertyClass();
 		if (String.class.isAssignableFrom(clazz)) {
 			sb.append("<option value=\"").append(like).append("\">#(TablePagerUtils.6)</option>");
@@ -98,11 +110,30 @@ public abstract class TablePagerUtils {
 			sb.append("<option value=\"").append(lt).append("\">#(TablePagerUtils.4)</option>");
 			sb.append("<option value=\"").append(lt_equal).append("\">#(TablePagerUtils.5)</option>");
 		}
+		sb.append("</select>");
 		return sb.toString();
 	}
 
-	static boolean isGroup(final ComponentParameter cp) {
-		return cp.getComponentHandler() instanceof IGroupTablePagerHandler
-				&& StringUtils.hasText((String) cp.getBeanProperty("groupColumn"));
+	public static String toFilterInputHTML(final TablePagerColumn col, final String id) {
+		final StringBuilder sb = new StringBuilder();
+		if (Date.class.isAssignableFrom(col.propertyClass())) {
+			sb.append(new CalendarInput(id).setCalendarComponent("calendarTablePagerFilter")
+					.setDateFormat(col.getFormat()));
+		} else {
+			sb.append(new InputElement(id));
+		}
+		return sb.toString();
+	}
+
+	public static String toFilterRelationHTML(final TablePagerColumn col) {
+		final StringBuilder sb = new StringBuilder();
+		for (final Checkbox r : new Checkbox[] {
+				new Radio("tp_filter_op0", $m("tablepager_filter.0")).setText("none").setChecked(true),
+				new Radio("tp_filter_op1", $m("tablepager_filter.2")).setText("and"),
+				new Radio("tp_filter_op2", $m("tablepager_filter.3")).setText("or") }) {
+			r.setName("tp_filter_op").setOnclick("tp_filter_click();");
+			sb.append(r).append(SpanElement.SPACE15);
+		}
+		return sb.toString();
 	}
 }

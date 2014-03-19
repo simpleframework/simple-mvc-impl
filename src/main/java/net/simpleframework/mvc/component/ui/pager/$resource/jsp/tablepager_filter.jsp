@@ -1,15 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.Date"%>
-<%@ page import="net.simpleframework.mvc.component.ComponentParameter"%>
 <%@ page import="net.simpleframework.mvc.component.ui.pager.PagerUtils"%>
-<%@ page import="net.simpleframework.mvc.component.ui.pager.TablePagerColumn"%>
 <%@ page import="net.simpleframework.mvc.component.ui.pager.TablePagerUtils"%>
-<%@ page import="net.simpleframework.ado.EFilterRelation"%>
-<%@ page import="net.simpleframework.mvc.common.element.CalendarInput"%>
-<%@ page import="net.simpleframework.mvc.common.element.Checkbox"%>
-<%@ page import="net.simpleframework.common.I18n"%>
-<%@ page import="net.simpleframework.mvc.common.element.Radio"%>
-<%@ page import="net.simpleframework.mvc.common.element.InputElement"%>
+<%@ page import="net.simpleframework.mvc.component.ui.pager.TablePagerColumn"%>
+<%@ page import="net.simpleframework.mvc.component.ComponentParameter"%>
 <%
 	final ComponentParameter nCP = PagerUtils.get(request, response);
 	final TablePagerColumn col = TablePagerUtils.getSelectedColumn(nCP);
@@ -19,9 +12,6 @@
 <%
 	return;
 	}
-	final boolean isDate = Date.class.isAssignableFrom(col
-			.propertyClass());
-	final String fm = col.getFormat();
 %>
 <div class="filter_window simple_window_tcb">
   <div class="c">
@@ -29,51 +19,16 @@
       value="<%=col.getColumnName()%>">
     <table style="width: 100%;">
       <tr>
-        <td width="80"><select name="tp_filter_r1" id="tp_filter_r1">
-            <%=TablePagerUtils.toOptionHTML(col)%>
-        </select></td>
-        <td>
-          <%
-          	if (isDate) {
-          		out.write(new CalendarInput("tp_filter_v1")
-          				.setCalendarComponent("calendarTablePagerFilter")
-          				.setDateFormat(fm).toString());
-          	} else {
-          		out.write(new InputElement("tp_filter_v1").toString());
-          	}
-          %>
-        </td>
+        <td width="80"><%=TablePagerUtils.toFilterSelectHTML(col, "tp_filter_r1")%></td>
+        <td><%=TablePagerUtils.toFilterInputHTML(col, "tp_filter_v1")%></td>
       </tr>
       <tr>
         <td></td>
-        <td style="padding: 4px;">
-          <%
-          	for (Checkbox r : new Checkbox[] {
-          			new Radio("tp_filter_op0", I18n.$m("tablepager_filter.0"))
-          					.setText("none").setChecked(true),
-          			new Radio("tp_filter_op1", I18n.$m("tablepager_filter.2"))
-          					.setText("and"),
-          			new Radio("tp_filter_op2", I18n.$m("tablepager_filter.3"))
-          					.setText("or") }) {
-          		r.setName("tp_filter_op").setOnclick("tp_filter_click();");
-          		out.write(r.toString());
-          	}
-          %>
-        </td>
+        <td style="padding: 4px;"><%=TablePagerUtils.toFilterRelationHTML(col)%></td>
       </tr>
       <tr>
-        <td><select name="tp_filter_r2" id="tp_filter_r2"><%=TablePagerUtils.toOptionHTML(col)%></select></td>
-        <td>
-          <%
-          	if (isDate) {
-          		out.write(new CalendarInput("tp_filter_v2")
-          				.setCalendarComponent("calendarTablePagerFilter")
-          				.setDateFormat(fm).toString());
-          	} else {
-          		out.write(new InputElement("tp_filter_v2").toString());
-          	}
-          %>
-        </td>
+        <td><%=TablePagerUtils.toFilterSelectHTML(col, "tp_filter_r2")%></td>
+        <td><%=TablePagerUtils.toFilterInputHTML(col, "tp_filter_v2")%></td>
       </tr>
     </table>
   </div>

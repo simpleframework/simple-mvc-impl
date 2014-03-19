@@ -587,7 +587,8 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 				} else {
 					link.setOnclick("$Actions['" + componentName + "'].filterWindow(this, '"
 							+ TablePagerUtils.PARAM_FILTER_CUR_COL + "=" + columnName + "&"
-							+ TablePagerUtils.PARAM_FILTER + "=');");
+							+ TablePagerUtils.PARAM_FILTER + "=" + TablePagerUtils.PARAM_FILTER_NONE
+							+ "');");
 				}
 			}
 			element.addElements(link);

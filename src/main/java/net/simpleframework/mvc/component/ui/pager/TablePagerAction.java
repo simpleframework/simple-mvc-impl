@@ -30,6 +30,7 @@ import net.simpleframework.mvc.component.ui.pager.TablePagerHTML.RowHandler;
  *         http://www.simpleframework.net
  */
 public class TablePagerAction extends DefaultAjaxRequestHandler {
+
 	public IForward doExport(final ComponentParameter cp) {
 		final JavascriptForward js = new JavascriptForward();
 		js.append("$Actions.loc('");
@@ -47,16 +48,15 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 		final JavascriptForward js = new JavascriptForward("$Actions['tpFilterWindow_").append(
 				nCP.hashId()).append("'].close();");
 		js.append("$Actions['").append(nCP.getComponentName()).append("']('")
-				.append(TablePagerUtils.PARAM_FILTER_CUR_COL).append("=");
-		js.append(cp.getParameter(TablePagerUtils.PARAM_FILTER_CUR_COL)).append("&")
-				.append(TablePagerUtils.PARAM_FILTER).append("=");
-		js.append(cp.getParameter("tp_filter_r1", true));
-		js.append(";").append(TablePagerHTML.filterEncode(cp.getParameter("tp_filter_v1")));
+				.append(TablePagerUtils.PARAM_FILTER_CUR_COL).append("=")
+				.append(cp.getParameter(TablePagerUtils.PARAM_FILTER_CUR_COL));
+		js.append("&").append(TablePagerUtils.PARAM_FILTER).append("=")
+				.append(cp.getParameter("tp_filter_r1", true)).append(";")
+				.append(TablePagerHTML.filterEncode(cp.getParameter("tp_filter_v1")));
 		final String op = cp.getParameter("tp_filter_op");
 		if ("and".equals(op) || "or".equals(op)) {
-			js.append(";").append(op).append(";");
-			js.append(cp.getParameter("tp_filter_r2", true));
-			js.append(";").append(TablePagerHTML.filterEncode(cp.getParameter("tp_filter_v2")));
+			js.append(";").append(op).append(";").append(cp.getParameter("tp_filter_r2", true))
+					.append(";").append(TablePagerHTML.filterEncode(cp.getParameter("tp_filter_v2")));
 		}
 		js.append("');");
 		return js;
