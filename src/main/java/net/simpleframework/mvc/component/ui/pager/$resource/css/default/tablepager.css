@@ -41,7 +41,7 @@
 }
 
 .tablepager .thead td {
-  padding: 0 4px;
+  padding: 0 3px;
   border-left: 1px solid transparent;
   height: 100%;
   text-shadow: 0 1px 0 #FFFFFF;
@@ -189,7 +189,7 @@
 }
 
 .tablepager .itr>td {
-  padding: 6px 4px;
+  padding: 6px 3px;
   border-left: 1px solid transparent;
   _border-color: #fff; /* ie6 */
 }
@@ -242,8 +242,10 @@
 }
 
 .tablepager .itr>.plus>img {
+  vertical-align: middle;
   cursor: pointer;
   text-align: center;
+  margin-left: 2px;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
@@ -324,7 +326,7 @@
 }
 
 .tablepager .group_t {
-  padding: 6px 4px;
+  padding: 6px 3px;
   border-bottom: 1px solid #ddd;
   background-color: #f9f9f9;
 }

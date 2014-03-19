@@ -320,7 +320,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 					sb.append("<td class='plus'>");
 					if (StringUtils.hasText(detailVal = Convert.toString(rowData.get(detailField)))) {
 						sb.append("<img src=\"").append(ComponentUtils.getCssResourceHomePath(cp));
-						sb.append("/images/toggle2.gif\" />");
+						sb.append("/images/toggle2.png\" />");
 					}
 					sb.append("</td>");
 				}
