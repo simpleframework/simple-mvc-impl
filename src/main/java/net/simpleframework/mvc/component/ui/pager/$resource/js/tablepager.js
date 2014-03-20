@@ -358,7 +358,11 @@ function $table_pager_addMethods(pa) {
 			$UI.addBackgroundTitle(txt, title);
 			$UI.addReturnEvent(txt, function(ev) {
 				var v = $F(txt);
-				if (v != "" && v != title) {
+				if (v == "") {
+				  pa.filterDelete(txt, txt.getAttribute("params"));
+				} else if (v != title) {
+				  // 获取td的位置
+				  pa.focusIndex = tfilter.select("td").indexOf(txt.up("td"));
 					var act = $Actions["tpFilter_" + pa.beanId];
 					act.jsCompleteCallback = function(req, responseText, json) {
 						pa(json["filter"]);
@@ -367,6 +371,15 @@ function $table_pager_addMethods(pa) {
 				}
 			});
 		});
+		
+		if (typeof pa.focusIndex == "number" && pa.focusIndex >= 0) {
+		  var input = tfilter.select("td")[pa.focusIndex].down("input");
+		  if (input) {
+		    $UI.moveCursorToEnd(input);
+		    input.focus();
+		  }
+		  pa.focusIndex = undefined;
+		}
 
 		pa.filterDelete = function(obj, params) {
 			var act = $Actions["tpFilterDelete_" + pa.beanId];

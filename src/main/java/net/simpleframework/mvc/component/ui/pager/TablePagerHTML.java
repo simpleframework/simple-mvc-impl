@@ -45,8 +45,8 @@ public abstract class TablePagerHTML implements HtmlConst {
 		final Object firstBean = cp.getRequestAttr(ITablePagerHandler.FIRST_ITEM);
 		final Object lastBean = cp.getRequestAttr(ITablePagerHandler.LAST_ITEM);
 		if (firstBean != null && lastBean != null) {
-			sb.append(InputElement.hidden("firstRow").setText(schema.getId(firstBean)));
-			sb.append(InputElement.hidden("lastRow").setText(schema.getId(lastBean)));
+			sb.append(InputElement.hidden("firstRow").setText(schema.getVal(firstBean, "id")));
+			sb.append(InputElement.hidden("lastRow").setText(schema.getVal(lastBean, "id")));
 		}
 		sb.append(rHandle.renderHeader(cp, schema));
 		sb.append(rHandle.renderBody(cp, schema));
@@ -251,7 +251,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 		}
 
 		void appendTbody(final ComponentParameter cp, final int dataSize, final StringBuilder sb) {
-			final List<?> data = PagerUtils.getPagerList(cp);
+			final List<?> data = PagerUtils.getCurrentPageData(cp);
 			sb.append("<div class=\"tbody\"");
 			if (data.size() > 0) {
 				String height = cp.getParameter("tbl_tbody_height");
@@ -270,7 +270,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 		}
 
 		String renderBody(final ComponentParameter cp, final AbstractTablePagerSchema tablePagerData) {
-			final List<?> data = PagerUtils.getPagerList(cp);
+			final List<?> data = PagerUtils.getCurrentPageData(cp);
 			final StringBuilder sb = new StringBuilder();
 			appendTbody(cp, data.size(), sb);
 			for (int i = 0; i < data.size(); i++) {
@@ -405,6 +405,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 	}
 
 	static class RowHandler {
+
 		private final int index;
 
 		private final boolean edit;
@@ -414,15 +415,15 @@ public abstract class TablePagerHTML implements HtmlConst {
 			this.edit = edit;
 		}
 
-		RowHandler(final int index) {
+		private RowHandler(final int index) {
 			this(index, false);
 		}
 
-		protected int getIndex() {
+		int getIndex() {
 			return index;
 		}
 
-		public boolean isEdit() {
+		boolean isEdit() {
 			return edit;
 		}
 
@@ -433,7 +434,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 			if (value != null) {
 				ret = pagerColumn.objectToString(value);
 			}
-			return StringUtils.text(ret, NBSP);
+			return StringUtils.text(ret, HtmlConst.NBSP);
 		}
 	}
 
@@ -441,7 +442,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 
 		@Override
 		String renderBody(final ComponentParameter cp, final AbstractTablePagerSchema tablePagerData) {
-			final List<?> data = PagerUtils.getPagerList(cp);
+			final List<?> data = PagerUtils.getCurrentPageData(cp);
 			if (data == null) {
 				return "";
 			}

@@ -9,6 +9,7 @@ import java.util.Map;
 import net.simpleframework.ado.query.IDataQuery;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.HttpUtils;
+import net.simpleframework.mvc.PageRequestResponse;
 import net.simpleframework.mvc.common.element.AbstractElement;
 import net.simpleframework.mvc.common.element.InputElement;
 import net.simpleframework.mvc.common.element.LinkElement;
@@ -84,6 +85,10 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 		return data;
 	}
 
+	protected List<?> getCurrentPageData(final PageRequestResponse rRequest) {
+		return PagerUtils.getCurrentPageData(rRequest);
+	}
+
 	@Override
 	public String toPagerHTML(final ComponentParameter cp, final List<?> data) {
 		return null;
@@ -97,7 +102,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 		final long l = System.currentTimeMillis();
 		final IDataQuery<?> dataQuery = getDataObjectQuery(cp);
 		cp.setRequestAttr(DATA_QUERY, dataQuery);
-		cp.setRequestAttr(PAGER_LIST, getData(cp, start));
+		cp.setRequestAttr(PAGER_CURRENT_DATA, getData(cp, start));
 		cp.setSessionAttr(PROCESS_TIMES, System.currentTimeMillis() - l);
 	}
 

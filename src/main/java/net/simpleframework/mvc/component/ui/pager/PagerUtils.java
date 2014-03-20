@@ -35,8 +35,8 @@ public abstract class PagerUtils {
 		return ComponentParameter.get(request, response, BEAN_ID);
 	}
 
-	public static List<?> getPagerList(final PageRequestResponse rRequest) {
-		final List<?> l = (List<?>) rRequest.getRequestAttr(IPagerHandler.PAGER_LIST);
+	public static List<?> getCurrentPageData(final PageRequestResponse rRequest) {
+		final List<?> l = (List<?>) rRequest.getRequestAttr(IPagerHandler.PAGER_CURRENT_DATA);
 		return l != null ? l : CollectionUtils.EMPTY_LIST();
 	}
 

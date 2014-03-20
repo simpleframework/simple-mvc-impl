@@ -13,7 +13,7 @@ import net.simpleframework.mvc.component.IComponentHandler;
  */
 public interface IPagerHandler extends IComponentHandler {
 
-	static final String PAGER_LIST = "__pager_list";
+	static final String PAGER_CURRENT_DATA = "__pager_currentdata";
 
 	/**
 	 * 处理从start开始的数据

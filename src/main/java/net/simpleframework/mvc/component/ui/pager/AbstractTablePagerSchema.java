@@ -105,7 +105,7 @@ public abstract class AbstractTablePagerSchema {
 			final String key = column.getColumnName();
 			Object val = null;
 			try {
-				val = BeanUtils.getProperty(dataObject, key);
+				val = getVal(dataObject, key);
 			} catch (final Exception e) {
 			}
 			if (val != null) {
@@ -137,7 +137,7 @@ public abstract class AbstractTablePagerSchema {
 		for (final TablePagerColumn column : columns) {
 			final String key = column.getColumnName();
 			try {
-				value = BeanUtils.getProperty(dataObject, key);
+				value = getVal(dataObject, key);
 			} catch (final Exception e) {
 				value = "<ERROR>";
 			}
@@ -151,13 +151,13 @@ public abstract class AbstractTablePagerSchema {
 	public static final String MENU_DISABLED = "menu-disabled";
 
 	/**
-	 * 获取数据的id
+	 * 获取数据的值
 	 * 
 	 * @param dataObject
 	 * @return
 	 */
-	public Object getId(final Object dataObject) {
-		return BeanUtils.getProperty(dataObject, "id");
+	public Object getVal(final Object dataObject, final String key) {
+		return BeanUtils.getProperty(dataObject, key);
 	}
 
 	public ID genId() {
@@ -173,7 +173,7 @@ public abstract class AbstractTablePagerSchema {
 	 */
 	public Map<String, Object> getRowAttributes(final ComponentParameter cp, final Object dataObject) {
 		final KVMap attributes = new KVMap();
-		final Object id = getId(dataObject);
+		final Object id = getVal(dataObject, "id");
 		if (id != null) {
 			attributes.add(ROW_ID, id);
 		}

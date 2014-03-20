@@ -69,7 +69,7 @@
   <%
   	} else {
   		final String dataHtml = hdl.toPagerHTML(cp,
-  				PagerUtils.getPagerList(cp));
+  				PagerUtils.getCurrentPageData(cp));
   		if (StringUtils.hasText(dataHtml)) {
   			out.write(dataHtml);
   		}

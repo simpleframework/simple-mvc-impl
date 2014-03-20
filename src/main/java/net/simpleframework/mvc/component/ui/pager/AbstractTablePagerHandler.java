@@ -252,7 +252,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 				ArrayList result2 = new ArrayList(result);
 				result.clear();
 				for (final Object o : result2) {
-					final Object v = BeanUtils.getProperty(o, propertyName);
+					final Object v = getVal(cp, o, propertyName);
 					boolean delete = item1.isDelete(v, propertyType);
 					if (delete && item1.getOpe() == EFilterOpe.or && item2 != null) {
 						delete = item2.isDelete(v, propertyType);
@@ -265,7 +265,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 					result2 = new ArrayList(result);
 					result.clear();
 					for (final Object o : result2) {
-						final Object v = BeanUtils.getProperty(o, propertyName);
+						final Object v = getVal(cp, o, propertyName);
 						if (!item2.isDelete(v, propertyType)) {
 							result.add(o);
 						}
@@ -293,12 +293,14 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 		super.doCount(cp, dataQuery);
 	}
 
+	// protected Object get
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	protected int doSort(final ColumnData dbColumn, final Object o1, final Object o2) {
+	protected int doSort(final ComponentParameter cp, final ColumnData dbColumn, final Object o1,
+			final Object o2) {
 		try {
 			final String col = dbColumn.getName();
-			final Comparable c1 = (Comparable) BeanUtils.getProperty(o1, col);
-			final Comparable c2 = (Comparable) BeanUtils.getProperty(o2, col);
+			final Comparable c1 = (Comparable) getVal(cp, o1, col);
+			final Comparable c2 = (Comparable) getVal(cp, o2, col);
 			if (c1 == null && c2 == null) {
 				return 0;
 			} else if (c1 == null) {
@@ -321,10 +323,9 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			final ColumnData dbColumn = getSortColumn(cp);
 			if (dbColumn != null) {
 				Collections.sort(((ListDataQuery<?>) dataQuery).list(), new Comparator<Object>() {
-
 					@Override
 					public int compare(final Object o1, final Object o2) {
-						return doSort(dbColumn, o1, o2);
+						return doSort(cp, dbColumn, o1, o2);
 					}
 				});
 			}
@@ -481,13 +482,13 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			element = InputElement.select().setName(elementName);
 			Object val = null;
 			if (rowData != null) {
-				val = BeanUtils.getProperty(rowData, columnName);
+				val = getVal(cp, rowData, columnName);
 			}
 			if (val instanceof Enum<?>) {
 				val = ((Enum<?>) val).name();
 			} else if (val != null) {
 				if (BeanUtils.hasProperty(val, "name")) {
-					val = BeanUtils.getProperty(val, "name");
+					val = getVal(cp, val, "name");
 				} else {
 					val = val.toString();
 				}
@@ -502,7 +503,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			element = new InputElement().setInputType(EInputType.checkbox).setName(elementName)
 					.setText(true);
 			if (rowData != null) {
-				if (Convert.toBool(BeanUtils.getProperty(rowData, columnName))) {
+				if (Convert.toBool(getVal(cp, rowData, columnName))) {
 					((InputElement) element).setChecked(true);
 				}
 			}
@@ -510,7 +511,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			final InputElement input = (InputElement) (element = new InputElement()
 					.setName(elementName));
 			Object val;
-			if (rowData != null && ((val = BeanUtils.getProperty(rowData, columnName)) != null)) {
+			if (rowData != null && ((val = getVal(cp, rowData, columnName)) != null)) {
 				input.setText(column.objectToString(val));
 			}
 			if (Date.class.isAssignableFrom(propertyClass)) {
@@ -624,6 +625,10 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 
 	public Object getGroupValue(final ComponentParameter cp, final Object bean,
 			final String groupColumn) {
-		return BeanUtils.getProperty(bean, groupColumn);
+		return getVal(cp, bean, groupColumn);
+	}
+
+	private Object getVal(final ComponentParameter cp, final Object dataObject, final String key) {
+		return TablePagerUtils.getTablePagerData(cp).getVal(dataObject, key);
 	}
 }
