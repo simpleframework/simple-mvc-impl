@@ -57,11 +57,12 @@ $UI.Menu = Class.create({
     Object.extend(this.options, options || {});
   },
 
-  bindEvent : function(selector) {
+  bindEvent : function(selector, ev) {
     if (!selector)
       return;
+    ev = ev || this.options.menuEvent;
     var oThis = this;
-    $Elements(selector).invoke("observe", this.options.menuEvent, function(e) {
+    $Elements(selector).invoke("observe", ev, function(e) {
       oThis.hideAll(e);
       oThis.show(e, oThis.element);
       e.stop();
