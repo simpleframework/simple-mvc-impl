@@ -37,7 +37,7 @@ $UI.Menu = Class.create({
         if (!e.isRightClick()) {
           var ele;
           if ((ele = Event.element(e)) && ele.hasClassName
-              && ele.hasClassName("mm")) {
+              && (ele.hasClassName("mm") || ele.hasClassName("submenu"))) {
             return;
           }
           oThis.hideAll(e);
