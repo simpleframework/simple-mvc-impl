@@ -40,7 +40,7 @@ public class TablePagerLoaded extends PagerLoaded {
 		final String hashId = nCP.hashId();
 
 		boolean bTooltip = false;
-		for (final TablePagerColumn col : TablePagerUtils.getTablePagerData(nCP)
+		for (final TablePagerColumn col : TablePagerUtils.getTablePagerSchema(nCP)
 				.getTablePagerColumns(nCP)) {
 			if (StringUtils.hasText(col.getTooltip())) {
 				bTooltip = true;

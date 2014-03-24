@@ -397,8 +397,14 @@
 
 .tablepager_export .all {
   border-bottom: 3px double #ccc;
-  margin: 3px;
-  padding-bottom: 3px
+  margin: 4px;
+  padding-bottom: 8px
+}
+
+.tablepager_export table.cols {
+  width: 100%; 
+  border-collapse: separate; 
+  border-spacing: 4px;
 }
 
 .tablepager .thead,

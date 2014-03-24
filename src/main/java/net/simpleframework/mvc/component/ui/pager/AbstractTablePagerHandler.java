@@ -146,7 +146,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 		final String col = cp.getParameter(TablePagerUtils.PARAM_SORT_COL);
 		final TablePagerColumn oCol;
 		if (StringUtils.hasText(col)
-				&& (oCol = TablePagerUtils.getTablePagerData(cp).getTablePagerColumns(cp).get(col)) != null) {
+				&& (oCol = getTablePagerSchema(cp).getTablePagerColumns(cp).get(col)) != null) {
 			final String sort = cp.getParameter(TablePagerUtils.PARAM_SORT);
 			if ("up".equals(sort) || "down".equals(sort)) {
 				final ColumnData dbColumn = createColumnData(oCol);
@@ -193,8 +193,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			return null;
 		}
 
-		final TablePagerColumns tableColumns = TablePagerUtils.getTablePagerData(cp)
-				.getTablePagerColumns(cp);
+		final TablePagerColumns tableColumns = getTablePagerSchema(cp).getTablePagerColumns(cp);
 		dbColumns = new LinkedHashMap<String, ColumnData>();
 		for (final String str : sets) {
 			final TablePagerColumn oCol = tableColumns.get(str);
@@ -360,12 +359,12 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			final TablePagerColumns columns) {
 		final IDataQuery<?> dQuery = createDataObjectQuery(cp);
 		dQuery.setFetchSize(0);
-		final AbstractTablePagerSchema tablePagerData = TablePagerUtils.getTablePagerData(cp);
+		final AbstractTablePagerSchema tablePagerSchema = getTablePagerSchema(cp);
 		try {
 			if (filetype == EExportFileType.csv) {
-				doCSVExport(cp, dQuery, tablePagerData, columns);
+				doCSVExport(cp, dQuery, tablePagerSchema, columns);
 			} else if (filetype == EExportFileType.excel) {
-				doExcelExport(cp, dQuery, tablePagerData, columns);
+				doExcelExport(cp, dQuery, tablePagerSchema, columns);
 			}
 		} catch (final IOException e) {
 			throw ComponentHandlerException.of(e);
@@ -629,6 +628,10 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 	}
 
 	private Object getVal(final ComponentParameter cp, final Object dataObject, final String key) {
-		return TablePagerUtils.getTablePagerData(cp).getVal(dataObject, key);
+		return getTablePagerSchema(cp).getVal(dataObject, key);
+	}
+
+	protected AbstractTablePagerSchema getTablePagerSchema(final ComponentParameter cp) {
+		return TablePagerUtils.getTablePagerSchema(cp);
 	}
 }

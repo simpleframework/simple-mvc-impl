@@ -88,7 +88,7 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 		final ITablePagerHandler hdl = (ITablePagerHandler) nCP.getComponentHandler();
 
 		final JsonForward json = new JsonForward();
-		final AbstractTablePagerSchema tablePagerData = TablePagerUtils.getTablePagerData(nCP);
+		final AbstractTablePagerSchema tablePagerData = TablePagerUtils.getTablePagerSchema(nCP);
 		final String rowId = "#" + tablePagerData.genId();
 		json.put("row",
 				new RenderTable().buildRow(nCP, null, tablePagerData, new RowHandler(0, true) {
@@ -124,7 +124,7 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 			return js.append("alert('").append($m("TablePagerAction.0")).append("');");
 		} else {
 			final JsonForward json = new JsonForward();
-			final TablePagerColumns columns = TablePagerUtils.getTablePagerData(nCP)
+			final TablePagerColumns columns = TablePagerUtils.getTablePagerSchema(nCP)
 					.getTablePagerColumns(nCP);
 			for (final TablePagerColumn column : columns) {
 				if (!column.isEditable()) {
@@ -160,7 +160,7 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 	public IForward doRowSave(final ComponentParameter cp) {
 		final ComponentParameter nCP = PagerUtils.get(cp);
 		final ITablePagerHandler hdl = (ITablePagerHandler) nCP.getComponentHandler();
-		final TablePagerColumns columns = TablePagerUtils.getTablePagerData(nCP)
+		final TablePagerColumns columns = TablePagerUtils.getTablePagerSchema(nCP)
 				.getTablePagerColumns(nCP);
 
 		final Map<String, Map<String, Object>> insertRows = new LinkedHashMap<String, Map<String, Object>>();

@@ -56,7 +56,7 @@ public abstract class TablePagerUtils {
 
 	public static final String PARAM_MOVE_ROWID = "rowId", PARAM_MOVE_ROWID2 = "rowId2";
 
-	public static AbstractTablePagerSchema getTablePagerData(final ComponentParameter cp) {
+	public static AbstractTablePagerSchema getTablePagerSchema(final ComponentParameter cp) {
 		AbstractTablePagerSchema tablePagerData = (AbstractTablePagerSchema) cp
 				.getRequestAttr("table_pager_data");
 		if (tablePagerData == null) {
@@ -67,7 +67,7 @@ public abstract class TablePagerUtils {
 	}
 
 	public static TablePagerColumn getSelectedColumn(final ComponentParameter nCP) {
-		return getTablePagerData(nCP).getTablePagerColumns(nCP).get(
+		return getTablePagerSchema(nCP).getTablePagerColumns(nCP).get(
 				nCP.getParameter(PARAM_FILTER_CUR_COL));
 	}
 
@@ -78,7 +78,7 @@ public abstract class TablePagerUtils {
 		TablePagerColumns columns = null;
 		if (arr != null && arr.length > 0) {
 			columns = TablePagerColumns.of();
-			final TablePagerColumns all = getTablePagerData(nCP).getTablePagerColumns(nCP);
+			final TablePagerColumns all = getTablePagerSchema(nCP).getTablePagerColumns(nCP);
 			for (final String v : arr) {
 				final TablePagerColumn oCol = all.get(v);
 				if (oCol != null) {
@@ -134,6 +134,32 @@ public abstract class TablePagerUtils {
 			r.setName("tp_filter_op").setOnclick("tp_filter_click();");
 			sb.append(r).append(SpanElement.SPACE15);
 		}
+		return sb.toString();
+	}
+
+	public static String toExportColumnsHTML(final ComponentParameter cp) {
+		final StringBuilder sb = new StringBuilder();
+		sb.append("<div class='all'>");
+		sb.append(new Checkbox("col_check_all", $m("tablepager_export.4")));
+		sb.append("</div>");
+		sb.append("<table class='cols'>");
+		final TablePagerColumns columns = TablePagerUtils.getTablePagerSchema(cp)
+				.getTablePagerExportColumns(cp);
+		int i = 0;
+		for (final TablePagerColumn oCol : columns) {
+			final String name = oCol.getColumnName();
+			i++;
+			if (i % 4 == 1) {
+				sb.append("<tr>");
+			}
+			sb.append("<td>");
+			sb.append(new Checkbox("col_" + name, oCol.getColumnText()).setChecked(true));
+			sb.append("</td>");
+			if (i % 4 == 0) {
+				sb.append("</tr>");
+			}
+		}
+		sb.append("</table>");
 		return sb.toString();
 	}
 }

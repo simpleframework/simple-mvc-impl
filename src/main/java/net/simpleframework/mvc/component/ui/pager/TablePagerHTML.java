@@ -36,7 +36,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 	}
 
 	static String renderTable(final ComponentParameter cp, final RenderTable rHandle) {
-		final AbstractTablePagerSchema schema = TablePagerUtils.getTablePagerData(cp);
+		final AbstractTablePagerSchema schema = TablePagerUtils.getTablePagerSchema(cp);
 		final TablePagerBean tablePager = (TablePagerBean) cp.componentBean;
 		final StringBuilder sb = new StringBuilder();
 
