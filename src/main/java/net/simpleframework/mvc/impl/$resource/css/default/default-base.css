@@ -109,6 +109,7 @@ pre {
 }
 
 sup {
+  top: -0.25em;
   color: #900;
 	line-height: normal;
 	font-weight: normal;
