@@ -63,9 +63,12 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 	}
 
 	public class DefaultTablePagerSchema extends AbstractTablePagerSchema {
+
+		private final AbstractTablePagerHandler hdl = AbstractTablePagerHandler.this;
+
 		@Override
 		public Map<String, Object> getRowData(final ComponentParameter cp, final Object dataObject) {
-			Map<String, Object> kv = AbstractTablePagerHandler.this.getRowData(cp, dataObject);
+			Map<String, Object> kv = hdl.getRowData(cp, dataObject);
 			if (kv == null) {
 				kv = super.getRowData(cp, dataObject);
 			}
@@ -76,18 +79,25 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 		public Map<String, Object> getRowAttributes(final ComponentParameter cp,
 				final Object dataObject) {
 			final Map<String, Object> attributes = super.getRowAttributes(cp, dataObject);
-			final Map<String, Object> attributes2 = AbstractTablePagerHandler.this.getRowAttributes(
-					cp, dataObject);
+			final Map<String, Object> attributes2 = hdl.getRowAttributes(cp, dataObject);
 			if (attributes2 != null) {
 				attributes.putAll(attributes2);
 			}
 			return attributes;
 		}
+
+		@Override
+		public Object getVal(final Object dataObject, final String key) {
+			Object val = hdl.getVal(dataObject, key);
+			if (val == null) {
+				val = super.getVal(dataObject, key);
+			}
+			return val;
+		}
 	}
 
-	@Override
-	public Object getRowBeanById(final ComponentParameter cp, final Object id) {
-		throw ComponentHandlerException.of($m("AbstractTablePagerHandler.0"));
+	protected Object getVal(final Object dataObject, final String key) {
+		return null;
 	}
 
 	protected Map<String, Object> getRowData(final ComponentParameter cp, final Object dataObject) {
@@ -97,6 +107,11 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 	protected Map<String, Object> getRowAttributes(final ComponentParameter cp,
 			final Object dataObject) {
 		return null;
+	}
+
+	@Override
+	public Object getRowBeanById(final ComponentParameter cp, final Object id) {
+		throw ComponentHandlerException.of($m("AbstractTablePagerHandler.0"));
 	}
 
 	@Override
