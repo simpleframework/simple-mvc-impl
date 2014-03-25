@@ -11,15 +11,13 @@ var $ready = function(callback) {
 
 (function() {
   Object.extend(Browser, Prototype.Browser);
-
   Object.extend(Browser, {
     effects : window.IS_EFFECTS && !Object.isUndefined(window.Effect),
 
     WebKit419 : Browser.WebKit && !document.evaluate
   });
-
   if (Browser.IE) {
-    Browser.IEVersion = Browser.getIEVersion();
+    Browser.IEVersion = parseFloat(navigator.appVersion.split(';')[1].trim().split(' ')[1]);
   }
 
   var $bak = $;
