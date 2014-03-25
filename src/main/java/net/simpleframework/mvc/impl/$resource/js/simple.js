@@ -19,7 +19,7 @@ var $ready = function(callback) {
   });
 
   if (Browser.IE) {
-    Browser.IEVersion = getIEVersion();
+    Browser.IEVersion = Browser.getIEVersion();
   }
 
   var $bak = $;
