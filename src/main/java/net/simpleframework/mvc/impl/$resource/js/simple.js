@@ -19,8 +19,7 @@ var $ready = function(callback) {
   });
 
   if (Browser.IE) {
-    Browser.IEVersion = parseFloat(navigator.appVersion.split(';')[1].strip()
-        .split(' ')[1]);
+    Browser.IEVersion = getIEVersion();
   }
 
   var $bak = $;
