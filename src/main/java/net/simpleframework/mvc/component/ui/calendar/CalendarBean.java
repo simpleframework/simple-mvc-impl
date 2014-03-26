@@ -22,7 +22,7 @@ public class CalendarBean extends AbstractContainerBean {
 
 	private boolean clearButton = BeanDefaults.getBool(getClass(), "clearButton", true);
 
-	private String closeCallback;
+	private String jsCloseCallback;
 
 	public String getInputField() {
 		return inputField;
@@ -60,17 +60,17 @@ public class CalendarBean extends AbstractContainerBean {
 		return this;
 	}
 
-	public String getCloseCallback() {
-		return closeCallback;
+	public String getJsCloseCallback() {
+		return jsCloseCallback;
 	}
 
-	public CalendarBean setCloseCallback(final String closeCallback) {
-		this.closeCallback = closeCallback;
+	public CalendarBean setJsCloseCallback(final String jsCloseCallback) {
+		this.jsCloseCallback = jsCloseCallback;
 		return this;
 	}
 
 	@Override
 	protected String[] elementAttributes() {
-		return new String[] { "closeCallback" };
+		return new String[] { "jsCloseCallback" };
 	}
 }

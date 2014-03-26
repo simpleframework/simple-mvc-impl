@@ -15,34 +15,37 @@ public class ColorPaletteBean extends AbstractContainerBean {
 
 	private String startHex = BeanDefaults.getString(getClass(), "startHex", "CCCCCC");
 
-	private String changeCallback;
+	private String jsChangeCallback;
 
 	public EColorMode getStartMode() {
 		return startMode == null ? EColorMode.h : startMode;
 	}
 
-	public void setStartMode(final EColorMode startMode) {
+	public ColorPaletteBean setStartMode(final EColorMode startMode) {
 		this.startMode = startMode;
+		return this;
 	}
 
 	public String getStartHex() {
 		return startHex;
 	}
 
-	public void setStartHex(final String startHex) {
+	public ColorPaletteBean setStartHex(final String startHex) {
 		this.startHex = startHex;
+		return this;
 	}
 
-	public String getChangeCallback() {
-		return changeCallback;
+	public String getJsChangeCallback() {
+		return jsChangeCallback;
 	}
 
-	public void setChangeCallback(final String changeCallback) {
-		this.changeCallback = changeCallback;
+	public ColorPaletteBean setJsChangeCallback(final String jsChangeCallback) {
+		this.jsChangeCallback = jsChangeCallback;
+		return this;
 	}
 
 	@Override
 	protected String[] elementAttributes() {
-		return new String[] { "changeCallback" };
+		return new String[] { "jsChangeCallback" };
 	}
 }

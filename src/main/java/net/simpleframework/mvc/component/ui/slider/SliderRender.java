@@ -47,11 +47,11 @@ public class SliderRender extends ComponentJavascriptRender {
 		}
 		sb.append("\"");
 		sb.append("});");
-		final String changeCallback = sliderBean.getJsChangeCallback();
-		if (StringUtils.hasText(changeCallback)) {
+		final String jsChangeCallback = (String) cp.getBeanProperty("jsChangeCallback");
+		if (StringUtils.hasText(jsChangeCallback)) {
 			sb.append(actionFunc).append(".slider.onValuesChanged = function(slider) {");
 			sb.append("var callback = function(x, y) {");
-			sb.append(changeCallback);
+			sb.append(jsChangeCallback);
 			sb.append("};");
 			sb.append("callback(slider.xValue, slider.yValue);");
 			sb.append("};");

@@ -24,7 +24,7 @@ public class ProgressBarBean extends AbstractContainerBean {
 
 	private int detailHeight = BeanDefaults.getInt(getClass(), "detailHeights", 120);
 
-	private String changeCallback;
+	private String jsChangeCallback;
 
 	public float getInterval() {
 		return interval;
@@ -89,13 +89,18 @@ public class ProgressBarBean extends AbstractContainerBean {
 		return this;
 	}
 
-	public String getChangeCallback() {
-		return changeCallback;
+	public String getJsChangeCallback() {
+		return jsChangeCallback;
 	}
 
-	public ProgressBarBean setChangeCallback(final String changeCallback) {
-		this.changeCallback = changeCallback;
+	public ProgressBarBean setJsChangeCallback(final String jsChangeCallback) {
+		this.jsChangeCallback = jsChangeCallback;
 		return this;
+	}
+
+	@Override
+	protected String[] elementAttributes() {
+		return new String[] { "jsChangeCallback" };
 	}
 
 	{

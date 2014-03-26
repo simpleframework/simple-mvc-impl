@@ -37,11 +37,12 @@ public abstract class ColorPaletteUtils {
 		sb.append(cp.getComponentName()).append("\"];");
 
 		sb.append(actionFunc).append(".options = Object.extend({");
-		final String changeCallback = colorPalette.getChangeCallback();
-		if (StringUtils.hasText(changeCallback)) {
+		final String jsChangeCallback = (String) cp.getBeanProperty("jsChangeCallback");
+		if (StringUtils.hasText(jsChangeCallback)) {
 			sb.append("onValuesChanged: function(picker) {");
 			sb.append("var callback = function(value) {");
-			sb.append(changeCallback).append("};");
+			sb.append(jsChangeCallback);
+			sb.append("};");
 			sb.append("callback(picker.color.hex);");
 			sb.append("},");
 		}

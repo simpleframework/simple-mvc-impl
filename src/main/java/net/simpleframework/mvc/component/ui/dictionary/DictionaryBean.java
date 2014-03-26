@@ -100,7 +100,7 @@ public class DictionaryBean extends WindowBean {
 			final String dictionaryId = hashId();
 			colorPalette.setContainerId("color" + dictionaryId);
 			colorPalette.setRunImmediately(false);
-			colorPalette.setChangeCallback("change_" + dictionaryId + "(value);");
+			colorPalette.setJsChangeCallback("change_" + dictionaryId + "(value);");
 
 			setWidth(435);
 			setHeight(340);

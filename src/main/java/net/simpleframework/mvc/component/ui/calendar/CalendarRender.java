@@ -23,10 +23,10 @@ public class CalendarRender extends ComponentJavascriptRender {
 		if (StringUtils.hasText(dateFormat)) {
 			sb.append("dateFormat: \"").append(dateFormat).append("\",");
 		}
-		final String closeCallback = (String) cp.getBeanProperty("closeCallback");
-		if (StringUtils.hasText(closeCallback)) {
+		final String jsCloseCallback = (String) cp.getBeanProperty("jsCloseCallback");
+		if (StringUtils.hasText(jsCloseCallback)) {
 			sb.append("onclose: function(date) {");
-			sb.append(closeCallback);
+			sb.append(jsCloseCallback);
 			sb.append("},");
 		}
 		sb.append("showTime: ").append(cp.getBeanProperty("showTime")).append(",");
