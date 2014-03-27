@@ -1,11 +1,11 @@
 .pager_no_result {
   text-align: center;
   color: #c00;
-  font-size: 9.5pt;
+  font-size: 10.5pt;
   padding: 8px;
   border: 1px solid #ccc;
   border-top: 0;
-  background-color: #fff;
+  background-color: #f5f5f5;
   *margin-top: -14px;
 }
 
