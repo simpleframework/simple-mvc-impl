@@ -331,10 +331,7 @@
   background-color: #f4f4f4;
 }
 
-.tablepager .group_t .t,
-.tablepager .group_t .t span,
-.tablepager .group_t .t label,
-.tablepager .group_t .t a {
+.tablepager .group_t .t {
   text-align: left;
   color: #900;
   font-size: 9.5pt;

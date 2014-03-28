@@ -122,6 +122,7 @@ sup {
 }
 
 sup.highlight {
+  top: -1em;
   color: white;
   background-color: #d00;
   -moz-border-radius: 6px;
