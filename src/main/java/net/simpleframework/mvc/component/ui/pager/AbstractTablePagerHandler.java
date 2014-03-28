@@ -188,7 +188,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 		}
 
 		final HashSet<String> sets = new LinkedHashSet<String>(ArrayUtils.asList(StringUtils
-				.split(StringUtils.blank(col))));
+				.split(col)));
 		String filter = null;
 		if (StringUtils.hasText(ccol)) {
 			filter = cp.getParameter(TablePagerUtils.PARAM_FILTER);
@@ -218,7 +218,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			final String vStr = str.equals(ccol) ? filter : cp.getParameter(TablePagerHTML
 					.filterColumnKey(str));
 			final String[] vals = StringUtils.split(vStr);
-			if (vals == null || vals.length < 2) {
+			if (vals.length < 2) {
 				continue;
 			}
 			String val = TablePagerHTML.filterDecode(vals[1]);

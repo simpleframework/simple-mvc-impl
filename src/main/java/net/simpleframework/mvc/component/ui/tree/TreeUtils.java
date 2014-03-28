@@ -84,10 +84,8 @@ public abstract class TreeUtils implements IMVCContextVar {
 	}
 
 	public static TreeNode getTreenodeById(final ComponentParameter cp, final String id) {
-		final String[] idArray = StringUtils.split(id, "_");
-		final Collection<TreeNode> treeNodes = getTreenodes(cp);
-		return idArray != null ? findTreenode(cp, new LinkedList<String>(ArrayUtils.asList(idArray)),
-				treeNodes) : null;
+		return findTreenode(cp,
+				new LinkedList<String>(ArrayUtils.asList(StringUtils.split(id, "_"))), getTreenodes(cp));
 	}
 
 	private static TreeNode findTreenode(final ComponentParameter cp, final LinkedList<String> ll,

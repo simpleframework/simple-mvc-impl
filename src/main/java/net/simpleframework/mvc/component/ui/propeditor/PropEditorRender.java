@@ -87,12 +87,12 @@ public class PropEditorRender extends ComponentJavascriptRender {
 				sb.append("style: \"").append(style).append("\",");
 			}
 			final String[] attributes = StringUtils.split(comp.getAttributes(), ";");
-			if (attributes != null && attributes.length > 0) {
+			if (attributes.length > 0) {
 				sb.append("attributes: {");
 				int j = 0;
 				for (final String attribute : attributes) {
 					final String[] arr = StringUtils.split(attribute, ":");
-					if (arr != null && arr.length > 0) {
+					if (arr.length > 0) {
 						if (j++ > 0) {
 							sb.append(",");
 						}

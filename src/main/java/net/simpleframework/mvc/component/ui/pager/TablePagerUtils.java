@@ -76,7 +76,7 @@ public abstract class TablePagerUtils {
 		final ITablePagerHandler tHandle = (ITablePagerHandler) nCP.getComponentHandler();
 		final String[] arr = StringUtils.split(request.getParameter("v"), ";");
 		TablePagerColumns columns = null;
-		if (arr != null && arr.length > 0) {
+		if (arr.length > 0) {
 			columns = TablePagerColumns.of();
 			final TablePagerColumns all = getTablePagerSchema(nCP).getTablePagerColumns(nCP);
 			for (final String v : arr) {
