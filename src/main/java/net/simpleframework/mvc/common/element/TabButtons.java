@@ -120,7 +120,7 @@ public class TabButtons extends AbstractArrayListEx<TabButtons, TabButton> {
 			final String tooltip = tab.getTooltip();
 			if (StringUtils.hasText(tooltip)) {
 				isShowTip = true;
-				sb.append(BlockElement.tip(tooltip).setClassName("tt"));
+				sb.append(BlockElement.tipText(tooltip).setClassName("tt"));
 			}
 			final Object stat = tab.getStat();
 			if (stat != null) {
