@@ -109,7 +109,7 @@ pre {
 }
 
 sup {
-  top: -0.25em;
+  top: -5px;
   color: #900;
 	line-height: normal;
 	font-weight: normal;
@@ -122,7 +122,7 @@ sup {
 }
 
 sup.highlight {
-  top: -1em;
+  top: -8px;
   color: white;
   background-color: #d00;
   -moz-border-radius: 6px;
