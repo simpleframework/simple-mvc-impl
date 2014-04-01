@@ -1045,7 +1045,7 @@ UI.Window.addMethods({
 UI.WindowManager = Class.create(UI.Options, {
 	options : {
 		container : null, // will default to document.body
-		zIndex : 10,
+		zIndex : 50,
 		theme : "alphacube",
 		
 		positionningStrategy : function(win, area) {
