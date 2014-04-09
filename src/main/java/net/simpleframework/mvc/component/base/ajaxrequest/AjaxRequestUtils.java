@@ -52,7 +52,7 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 			}
 		} else {
 			try {
-				forward = ctx.getPermission().accessForward(cp, cp.getBeanProperty("role"));
+				forward = mvcContext.getPermission().accessForward(cp, cp.getBeanProperty("role"));
 				if (forward != null) {
 					bPermission = true;
 				}

@@ -43,7 +43,7 @@ public abstract class SubmitUtils implements IMVCContextVar {
 			final String method = (String) nCP.getBeanProperty("handlerMethod");
 			AbstractUrlForward forward;
 			if ((Boolean) nCP.getBeanProperty("binary")) {
-				nCP.request = ctx.createMultipartPageRequest(request,
+				nCP.request = mvcContext.createMultipartPageRequest(request,
 						(int) FileUtils.toFileSize((String) nCP.getBeanProperty("fileSizeLimit")));
 			}
 			try {

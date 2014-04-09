@@ -5,6 +5,6 @@
 	try {
 		ValidateCodeUtils.doRender(request, response);
 	} catch (Throwable th) {
-		System.out.println(IMVCContextVar.ctx.getThrowableMessage(th));
+		System.out.println(IMVCContextVar.mvcContext.getThrowableMessage(th));
 	}
 %>

@@ -237,10 +237,10 @@ public abstract class SwfUploadUtils implements IMVCContextVar {
 						.getBeanProperty("fileSizeLimit"));
 				uHandle.upload(
 						nCP,
-						((MultipartPageRequest) (nCP.request = ctx.createMultipartPageRequest(request,
-								fileSizeLimit))).getFile("Filedata"), variables);
+						((MultipartPageRequest) (nCP.request = mvcContext.createMultipartPageRequest(
+								request, fileSizeLimit))).getFile("Filedata"), variables);
 			} catch (final Throwable ex) {
-				variables.add("error", ctx.getThrowableMessage(ex));
+				variables.add("error", mvcContext.getThrowableMessage(ex));
 			}
 		}
 		return variables.toJSON();

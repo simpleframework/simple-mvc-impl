@@ -34,7 +34,8 @@ public class SubmitRender extends ComponentJavascriptRender implements IMVCConte
 		sb.append("var form = $(\"").append(formName).append("\") || document.").append(formName)
 				.append(";");
 		sb.append("if (!form) { alert('").append($m("SubmitRender.0")).append("'); return; }");
-		final IForward forward = ctx.getPermission().accessForward(cp, cp.getBeanProperty("role"));
+		final IForward forward = mvcContext.getPermission().accessForward(cp,
+				cp.getBeanProperty("role"));
 		if (forward != null) {
 			sb.append("var win = parent || window;");
 			sb.append("var ele = new Element('DIV'); $(win.document.body).insert(ele);");

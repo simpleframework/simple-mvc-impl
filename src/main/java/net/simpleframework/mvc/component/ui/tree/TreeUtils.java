@@ -29,8 +29,8 @@ public abstract class TreeUtils implements IMVCContextVar {
 	public static IForward dropHandler(final ComponentParameter cp) {
 		final JsonForward json = new JsonForward();
 		final String treeName = cp.getComponentName();
-		final IForward forward = ctx.getPermission()
-				.accessForward(cp, cp.getBeanProperty("roleDrop"));
+		final IForward forward = mvcContext.getPermission().accessForward(cp,
+				cp.getBeanProperty("roleDrop"));
 		if (forward != null) {
 			json.put("responseText", forward.getResponseText(cp));
 			json.put("ajaxRequestId", treeName);
