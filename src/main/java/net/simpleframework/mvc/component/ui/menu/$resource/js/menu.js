@@ -382,9 +382,9 @@ $UI.Menu = Class.create({
       }
     }
 
-    if (this.options.menuEvent == "mouseenter") {
-      _top -= 5;
-    }
+//    if (this.options.menuEvent == "mouseenter") {
+//      _top -= 5;
+//    }
     return Object.clone(Object.extend(mDim, {
       left : _left,
       top : _top
