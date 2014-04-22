@@ -93,7 +93,7 @@ $UI.Autocomplete = Class
             this._markSelected(false);
           }).bind(this);
         }
-        
+
         (function() {
           act('val=' + txt);
         }).delay(0.1);
@@ -112,6 +112,16 @@ $UI.Autocomplete = Class
         }
       },
 
+      _val : function(txt) {
+        var input = this.inputField;
+        var act = $Actions[this.options.ajax];
+        if (act.jsVal) {
+          act.jsVal(input, txt);
+        } else {
+          input.value = txt;
+        }
+      },
+
       _select : function(ev) {
         if (this.currentItem && (r = this.results)) {
           var input = this.inputField;
@@ -122,16 +132,16 @@ $UI.Autocomplete = Class
           } else {
             var txt = $F(input);
             if (txt.endsWith(sep)) {
-              input.value = txt + val;
+              this._val(txt + val);
             } else {
               var p = txt.lastIndexOf(sep);
               if (p > 0) {
-                input.value = txt.substring(0, p + sep.length) + val;
+                this._val(txt.substring(0, p + sep.length) + val);
               } else {
-                input.value = val;
+                this._val(val);
               }
             }
-          }     
+          }
           r.hide();
           if (this._mouse)
             (function() {
