@@ -1,7 +1,7 @@
 package net.simpleframework.mvc.component.ui.pager;
 
 import java.util.Collection;
-import java.util.Set;
+import java.util.Map;
 
 import net.simpleframework.mvc.component.ComponentParameter;
 
@@ -22,7 +22,7 @@ public interface IGroupTablePagerHandler extends ITablePagerHandler {
 	 * @param groups
 	 * @return
 	 */
-	Collection<Object> doGroups(ComponentParameter cp, Set<Object> groups);
+	Collection<Object> doGroups(ComponentParameter cp, Map<Object, GroupWrapper> groups);
 
 	/**
 	 * 获取列分组描述信息

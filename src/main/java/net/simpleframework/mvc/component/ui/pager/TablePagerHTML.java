@@ -467,7 +467,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 
 			final String imgPath = ComponentUtils.getCssResourceHomePath(cp);
 
-			final Collection<Object> groupVals = gHandle.doGroups(cp, wrappers.keySet());
+			final Collection<Object> groupVals = gHandle.doGroups(cp, wrappers);
 			for (final Object groupVal : groupVals) {
 				final GroupWrapper gw = wrappers.get(groupVal);
 				sb.append("<div class=\"group_t\">");

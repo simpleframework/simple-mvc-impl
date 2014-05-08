@@ -15,7 +15,6 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import net.simpleframework.ado.ColumnData;
 import net.simpleframework.ado.EFilterOpe;
@@ -629,8 +628,9 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 		return kv;
 	}
 
-	public Collection<Object> doGroups(final ComponentParameter cp, final Set<Object> groups) {
-		return groups;
+	public Collection<Object> doGroups(final ComponentParameter cp,
+			final Map<Object, GroupWrapper> groups) {
+		return groups.keySet();
 	}
 
 	public GroupWrapper getGroupWrapper(final ComponentParameter cp, final Object groupVal) {
