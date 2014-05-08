@@ -476,12 +476,15 @@ public abstract class TablePagerHTML implements HtmlConst {
 				sb.append("/images/p_toggle.png\" /></td>");
 				sb.append("<td class=\"t\">").append(gw).append("</td>");
 				sb.append("</tr></table></div>");
-				sb.append("<div class=\"group_c\">");
-				int i = 0;
-				for (final Object row : gw.getData()) {
-					sb.append(buildRow(cp, row, tablePagerData, new RowHandler(i++)));
+				final List<Object> gData = gw.getData();
+				if (gData != null) {
+					sb.append("<div class=\"group_c\">");
+					int i = 0;
+					for (final Object row : gData) {
+						sb.append(buildRow(cp, row, tablePagerData, new RowHandler(i++)));
+					}
+					sb.append("</div>");
 				}
-				sb.append("</div>");
 			}
 			sb.append("</div>");
 			return sb.toString();
