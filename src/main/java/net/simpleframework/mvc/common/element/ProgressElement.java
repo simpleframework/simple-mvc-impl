@@ -112,7 +112,7 @@ public class ProgressElement extends SpanElement {
 		final double step = Math.min(getStep(), 1d);
 		String ss;
 		if (step > 0) {
-			ss = NumberUtils.formatDouble((step * 100)) + "%";
+			ss = NumberUtils.format((step * 100)) + "%";
 			ele.addStyle("width: " + ss);
 		} else {
 			ss = "0.0%";
