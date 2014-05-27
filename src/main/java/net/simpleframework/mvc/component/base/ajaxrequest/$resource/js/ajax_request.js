@@ -115,7 +115,7 @@ function __ajax_actions_init(actionFunc, name) {
 			actionFunc.trigger = Event.element(ev);
 		}
 		
-		var c = actionFunc.container = $(actionFunc.container || containerId);	
+		var c = actionFunc._container = $(actionFunc.container || containerId);	
 		if (c && actionFunc.cache) {
 		  c.update(actionFunc.cache.stripStylesheets());
 			return true;
@@ -145,14 +145,15 @@ function __ajax_actions_init(actionFunc, name) {
 			if (updateContainerCache) 
 				actionFunc.cache = rt;
 			
-			if (!actionFunc.container) {
+			var c = actionFunc._container;
+			if (!c) {
 			  var act = $Actions[windowRef];
 			  if (act && act.window)
-			    actionFunc.container = act.window.content;
+			    c = act.window.content;
 			}
 			
 			var bUpdate = !rJSON.isJavascript && !rJSON.hasPermission;
-			new $UI.AjaxRequest(actionFunc.container, rt, rJSON.id, rJSON.isJSON, bUpdate);
+			new $UI.AjaxRequest(c, rt, rJSON.id, rJSON.isJSON, bUpdate);
 
 			(function(req, responseText, json, trigger) {
 				var err = json["exception"];
