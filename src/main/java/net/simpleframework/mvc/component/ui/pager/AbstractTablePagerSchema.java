@@ -146,7 +146,7 @@ public abstract class AbstractTablePagerSchema {
 		return rowData;
 	}
 
-	public static final String ROW_ID = "rowid";
+	public static final String ROW_ID = "rowId";
 
 	public static final String MENU_DISABLED = "menu-disabled";
 
