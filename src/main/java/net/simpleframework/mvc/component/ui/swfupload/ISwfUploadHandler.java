@@ -21,7 +21,7 @@ public interface ISwfUploadHandler extends IComponentHandler {
 	 * @param cp
 	 * @param multipartFile
 	 * @param variables
-	 *           post变量
+	 *        post变量
 	 * @throws IOException
 	 */
 	void upload(ComponentParameter cp, IMultipartFile multipartFile, Map<String, Object> variables)

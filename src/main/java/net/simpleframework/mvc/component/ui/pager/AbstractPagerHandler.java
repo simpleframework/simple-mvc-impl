@@ -122,13 +122,13 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 	 * @param cp
 	 * @param pagerPosition
 	 * @param count
-	 *           总数
+	 *        总数
 	 * @param pageCount
-	 *           显示的页数
+	 *        显示的页数
 	 * @param currentPageNumber
-	 *           当前页码
+	 *        当前页码
 	 * @param pageNumber
-	 *           页码,仅在EPagerPosition.number时有效
+	 *        页码,仅在EPagerPosition.number时有效
 	 * @return
 	 */
 	protected String getPagerUrl(final ComponentParameter cp, final EPagerPosition pagerPosition,

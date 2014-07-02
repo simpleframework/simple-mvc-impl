@@ -18,7 +18,7 @@ public interface ITreeHandler extends IComponentHandler {
 	 * 
 	 * @param cParameter
 	 * @param parent
-	 *           父节点，null表示第一层
+	 *        父节点，null表示第一层
 	 * @return
 	 */
 	TreeNodes getTreenodes(ComponentParameter cp, TreeNode parent);
