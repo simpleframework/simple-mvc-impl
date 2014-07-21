@@ -364,13 +364,13 @@ img.photo_icon {
 	color: #777;
 	text-align: right;
 	vertical-align: top;
-	padding: 7px 6px;
+	padding: 8px 6px;
 	width: 100px;
 }
 
 .form_tbl .v {
 	background-color: #fff;
-	padding: 2px;
+	padding: 4px;
 }
 
 .form_tbl .v input[type=text],
