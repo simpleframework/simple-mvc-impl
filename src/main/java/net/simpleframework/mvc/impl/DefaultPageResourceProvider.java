@@ -16,7 +16,7 @@ public class DefaultPageResourceProvider extends MVCPageResourceProvider {
 
 	public final static String SIZZLE_FILE = "/js/sizzle.js";
 
-	public final static String PROTOTYPE_FILE = "/js/prototype.js?v=1.7.1";
+	public final static String PROTOTYPE_FILE = "/js/prototype.js?v=1.7.2";
 
 	public final static String EFFECTS_FILE = "/js/effects.js?v=1.9";
 
