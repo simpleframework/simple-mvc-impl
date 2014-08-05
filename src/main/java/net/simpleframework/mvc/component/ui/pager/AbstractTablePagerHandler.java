@@ -324,7 +324,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 				return dbColumn.getOrder() == EOrder.desc ? c1.compareTo(c2) : c2.compareTo(c1);
 			}
 		} catch (final Exception e) {
-			log.warn(e);
+			getLog().warn(e);
 		}
 		return 0;
 	}
