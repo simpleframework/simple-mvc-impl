@@ -14,9 +14,7 @@ import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.JsonForward;
 import net.simpleframework.mvc.common.element.AbstractElement;
-import net.simpleframework.mvc.common.element.ButtonElement;
 import net.simpleframework.mvc.common.element.ElementList;
-import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentUtils;
 import net.simpleframework.mvc.component.base.ajaxrequest.DefaultAjaxRequestHandler;
@@ -104,8 +102,10 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 					}
 				}));
 
-		final String componentName = nCP.getComponentName();
-		json.put("tb", getSaveButtons(componentName).toString());
+		final ElementList el = hdl.toSaveButtons(nCP);
+		if (el != null) {
+			json.put("tb", el.toString());
+		}
 		return json;
 	}
 
@@ -136,25 +136,12 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 					json.put(column.getColumnName(), element.toString());
 				}
 			}
-
-			final String componentName = nCP.getComponentName();
-			json.put("tb", getSaveButtons(componentName).toString());
+			final ElementList el = hdl.toSaveButtons(nCP);
+			if (el != null) {
+				json.put("tb", el.toString());
+			}
 			return json;
 		}
-	}
-
-	private ElementList getSaveButtons(final String componentName) {
-		final String act = "$Actions['" + componentName + "']";
-		return ElementList
-				.of()
-				.append(
-						new ButtonElement($m("TablePagerAction.2")).setHighlight(true).setOnclick(
-								act + ".save_rows(this);"))
-				.append(SpanElement.SPACE)
-				.append(
-						new ButtonElement($m("TablePagerAction.1")).setOnclick("if (!confirm('"
-								+ $m("TablePagerAction.3") + "')) return;" + act + ".uneditAll(this);"))
-				.append(SpanElement.SPACE).append(new SpanElement($m("TablePagerAction.4")));
 	}
 
 	public IForward doRowSave(final ComponentParameter cp) {

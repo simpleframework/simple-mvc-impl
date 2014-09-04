@@ -5,6 +5,7 @@ import java.util.Map;
 import net.simpleframework.ado.ColumnData;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.common.element.AbstractElement;
+import net.simpleframework.mvc.common.element.ElementList;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ui.menu.MenuBean;
 import net.simpleframework.mvc.component.ui.menu.MenuItems;
@@ -91,6 +92,8 @@ public interface ITablePagerHandler extends IPagerHandler {
 	 */
 	JavascriptForward doRowSave(ComponentParameter cp, Map<String, Map<String, Object>> insertRows,
 			Map<String, Map<String, Object>> updateRows);
+
+	ElementList toSaveButtons(ComponentParameter cp);
 
 	/**
 	 * 数据导出

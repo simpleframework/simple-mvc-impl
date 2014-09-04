@@ -33,6 +33,7 @@ import net.simpleframework.lib.au.com.bytecode.opencsv.CSVWriter;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.common.element.AbstractElement;
 import net.simpleframework.mvc.common.element.BlockElement;
+import net.simpleframework.mvc.common.element.ButtonElement;
 import net.simpleframework.mvc.common.element.EInputType;
 import net.simpleframework.mvc.common.element.ElementList;
 import net.simpleframework.mvc.common.element.InputElement;
@@ -544,6 +545,22 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			final Map<String, Map<String, Object>> insertRows,
 			final Map<String, Map<String, Object>> updateRows) {
 		return null;
+	}
+
+	@Override
+	public ElementList toSaveButtons(final ComponentParameter cp) {
+		final String componentName = cp.getComponentName();
+		final String act = "$Actions['" + componentName + "']";
+		return ElementList
+				.of()
+				.append(
+						new ButtonElement($m("TablePagerAction.2")).setHighlight(true).setOnclick(
+								act + ".save_rows(this);"))
+				.append(SpanElement.SPACE)
+				.append(
+						new ButtonElement($m("TablePagerAction.1")).setOnclick("if (!confirm('"
+								+ $m("TablePagerAction.3") + "')) return;" + act + ".uneditAll(this);"))
+				.append(SpanElement.SPACE).append(new SpanElement($m("TablePagerAction.4")));
 	}
 
 	@Override
