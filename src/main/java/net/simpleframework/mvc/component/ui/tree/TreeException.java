@@ -16,11 +16,11 @@ public class TreeException extends RuntimeExceptionEx {
 		super(msg, cause);
 	}
 
-	public static RuntimeException of_delete() {
+	public static TreeException of_delete() {
 		return of($m("TreeException.0"));
 	}
 
-	public static RuntimeException of(final String msg) {
+	public static TreeException of(final String msg) {
 		return _of(TreeException.class, msg);
 	}
 }
