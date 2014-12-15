@@ -61,11 +61,10 @@ public abstract class TablePagerHTML implements HtmlConst {
 	}
 
 	static int getRownumWidth(final ComponentParameter cp, final int pageNumber, final int pageItems) {
-		return fixWidth(
-				cp,
+		return fixWidth(cp, Math.max(
 				String.valueOf(
 						Math.max(pageNumber, 1) * pageItems == Integer.MAX_VALUE ? 999 : pageItems)
-						.length() * 8);
+						.length() * 8, 12));
 	}
 
 	static String filterColumnKey(final String col) {

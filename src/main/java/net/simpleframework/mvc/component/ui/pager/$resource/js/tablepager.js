@@ -21,7 +21,7 @@ function $table_pager_addMethods(pa) {
 		};
 
 		pa.checkAll = function(cb) {
-			pa.pager.select("input[type='checkbox']").each(function(c) {
+			pa.pager.select(".cb input[type='checkbox']").each(function(c) {
 				if (cb != c) {
 					c.checked = cb.checked;
 					if (c.clickFunc) {
@@ -36,7 +36,7 @@ function $table_pager_addMethods(pa) {
 
 		pa.checkId = function(actionFunc) {
 			var ids = "";
-			pa.pager.select("input[type='checkbox']").each(function(c) {
+			pa.pager.select(".cb input[type='checkbox']").each(function(c) {
 				if (c.value && c.value != "on" && c.checked) {
 					ids += ";" + c.value;
 				}
