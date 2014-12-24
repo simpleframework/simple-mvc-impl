@@ -124,7 +124,11 @@ public class ProgressElement extends SpanElement {
 					+ ";background-image: linear-gradient(to bottom, " + linearStartColor + " 0, "
 					+ color + " 50%, " + linearStartColor + " 100%);");
 		}
-		final SpanElement txt = new SpanElement(ss).setClassName("txt");
+		String _text = super.getText();
+		if (!StringUtils.hasText(_text)) {
+			_text = ss;
+		}
+		final SpanElement txt = new SpanElement(_text).setClassName("txt");
 		final int height = getHeight();
 		if (height > 0) {
 			txt.addStyle("line-height: " + height + "px;");
