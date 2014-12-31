@@ -26,7 +26,9 @@ public class MenuBean extends AbstractContainerBean {
 	}
 
 	public MenuBean addItem(final MenuItem item) {
-		getMenuItems().add(item);
+		if (item != null) {
+			getMenuItems().add(item);
+		}
 		return this;
 	}
 
