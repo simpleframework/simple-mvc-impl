@@ -1261,6 +1261,9 @@ UI.WindowManager = Class.create(UI.Options, {
 
 	restartZIndexes : function() {
 		var zIndex = this.getZIndex() + 1;
+		this.modalOverlay.setStyle({
+      'zIndex' : zIndex - 1
+    });
 		this.stack.windows.each(function(w) {
 			w.setZIndex(zIndex);
 			zIndex = w.lastZIndex + 1;
