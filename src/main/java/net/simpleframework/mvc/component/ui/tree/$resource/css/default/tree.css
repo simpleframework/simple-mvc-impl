@@ -7,6 +7,10 @@
 	-ms-user-select: none;
 }
 
+.tafelTree sup {
+  top: -2px;
+}
+
 .tafelTree .tafelTree_root,
 .tafelTree .tafelTree_row {
 	line-height: 14px;
