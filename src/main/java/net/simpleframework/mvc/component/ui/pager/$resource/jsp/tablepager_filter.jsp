@@ -8,15 +8,14 @@
 	final TablePagerColumn col = TablePagerUtils.getSelectedColumn(nCP);
 	if (col == null) {
 %>
-<div class="simple_toolbar3 f2" style="text-align: center;">#(tablepager_filter.1)</div>
+<div class="f2" style="text-align: center;">#(tablepager_filter.1)</div>
 <%
 	return;
 	}
 %>
 <div class="filter_window simple_window_tcb">
   <div class="c">
-    <input type="hidden" name="<%=TablePagerUtils.PARAM_FILTER_CUR_COL%>"
-      value="<%=col.getColumnName()%>">
+    <input type="hidden" name="<%=TablePagerUtils.PARAM_FILTER_CUR_COL%>" value="<%=col.getColumnName()%>">
     <table style="width: 100%;">
       <tr>
         <td width="80"><%=TablePagerUtils.toFilterSelectHTML(col, "tp_filter_r1")%></td>
@@ -33,9 +32,8 @@
     </table>
   </div>
   <div class="b">
-    <input type="submit" id="idTablePagerFilterSave" value="#(Button.Ok)" class="button2"
-      onclick="tp_filter_save()" /> <input type="button" value="#(Button.Cancel)"
-      onclick="$win(this).close();" />
+    <input type="submit" id="idTablePagerFilterSave" value="#(Button.Ok)" class="button2" onclick="tp_filter_save()" /> <input type="button"
+      value="#(Button.Cancel)" onclick="$win(this).close();" />
   </div>
 </div>
 <script type="text/javascript">

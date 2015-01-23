@@ -612,39 +612,18 @@ ul.simple_tabs.vertical a.active {
 }
 
 /***************************************************/
-/*               simple_toolbar                    */
 /*                 sech_pane                       */
 /*        				 text_button                     */
 /*        				multi_dselect                    */
 /***************************************************/
-.simple_toolbar,
-.simple_toolbar1,
-.simple_toolbar2,
-.simple_toolbar3 {
+.simple_toolbar {
 	padding: 8px;
 	margin-bottom: 4px;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
 	border-radius: 6px;
-}
-
-.simple_toolbar {
 	background-color: #f9ffff;
 	border: 1px solid #bbb;
-}
-
-.simple_toolbar1 {
-	border: 1px solid #bbb;
-}
-
-.simple_toolbar2 {
-	background: #fff url("images/toolbar2_bg.png") repeat-x;
-	border: 1px solid #bbb;
-}
-
-.simple_toolbar3 {
-	background: #fff url("images/toolbar3_bg.png") repeat-x;
-	border: 1px solid #ccc;
 }
 
 .sech_pane {
