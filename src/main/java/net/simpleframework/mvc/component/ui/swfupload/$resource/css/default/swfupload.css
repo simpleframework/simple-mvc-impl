@@ -1,6 +1,6 @@
 .swfupload .swf_btns {
-	height: 24px;
-  margin: 4px;
+	line-height: 1;
+  margin: 6px;
 }
 
 .swfupload .message {
@@ -20,8 +20,9 @@
 }
 
 .swfupload .item {
-	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
 	padding: 6px 0;
+	margin-top: -1px;
 }
 
 .swfupload .item:hover {
