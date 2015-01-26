@@ -110,6 +110,7 @@
   border: 0;
   background-image: none;
   background-color: transparent !important;
+  padding-left: 6px;
 }
 
 .tablepager .tfilter select {
