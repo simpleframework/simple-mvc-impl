@@ -64,6 +64,8 @@ public class TablePagerColumn extends AbstractElementBean {
 	/* 表格列是否wrap超出列大小的数据内容 */
 	private boolean nowrap = true;
 
+	private boolean relative;
+
 	private String lblStyle;
 
 	public TablePagerColumn(final String columnName, final String columnText, final int width) {
@@ -235,6 +237,15 @@ public class TablePagerColumn extends AbstractElementBean {
 		return this;
 	}
 
+	public boolean isRelative() {
+		return relative;
+	}
+
+	public TablePagerColumn setRelative(final boolean relative) {
+		this.relative = relative;
+		return this;
+	}
+
 	String toStyle(final PageRequestResponse rRequest, final boolean header) {
 		final HashSet<String> set = new HashSet<String>();
 		if (!header) {
@@ -246,6 +257,9 @@ public class TablePagerColumn extends AbstractElementBean {
 		}
 		if (isNowrap()) {
 			set.add("white-space: nowrap");
+		}
+		if (isRelative()) {
+			set.add("position: relative");
 		}
 		return set.size() > 0 ? StringUtils.join(set, ";") : null;
 	}
