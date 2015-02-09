@@ -8,7 +8,6 @@ import net.simpleframework.common.object.ObjectUtils;
 import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.TextForward;
-import net.simpleframework.mvc.common.element.BlockElement;
 import net.simpleframework.mvc.common.element.InputElement;
 import net.simpleframework.mvc.component.ComponentHtmlRenderEx;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -27,7 +26,7 @@ public class ValidateCodeRender extends ComponentHtmlRenderEx {
 	@Override
 	public String getHtml(final ComponentParameter cp) {
 		final StringBuilder sb = new StringBuilder();
-		sb.append("<div class='simple_validatecode'>");
+		sb.append("<div class='simple_validatecode clearfix'>");
 		sb.append("	<div class='b1'>");
 		sb.append(new InputElement().setClassName("ifocus").setId(inputId)
 				.setName((String) cp.getBeanProperty("inputName")));
@@ -40,7 +39,6 @@ public class ValidateCodeRender extends ComponentHtmlRenderEx {
 		sb.append("  <a onclick=\"$Actions['").append(cp.getComponentName()).append("']();\">")
 				.append($m("ValidateCodeRender.0")).append("</a>");
 		sb.append("	</div>");
-		sb.append(BlockElement.CLEAR);
 		sb.append("</div>");
 		return sb.toString();
 	}
