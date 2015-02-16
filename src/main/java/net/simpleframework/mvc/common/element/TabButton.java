@@ -35,7 +35,7 @@ public class TabButton extends AbstractButtonEx<TabButton> {
 	}
 
 	public ETabMatch getTabMatch() {
-		return tabMatch == null ? ETabMatch.url : tabMatch;
+		return tabMatch == null ? ETabMatch.url_endsWith : tabMatch;
 	}
 
 	public TabButton setTabMatch(final ETabMatch tabMatch) {

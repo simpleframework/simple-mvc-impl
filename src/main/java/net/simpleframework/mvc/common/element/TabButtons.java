@@ -160,22 +160,40 @@ public class TabButtons extends AbstractArrayListEx<TabButtons, TabButton> {
 					}
 				}
 			}
-		} else if (tabMatch == ETabMatch.url) {
-			boolean match = requestURI.endsWith(href);
-			if (!match) {
-				String referer = rRequest.getParameter(IMVCConst.PARAM_REFERER);
-				if (StringUtils.hasText(referer)) {
-					referer = rRequest.stripContextPath(rRequest.stripJSessionId(referer));
-					final int p = referer.indexOf('?');
-					if (p > 0) {
-						referer = referer.substring(0, p);
+		} else {
+			if (tabMatch == ETabMatch.url_endsWith) {
+				boolean match = requestURI.endsWith(href);
+				if (!match) {
+					final String referer = getReferer(rRequest);
+					if (StringUtils.hasText(referer)) {
+						match = referer.endsWith(href);
 					}
-					match = referer.endsWith(href);
 				}
+				return match;
+			} else if (tabMatch == ETabMatch.url_contains) {
+				boolean match = requestURI.contains(href);
+				if (!match) {
+					final String referer = getReferer(rRequest);
+					if (StringUtils.hasText(referer)) {
+						match = referer.contains(href);
+					}
+				}
+				return match;
 			}
-			return match;
 		}
 		return true;
+	}
+
+	private String getReferer(final PageRequestResponse rRequest) {
+		String referer = rRequest.getParameter(IMVCConst.PARAM_REFERER);
+		if (StringUtils.hasText(referer)) {
+			referer = rRequest.stripContextPath(rRequest.stripJSessionId(referer));
+			final int p = referer.indexOf('?');
+			if (p > 0) {
+				referer = referer.substring(0, p);
+			}
+		}
+		return referer;
 	}
 
 	private static final long serialVersionUID = -8125512004759930526L;

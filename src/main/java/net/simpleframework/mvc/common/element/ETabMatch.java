@@ -20,5 +20,7 @@ public enum ETabMatch {
 	/**
 	 * url匹配, 不包括参数, 采用endsWith
 	 */
-	url
+	url_endsWith,
+
+	url_contains
 }
