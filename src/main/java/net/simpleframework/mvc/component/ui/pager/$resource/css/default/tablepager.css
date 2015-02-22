@@ -3,6 +3,12 @@
   margin: 0;
 }
 
+.tablepager .icon12 {
+  -moz-border-radius: 14px;
+  -webkit-border-radius: 14px;
+  border-radius: 14px;
+}
+
 .tablepager input[type=checkbox] {
   vertical-align: middle;
 }
