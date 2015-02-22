@@ -81,6 +81,11 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 		return addComponentBean(pp, name, WindowBean.class);
 	}
 
+	protected WindowBean addWindowBean(final PageParameter pp, final String name,
+			final AjaxRequestBean ajaxRequest) {
+		return addWindowBean(pp, name).setContentRef(ajaxRequest.getName());
+	}
+
 	/* DictionaryBean */
 	protected DictionaryBean addDictionaryBean(final PageParameter pp, final String name) {
 		return addComponentBean(pp, name, DictionaryBean.class);
