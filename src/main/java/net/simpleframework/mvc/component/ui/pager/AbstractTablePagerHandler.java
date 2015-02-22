@@ -593,14 +593,15 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			element = new BlockElement();
 			final InputElement input = new InputElement().addAttribute("params",
 					TablePagerUtils.PARAM_FILTER_CUR_COL + "=" + columnName);
-			if (Date.class.isAssignableFrom(pClass)) {
+			final String advClick = pagerColumn.getFilterAdvClick();
+			if (Date.class.isAssignableFrom(pClass) || StringUtils.hasText(advClick)) {
 				input.setReadonly(true);
 			}
 			final String val2 = pagerColumn.getFilterVal(val);
 			if (val2 != null) {
 				input.setText(val2);
 			}
-			element.addElements(input);
+
 			final LinkElement link = new LinkElement();
 			final Map<String, ColumnData> filterColumns = getFilterColumns(cp);
 			if (filterColumns != null && filterColumns.containsKey(columnName)) {
@@ -612,7 +613,6 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 										+ TablePagerUtils.PARAM_FILTER_CUR_COL + "=" + columnName + "');");
 			} else {
 				link.setClassName("image_filter").setTitle("#(TablePagerUtils.7)");
-				final String advClick = pagerColumn.getFilterAdvClick();
 				if (StringUtils.hasText(advClick)) {
 					link.setOnclick(advClick);
 				} else {
@@ -622,7 +622,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 							+ "');");
 				}
 			}
-			element.addElements(link);
+			element.addElements(input, link);
 		}
 		return element;
 	}
