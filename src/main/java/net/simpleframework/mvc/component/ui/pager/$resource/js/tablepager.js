@@ -355,6 +355,8 @@ function $table_pager_addMethods(pa) {
 	if (tfilter) {
 		var title = $MessageConst["TablePager.0"];
 		tfilter.select("input").each(function(txt) {
+		  if (txt.readOnly)
+		    return;
 			$UI.addBackgroundTitle(txt, title);
 			$UI.addReturnEvent(txt, function(ev) {
 				var v = $F(txt);
