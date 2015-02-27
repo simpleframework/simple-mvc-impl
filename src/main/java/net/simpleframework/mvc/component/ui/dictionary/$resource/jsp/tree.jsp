@@ -43,6 +43,8 @@
       } else {
         <%=DictionaryRender.genSelectCallback(nCP, "selects")%>
       }
+    } else {
+      alert('#(okcancel_inc.jsp.0)');
     }
   };
   
