@@ -165,7 +165,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 				sb.append("<div class=\"lbl\">");
 				String columnText = StringUtils.text(pagerColumn.getColumnText(), NBSP);
 				columnText = HtmlUtils.convertHtmlLines(columnText);
-				if (pagerColumn.isSort()) {
+				if ((Boolean) cp.getBeanProperty("sort") && pagerColumn.isSort()) {
 					final String col2 = cp.getParameter(TablePagerUtils.PARAM_SORT_COL);
 					StringBuilder img = null;
 					if (columnName.equals(col2)) {

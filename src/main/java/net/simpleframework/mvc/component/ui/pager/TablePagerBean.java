@@ -52,7 +52,10 @@ public class TablePagerBean extends PagerBean {
 	private boolean expandDetailField = BeanDefaults.getBool(getClass(), "expandDetailField", false);
 
 	/* 表格列的宽度是否可以改变 */
-	private boolean resize = BeanDefaults.getBool(getClass(), "expandDetailField", true);
+	private boolean resize = BeanDefaults.getBool(getClass(), "resize", true);
+
+	/* 表格列是否可排序 */
+	private boolean sort = BeanDefaults.getBool(getClass(), "sort", true);
 
 	/* 分组字段 */
 	private String groupColumn;
@@ -183,6 +186,15 @@ public class TablePagerBean extends PagerBean {
 
 	public TablePagerBean setShowFilterBar(final boolean showFilterBar) {
 		this.showFilterBar = showFilterBar;
+		return this;
+	}
+
+	public boolean isSort() {
+		return sort;
+	}
+
+	public TablePagerBean setSort(final boolean sort) {
+		this.sort = sort;
 		return this;
 	}
 
