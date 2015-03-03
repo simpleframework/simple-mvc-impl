@@ -25,7 +25,7 @@ public class LinkAddTreeNode extends LinkElement {
 			if (!onclick.endsWith(";")) {
 				onclick += ";";
 			}
-			addAttribute("onclick", onclick + "Event.stop(event);");
+			setOnclick(onclick + "Event.stop(event);");
 		}
 		return super.toString();
 	}
