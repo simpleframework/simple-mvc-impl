@@ -3,6 +3,7 @@ package net.simpleframework.mvc.component.ui.propeditor;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import net.simpleframework.common.Convert;
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
 import net.simpleframework.mvc.common.element.EElementEvent;
 
@@ -24,6 +25,10 @@ public class InputComp extends AbstractElementBean {
 
 	public static InputComp checkbox(final String name) {
 		return new InputComp(name).setType(EInputCompType.checkbox).setDefaultValue("true");
+	}
+
+	public static InputComp label(final Object lbl) {
+		return new InputComp().setType(EInputCompType.div).setDefaultValue(Convert.toString(lbl));
 	}
 
 	private String name;

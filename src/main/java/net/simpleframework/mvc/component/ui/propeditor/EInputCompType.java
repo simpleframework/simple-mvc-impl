@@ -34,7 +34,5 @@ public enum EInputCompType {
 
 	select,
 
-	div,
-
-	label
+	div
 }
