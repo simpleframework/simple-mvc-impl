@@ -20,7 +20,7 @@ public class InputComp extends AbstractElementBean {
 	}
 
 	public static InputComp select(final String name, final Class<? extends Enum<?>> eClass) {
-		return select(name).setDefaultValue(eClass.getEnumConstants());
+		return select(name).setDefaultEnumValue(eClass.getEnumConstants());
 	}
 
 	public static InputComp checkbox(final String name) {
@@ -84,7 +84,7 @@ public class InputComp extends AbstractElementBean {
 		return defaultValue;
 	}
 
-	public InputComp setDefaultValue(final Enum<?>... vals) {
+	public InputComp setDefaultEnumValue(final Enum<?>... vals) {
 		final StringBuilder sb = new StringBuilder();
 		int i = 0;
 		for (final Enum<?> v : vals) {
@@ -96,8 +96,8 @@ public class InputComp extends AbstractElementBean {
 		return setDefaultValue(sb.toString());
 	}
 
-	public InputComp setDefaultValue(final String defaultValue) {
-		this.defaultValue = defaultValue;
+	public InputComp setDefaultValue(final Object defaultValue) {
+		this.defaultValue = Convert.toString(defaultValue);
 		return this;
 	}
 
