@@ -3,7 +3,7 @@ package net.simpleframework.mvc.component.ui.pager;
 import static net.simpleframework.common.I18n.$m;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.bean.BeanDefaults;
-import net.simpleframework.ctx.permission.IPermissionConst;
+import net.simpleframework.ctx.permission.PermissionConst;
 import net.simpleframework.mvc.component.AbstractContainerBean;
 
 /**
@@ -213,6 +213,6 @@ public class PagerBean extends AbstractContainerBean {
 	}
 
 	{
-		setRole(IPermissionConst.ROLE_ANONYMOUS).setNoResultDesc($m("pager.0"));
+		setRole(PermissionConst.ROLE_ANONYMOUS).setNoResultDesc($m("pager.0"));
 	}
 }
