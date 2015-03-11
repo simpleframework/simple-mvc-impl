@@ -163,8 +163,6 @@ TafelTree.prototype = {
     };
     so("dropALT", this.enableDropALT.bind(this), true);
     so("dropCTRL", this.enableDropCTRL.bind(this), true);
-    so("selectCTRL", this.enableSelectCTRL.bind(this), true);
-    so("selectSHIFT", this.enableSelectSHIFT.bind(this), true);
     so("dragScroll", this.setDragScroll.bind(this));
     so("multiline", this.enableMultiline.bind(this));
     so("checkboxes", this.enableCheckboxes.bind(this));
@@ -246,14 +244,6 @@ TafelTree.prototype = {
     this.dropCTRL = (copy) ? true : false;
   },
 
-  enableSelectCTRL : function (copy) {
-    this.selectCTRL = (copy) ? true : false;
-  },
-  
-  enableSelectSHIFT : function (copy) {
-    this.selectSHIFT = (copy) ? true : false;
-  },
-  
   enableCheckboxes : function (enable) {
     this.checkboxes = (enable) ? true : false;
   },
@@ -1035,7 +1025,7 @@ TafelTree.prototype = {
 var TafelTreeManager = {
   stopEvent : true,
 
-  keyboardEvents : true,
+  keyboardEvents : false,
 
   keyboardStructuralEvents : true,
 
@@ -1960,8 +1950,8 @@ TafelTreeBaseBranch.prototype = {
   },
 
   select : function(ev) {
-    var ctrl = (ev) ? this.tree.selectCTRL && TafelTreeManager.ctrlOn(ev) : false;
-    var shift = (ev) ? this.tree.selectSHIFT && TafelTreeManager.shiftOn(ev) : false;
+    var ctrl = (ev) ? TafelTreeManager.ctrlOn(ev) : false;
+    var shift = (ev) ? TafelTreeManager.shiftOn(ev) : false;
     if (ctrl) {
       this.tree.selectedBranches.push(this);
     } else if (shift && this.tree.selectedBranches.length > 0) {

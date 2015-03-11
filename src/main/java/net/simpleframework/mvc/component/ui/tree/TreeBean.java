@@ -31,10 +31,6 @@ public class TreeBean extends AbstractContainerBean {
 	/* check是否使用cookies */
 	private boolean checkedCookies = BeanDefaults.getBool(getClass(), "checkedCookies", false);
 
-	private boolean selectCTRL = BeanDefaults.getBool(getClass(), "selectCTRL", true);
-
-	private boolean selectSHIFT = BeanDefaults.getBool(getClass(), "selectSHIFT", true);
-
 	/* 设置线的形状 */
 	private ETreeLineStyle lineStyle = (ETreeLineStyle) BeanDefaults.get(getClass(), "lineStyle",
 			ETreeLineStyle.line);
@@ -133,24 +129,6 @@ public class TreeBean extends AbstractContainerBean {
 
 	public TreeBean setCheckedCookies(final boolean checkedCookies) {
 		this.checkedCookies = checkedCookies;
-		return this;
-	}
-
-	public boolean isSelectCTRL() {
-		return selectCTRL;
-	}
-
-	public TreeBean setSelectCTRL(final boolean selectCTRL) {
-		this.selectCTRL = selectCTRL;
-		return this;
-	}
-
-	public boolean isSelectSHIFT() {
-		return selectSHIFT;
-	}
-
-	public TreeBean setSelectSHIFT(final boolean selectSHIFT) {
-		this.selectSHIFT = selectSHIFT;
 		return this;
 	}
 

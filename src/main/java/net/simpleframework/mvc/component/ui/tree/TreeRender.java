@@ -60,9 +60,6 @@ public class TreeRender extends ComponentJavascriptRender {
 		sb.append("\"checkboxesThreeState\": ").append(cp.getBeanProperty("checkboxesThreeState"))
 				.append(",");
 
-		sb.append("\"selectCTRL\": ").append(cp.getBeanProperty("selectCTRL")).append(",");
-		sb.append("\"selectSHIFT\": ").append(cp.getBeanProperty("selectSHIFT")).append(",");
-
 		final String dragScroll = (String) cp.getBeanProperty("dragScroll");
 		if (StringUtils.hasText(dragScroll)) {
 			sb.append("\"dragScroll\": \"").append(dragScroll).append("\",");
