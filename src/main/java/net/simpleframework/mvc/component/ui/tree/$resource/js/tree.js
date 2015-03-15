@@ -3564,6 +3564,10 @@ function __tree_actions_init(actionFunc) {
   var __dropajax = function(branchMoved, newParent, response, dropFinished) {
     if (!dropFinished) {
       var json = response.evalJSON();
+      if (json['isJavascript']) {
+        eval(json['rt']);
+        return false;
+      }
       if (json['responseText']) {
         new $UI.AjaxRequest(null, json['responseText'], json['ajaxRequestId']);
       }
