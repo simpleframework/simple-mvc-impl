@@ -3,6 +3,7 @@ package net.simpleframework.mvc.component.ui.pager;
 import static net.simpleframework.common.I18n.$m;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ import net.simpleframework.common.web.html.HtmlUtils;
 import net.simpleframework.mvc.MVCUtils;
 import net.simpleframework.mvc.PageRequestResponse;
 import net.simpleframework.mvc.common.element.AbstractElement;
+import net.simpleframework.mvc.common.element.ETextAlign;
 import net.simpleframework.mvc.common.element.InputElement;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentUtils;
@@ -147,7 +149,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 				}
 				final String columnName = pagerColumn.getColumnName();
 				sb.append("<td");
-				final String style = pagerColumn.toStyle(cp, true);
+				final String style = pagerColumn.toStyle(cp, null);
 				if (StringUtils.hasText(style)) {
 					sb.append(" style=\"").append(style).append("\"");
 				}
@@ -222,7 +224,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 					}
 					final String columnName = pagerColumn.getColumnName();
 					sb.append("<td");
-					final String style = pagerColumn.toStyle(cp, true);
+					final String style = pagerColumn.toStyle(cp, null);
 					if (StringUtils.hasText(style)) {
 						sb.append(" style=\"").append(style).append("\"");
 					}
@@ -373,7 +375,11 @@ public abstract class TablePagerHTML implements HtmlConst {
 				if (handler.isEdit()) {
 					sb.append(" valign=\"top\"");
 				}
-				final String style = pagerColumn.toStyle(cp, false);
+
+				final Object val = rowData != null ? rowData.get(key) : null;
+				final ETextAlign defaultTextAlign = val instanceof Number || val instanceof Boolean
+						|| val instanceof Date ? ETextAlign.center : ETextAlign.left;
+				final String style = pagerColumn.toStyle(cp, defaultTextAlign);
 				if (StringUtils.hasText(style)) {
 					sb.append(" style=\"").append(style).append("\"");
 				}
@@ -389,7 +395,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 				if (StringUtils.hasText(lblStyle)) {
 					sb.append(" style=\"").append(lblStyle).append("\"");
 				}
-				sb.append(">").append(handler.getValue(rowData, pagerColumn)).append("</div></td>");
+				sb.append(">").append(handler.getValue(val, pagerColumn)).append("</div></td>");
 			}
 			sb.append("</tr></table>");
 
@@ -426,9 +432,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 			return edit;
 		}
 
-		protected Object getValue(final Map<String, Object> rowData,
-				final TablePagerColumn pagerColumn) {
-			final Object value = rowData != null ? rowData.get(pagerColumn.getColumnName()) : null;
+		protected Object getValue(final Object value, final TablePagerColumn pagerColumn) {
 			String ret = null;
 			if (value != null) {
 				ret = pagerColumn.objectToString(value);

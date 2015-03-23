@@ -91,8 +91,7 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 		json.put("row",
 				new RenderTable().buildRow(nCP, null, tablePagerData, new RowHandler(0, true) {
 					@Override
-					protected Object getValue(final Map<String, Object> rowData,
-							final TablePagerColumn pagerColumn) {
+					protected Object getValue(final Object val, final TablePagerColumn pagerColumn) {
 						if (!pagerColumn.isEditable()) {
 							return HtmlConst.NBSP;
 						}

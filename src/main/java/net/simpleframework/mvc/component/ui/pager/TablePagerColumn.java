@@ -39,7 +39,7 @@ public class TablePagerColumn extends AbstractElementBean {
 	private int width;
 
 	/* 表格列文本的对齐方式 */
-	private ETextAlign textAlign = ETextAlign.center;
+	private ETextAlign textAlign;
 
 	/* 表格列是否可以排序 */
 	private boolean sort = true;
@@ -250,10 +250,14 @@ public class TablePagerColumn extends AbstractElementBean {
 		return this;
 	}
 
-	String toStyle(final PageRequestResponse rRequest, final boolean header) {
+	String toStyle(final PageRequestResponse rRequest, final ETextAlign defaultTextAlign) {
 		final HashSet<String> set = new HashSet<String>();
-		if (!header) {
-			set.add("text-align:" + getTextAlign());
+		if (defaultTextAlign != null) {
+			ETextAlign textAlign = getTextAlign();
+			if (textAlign == null) {
+				textAlign = defaultTextAlign;
+			}
+			set.add("text-align:" + textAlign);
 		}
 		final int w = getWidth();
 		if (w > 0) {
@@ -341,8 +345,8 @@ public class TablePagerColumn extends AbstractElementBean {
 	}
 
 	public static final TablePagerColumn OPE() {
-		return col(OPE, $m("OPE")).setNowrap(false).setFilterSort(false).setExport(false)
-				.setEditable(false);
+		return col(OPE, $m("OPE")).setTextAlign(ETextAlign.center).setNowrap(false)
+				.setFilterSort(false).setExport(false).setEditable(false);
 	}
 
 	public static final TablePagerColumn ACTION() {
@@ -361,8 +365,7 @@ public class TablePagerColumn extends AbstractElementBean {
 	}
 
 	public static final TablePagerColumn DESCRIPTION() {
-		return col("description", $m("Description")).setFilterSort(false).setTextAlign(
-				ETextAlign.left);
+		return col("description", $m("Description")).setFilterSort(false);
 	}
 
 	public static final String OPE = "ope";
