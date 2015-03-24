@@ -41,6 +41,10 @@ public class LinkButton extends AbstractButtonEx<LinkButton> {
 		return of($m("Button.Log"));
 	}
 
+	public static final LinkButton backBtn() {
+		return new LinkButton($m("LinkButton.0")).setIconClass(Icon.share_alt);
+	}
+
 	public static LinkButton corner(final Object text) {
 		return of(text).corner();
 	}
