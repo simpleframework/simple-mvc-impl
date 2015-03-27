@@ -175,14 +175,18 @@ public class DictionaryBean extends WindowBean {
 		}
 		if (!StringUtils.hasText(clearAction)) {
 			final StringBuilder sb = new StringBuilder();
-			sb.append("var o;");
+			sb.append("var act = $Actions[\"").append(cp.getComponentName())
+					.append("\"];act.close();");
+			sb.append("var _bindingId = $(act.bindingId)");
 			if (StringUtils.hasText(bindingId)) {
-				sb.append("o=$(\"").append(bindingId).append("\");if(o) o.clear();");
+				sb.append(" || $('").append(bindingId).append("')");
 			}
+			sb.append(";if (_bindingId) _bindingId.clear();");
+			sb.append("var _bindingText = $(act.bindingText)");
 			if (StringUtils.hasText(bindingText)) {
-				sb.append("o=$(\"").append(bindingText).append("\");if(o) o.clear();");
+				sb.append(" || $('").append(bindingText).append("')");
 			}
-			sb.append("$Actions[\"").append(cp.getComponentName()).append("\"].close();");
+			sb.append(";if (_bindingText) _bindingText.clear();");
 			return sb.toString();
 		}
 		return clearAction;
