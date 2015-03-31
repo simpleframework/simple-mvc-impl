@@ -164,7 +164,8 @@ function __ajax_actions_init(actionFunc, name) {
 				if (rJSON.hasPermission)
 					return;
 				if (rJSON.isJavascript) {
-				  $call(responseText);
+				  new Function("req", "json", "trigger", responseText)(req, json, trigger);
+				  // $call(responseText);
 				} else {
 					actionFunc.__callback(req, responseText, json, trigger);
 				}
