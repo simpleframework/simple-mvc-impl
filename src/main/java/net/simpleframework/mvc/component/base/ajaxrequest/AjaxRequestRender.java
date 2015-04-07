@@ -51,8 +51,8 @@ public class AjaxRequestRender extends ComponentJavascriptRender {
 		}
 		sb.append("};");
 
-		sb.append("var p=\"ajax_request=true&").append(AjaxRequestUtils.BEAN_ID);
-		sb.append("=").append(cp.hashId()).append("\";");
+		sb.append("var p=\"").append(AjaxRequestUtils.BEAN_ID).append("=").append(cp.hashId())
+				.append("\";");
 		ComponentRenderUtils.appendParameters(sb, cp, "p");
 		sb.append("p = p.addParameter(arguments[0]);");
 		sb.append("new Ajax.Request(\"");

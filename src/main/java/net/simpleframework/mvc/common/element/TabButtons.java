@@ -9,7 +9,6 @@ import net.simpleframework.common.coll.AbstractArrayListEx;
 import net.simpleframework.common.object.ObjectUtils;
 import net.simpleframework.common.web.HttpUtils;
 import net.simpleframework.common.web.html.HtmlConst;
-import net.simpleframework.mvc.IMVCConst;
 import net.simpleframework.mvc.PageRequestResponse;
 
 /**
@@ -185,7 +184,7 @@ public class TabButtons extends AbstractArrayListEx<TabButtons, TabButton> {
 	}
 
 	private String getReferer(final PageRequestResponse rRequest) {
-		String referer = rRequest.getParameter(IMVCConst.PARAM_REFERER);
+		String referer = rRequest.getRefererParam();
 		if (StringUtils.hasText(referer)) {
 			referer = rRequest.stripContextPath(rRequest.stripJSessionId(referer));
 			final int p = referer.indexOf('?');
