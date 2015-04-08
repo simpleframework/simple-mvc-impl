@@ -7,7 +7,6 @@ import java.util.List;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.EElementEvent;
-import net.simpleframework.mvc.component.ComponentHandlerEx;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentUtils;
 import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
@@ -58,25 +57,25 @@ public class TablePagerLoaded extends PagerLoaded {
 							.setWidth(240));
 		}
 
-		// 添加菜单组件
-		MenuBean menuBean = (MenuBean) nCP.addComponentBean("ml_" + hashId + "_Menu", MenuBean.class)
-				.setMenuEvent(EMenuEvent.click)
-				.setJsBeforeShowCallback("TableUtils.contextMenu_ShowCallback(menu);")
-				.setHandlerClass(TablePagerMenu.class);
-		List<MenuItem> items;
 		if (tptbl instanceof AbstractTablePagerHandler) {
-			items = ((ComponentHandlerEx) tptbl).getContextMenu(nCP, menuBean, null);
+			// 添加菜单组件
+			MenuBean menuBean = (MenuBean) nCP
+					.addComponentBean("ml_" + hashId + "_Menu", MenuBean.class)
+					.setMenuEvent(EMenuEvent.click)
+					.setJsBeforeShowCallback("TableUtils.contextMenu_ShowCallback(menu);")
+					.setHandlerClass(TablePagerMenu.class);
+			List<MenuItem> items = TablePagerMenu.getContextMenu(nCP, menuBean);
 			if (items == null) {
 				nCP.removeComponentBean(menuBean);
 			}
-		}
 
-		menuBean = (MenuBean) nCP.addComponentBean("ml_" + hashId + "_Menu2", MenuBean.class)
-				.setMenuEvent(EMenuEvent.click).setMinWidth("140")
-				.setHandlerClass(TablePagerMenu2.class);
-		items = tptbl.getHeaderMenu(nCP, menuBean);
-		if (items == null) {
-			nCP.removeComponentBean(menuBean);
+			menuBean = (MenuBean) nCP.addComponentBean("ml_" + hashId + "_Menu2", MenuBean.class)
+					.setMenuEvent(EMenuEvent.click).setMinWidth("140")
+					.setHandlerClass(TablePagerMenu2.class);
+			items = TablePagerMenu2.getHeaderMenu(nCP, menuBean);
+			if (items == null) {
+				nCP.removeComponentBean(menuBean);
+			}
 		}
 
 		if ((Boolean) nCP.getBeanProperty("showFilterBar")) {

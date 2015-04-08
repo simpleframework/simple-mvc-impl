@@ -19,8 +19,16 @@ public class TablePagerMenu extends AbstractMenuHandler {
 		if (menuItem != null) {
 			return null;
 		}
-		final ComponentParameter nCP = PagerUtils.get(cp);
-		return ((AbstractTablePagerHandler) nCP.getComponentHandler()).getContextMenu(nCP,
-				(MenuBean) cp.componentBean, menuItem);
+		return getContextMenu(PagerUtils.get(cp), (MenuBean) cp.componentBean);
+	}
+
+	static MenuItems getContextMenu(final ComponentParameter cp, final MenuBean menuBean) {
+		return cp.getRequestCache("@getContextMenu", new IVal<MenuItems>() {
+			@Override
+			public MenuItems get() {
+				return ((AbstractTablePagerHandler) cp.getComponentHandler()).getContextMenu(cp,
+						menuBean, null);
+			}
+		});
 	}
 }
