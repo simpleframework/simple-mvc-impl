@@ -275,7 +275,10 @@ public abstract class TablePagerHTML implements HtmlConst {
 			final StringBuilder sb = new StringBuilder();
 			appendTbody(cp, data.size(), sb);
 			for (int i = 0; i < data.size(); i++) {
-				sb.append(buildRow(cp, data.get(i), tablePagerData, new RowHandler(i)));
+				final String rowHTML = buildRow(cp, data.get(i), tablePagerData, new RowHandler(i));
+				if (rowHTML != null) {
+					sb.append(rowHTML);
+				}
 			}
 			sb.append("</div>");
 			return sb.toString();
@@ -283,6 +286,11 @@ public abstract class TablePagerHTML implements HtmlConst {
 
 		String buildRow(final ComponentParameter cp, final Object oBean,
 				final AbstractTablePagerSchema tablePagerData, final RowHandler handler) {
+			final Map<String, Object> rowData = (oBean == null) ? null : tablePagerData.getRowData(cp,
+					oBean);
+			if (rowData == null) {
+				return null;
+			}
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<div class=\"titem");
 			if ((handler.getIndex() + 1) % 2 == 0) {
@@ -310,21 +318,16 @@ public abstract class TablePagerHTML implements HtmlConst {
 			sb.append("><table style=\"width: 100%;\" class=\"fixed_table\" ");
 			sb.append("cellpadding=\"0\" cellspacing=\"0\"><tr class=\"itr\">");
 
-			final Map<String, Object> rowData = (oBean == null) ? null : tablePagerData.getRowData(cp,
-					oBean);
-
 			// showDetail
 			String detailVal = null;
-			if (rowData != null) {
-				final String detailField = (String) cp.getBeanProperty("detailField");
-				if (StringUtils.hasText(detailField)) {
-					sb.append("<td class='plus'>");
-					if (StringUtils.hasText(detailVal = Convert.toString(rowData.get(detailField)))) {
-						sb.append("<img src=\"").append(ComponentUtils.getCssResourceHomePath(cp));
-						sb.append("/images/toggle2.png\" />");
-					}
-					sb.append("</td>");
+			final String detailField = (String) cp.getBeanProperty("detailField");
+			if (StringUtils.hasText(detailField)) {
+				sb.append("<td class='plus'>");
+				if (StringUtils.hasText(detailVal = Convert.toString(rowData.get(detailField)))) {
+					sb.append("<img src=\"").append(ComponentUtils.getCssResourceHomePath(cp));
+					sb.append("/images/toggle2.png\" />");
 				}
+				sb.append("</td>");
 			}
 
 			if ((Boolean) cp.getBeanProperty("showLineNo")) {
@@ -376,7 +379,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 					sb.append(" valign=\"top\"");
 				}
 
-				final Object val = rowData != null ? rowData.get(key) : null;
+				final Object val = rowData.get(key);
 				final ETextAlign defaultTextAlign = val instanceof Number || val instanceof Boolean
 						|| val instanceof Date ? ETextAlign.center : ETextAlign.left;
 				final String style = pagerColumn.toStyle(cp, defaultTextAlign);
@@ -484,7 +487,10 @@ public abstract class TablePagerHTML implements HtmlConst {
 					sb.append("<div class=\"group_c\">");
 					int i = 0;
 					for (final Object row : gData) {
-						sb.append(buildRow(cp, row, tablePagerData, new RowHandler(i++)));
+						final String rowHTML = buildRow(cp, row, tablePagerData, new RowHandler(i++));
+						if (rowHTML != null) {
+							sb.append(rowHTML);
+						}
 					}
 					sb.append("</div>");
 				}

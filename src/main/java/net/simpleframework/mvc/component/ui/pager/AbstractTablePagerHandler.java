@@ -68,11 +68,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 
 		@Override
 		public Map<String, Object> getRowData(final ComponentParameter cp, final Object dataObject) {
-			Map<String, Object> kv = hdl.getRowData(cp, dataObject);
-			if (kv == null) {
-				kv = super.getRowData(cp, dataObject);
-			}
-			return kv;
+			return hdl.getRowData(cp, dataObject);
 		}
 
 		@Override
