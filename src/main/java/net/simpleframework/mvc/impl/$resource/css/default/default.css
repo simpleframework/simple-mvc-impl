@@ -106,6 +106,40 @@ a.simple_btn .left_icon {
   margin-top: -2px\0;    
 }
   
+a.simple_btn2 {
+  border: 1px solid transparent;
+  display: inline-block;
+  padding: 1px 4px;
+  text-decoration: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-user-select: none;  
+	-webkit-user-select: none;  
+	-ms-user-select: none; 
+}
+
+a.simple_btn2.disabled {
+  color: #999 !important;
+}
+
+a.simple_btn2:HOVER {
+  background-color: #e74;
+  border-color: #c52;
+  color: #eee;
+  -webkit-box-shadow: 0px 0px 5px #bbb;
+	box-shadow: 0px 0px 5px #bbb;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+a.simple_btn2.disabled:HOVER {
+  background-color: #eee !important;
+  border-color: #aaa !important;
+}
+
 a.link_ex {
   height: 21px;  
   line-height: 17px;
