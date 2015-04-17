@@ -15,12 +15,13 @@ public abstract class AbstractButtonEx<T extends AbstractLinkElement<T>> extends
 	/* 是否选中 */
 	private boolean checked;
 
-	/* 是否分割类型的按钮 */
-	private boolean separator;
+	private boolean highlight;
 
 	/* 按钮的图标 */
 	private String iconClass;
 
+	/* 是否分割类型的按钮 */
+	private boolean separator;
 	/* 是否显示下拉菜单 */
 	private boolean menuIcon;
 
@@ -41,6 +42,15 @@ public abstract class AbstractButtonEx<T extends AbstractLinkElement<T>> extends
 
 	public T setChecked(final boolean checked) {
 		this.checked = checked;
+		return (T) this;
+	}
+
+	public boolean isHighlight() {
+		return highlight;
+	}
+
+	public T setHighlight(final boolean highlight) {
+		this.highlight = highlight;
 		return (T) this;
 	}
 
@@ -139,6 +149,9 @@ public abstract class AbstractButtonEx<T extends AbstractLinkElement<T>> extends
 	public String toString() {
 		if (isSeparator()) {
 			return SpanElement.SPACE.toString();
+		}
+		if (isHighlight()) {
+			addClassName("highlight");
 		}
 		doDisabled();
 		doChecked();

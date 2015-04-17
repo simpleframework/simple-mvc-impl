@@ -45,6 +45,10 @@ a.simple_btn {
   line-height: 23px\0; /* ie9 */
 }
 
+a.simple_btn.highlight {
+  background-color: #ccc;  
+}
+
 a.simple_btn:hover,
 a.simple_btn_checked {
 	background-color: #38b;
