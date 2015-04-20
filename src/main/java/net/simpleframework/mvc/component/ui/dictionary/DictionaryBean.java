@@ -91,6 +91,9 @@ public class DictionaryBean extends WindowBean {
 			listBean.setJsDblclickCallback("selected" + dictionaryId + "(item, json, ev);");
 			list.setAttr("$$component", listBean);
 			cp.removeComponentBean(listBean);
+
+			setWidth(270);
+			setHeight(360);
 		} else if (dictionaryTypeBean instanceof DictionaryColorBean) {
 			final String ref = ((DictionaryColorBean) dictionaryTypeBean).getRef();
 			final ColorPaletteBean colorPalette = (ColorPaletteBean) cp.getComponentBeanByName(ref);
