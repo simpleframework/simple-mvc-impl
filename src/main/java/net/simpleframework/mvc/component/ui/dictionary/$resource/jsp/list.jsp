@@ -42,12 +42,16 @@
     	listbox.getSelectedItems().each(function(b) { selects.push(create(b)); });
     }
     
-    var act = $Actions['<%=name%>'];
-    if (act.jsSelectCallback) {
-      if (act.jsSelectCallback(selects))
-        act.close();
+    if (selects && selects.length > 0) {
+      var act = $Actions['<%=name%>'];
+      if (act.jsSelectCallback) {
+        if (act.jsSelectCallback(selects))
+          act.close();
+      } else {
+      	<%=DictionaryRender.genSelectCallback(nCP, "selects")%>
+      }
     } else {
-    	<%=DictionaryRender.genSelectCallback(nCP, "selects")%>
+      alert('#(okcancel_inc.jsp.0)');
     }
   };
 
