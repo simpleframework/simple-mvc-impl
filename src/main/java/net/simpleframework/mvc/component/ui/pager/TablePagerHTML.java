@@ -381,7 +381,8 @@ public abstract class TablePagerHTML implements HtmlConst {
 
 				final Object val = rowData.get(key);
 				final ETextAlign defaultTextAlign = val instanceof Number || val instanceof Boolean
-						|| val instanceof Date ? ETextAlign.center : ETextAlign.left;
+						|| val instanceof Date || val instanceof Enum ? ETextAlign.center
+						: ETextAlign.left;
 				final String style = pagerColumn.toStyle(cp, defaultTextAlign);
 				if (StringUtils.hasText(style)) {
 					sb.append(" style=\"").append(style).append("\"");
