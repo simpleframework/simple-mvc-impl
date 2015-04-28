@@ -23,7 +23,7 @@ public class TablePagerMenu2 extends AbstractMenuHandler {
 	}
 
 	static MenuItems getHeaderMenu(final ComponentParameter cp, final MenuBean menuBean) {
-		return cp.getRequestCache("@getHeaderMenu", new IVal<MenuItems>() {
+		return cp.getRequestCache("_getHeaderMenu", new CacheV<MenuItems>() {
 			@Override
 			public MenuItems get() {
 				return ((AbstractTablePagerHandler) cp.getComponentHandler()).getHeaderMenu(cp,
