@@ -21,9 +21,13 @@ function $table_pager_addMethods(pa) {
 		};
 
 		pa.checkAll = function(cb) {
+		  var _checked = cb.checked;
 			pa.pager.select(".cb input[type='checkbox']").each(function(c) {
-				if (cb != c) {
-					c.checked = cb.checked;
+				if (cb != c) {				  
+					c.checked = _checked;
+					var row = pa.row(c);
+					if (row)
+					  pa.rowSelect(row, _checked);
 					if (c.clickFunc) {
 						try {
 							c.clickFunc();
