@@ -195,6 +195,10 @@
 	background-image: url(images/icons/about.png);
 }
 
+.menu_icon_selected {
+  background-image: url(images/icons/selected.png);
+}
+
 .menu_icon_add {
 	background-image: url(images/icons/add.png);
 }

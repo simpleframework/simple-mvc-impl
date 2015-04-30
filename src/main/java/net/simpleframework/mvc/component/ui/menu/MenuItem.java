@@ -203,6 +203,8 @@ public class MenuItem extends AbstractElementBean {
 		return new MenuItem().setTitle($m("Button.Log"));
 	}
 
+	public static final String ICON_SELECTED = "menu_icon_selected";
+
 	public static final String ICON_ADD = "menu_icon_add";
 	public static final String ICON_EDIT = "menu_icon_edit";
 	public static final String ICON_DELETE = "menu_icon_delete";

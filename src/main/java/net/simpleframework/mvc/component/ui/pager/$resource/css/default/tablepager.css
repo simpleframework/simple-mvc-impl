@@ -129,6 +129,7 @@
   border: 1px solid #ccc;
   border-top: 0;
   background-color: #ffd;
+  text-align: left;
 }
 
 .tablepager .tbody {
@@ -181,8 +182,7 @@
 .tablepager .titem input[type=text] {
   height: 20px;
   vertical-align: middle;
-  width: 98%;
-  width: 95% \9; /* ie */
+  width: 95%;
 }
 
 .tablepager .titem select {

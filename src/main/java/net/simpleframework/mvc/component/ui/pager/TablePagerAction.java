@@ -89,7 +89,7 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 		final AbstractTablePagerSchema tablePagerData = TablePagerUtils.getTablePagerSchema(nCP);
 		final String rowId = "#" + tablePagerData.genId();
 		json.put("row",
-				new RenderTable().buildRow(nCP, null, tablePagerData, new RowHandler(0, true) {
+				new RenderTable().buildRow(nCP, new KVMap(), tablePagerData, new RowHandler(0, true) {
 					@Override
 					protected Object getValue(final Object val, final TablePagerColumn pagerColumn) {
 						if (!pagerColumn.isEditable()) {
