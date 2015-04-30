@@ -288,9 +288,10 @@ public abstract class TablePagerHTML implements HtmlConst {
 				final AbstractTablePagerSchema tablePagerData, final RowHandler handler) {
 			final Map<String, Object> rowData = (oBean == null) ? null : tablePagerData.getRowData(cp,
 					oBean);
-			if (rowData == null) {
+			if (rowData == null && !handler.isEdit()) {
 				return null;
 			}
+
 			final StringBuilder sb = new StringBuilder();
 			sb.append("<div class=\"titem");
 			if ((handler.getIndex() + 1) % 2 == 0) {
@@ -320,8 +321,9 @@ public abstract class TablePagerHTML implements HtmlConst {
 
 			// showDetail
 			String detailVal = null;
-			final String detailField = (String) cp.getBeanProperty("detailField");
-			if (StringUtils.hasText(detailField)) {
+			String detailField;
+			if (rowData != null
+					&& StringUtils.hasText(detailField = (String) cp.getBeanProperty("detailField"))) {
 				sb.append("<td class='plus'>");
 				if (StringUtils.hasText(detailVal = Convert.toString(rowData.get(detailField)))) {
 					sb.append("<img src=\"").append(ComponentUtils.getCssResourceHomePath(cp));
@@ -379,7 +381,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 					sb.append(" valign=\"top\"");
 				}
 
-				final Object val = rowData.get(key);
+				final Object val = rowData != null ? rowData.get(key) : null;
 				final ETextAlign defaultTextAlign = val instanceof Number || val instanceof Boolean
 						|| val instanceof Date || val instanceof Enum ? ETextAlign.center
 						: ETextAlign.left;
