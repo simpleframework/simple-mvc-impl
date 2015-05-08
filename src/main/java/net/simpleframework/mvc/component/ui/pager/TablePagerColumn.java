@@ -303,12 +303,23 @@ public class TablePagerColumn extends AbstractElementBean {
 		return this;
 	}
 
+	private Option[] _filterOptions;
+
 	protected Option[] getFilterOptions() {
+		if (_filterOptions != null) {
+			return _filterOptions;
+		}
+
 		final Class<?> pClass = propertyClass();
 		if (Enum.class.isAssignableFrom(pClass)) {
 			return Option.from((Enum<?>[]) pClass.getEnumConstants());
 		}
 		return null;
+	}
+
+	public TablePagerColumn setFilterOptions(final Option[] filterOptions) {
+		this._filterOptions = filterOptions;
+		return this;
 	}
 
 	public Object stringToObject(final String val) {

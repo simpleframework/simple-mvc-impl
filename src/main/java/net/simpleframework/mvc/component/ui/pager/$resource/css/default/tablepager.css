@@ -50,10 +50,13 @@
   padding: 0 3px;
   border-left: 1px solid transparent;
   height: 100%;
-  text-shadow: 0 1px 0 #FFFFFF;
+  text-shadow: 0 1px 0 #eee;
   text-align: center;
   font-size: 9.5pt;
-  font-weight: bold;
+}
+
+.tablepager .thead td a:HOVER {
+  text-decoration: none;
 }
 
 .tablepager .thead .lbl {
