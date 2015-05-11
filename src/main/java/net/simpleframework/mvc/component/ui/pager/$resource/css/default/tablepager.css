@@ -16,7 +16,7 @@
 .tablepager .thead {
   position: relative; /* for scroll */
   *position: static;
-  border: 1px solid #ccc;
+  border: 1px solid #bbb;
   overflow: hidden;
   _zoom: 1;
   z-index: 10;
