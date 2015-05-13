@@ -1,5 +1,7 @@
 package net.simpleframework.mvc.component.ui.window;
 
+import static net.simpleframework.common.I18n.$m;
+import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.bean.BeanDefaults;
 import net.simpleframework.mvc.component.AbstractComponentBean;
 
@@ -227,6 +229,9 @@ public class WindowBean extends AbstractComponentBean {
 	}
 
 	public String getTitle() {
+		if (StringUtils.hasText(title)) {
+			return $m("WindowBean.0");
+		}
 		return title;
 	}
 

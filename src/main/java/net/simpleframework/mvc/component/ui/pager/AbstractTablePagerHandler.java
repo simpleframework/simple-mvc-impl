@@ -328,7 +328,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 
 	@Override
 	protected List<?> getData(final ComponentParameter cp, final int start) {
-		final IDataQuery<?> dataQuery = (IDataQuery<?>) cp.getRequestAttr(DATA_QUERY);
+		final IDataQuery<?> dataQuery = getDataObjectQuery(cp);
 		if (dataQuery instanceof ListDataQuery) {
 			final ColumnData dbColumn = getSortColumn(cp);
 			if (dbColumn != null) {
@@ -356,8 +356,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 	public void process(final ComponentParameter cp, final int start) {
 		super.process(cp, start);
 		IDataQuery<?> dataQuery;
-		if (addFirstAndLastData(cp)
-				&& (dataQuery = (IDataQuery<?>) cp.getRequestAttr(DATA_QUERY)) != null) {
+		if (addFirstAndLastData(cp) && (dataQuery = getDataObjectQuery(cp)) != null) {
 			dataQuery.move(-1);
 			cp.setRequestAttr(FIRST_ITEM, dataQuery.next());
 			dataQuery.move(dataQuery.getCount() - 2);

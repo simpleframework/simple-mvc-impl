@@ -41,17 +41,17 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 		return null;
 	}
 
-	protected static final String QUERY_CACHE = "__query_cache";
-
 	protected IDataQuery<?> getDataObjectQuery(final ComponentParameter cp) {
-		IDataQuery<?> dataObjectQuery = (IDataQuery<?>) cp.getRequestAttr(QUERY_CACHE);
-		if (dataObjectQuery == null) {
-			cp.setRequestAttr(QUERY_CACHE, dataObjectQuery = createDataObjectQuery(cp));
-			if (dataObjectQuery != null) {
-				dataObjectQuery.setFetchSize(PagerUtils.getPageItems(cp) * 2);
+		return cp.getRequestCache("@query_cache", new CacheV<IDataQuery<?>>() {
+			@Override
+			public IDataQuery<?> get() {
+				final IDataQuery<?> dataObjectQuery = createDataObjectQuery(cp);
+				if (dataObjectQuery != null) {
+					dataObjectQuery.setFetchSize(PagerUtils.getPageItems(cp) * 2);
+				}
+				return dataObjectQuery;
 			}
-		}
-		return dataObjectQuery;
+		});
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 
 	protected List<?> getData(final ComponentParameter cp, final int start) {
 		final List<Object> data = new ArrayList<Object>();
-		final IDataQuery<?> dataQuery = (IDataQuery<?>) cp.getRequestAttr(DATA_QUERY);
+		final IDataQuery<?> dataQuery = getDataObjectQuery(cp);
 		if (dataQuery != null) {
 			dataQuery.move(start - 1);
 			Object object;
@@ -94,14 +94,11 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 		return null;
 	}
 
-	protected static final String DATA_QUERY = "data_query";
 	private static final String PROCESS_TIMES = "process_times";
 
 	@Override
 	public void process(final ComponentParameter cp, final int start) {
 		final long l = System.currentTimeMillis();
-		final IDataQuery<?> dataQuery = getDataObjectQuery(cp);
-		cp.setRequestAttr(DATA_QUERY, dataQuery);
 		cp.setRequestAttr(PAGER_CURRENT_DATA, getData(cp, start));
 		cp.setSessionAttr(PROCESS_TIMES, System.currentTimeMillis() - l);
 	}
