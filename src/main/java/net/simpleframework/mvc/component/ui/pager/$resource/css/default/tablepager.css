@@ -144,16 +144,13 @@
 }
 
 .tablepager .titem {
-  border-bottom: 1px solid #ddd;
-  _zoom: 1;
-}
-
-.tablepager .titem {
   border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;  
   width: 100%;
   display: table;
   border-spacing: 0;
   position: relative;
+  _zoom: 1;
 }
 
 .tablepager .titem.even {
