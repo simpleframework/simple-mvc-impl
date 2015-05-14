@@ -229,7 +229,7 @@ public class WindowBean extends AbstractComponentBean {
 	}
 
 	public String getTitle() {
-		if (StringUtils.hasText(title)) {
+		if (!StringUtils.hasText(title)) {
 			return $m("WindowBean.0");
 		}
 		return title;
