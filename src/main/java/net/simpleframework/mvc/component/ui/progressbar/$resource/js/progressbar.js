@@ -30,7 +30,7 @@ $UI.ProgressBar = Class.create( {
 		var text = new Element("div", {
 			className : "pb_text",
 			style : "line-height:" + (container.getHeight() - 1) + "px"
-		}).update("0%");
+		}).update("&nbsp;");
 		this.progress = new Element("div", {
 			className : "progressbar"
 		}).insert(bg).insert(text);
@@ -198,6 +198,8 @@ $UI.ProgressBar = Class.create( {
 			}.bind(this)
 		});
 		var t = Math.round((this.step / this.options.maxProgressValue) * 10000) / 100;
+		t = Math.min(t, 100);
+		t = Math.max(t, 0);
 		bg.setStyle("border-left-width: " + (t < 100 ? 1 : 0) + "px;");
 		this.progress.down(".pb_text").update(t + "%");
 	},
