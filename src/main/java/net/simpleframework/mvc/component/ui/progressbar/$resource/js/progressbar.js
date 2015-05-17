@@ -8,6 +8,7 @@ $UI.ProgressBar = Class.create( {
 			interval : 1,
 			maxProgressValue : 100,
 			url : "",
+			showText : true,
 			startAfterCreate : true,
 			showAbortAction : true,
 			showDetailAction : true,
@@ -26,14 +27,17 @@ $UI.ProgressBar = Class.create( {
 			className : "bg",
 			style : "right:" + this.menuWidth + "px"
 		});
-
-		var text = new Element("div", {
-			className : "pb_text",
-			style : "line-height:" + (container.getHeight() - 1) + "px"
-		}).update("&nbsp;");
+		
 		this.progress = new Element("div", {
 			className : "progressbar"
-		}).insert(bg).insert(text);
+		}).insert(bg);
+		if (this.options.showText) {
+      var text = new Element("div", {
+        className : "pb_text",
+        style : "line-height:" + (container.getHeight() - 1) + "px"
+      }).update("&nbsp;");
+      this.progress.insert(text);
+    }
 		container.update(this.progress);
 
 		var items = [];
@@ -201,7 +205,9 @@ $UI.ProgressBar = Class.create( {
 		t = Math.min(t, 100);
 		t = Math.max(t, 0);
 		bg.setStyle("border-left-width: " + (t < 100 ? 1 : 0) + "px;");
-		this.progress.down(".pb_text").update(t + "%");
+		var txt = this.progress.down(".pb_text");
+		if (txt)
+		  txt.update(t + "%");
 	},
 
 	setProgress : function(value, callback) {
