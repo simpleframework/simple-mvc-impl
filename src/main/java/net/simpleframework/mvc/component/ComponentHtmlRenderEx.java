@@ -31,6 +31,7 @@ public abstract class ComponentHtmlRenderEx extends ComponentHtmlRender {
 				.append("';");
 		sb2.append("af.selector = cf.selector || '").append(cp.getBeanProperty("selector"))
 				.append("';");
+		sb2.append("af.jsCompleteCallback = cf.jsCompleteCallback;");
 		sb2.append("af(arguments[0]);");
 
 		final StringBuilder sb = new StringBuilder();
