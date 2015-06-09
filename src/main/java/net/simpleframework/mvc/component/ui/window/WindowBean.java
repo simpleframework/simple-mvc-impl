@@ -15,8 +15,8 @@ public class WindowBean extends AbstractComponentBean {
 	/* 窗口的基本尺寸属性 */
 	private int top = BeanDefaults.getInt(getClass(), "top", 0);
 	private int left = BeanDefaults.getInt(getClass(), "left", 0);
-	private int width = BeanDefaults.getInt(getClass(), "width", 400);
-	private int height = BeanDefaults.getInt(getClass(), "height", 300);
+	private int width = BeanDefaults.getInt(getClass(), "width", 200);
+	private int height = BeanDefaults.getInt(getClass(), "height", 100);
 	private int minWidth = BeanDefaults.getInt(getClass(), "minWidth", 200);
 	private int minHeight = BeanDefaults.getInt(getClass(), "minHeight", 100);
 	private int maxWidth = BeanDefaults.getInt(getClass(), "maxWidth", 0);
