@@ -138,6 +138,8 @@ sup.highlight {
     text-align: justify;
     font-size: 12px;
     -webkit-transform: scale(0.75);
+    -webkit-transform-origin-x: 0;
+    -webkit-text-size-adjust: none;
   }
   
   sup.highlight {

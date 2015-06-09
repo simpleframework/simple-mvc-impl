@@ -211,6 +211,8 @@ a.link_menuicon:hover .micon {
   .simple_progress .txt {
     font-size: 12px;
     -webkit-transform: scale(0.75);
+    -webkit-transform-origin-x: 0;
+    -webkit-text-size-adjust: none;
   }
 }
 
