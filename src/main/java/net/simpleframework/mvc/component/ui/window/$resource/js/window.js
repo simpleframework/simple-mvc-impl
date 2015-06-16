@@ -1523,7 +1523,7 @@ function __window_actions_init(actionFunc, name, single) {
 
 	actionFunc.showWindow = function(title, popup, center, modal, destroyOnClose, params) {
 		var ev;
-		if (ev = document.getEvent()) 
+		if (!actionFunc.trigger && ev = document.getEvent()) 
 			actionFunc.trigger = Event.element(ev);
 		
 		var win = actionFunc.window;
