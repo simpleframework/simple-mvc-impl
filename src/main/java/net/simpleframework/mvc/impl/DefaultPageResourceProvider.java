@@ -1,6 +1,7 @@
 package net.simpleframework.mvc.impl;
 
-import net.simpleframework.common.I18n;
+import java.util.Locale;
+
 import net.simpleframework.common.coll.ArrayUtils;
 import net.simpleframework.mvc.IPageResourceProvider.MVCPageResourceProvider;
 import net.simpleframework.mvc.PageParameter;
@@ -30,8 +31,9 @@ public class DefaultPageResourceProvider extends MVCPageResourceProvider {
 	@Override
 	public String[] getJavascriptPath(final PageParameter pp) {
 		final String rPath = getResourceHomePath();
+		final Locale locale = settings.getLocale();
 		final String[] jsArr = new String[] { rPath + SIZZLE_FILE, rPath + PROTOTYPE_FILE,
-				rPath + EFFECTS_FILE, rPath + "/js/simple_" + I18n.getLocale().toString() + ".js",
+				rPath + EFFECTS_FILE, rPath + "/js/simple_" + locale.toString() + ".js",
 				rPath + "/js/simple.js", rPath + "/js/simple_ui.js" };
 		// final UserAgentParser parser = pp.getUserAgentParser();
 		// if (parser.isIE() && parser.getBrowserFloatVersion() <= 8) {
