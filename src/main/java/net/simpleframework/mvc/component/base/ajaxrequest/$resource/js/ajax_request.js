@@ -110,10 +110,12 @@ function __ajax_actions_init(actionFunc, name) {
 	
 	actionFunc.doInit = function(containerId, confirmMessage, parallel,
 			showLoading, loadingModal, disabledTriggerAction) {
-		var ev;
-		if (!actionFunc.trigger && (ev = document.getEvent())) {
-			actionFunc.trigger = Event.element(ev);
-		}
+		var ev = document.getEvent();
+		if (ev) {
+      var element = Event.element(ev); 
+      if (element && Object.isElement(element))
+        actionFunc.trigger = element;
+    }
 		
 		var c = actionFunc._container = $(actionFunc.container || containerId);	
 		if (c && actionFunc.cache) {
