@@ -75,8 +75,8 @@ public abstract class SwfUploadUtils implements IMVCContextVar {
 		sb.append("button_cursor: SWFUpload.CURSOR.HAND,");
 		sb.append("button_image_url: '" + cp.getCssResourceHomePath(SwfUploadBean.class)
 				+ "/images/upload_act.png',");
-		sb.append("button_text: \"<span class='swf-button'>").append($m("SwfUploadUtils.0"))
-				.append("<\\/span>\",");
+		sb.append("button_text: \"<span class='swf-button'>")
+				.append(cp.getBeanProperty("uploadText")).append("<\\/span>\",");
 		sb.append("button_text_style: \".swf-button { color: #014060; text-align: center; }\",");
 		sb.append("button_text_top_padding: ")
 				.append(cp.getUserAgent().indexOf("AppleWebKit/") > -1 ? 4 : 2).append(",");

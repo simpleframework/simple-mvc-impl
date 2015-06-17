@@ -1,5 +1,6 @@
 package net.simpleframework.mvc.component.ui.swfupload;
 
+import static net.simpleframework.common.I18n.$m;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.bean.BeanDefaults;
 import net.simpleframework.mvc.component.AbstractContainerBean;
@@ -11,20 +12,35 @@ import net.simpleframework.mvc.component.AbstractContainerBean;
  *         http://www.simpleframework.net
  */
 public class SwfUploadBean extends AbstractContainerBean {
+	/* 按钮文本 */
+	private String uploadText = BeanDefaults.getString(getClass(), "uploadText",
+			$m("SwfUploadUtils.0"));
 
-	private String fileSizeLimit; // 单位： B、KB、MB、GB
-
+	/* 文件大小限制，单位： B、KB、MB、GB */
+	private String fileSizeLimit;
+	/* 文件队列限制 */
 	private int fileQueueLimit = BeanDefaults.getInt(getClass(), "fileQueueLimit", 0);
 
+	/* 可选择的文件类型 */
 	private String fileTypes; // *.jpg;*.jpeg;*.gif;*.png;*.bmp
-
+	/* 文件类型描述 */
 	private String fileTypesDesc;
 
+	/* 是否允许多选 */
 	private boolean multiFileSelected = BeanDefaults.getBool(getClass(), "multiFileSelected", false);
 
 	private String jsCompleteCallback;
 
 	private String roleUpload;
+
+	public String getUploadText() {
+		return uploadText;
+	}
+
+	public SwfUploadBean setUploadText(final String uploadText) {
+		this.uploadText = uploadText;
+		return this;
+	}
 
 	public String getFileSizeLimit() {
 		return fileSizeLimit;
