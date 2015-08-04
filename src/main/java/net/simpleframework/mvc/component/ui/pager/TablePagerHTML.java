@@ -192,11 +192,6 @@ public abstract class TablePagerHTML implements HtmlConst {
 					sb.append("<div class=\"sep\"></div>");
 				}
 				sb.append("</div>");
-				final String tooltip = pagerColumn.getTooltip();
-				if (StringUtils.hasText(tooltip)) {
-					sb.append("<div style=\"display: none;\">");
-					sb.append(HtmlUtils.convertHtmlLines(tooltip)).append("</div>");
-				}
 				sb.append("</td>");
 				i++;
 			}
@@ -363,10 +358,10 @@ public abstract class TablePagerHTML implements HtmlConst {
 				final String key = pagerColumn.getColumnName();
 				if (handler.getIndex() == 0 && !StringUtils.hasText(pagerColumn.getPropertyClass())) {
 					try {
-						Object value;
-						if ((value = BeanUtils.getProperty(oBean, key)) != null) {
-							Class<?> iClass = value.getClass();
-							if (value instanceof Enum) {
+						final Object oVal = BeanUtils.getProperty(oBean, key);
+						if (oVal != null) {
+							Class<?> iClass = oVal.getClass();
+							if (oVal instanceof Enum) {
 								while (iClass != null && iClass.getEnumConstants() == null) {
 									iClass = iClass.getSuperclass();
 								}

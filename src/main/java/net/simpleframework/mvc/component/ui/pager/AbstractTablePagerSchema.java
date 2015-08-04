@@ -112,6 +112,7 @@ public abstract class AbstractTablePagerSchema {
 				kv.add(key, val);
 			}
 		}
+		// "@"+key为tooltip
 		return kv;
 	}
 

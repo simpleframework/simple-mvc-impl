@@ -59,7 +59,7 @@ public class TablePagerColumn extends AbstractElementBean {
 	/* 是否可见 */
 	private boolean visible = true;
 
-	private String tooltip, format;
+	private String format;
 
 	/* 表格列是否wrap超出列大小的数据内容 */
 	private boolean nowrap = true;
@@ -223,15 +223,6 @@ public class TablePagerColumn extends AbstractElementBean {
 		return this;
 	}
 
-	public String getTooltip() {
-		return tooltip;
-	}
-
-	public TablePagerColumn setTooltip(final String tooltip) {
-		this.tooltip = tooltip;
-		return this;
-	}
-
 	public boolean isNowrap() {
 		return nowrap;
 	}
@@ -362,8 +353,7 @@ public class TablePagerColumn extends AbstractElementBean {
 
 	public static final TablePagerColumn ACTION() {
 		return col(ACTION, new LinkElement().setClassName("m2 down_menu_image").toString())
-				.setWidth(22).setFilterSort(false).setExport(false).setEditable(false)
-				.setTooltip($m("AbstractTablePagerData.0"));
+				.setWidth(22).setFilterSort(false).setExport(false).setEditable(false);
 	}
 
 	public static final TablePagerColumn ICON() {

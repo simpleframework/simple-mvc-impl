@@ -6,7 +6,6 @@ import java.util.List;
 
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.common.element.EElementEvent;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentUtils;
 import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
@@ -14,12 +13,6 @@ import net.simpleframework.mvc.component.ui.calendar.CalendarBean;
 import net.simpleframework.mvc.component.ui.menu.EMenuEvent;
 import net.simpleframework.mvc.component.ui.menu.MenuBean;
 import net.simpleframework.mvc.component.ui.menu.MenuItem;
-import net.simpleframework.mvc.component.ui.tooltip.ETipElement;
-import net.simpleframework.mvc.component.ui.tooltip.ETipPosition;
-import net.simpleframework.mvc.component.ui.tooltip.TipBean;
-import net.simpleframework.mvc.component.ui.tooltip.TipBean.HideOn;
-import net.simpleframework.mvc.component.ui.tooltip.TipBean.Hook;
-import net.simpleframework.mvc.component.ui.tooltip.TooltipBean;
 import net.simpleframework.mvc.component.ui.window.WindowBean;
 
 /**
@@ -38,24 +31,26 @@ public class TablePagerLoaded extends PagerLoaded {
 		final ITablePagerHandler tptbl = (ITablePagerHandler) nCP.getComponentHandler();
 		final String hashId = nCP.hashId();
 
-		boolean bTooltip = false;
-		for (final TablePagerColumn col : TablePagerUtils.getTablePagerSchema(nCP)
-				.getTablePagerColumns(nCP)) {
-			if (StringUtils.hasText(col.getTooltip())) {
-				bTooltip = true;
-				break;
-			}
-		}
-		if (bTooltip) {
-			// 列头的 tip
-			final TooltipBean tooltip = nCP.addComponentBean("tpTooltip_" + hashId, TooltipBean.class);
-			tooltip.getTips().add(
-					new TipBean(tooltip).setStem(ETipPosition.bottomMiddle).setDelay(0.5)
-							.setHideAfter(0.5).setOffsetY(5)
-							.setHook(new Hook(ETipPosition.topMiddle, ETipPosition.bottomMiddle))
-							.setHideOn(new HideOn(ETipElement.target, EElementEvent.mouseleave))
-							.setWidth(240));
-		}
+		// boolean bTooltip = false;
+		// for (final TablePagerColumn col :
+		// TablePagerUtils.getTablePagerSchema(nCP)
+		// .getTablePagerColumns(nCP)) {
+		// if (StringUtils.hasText(col.getTooltip())) {
+		// bTooltip = true;
+		// break;
+		// }
+		// }
+		// if (bTooltip) {
+		// // 列头的 tip
+		// final TooltipBean tooltip = nCP.addComponentBean("tpTooltip_" + hashId,
+		// TooltipBean.class);
+		// tooltip.getTips().add(
+		// new TipBean(tooltip).setStem(ETipPosition.bottomMiddle).setDelay(0.5)
+		// .setHideAfter(0.5).setOffsetY(5)
+		// .setHook(new Hook(ETipPosition.topMiddle, ETipPosition.bottomMiddle))
+		// .setHideOn(new HideOn(ETipElement.target, EElementEvent.mouseleave))
+		// .setWidth(240));
+		// }
 
 		if (tptbl instanceof AbstractTablePagerHandler) {
 			// 添加菜单组件
