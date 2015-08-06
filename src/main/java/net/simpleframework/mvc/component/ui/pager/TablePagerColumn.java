@@ -25,7 +25,6 @@ import net.simpleframework.mvc.common.element.Option;
  *         http://www.simpleframework.net
  */
 public class TablePagerColumn extends AbstractElementBean {
-
 	/* 表格列名称，数据的key值 */
 	private String columnName, columnAlias;
 
@@ -342,31 +341,33 @@ public class TablePagerColumn extends AbstractElementBean {
 		return new String[] { "title" };
 	}
 
-	public static final TablePagerColumn col(final String columnName, final String columnText) {
-		return new TablePagerColumn(columnName, columnText);
+	public static TablePagerColumn DATE(final String columnName, final String columnText) {
+		return new TablePagerColumn(columnName, columnText).setWidth(115)
+				.setTextAlign(ETextAlign.center).setPropertyClass(Date.class);
 	}
 
 	public static final TablePagerColumn OPE() {
-		return col(OPE, $m("OPE")).setTextAlign(ETextAlign.center).setNowrap(false)
+		return new TablePagerColumn(OPE, $m("OPE")).setTextAlign(ETextAlign.center).setNowrap(false)
 				.setFilterSort(false).setExport(false).setEditable(false);
 	}
 
 	public static final TablePagerColumn ACTION() {
-		return col(ACTION, new LinkElement().setClassName("m2 down_menu_image").toString())
-				.setWidth(22).setFilterSort(false).setExport(false).setEditable(false);
+		return new TablePagerColumn(ACTION, new LinkElement().setClassName("m2 down_menu_image")
+				.toString()).setWidth(22).setFilterSort(false).setExport(false).setEditable(false);
 	}
 
 	public static final TablePagerColumn ICON() {
-		return col(ICON, HtmlConst.NBSP).setWidth(20).setFilterSort(false).setResize(false)
-				.setTextAlign(ETextAlign.center).setExport(false).setEditable(false);
+		return new TablePagerColumn(ICON, HtmlConst.NBSP).setWidth(20).setFilterSort(false)
+				.setResize(false).setTextAlign(ETextAlign.center).setExport(false).setEditable(false);
 	}
 
 	public static final TablePagerColumn BLANK() {
-		return col(BLANK, HtmlConst.NBSP).setExport(false).setFilterSort(false).setEditable(false);
+		return new TablePagerColumn(BLANK, HtmlConst.NBSP).setExport(false).setFilterSort(false)
+				.setEditable(false);
 	}
 
 	public static final TablePagerColumn DESCRIPTION() {
-		return col("description", $m("Description")).setFilterSort(false);
+		return new TablePagerColumn("description", $m("Description")).setFilterSort(false);
 	}
 
 	public static final String OPE = "ope";
