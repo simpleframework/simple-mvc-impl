@@ -346,9 +346,9 @@ public class TablePagerColumn extends AbstractElementBean {
 				.setTextAlign(ETextAlign.center).setPropertyClass(Date.class);
 	}
 
-	public static final TablePagerColumn OPE() {
-		return new TablePagerColumn(OPE, $m("OPE")).setTextAlign(ETextAlign.center).setNowrap(false)
-				.setFilterSort(false).setExport(false).setEditable(false);
+	public static final TablePagerColumn OPE(final int width) {
+		return new TablePagerColumn(OPE, $m("OPE")).setWidth(width).setTextAlign(ETextAlign.center)
+				.setNowrap(false).setFilterSort(false).setExport(false).setEditable(false);
 	}
 
 	public static final TablePagerColumn ACTION() {

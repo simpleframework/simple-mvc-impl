@@ -26,7 +26,7 @@ public abstract class AbstractTablePagerSchema {
 	public static LinkElement IMG_DOWNMENU = new LinkElement().setClassName("m down_menu_image");
 
 	private static final TablePagerColumns DEFAULT_COLUMNS = TablePagerColumns.of(
-			TablePagerColumn.ICON(), TablePagerColumn.ACTION(), TablePagerColumn.OPE(),
+			TablePagerColumn.ICON(), TablePagerColumn.ACTION(), TablePagerColumn.OPE(0),
 			TablePagerColumn.BLANK());
 
 	/**
