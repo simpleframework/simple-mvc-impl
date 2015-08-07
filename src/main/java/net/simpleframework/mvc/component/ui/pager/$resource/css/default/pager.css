@@ -139,6 +139,7 @@
 	height: 16px;
 	cursor: pointer;
 	vertical-align: middle;
+	margin-left: 2px;
 }
 
 .down_menu_image:hover {
