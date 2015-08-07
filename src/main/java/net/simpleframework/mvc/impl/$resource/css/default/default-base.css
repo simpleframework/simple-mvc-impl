@@ -183,7 +183,6 @@ textarea {
 input[readonly],
 textarea[readonly],
 .text[readonly] {
-  color: #999;
   cursor: not-allowed;
 }
 
