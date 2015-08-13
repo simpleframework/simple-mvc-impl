@@ -46,7 +46,7 @@ a.simple_btn {
 }
 
 a.simple_btn.highlight {
-  background-color: #ccc;  
+  background-color: #f8f8f8;  
 }
 
 a.simple_btn:hover,
