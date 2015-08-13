@@ -451,34 +451,6 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 		return al;
 	}
 
-	/**
-	 * 表格的导航连接
-	 * 
-	 * @return
-	 */
-	protected ElementList getNavigationTitle(final ComponentParameter cp) {
-		return null;
-	}
-
-	@Override
-	public Object getBeanProperty(final ComponentParameter cp, final String beanProperty) {
-		if ("title".equals(beanProperty)) {
-			final ElementList list = getNavigationTitle(cp);
-			int size;
-			if (list != null && (size = list.size()) > 0) {
-				final BlockElement block = BlockElement.nav();
-				for (int i = 0; i < size; i++) {
-					if (i > 0) {
-						block.addElements(SpanElement.NAV);
-					}
-					block.addElements(list.get(i));
-				}
-				return block.toString();
-			}
-		}
-		return super.getBeanProperty(cp, beanProperty);
-	}
-
 	@Override
 	public AbstractElement<?> toRowEditorHTML(final ComponentParameter cp,
 			final TablePagerColumn column, final String rowId, final String elementName,
