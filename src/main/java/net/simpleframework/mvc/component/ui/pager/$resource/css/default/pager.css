@@ -35,6 +35,10 @@
   line-height: 20px\0;
 }
 
+.pager .pager_title .nav_arrow {
+  line-height: 17px;
+}
+
 .pager .pager_title a.simple_btn {
   top: -3px;
 }
