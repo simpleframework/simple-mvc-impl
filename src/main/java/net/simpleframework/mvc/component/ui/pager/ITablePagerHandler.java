@@ -17,10 +17,6 @@ import net.simpleframework.mvc.component.ui.menu.MenuItems;
  *         http://www.simpleframework.net
  */
 public interface ITablePagerHandler extends IPagerHandler {
-	static final String FIRST_ITEM = "__first_item";
-
-	static final String LAST_ITEM = "__last_item";
-
 	/**
 	 * 创建表格的元信息
 	 * 

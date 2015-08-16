@@ -3484,22 +3484,31 @@ function $tree_move(branch, up) {
   if (!branch)
     return;
   var sibling = $tree_sibling(branch, up);
-  if (!sibling)
+  if (!sibling) {
+    alert($MessageConst["Error.Move"]);
     return;
-  return "up=" + up + "&b1=" + branch.nodeId() + "&b2=" + sibling.nodeId();
+  }
+ 
+  return "nodeIds=" + branch.nodeId() + ";" + sibling.nodeId();
 }
 
 function $tree_move2(branch, up) {
   if (!branch)
     return;
+  
+  var rowIds = [ branch.nodeId() ];
   var sibling = $tree_sibling(branch, up);
-  var sibling2;
-  while (sibling && (sibling2 = $tree_sibling(sibling, up))) {
-    sibling = sibling2;
+  while (sibling) {
+    rowIds.push(sibling.nodeId());
+    sibling = $tree_sibling(sibling, up);
   }
-  if (!sibling)
+  
+  if (rowIds.length < 2) {
+    alert($MessageConst["Error.Move"]);
     return;
-  return "up=" + up + "&b1=" + branch.nodeId() + "&b2=" + sibling.nodeId();
+  }
+  
+  return "nodeIds=" + rowIds.join(";");
 }
 
 function $tree_getSelects(tree, branch, ev) {

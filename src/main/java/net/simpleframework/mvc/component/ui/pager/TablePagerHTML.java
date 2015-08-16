@@ -17,7 +17,6 @@ import net.simpleframework.mvc.MVCUtils;
 import net.simpleframework.mvc.PageRequestResponse;
 import net.simpleframework.mvc.common.element.AbstractElement;
 import net.simpleframework.mvc.common.element.ETextAlign;
-import net.simpleframework.mvc.common.element.InputElement;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentUtils;
 
@@ -44,12 +43,6 @@ public abstract class TablePagerHTML implements HtmlConst {
 
 		sb.append("<div class=\"tablepager\" scrollHead=\"");
 		sb.append(tablePager.isScrollHead()).append("\">");
-		final Object firstBean = cp.getRequestAttr(ITablePagerHandler.FIRST_ITEM);
-		final Object lastBean = cp.getRequestAttr(ITablePagerHandler.LAST_ITEM);
-		if (firstBean != null && lastBean != null) {
-			sb.append(InputElement.hidden("firstRow").setText(schema.getVal(firstBean, "id")));
-			sb.append(InputElement.hidden("lastRow").setText(schema.getVal(lastBean, "id")));
-		}
 		sb.append(rHandle.renderHeader(cp, schema));
 		sb.append(rHandle.renderBody(cp, schema));
 		sb.append("</div>");

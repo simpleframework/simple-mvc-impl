@@ -11,6 +11,7 @@ var $MessageConst = {
 	"Confirm.Title"          : "\u786e\u8ba4",
 	"Error.Title"            : "\u7CFB\u7EDF\u5F02\u5E38",
 	"Error.delete2"          : "\u81F3\u5C11\u8981\u9009\u62E9\u4E00\u4E2A\u6761\u76EE",
+	"Error.Move"             : "\u65e0\u6cd5\u79fb\u52a8\u5230\u6307\u5b9a\u4f4d\u7f6e",
 	"Tree.dropConfirm"       : "\u662F\u5426\u786E\u8BA4\u62D6\u653E\u64CD\u4F5C",
 	"ImageSlide.0"           : "\u6253\u5F00\u56FE\u7247",
 	"ImageSlide.1"           : "\u542F\u52A8\u64AD\u653E",

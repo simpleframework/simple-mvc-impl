@@ -9,13 +9,18 @@ import static net.simpleframework.ado.EFilterRelation.lt_equal;
 import static net.simpleframework.ado.EFilterRelation.not_equal;
 import static net.simpleframework.common.I18n.$m;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.simpleframework.common.Convert;
 import net.simpleframework.common.StringUtils;
+import net.simpleframework.ctx.service.ado.db.IDbBeanService;
+import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.CalendarInput;
 import net.simpleframework.mvc.common.element.Checkbox;
 import net.simpleframework.mvc.common.element.InputElement;
@@ -50,11 +55,20 @@ public abstract class TablePagerUtils {
 	public static final String PARAM_FILTER_NONE = "none";
 
 	/**
-	 * 是否上移数据，参考tablepager.js中move函数
+	 * 移动行，参考tablepager.js中move函数
 	 */
-	public static final String PARAM_MOVE_UP = "up";
-
-	public static final String PARAM_MOVE_ROWID = "rowId", PARAM_MOVE_ROWID2 = "rowId2";
+	public static <T> T[] getExchangeBeans(final PageParameter pp, final IDbBeanService<T> service) {
+		final List<T> list = new ArrayList<T>();
+		for (final String id : StringUtils.split(pp.getParameter("rowIds"), ";")) {
+			final T t = service.getBean(id);
+			if (t != null) {
+				list.add(t);
+			}
+		}
+		@SuppressWarnings("unchecked")
+		final T[] arr = (T[]) Array.newInstance(service.getBeanClass(), list.size());
+		return list.toArray(arr);
+	}
 
 	public static AbstractTablePagerSchema getTablePagerSchema(final ComponentParameter cp) {
 		AbstractTablePagerSchema tablePagerData = (AbstractTablePagerSchema) cp

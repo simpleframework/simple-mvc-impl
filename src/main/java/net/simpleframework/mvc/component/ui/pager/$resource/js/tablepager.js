@@ -56,39 +56,37 @@ function $table_pager_addMethods(pa) {
 		pa.move = function(up, moveAction, o) {
 			var row = pa.row(o);
 			var row2 = up ? row.previous() : row.next();
-			if (row2) {
-				var rowId = pa.rowId(row);
-				var rowId2 = pa.rowId(row2);
-				if (!rowId2)
-					return;
-				if (Object.isString(moveAction)) {
-					moveAction = $Actions[moveAction];
-				}
-				moveAction.selector = pa.selector;
-				moveAction("up=" + up + "&rowId=" + rowId + "&rowId2=" + rowId2);
+			if (!row2) {
+			  alert($MessageConst["Error.Move"]);
+        return;
 			}
+			
+			if (Object.isString(moveAction)) {
+        moveAction = $Actions[moveAction];
+      }
+      moveAction.selector = pa.selector;
+      moveAction("rowIds=" + pa.rowId(row) + ";" + pa.rowId(row2));
 		};
 
 		pa.move2 = function(up, moveAction, o) {
 			var row = pa.row(o);
-
-			var rowId = pa.rowId(row), rowId2;
-			var firstRow = pa.pager.down("#firstRow");
-			var lastRow = pa.pager.down("#lastRow");
-			if (firstRow && lastRow) {
-				rowId2 = $F(row2);
-			} else {
-				var items = pa.pager.select(".titem");
-				rowId2 = pa.rowId(up ? items.first() : items.last());
+			var rowIds = [ pa.rowId(row) ];
+			var row2 = up ? row.previous() : row.next();
+			while (row2) {
+			  rowIds.push(pa.rowId(row2));
+			  row2 = up ? row2.previous() : row2.next();
 			}
-
-			if (rowId != rowId2) {
-				if (Object.isString(moveAction)) {
-					moveAction = $Actions[moveAction];
-				}
-				moveAction.selector = pa.selector;
-				moveAction("up=" + up + "&rowId=" + rowId + "&rowId2=" + rowId2);
+			
+			if (rowIds.length < 2) {
+			  alert($MessageConst["Error.Move"]);
+        return;
 			}
+			
+			if (Object.isString(moveAction)) {
+				moveAction = $Actions[moveAction];
+			}
+			moveAction.selector = pa.selector;
+			moveAction("rowIds=" + rowIds.join(";"));
 		};
 
 		pa.row = function(o) {

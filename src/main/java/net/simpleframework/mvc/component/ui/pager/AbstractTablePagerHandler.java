@@ -343,27 +343,6 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 		return super.getData(cp, start);
 	}
 
-	/**
-	 * 覆盖此函数在render时，用隐藏域填入第一个和最后一个数据的id
-	 * 
-	 * @return
-	 */
-	protected boolean addFirstAndLastData(final ComponentParameter cp) {
-		return false;
-	}
-
-	@Override
-	public void process(final ComponentParameter cp, final int start) {
-		super.process(cp, start);
-		IDataQuery<?> dataQuery;
-		if (addFirstAndLastData(cp) && (dataQuery = getDataObjectQuery(cp)) != null) {
-			dataQuery.move(-1);
-			cp.setRequestAttr(FIRST_ITEM, dataQuery.next());
-			dataQuery.move(dataQuery.getCount() - 2);
-			cp.setRequestAttr(LAST_ITEM, dataQuery.next());
-		}
-	}
-
 	@Override
 	public void export(final ComponentParameter cp, final EExportFileType filetype,
 			final TablePagerColumns columns) {
