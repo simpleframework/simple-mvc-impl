@@ -129,7 +129,7 @@
       <%final String jsLoadedCallback = (String) cp
           .getBeanProperty("jsLoadedCallback");
       if (StringUtils.hasText(jsLoadedCallback)) {
-        out.write(JavascriptUtils.wrapWhenReady(jsLoadedCallback));
+        out.write(jsLoadedCallback);
       }%>
     }
   });

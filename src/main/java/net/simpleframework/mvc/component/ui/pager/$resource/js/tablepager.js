@@ -53,6 +53,14 @@ function $table_pager_addMethods(pa) {
 			}
 		};
 
+		pa._moveAction = function(moveAction, rowIds) {
+		  if (Object.isString(moveAction)) {
+        moveAction = $Actions[moveAction];
+      }
+		  moveAction.selector = pa.selector;
+      moveAction("rowIds=" + rowIds.join(";"));
+		};
+		
 		pa.move = function(up, moveAction, o) {
 			var row = pa.row(o);
 			var row2 = up ? row.previous() : row.next();
@@ -60,33 +68,21 @@ function $table_pager_addMethods(pa) {
 			  alert($MessageConst["Error.Move"]);
         return;
 			}
-			
-			if (Object.isString(moveAction)) {
-        moveAction = $Actions[moveAction];
-      }
-      moveAction.selector = pa.selector;
-      moveAction("rowIds=" + pa.rowId(row) + ";" + pa.rowId(row2));
+			pa._moveAction(moveAction, [ pa.rowId(row), pa.rowId(row2) ]);
 		};
 
 		pa.move2 = function(up, moveAction, o) {
 			var row = pa.row(o);
-			var rowIds = [ pa.rowId(row) ];
-			var row2 = up ? row.previous() : row.next();
-			while (row2) {
-			  rowIds.push(pa.rowId(row2));
-			  row2 = up ? row2.previous() : row2.next();
+			var rowIds = [];
+			while (row) {
+			  rowIds.push(pa.rowId(row));
+			  row = up ? row.previous() : row.next();
 			}
-			
 			if (rowIds.length < 2) {
 			  alert($MessageConst["Error.Move"]);
         return;
 			}
-			
-			if (Object.isString(moveAction)) {
-				moveAction = $Actions[moveAction];
-			}
-			moveAction.selector = pa.selector;
-			moveAction("rowIds=" + rowIds.join(";"));
+			pa._moveAction(moveAction, rowIds);
 		};
 
 		pa.row = function(o) {

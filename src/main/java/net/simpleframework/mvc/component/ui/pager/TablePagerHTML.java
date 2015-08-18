@@ -285,6 +285,11 @@ public abstract class TablePagerHTML implements HtmlConst {
 			if ((handler.getIndex() + 1) % 2 == 0) {
 				sb.append(" even");
 			}
+			String itemClass;
+			if (oBean != null
+					&& (StringUtils.hasText(itemClass = tablePagerData.getRowClass(cp, oBean)))) {
+				sb.append(" ").append(itemClass);
+			}
 			sb.append("\" style=\"margin-top: ");
 			sb.append(-1 + (Integer) cp.getBeanProperty("rowMargin")).append("px;\"");
 
@@ -377,9 +382,9 @@ public abstract class TablePagerHTML implements HtmlConst {
 				if (StringUtils.hasText(style)) {
 					sb.append(" style=\"").append(style).append("\"");
 				}
-				final String className = pagerColumn.toClassName(showVerticalLine);
-				if (StringUtils.hasText(className)) {
-					sb.append(" class=\"").append(className).append("\"");
+				final String colClass = pagerColumn.toClassName(showVerticalLine);
+				if (StringUtils.hasText(colClass)) {
+					sb.append(" class=\"").append(colClass).append("\"");
 				}
 				sb.append("><div class=\"lbl\"");
 				String lblStyle = pagerColumn.getLblStyle();

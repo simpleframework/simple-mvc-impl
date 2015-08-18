@@ -180,4 +180,8 @@ public abstract class AbstractTablePagerSchema {
 		}
 		return attributes;
 	}
+
+	public String getRowClass(final ComponentParameter cp, final Object dataObject) {
+		return null;
+	}
 }
