@@ -239,6 +239,7 @@
 }
 
 .window_default_overlay,
+.window_base_overlay,
 .popup_overlay {
   background-color: #aaa;
   filter: alpha(opacity = 50);
@@ -255,52 +256,75 @@
   position: absolute;
 }
 
+.window_base,
 .popup {
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+}
+
+.window_base .nw,
+.popup .nw {
+  background: #e0e0e0;
+  border: 1px solid #999;
+  -moz-border-radius: 6px 6px 0px 0px;
+  -webkit-border-radius: 6px 6px 0px 0px;
+  border-radius: 6px 6px 0px 0px;
+}
+
+.window_base .nw {
+  height: 32px;
 }
 
 .popup .nw {
-  height: 23px;
-  border: 1px solid #999;
-  -moz-border-radius: 3px 3px 0px 0px;
-  -webkit-border-radius: 3px 3px 0px 0px;
-  border-radius: 3px 3px 0px 0px;
-  background: #e0e0e0;
+  height: 28px;
+}
+
+.window_base .n,
+.popup .n {
+  color: #444;
+  text-shadow: 2px 2px 1px #ccc;
+  overflow: hidden;
+  padding-left: 10px;
+}
+
+.window_base .n {
+  line-height: 32px;
+  font-size: 10.5pt;
 }
 
 .popup .n {
-  color: #200;
-  text-shadow: 2px 2px 1px #ccc;
-  overflow: hidden;
-  padding-left: 6px;
-  line-height: 23px;
+  line-height: 28px;
   font-size: 9.5pt;
 }
 
+.window_base .sw,
 .popup .sw {
   border: 1px solid #999;
-  background: #eee;
-  height: 5px;
-  -moz-border-radius: 0px 0px 4px 4px;
-  -webkit-border-radius: 0px 0px 4px 4px;
-  border-radius: 0px 0px 4px 4px;
+  background: #f4f4f4;
+  height: 3px;
+  -moz-border-radius: 0px 0px 5px 5px;
+  -webkit-border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 5px 5px;
 }
 
+.window_base .se,
 .popup .se {
 }
 
+.window_base .s,
 .popup .s {
   overflow: hidden;
 }
 
+.window_base .e,
 .popup .e {
   border-left: 1px solid #999;
   border-right: 1px solid #999;
 }
 
 /*Centre*/
+.window_base .content,
 .popup .content {
   background: #fff;
   overflow: auto;
@@ -308,6 +332,7 @@
 }
 
 /*Button*/
+.window_base .buttons,
 .popup .buttons {
   position: absolute;
   top: 0px;
@@ -315,24 +340,32 @@
   height: 20px;
 }
 
+.window_base .buttons a.close,
 .popup .buttons a.close {
   float: left;
+  margin: 8px 2px 0 0;
+  padding-top: 0px;
+  overflow: hidden;
   background: url(popup/button_unactive.png) no-repeat 0 0;
   height: 15px;
   width: 14px;
-  margin: 6px 2px 0 0;
-  padding-top: 0px;
-  overflow: hidden;
 }
 
+.window_base .buttons a.close {
+  margin-top: 11px;
+}
+
+.window_base .buttons a:hover.close,
 .popup .buttons a:hover.close {
   background: url(popup/button_over.png) no-repeat 0 0px !important;
 }
 
+.window_base .buttons a.minimize,
 .popup .buttons a.minimize {
   padding-top: 1px;
 }
 
+.window_base .buttons a.maximize,
 .popup .buttons a.maximize {
   padding-top: 2px;
 }

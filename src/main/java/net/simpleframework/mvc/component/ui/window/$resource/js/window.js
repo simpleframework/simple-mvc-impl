@@ -141,7 +141,7 @@ Element.addMethods({
 
 UI.Window = Class.create(UI.Options, {
 	options : {
-		theme : "window_default",
+		theme : "window_base",
 		
 		id : null,
 		windowManager : null,
