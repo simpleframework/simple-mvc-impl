@@ -48,13 +48,13 @@
   border-right: 1px solid #aaa;
   text-align: right;
   color: #BE5106;
-  padding: 4px 6px;
+  padding: 6px;
   background-color: #f9f9f9;
   letter-spacing: 1px;
 }
 
 .formeditor .fe_value {
-  padding: 2px 0px;
+  padding: 2px;
   background-color: #fff;
 }
 
