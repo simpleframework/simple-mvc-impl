@@ -40,14 +40,14 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 	/* AjaxRequestBean */
 	protected AjaxRequestBean addAjaxRequest(final PageParameter pp, final String name) {
 		return (AjaxRequestBean) addComponentBean(pp, name, AjaxRequestBean.class).setRole(
-				getRole(pp)).setHandlerClass(getClass());
+				getPageRole(pp)).setHandlerClass(getClass());
 	}
 
 	/* AjaxRequestBean */
 	protected AjaxRequestBean addAjaxRequest(final PageParameter pp, final String name,
 			final Class<? extends AbstractMVCPage> pageClass) {
-		return addComponentBean(pp, name, AjaxRequestBean.class).setRole(getRole(pp)).setUrlForward(
-				url(pageClass));
+		return addComponentBean(pp, name, AjaxRequestBean.class).setRole(getPageRole(pp))
+				.setUrlForward(url(pageClass));
 	}
 
 	protected AjaxRequestBean addDeleteAjaxRequest(final PageParameter pp, final String name) {
@@ -73,7 +73,8 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 
 	/* TablePagerBean */
 	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name) {
-		return (TablePagerBean) addComponentBean(pp, name, TablePagerBean.class).setRole(getRole(pp));
+		return (TablePagerBean) addComponentBean(pp, name, TablePagerBean.class).setRole(
+				getPageRole(pp));
 	}
 
 	/* WindowBean */
