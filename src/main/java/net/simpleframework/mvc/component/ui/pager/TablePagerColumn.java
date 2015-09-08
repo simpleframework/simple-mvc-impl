@@ -370,6 +370,11 @@ public class TablePagerColumn extends AbstractElementBean {
 		return new TablePagerColumn("description", $m("Description")).setFilterSort(false);
 	}
 
+	public static final TablePagerColumn BOOL(final String columnName, final String columnText) {
+		return new TablePagerColumn(columnName, columnText, 40).setPropertyClass(Boolean.class)
+				.setTextAlign(ETextAlign.center).setFilterSort(false);
+	}
+
 	public static final String OPE = "ope";
 	public static final String ACTION = "action";
 	public static final String ICON = "icon";
