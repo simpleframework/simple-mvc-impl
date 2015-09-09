@@ -12,7 +12,7 @@ public class PropField extends AbstractElementBean {
 
 	private String label;
 
-	private String labelStyle = "width: 100px;";
+	private String labelStyle = "width: 90px;";
 
 	private String description;
 
