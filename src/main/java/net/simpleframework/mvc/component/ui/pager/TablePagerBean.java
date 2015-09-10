@@ -42,9 +42,6 @@ public class TablePagerBean extends PagerBean {
 
 	private int headHeight = BeanDefaults.getInt(getClass(), "headHeight", 0);
 
-	/* 是否显示快捷过滤面板，表格列下面 */
-	private boolean showFilterBar = BeanDefaults.getBool(getClass(), "showFilterBar", true);
-
 	/* 是否显示详细信息 */
 	private String detailField;
 
@@ -54,6 +51,8 @@ public class TablePagerBean extends PagerBean {
 	/* 表格列的宽度是否可以改变 */
 	private boolean resize = BeanDefaults.getBool(getClass(), "resize", true);
 
+	/* 是否显示快捷过滤面板，表格列下面 */
+	private boolean filter = BeanDefaults.getBool(getClass(), "filter", true);
 	/* 表格列是否可排序 */
 	private boolean sort = BeanDefaults.getBool(getClass(), "sort", true);
 
@@ -180,12 +179,12 @@ public class TablePagerBean extends PagerBean {
 		return this;
 	}
 
-	public boolean isShowFilterBar() {
-		return showFilterBar;
+	public boolean isFilter() {
+		return filter;
 	}
 
-	public TablePagerBean setShowFilterBar(final boolean showFilterBar) {
-		this.showFilterBar = showFilterBar;
+	public TablePagerBean setFilter(final boolean filter) {
+		this.filter = filter;
 		return this;
 	}
 

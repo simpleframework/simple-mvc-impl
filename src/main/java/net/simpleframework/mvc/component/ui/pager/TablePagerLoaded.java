@@ -73,7 +73,7 @@ public class TablePagerLoaded extends PagerLoaded {
 			}
 		}
 
-		if ((Boolean) nCP.getBeanProperty("showFilterBar")) {
+		if ((Boolean) nCP.getBeanProperty("filter")) {
 			// 删除过滤
 			nCP.addComponentBean("tpFilterDelete_" + hashId, AjaxRequestBean.class)
 					.setHandlerMethod("doFilterDelete").setHandlerClass(TablePagerAction.class);

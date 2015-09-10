@@ -191,7 +191,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 			sb.append("</tr></table></div>");
 
 			// filter pane
-			if ((Boolean) cp.getBeanProperty("showFilterBar")) {
+			if ((Boolean) cp.getBeanProperty("filter")) {
 				sb.append("<div class=\"tfilter\"><table style=\"width:100%;padding-right:");
 				sb.append(marginRight);
 				sb.append("px;\" class=\"fixed_table\" cellpadding=\"0\" cellspacing=\"0\"><tr>");
