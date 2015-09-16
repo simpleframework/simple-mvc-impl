@@ -122,6 +122,14 @@ a.simple_btn2 {
 	-ms-user-select: none; 
 }
 
+a.simple_btn2_selected {
+  background-color: #aaa;
+  border-color: #888;
+  color: #fff;
+  -webkit-box-shadow: 0px 0px 2px #bbb;
+	box-shadow: 0px 0px 2px #bbb;
+}
+
 a.simple_btn2.disabled {
   color: #999 !important;
 }
