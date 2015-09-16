@@ -42,7 +42,7 @@ public class DictionaryRender extends WindowRender {
 			sb.append(HtmlConst.TAG_SCRIPT_END);
 			al.add(sb.toString());
 		}
-		return al.size() > 0 ? StringUtils.join(al, SpanElement.SEP.toString()) : "";
+		return al.size() > 0 ? StringUtils.join(al, SpanElement.SEP().toString()) : "";
 	}
 
 	public static String fontSelected(final ComponentParameter cp) {
