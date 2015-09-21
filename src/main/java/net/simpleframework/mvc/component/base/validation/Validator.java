@@ -1,6 +1,6 @@
 package net.simpleframework.mvc.component.base.validation;
 
-import net.simpleframework.common.Convert;
+import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
 
 /**
@@ -24,14 +24,12 @@ public class Validator extends AbstractElementBean {
 	public Validator() {
 	}
 
-	public Validator(final EValidatorMethod method, final String selector, final Object args) {
-		setMethod(method);
+	public Validator(final EValidatorMethod method, final String selector, final Object... args) {
 		setSelector(selector);
-		setArgs(Convert.toString(args));
-	}
-
-	public Validator(final EValidatorMethod method, final String selector) {
-		this(method, selector, null);
+		setMethod(method);
+		if (args != null && args.length > 0) {
+			setArgs(StringUtils.join(args, ","));
+		}
 	}
 
 	public EValidatorMethod getMethod() {
