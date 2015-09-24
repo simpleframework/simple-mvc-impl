@@ -9,6 +9,7 @@ import static net.simpleframework.ado.EFilterRelation.lt_equal;
 import static net.simpleframework.ado.EFilterRelation.not_equal;
 import static net.simpleframework.common.I18n.$m;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
@@ -57,7 +58,8 @@ public abstract class TablePagerUtils {
 	/**
 	 * 移动行，参考tablepager.js中move函数
 	 */
-	public static <T> T[] getExchangeBeans(final PageParameter pp, final IDbBeanService<T> service) {
+	public static <T extends Serializable> T[] getExchangeBeans(final PageParameter pp,
+			final IDbBeanService<T> service) {
 		final List<T> list = new ArrayList<T>();
 		for (final String id : StringUtils.split(pp.getParameter("rowIds"), ";")) {
 			final T t = service.getBean(id);
