@@ -73,8 +73,11 @@ public abstract class SwfUploadUtils implements IMVCContextVar {
 		sb.append("button_cursor: SWFUpload.CURSOR.HAND,");
 		sb.append("button_width: ").append(cp.getBeanProperty("btnWidth")).append(",");
 		sb.append("button_height: ").append(cp.getBeanProperty("btnHeight")).append(",");
-		sb.append("button_image_url: '" + cp.getCssResourceHomePath(SwfUploadBean.class)
-				+ "/images/upload_act.png',");
+		String btnImageUrl = (String) cp.getBeanProperty("btnImageUrl");
+		if (!StringUtils.hasText(btnImageUrl)) {
+			btnImageUrl = cp.getCssResourceHomePath(SwfUploadBean.class) + "/images/upload_act.png";
+		}
+		sb.append("button_image_url: '").append(btnImageUrl).append("',");
 		final String uploadText = (String) cp.getBeanProperty("uploadText");
 		if (StringUtils.hasText(uploadText)) {
 			sb.append("button_text: \"<span class='swf-button'>").append(uploadText)
