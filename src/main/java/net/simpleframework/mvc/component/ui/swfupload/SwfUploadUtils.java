@@ -70,16 +70,19 @@ public abstract class SwfUploadUtils implements IMVCContextVar {
 
 		sb.append("button_placeholder_id: \"placeholder_").append(beanId).append("\",");
 		sb.append("button_window_mode: \"transparent\",");
-		sb.append("button_width: 74,");
-		sb.append("button_height: 24,");
 		sb.append("button_cursor: SWFUpload.CURSOR.HAND,");
+		sb.append("button_width: ").append(cp.getBeanProperty("btnWidth")).append(",");
+		sb.append("button_height: ").append(cp.getBeanProperty("btnHeight")).append(",");
 		sb.append("button_image_url: '" + cp.getCssResourceHomePath(SwfUploadBean.class)
 				+ "/images/upload_act.png',");
-		sb.append("button_text: \"<span class='swf-button'>")
-				.append(cp.getBeanProperty("uploadText")).append("<\\/span>\",");
-		sb.append("button_text_style: \".swf-button { color: #014060; text-align: center; }\",");
-		sb.append("button_text_top_padding: ")
-				.append(cp.getUserAgent().indexOf("AppleWebKit/") > -1 ? 4 : 2).append(",");
+		final String uploadText = (String) cp.getBeanProperty("uploadText");
+		if (StringUtils.hasText(uploadText)) {
+			sb.append("button_text: \"<span class='swf-button'>").append(uploadText)
+					.append("<\\/span>\",");
+			sb.append("button_text_style: \".swf-button { color: #014060; text-align: center; }\",");
+			sb.append("button_text_top_padding: ")
+					.append(cp.getUserAgent().indexOf("AppleWebKit/") > -1 ? 4 : 2).append(",");
+		}
 		if (swfUpload.isMultiFileSelected()) {
 			sb.append("button_action: SWFUpload.BUTTON_ACTION.SELECT_FILES,");
 		} else {
