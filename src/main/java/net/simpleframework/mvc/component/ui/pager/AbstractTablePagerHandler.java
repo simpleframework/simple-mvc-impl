@@ -81,24 +81,6 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			}
 			return attributes;
 		}
-
-		@Override
-		public String getRowClass(final ComponentParameter cp, final Object dataObject) {
-			return hdl.getRowClass(cp, dataObject);
-		}
-
-		@Override
-		public Object getVal(final Object dataObject, final String key) {
-			Object val = hdl.getVal(dataObject, key);
-			if (val == null) {
-				val = super.getVal(dataObject, key);
-			}
-			return val;
-		}
-	}
-
-	protected Object getVal(final Object dataObject, final String key) {
-		return null;
 	}
 
 	protected Map<String, Object> getRowData(final ComponentParameter cp, final Object dataObject) {
@@ -107,10 +89,6 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 
 	protected Map<String, Object> getRowAttributes(final ComponentParameter cp,
 			final Object dataObject) {
-		return null;
-	}
-
-	protected String getRowClass(final ComponentParameter cp, final Object dataObject) {
 		return null;
 	}
 
