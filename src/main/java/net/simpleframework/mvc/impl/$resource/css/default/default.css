@@ -135,8 +135,8 @@ a.simple_btn2.disabled {
 }
 
 a.simple_btn2:HOVER {
-  background-color: #e74;
-  border-color: #c52;
+  background-color: #c77;
+  border-color: #b66;
   color: #eee;
   -webkit-box-shadow: 0px 0px 5px #bbb;
 	box-shadow: 0px 0px 5px #bbb;
