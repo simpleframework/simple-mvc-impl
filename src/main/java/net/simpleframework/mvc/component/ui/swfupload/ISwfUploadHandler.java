@@ -1,6 +1,5 @@
 package net.simpleframework.mvc.component.ui.swfupload;
 
-import java.io.IOException;
 import java.util.Map;
 
 import net.simpleframework.mvc.IMultipartFile;
@@ -22,8 +21,8 @@ public interface ISwfUploadHandler extends IComponentHandler {
 	 * @param multipartFile
 	 * @param variables
 	 *        post变量
-	 * @throws IOException
+	 * @throws Exception
 	 */
 	void upload(ComponentParameter cp, IMultipartFile multipartFile, Map<String, Object> variables)
-			throws IOException;
+			throws Exception;
 }
