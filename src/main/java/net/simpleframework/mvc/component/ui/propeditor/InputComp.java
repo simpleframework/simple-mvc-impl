@@ -27,6 +27,14 @@ public class InputComp extends AbstractElementBean {
 		return new InputComp(name).setType(EInputCompType.checkbox).setDefaultValue("true");
 	}
 
+	public static InputComp hidden(final String name) {
+		return new InputComp(name).setType(EInputCompType.hidden);
+	}
+
+	public static InputComp textButton(final String name) {
+		return new InputComp(name).setType(EInputCompType.textButton);
+	}
+
 	public static InputComp label(final Object lbl) {
 		return new InputComp().setType(EInputCompType.div).setDefaultValue(Convert.toString(lbl));
 	}

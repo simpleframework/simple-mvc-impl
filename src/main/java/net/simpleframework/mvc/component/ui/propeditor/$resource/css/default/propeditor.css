@@ -1,6 +1,6 @@
 .formeditor {
   table-layout: fixed;
-  border: 1px solid #aaa;
+  border: 1px solid #ddd;
 }
 
 .formeditor .validation_insertAfter {
@@ -45,7 +45,7 @@
 }
 
 .formeditor .fe_label {
-  border-right: 1px solid #aaa;
+  border-right: 1px solid #ddd;
   text-align: right;
   color: #BE5106;
   padding: 6px;
