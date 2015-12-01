@@ -46,7 +46,7 @@
   			&& (layout == EPagerBarLayout.top || layout == EPagerBarLayout.both);
   	if (top || StringUtils.hasText(title)) {
   %>
-  <div class="pager_block_top">
+  <div class="pager_block_top clearfix">
     <div class="pager_title"><%=StringUtils.blank(title)%></div>
     <%
     	if (top) {
@@ -57,7 +57,6 @@
     <%
     	}
     %>
-    <div class="clearfix"></div>
   </div>
   <%
   	}
@@ -78,7 +77,7 @@
   			&& (layout == EPagerBarLayout.bottom || layout == EPagerBarLayout.both);
   	final String stat = (String) cp.getBeanProperty("stat");
   	if (bottom || StringUtils.hasText(stat)) {
-  %><div class="pager_block_bottom">
+  %><div class="pager_block_bottom clearfix">
     <div class="pager_title"><%=StringUtils.blank(stat)%></div>
     <%
     	if (bottom) {
@@ -90,7 +89,6 @@
     <%
     	}
     %>
-    <div class="clearfix"></div>
   </div>
   <%
   	}

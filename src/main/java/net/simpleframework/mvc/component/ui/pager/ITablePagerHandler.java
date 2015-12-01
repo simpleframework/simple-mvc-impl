@@ -17,6 +17,9 @@ import net.simpleframework.mvc.component.ui.menu.MenuItems;
  *         http://www.simpleframework.net
  */
 public interface ITablePagerHandler extends IPagerHandler {
+
+	String toTableHTML(ComponentParameter cp);
+
 	/**
 	 * 创建表格的元信息
 	 * 

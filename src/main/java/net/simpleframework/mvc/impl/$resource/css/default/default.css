@@ -352,7 +352,7 @@ img.photo_icon {
   background: url("images/icon/nav_arrow.png") 0 50% no-repeat;
   padding-left: 16px;
   vertical-align: middle;
-  line-height: 21px;
+  line-height: 1.2;
 }
 
 .nav_arrow a:hover {

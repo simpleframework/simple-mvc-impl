@@ -58,6 +58,11 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 		ITablePagerHandler {
 
 	@Override
+	public String toTableHTML(final ComponentParameter cp) {
+		return TablePagerHTML.renderTable(cp);
+	}
+
+	@Override
 	public AbstractTablePagerSchema createTablePagerSchema() {
 		return new DefaultTablePagerSchema();
 	}
