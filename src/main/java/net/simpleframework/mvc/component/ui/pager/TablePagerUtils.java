@@ -25,6 +25,7 @@ import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.CalendarInput;
 import net.simpleframework.mvc.common.element.Checkbox;
 import net.simpleframework.mvc.common.element.InputElement;
+import net.simpleframework.mvc.common.element.LinkButton;
 import net.simpleframework.mvc.common.element.Radio;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -177,5 +178,21 @@ public abstract class TablePagerUtils {
 		}
 		sb.append("</table>");
 		return sb.toString();
+	}
+
+	public static LinkButton act_btn(final String tbl, final String act, final String title,
+			final String idKey, final String params) {
+		final StringBuilder click = new StringBuilder();
+		click.append("$Actions['").append(tbl).append("'].doAct('").append(act).append("', ");
+		if (StringUtils.hasText(idKey)) {
+			click.append("'").append(idKey).append("'");
+		} else {
+			click.append("undefined");
+		}
+		if (StringUtils.hasText(params)) {
+			click.append(", '").append(params).append("'");
+		}
+		click.append(");");
+		return new LinkButton(title).setOnclick(click.toString());
 	}
 }
