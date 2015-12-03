@@ -8,6 +8,10 @@ package net.simpleframework.mvc.common.element;
  */
 public class PhotoImage extends ImageElement {
 
+	public static PhotoImage icon32(final String src) {
+		return (PhotoImage) new PhotoImage(src).addClassName("icon32");
+	}
+
 	public static PhotoImage icon24(final String src) {
 		return (PhotoImage) new PhotoImage(src).addClassName("icon24");
 	}
