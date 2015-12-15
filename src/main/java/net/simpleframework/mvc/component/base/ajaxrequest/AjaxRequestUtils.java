@@ -98,6 +98,8 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 								SessionCache.lremove(dKey);
 							}
 						}
+					} else {
+						System.out.println("[ajax cancel] AjaxRequest: " + dKey);
 					}
 				}
 
