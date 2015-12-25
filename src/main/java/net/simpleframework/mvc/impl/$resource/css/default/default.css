@@ -422,6 +422,11 @@ img.photo_icon {
 	padding: 4px;
 }
 
+.form_tbl .v>div {  
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
 .form_tbl .v input[type=text],
 .form_tbl .v input[type=password],
 .form_tbl .v .text,
