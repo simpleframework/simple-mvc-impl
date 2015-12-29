@@ -39,6 +39,17 @@ public abstract class AbstractTablePagerSchema {
 		return getTablePagerColumnsInternal(cp);
 	}
 
+	public TablePagerColumn getTablePagerColumn(final ComponentParameter cp, final String columnName) {
+		if (columnName != null) {
+			for (final TablePagerColumn col : getTablePagerColumns(cp)) {
+				if (columnName.equals(col.getColumnName())) {
+					return col;
+				}
+			}
+		}
+		return null;
+	}
+
 	private TablePagerColumns _columns;
 
 	protected TablePagerColumns getTablePagerColumnsInternal(final ComponentParameter cp) {

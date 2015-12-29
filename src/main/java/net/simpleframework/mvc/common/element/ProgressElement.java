@@ -119,10 +119,15 @@ public class ProgressElement extends SpanElement {
 		}
 		final String color = getColor();
 		if (StringUtils.hasText(color)) {
+			final StringBuilder style = new StringBuilder();
+			style.append("background-color: ").append(color).append(";");
 			final String linearStartColor = getLinearStartColor();
-			ele.addStyle("background-color: " + color
-					+ ";background-image: linear-gradient(to bottom, " + linearStartColor + " 0, "
-					+ color + " 50%, " + linearStartColor + " 100%);");
+			if (StringUtils.hasText(linearStartColor)) {
+				style.append("background-image: linear-gradient(to bottom, ").append(linearStartColor)
+						.append(" 0, ").append(color).append(" 50%, ").append(linearStartColor)
+						.append(" 100%);");
+			}
+			ele.addStyle(style.toString());
 		}
 		String _text = super.getText();
 		if (!StringUtils.hasText(_text)) {
