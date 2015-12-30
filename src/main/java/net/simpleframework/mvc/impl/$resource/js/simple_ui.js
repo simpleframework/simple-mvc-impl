@@ -7,12 +7,12 @@
 	/**
 	 * 覆盖系统的alert, confirm等函数
 	 */
-	window.$alert = function(msg, title) {
+	window.$alert = function(msg, title, h) {
 		var w = new UI.Window({
 			minimize : false,
 			maximize : false,
 			resizable : false,
-			height : 160,
+			height : (h || 160),
 			width : 420,
 			theme : "popup"
 		});
@@ -22,8 +22,9 @@
 
 		var c = ("<div class='sy_alert_dialog'>"
 				+ "<div class='top'><div class='img'></div>"
-				+ "<div class='txt wrap_text'>" + msg + "</div></div><div class='btn'></div></div>")
-				.makeElement();
+				+ "<div class='txt wrap_text' style='height: " 
+				+ (w.options.height - 105) + "px;'>" + msg 
+				+ "</div></div><div class='btn'></div></div>").makeElement();
 		c.down(".btn").insert(new Element("input", {
 			type : "button",
 			value : $MessageConst["Button.Ok"]

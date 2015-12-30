@@ -627,7 +627,6 @@ ul.simple_tabs.vertical a.active {
 
 .sy_alert_dialog .top,
 .sy_confirm_dialog .top {
-	height: 65px;
 	border-bottom: 1px solid #aaa;
 	background-color: #fafafa;
 	padding: 10px;
@@ -648,11 +647,10 @@ ul.simple_tabs.vertical a.active {
 .sy_confirm_dialog .txt {
 	text-shadow: 1px 1px 1px #eee;
 	font-size: 9.5pt;
-	height: 47px;
-	line-height: 120%;
+	line-height: 1.4;
 	overflow-y: auto;
 	margin-top: 5px;
-	padding: 0 10px;
+	padding-left: 10px;
 }
 
 .sy_alert_dialog .btn,
