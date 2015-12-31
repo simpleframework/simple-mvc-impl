@@ -22,6 +22,7 @@ import net.simpleframework.mvc.component.ui.menu.AbstractMenuHandler;
 import net.simpleframework.mvc.component.ui.menu.MenuBean;
 import net.simpleframework.mvc.component.ui.menu.MenuItem;
 import net.simpleframework.mvc.component.ui.menu.MenuItems;
+import net.simpleframework.mvc.component.ui.pager.ITablePagerHandler;
 import net.simpleframework.mvc.component.ui.pager.TablePagerBean;
 import net.simpleframework.mvc.component.ui.tree.AbstractTreeHandler;
 import net.simpleframework.mvc.component.ui.tree.TreeBean;
@@ -72,9 +73,14 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 	}
 
 	/* TablePagerBean */
-	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name) {
-		return (TablePagerBean) addComponentBean(pp, name, TablePagerBean.class).setRole(
-				getPageRole(pp));
+	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name,
+			final Class<? extends ITablePagerHandler> tblClass) {
+		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp, name,
+				TablePagerBean.class).setResize(false).setPageItems(30).setRole(getPageRole(pp));
+		if (tblClass != null) {
+			tablePager.setHandlerClass(tblClass);
+		}
+		return tablePager;
 	}
 
 	/* WindowBean */
