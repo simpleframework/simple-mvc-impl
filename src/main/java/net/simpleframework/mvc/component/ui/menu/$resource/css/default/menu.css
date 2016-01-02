@@ -156,6 +156,7 @@
 .menu.desktop .icon {
 	background-repeat: no-repeat;
 	background-position: 7px 50%;
+	background-size: 16px 16px;
 }
 
 .menu.desktop .more {
