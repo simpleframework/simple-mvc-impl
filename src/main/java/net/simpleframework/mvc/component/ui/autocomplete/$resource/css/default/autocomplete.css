@@ -25,3 +25,11 @@
   color: #a00;
   font-weight: bold;
 }
+
+.Autocomplete ul li .txt2 {
+  color: #888;
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 0;
+  text-align: right;
+}

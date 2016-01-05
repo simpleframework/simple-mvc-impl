@@ -62,12 +62,12 @@ public class AutocompleteRegistry extends AbstractComponentRegistry {
 				return json;
 			}
 
-			Object[] data = null;
+			AutocompleteData[] data = null;
 			final IAutocompleteHandler aHandler = ((IAutocompleteHandler) nCP.getComponentHandler());
 			if (aHandler != null && (data = aHandler.getData(nCP, val, val2)) != null) {
 				final int maxResults = Convert.toInt(nCP.getBeanProperty("maxResults"));
 				if (maxResults > 0 && maxResults < data.length) {
-					final String[] dest = new String[maxResults];
+					final AutocompleteData[] dest = new AutocompleteData[maxResults];
 					System.arraycopy(data, 0, dest, 0, maxResults);
 					json.put("data", dest);
 				} else {

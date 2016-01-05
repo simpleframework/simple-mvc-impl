@@ -75,11 +75,18 @@ $UI.Autocomplete = Class
             var v = json.val;
             var d = "<ul>";
             data.each(function(li) {
-              d += "<li _data=\"" + li.replace("\"", "&quot;") + "\">";
+              var _data = li.data;
+              var txt = li.txt;
+              var txt2 = li.txt2;
+              d += "<li _data=\"" + _data.replace("\"", "&quot;") + "\">";
               if (v) {
-                li = li.replace(v, "<span class='match'>" + v + "</span>");
+                txt = txt.replace(v, "<span class='match'>" + v + "</span>");
               }
-              d += li + "</li>";
+              d += txt;
+              if (txt2) {
+                d += "<div class='txt2'>" + txt2 + "</div>"
+              }
+              d += "</li>";
             });
             d += "</ul>";
             r.innerHTML = d;
