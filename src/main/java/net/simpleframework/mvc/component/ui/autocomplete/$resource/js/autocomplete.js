@@ -131,6 +131,7 @@ $UI.Autocomplete = Class
             input.value = val;
           } else {
             var txt = $F(input);
+            val = val + sep;
             if (txt.endsWith(sep)) {
               this._val(txt + val);
             } else {
