@@ -116,9 +116,38 @@ $UI.Autocomplete = Class
           Event.stop(ev);
         } else if (code == Event.KEY_RETURN) {
           this._select(ev);
+        } else if (code == Event.KEY_BACKSPACE) {
+          this._backspace(ev);
         }
       },
 
+      _backspace : function(ev) {
+        var sep = this.options.sepChar;
+        if (!sep || sep == '') {
+          return;
+        }
+        
+        var input = this.inputField;
+        var txt = $F(input);        
+        if (typeof input.selectionStart == 'number') {
+          var p = input.selectionStart;
+          if (input.selectionEnd > p)
+            return;
+          var slen = sep.length;
+          var s = p - slen;
+          if (s >= 0 && txt.substring(s, p) == sep) {
+            var p2 = txt.lastIndexOf(sep, s - 1);
+            if (p2 > 0) {
+              p2 += slen;
+            }
+            input.setSelectionRange((p2 > 0 ? p2  : 0), p); 
+            Event.stop(ev);
+          }
+        } else {
+          // ie8
+        }
+      },
+      
       _val : function(txt) {
         var input = this.inputField;
         var act = $Actions[this.options.ajax];

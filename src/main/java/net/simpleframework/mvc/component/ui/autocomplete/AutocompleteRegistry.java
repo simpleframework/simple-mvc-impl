@@ -51,8 +51,8 @@ public class AutocompleteRegistry extends AbstractComponentRegistry {
 			final String sepChar = (String) nCP.getBeanProperty("sepChar");
 			if (StringUtils.hasText(sepChar)) {
 				int p;
-				if ((p = val.lastIndexOf(sepChar)) > -1) {
-					val2 = val.substring(p + sepChar.length());
+				if ((p = val2.lastIndexOf(sepChar)) > -1) {
+					val2 = val2.substring(p + sepChar.length());
 				}
 			}
 			val2 = val2.trim();
