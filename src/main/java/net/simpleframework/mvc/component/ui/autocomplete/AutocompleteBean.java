@@ -18,7 +18,7 @@ public class AutocompleteBean extends AbstractComponentBean {
 	private int height = BeanDefaults.getInt(getClass(), "height", 200);
 
 	/* 返回最大数量 */
-	private int maxResults = BeanDefaults.getInt(getClass(), "maxResults", 50);
+	private int maxResults = BeanDefaults.getInt(getClass(), "maxResults", 30);
 
 	/* 条目分割符 */
 	private String sepChar = BeanDefaults.getString(getClass(), "sepChar", " ");
