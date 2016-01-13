@@ -203,6 +203,26 @@ public class MenuItem extends AbstractElementBean {
 		return new MenuItem().setTitle($m("Button.Log"));
 	}
 
+	public static MenuItem TBL_MOVE_UP(final String tblAct) {
+		return MenuItem.of($m("Menu.up"), MenuItem.ICON_UP, "$pager_action(item).move(true, '"
+				+ tblAct + "');");
+	}
+
+	public static MenuItem TBL_MOVE_UP2(final String tblAct) {
+		return MenuItem.of($m("Menu.up2"), MenuItem.ICON_UP2, "$pager_action(item).move2(true, '"
+				+ tblAct + "');");
+	}
+
+	public static MenuItem TBL_MOVE_DOWN(final String tblAct) {
+		return MenuItem.of($m("Menu.down"), MenuItem.ICON_DOWN, "$pager_action(item).move(false, '"
+				+ tblAct + "');");
+	}
+
+	public static MenuItem TBL_MOVE_DOWN2(final String tblAct) {
+		return MenuItem.of($m("Menu.down2"), MenuItem.ICON_DOWN2,
+				"$pager_action(item).move2(false, '" + tblAct + "');");
+	}
+
 	public static final String ICON_SELECTED = "menu_icon_selected";
 
 	public static final String ICON_ADD = "menu_icon_add";
