@@ -102,7 +102,7 @@ $UI.Autocomplete = Class
         }
 
         (function() {
-          act('val=' + txt);
+          act(('val=' + txt).addParameter(opts.params));
         }).delay(0.1);
       },
 
@@ -214,6 +214,5 @@ $UI.Autocomplete = Class
         this._setSelected(item);
 
         this._mouse = false;
-        item.scrollIntoView(false);
       }
     });

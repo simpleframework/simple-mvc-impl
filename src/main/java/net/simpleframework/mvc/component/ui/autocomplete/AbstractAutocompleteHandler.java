@@ -3,6 +3,7 @@ package net.simpleframework.mvc.component.ui.autocomplete;
 import net.simpleframework.ctx.permission.IPermissionHandler;
 import net.simpleframework.ctx.permission.PermissionDept;
 import net.simpleframework.ctx.permission.PermissionUser;
+import net.simpleframework.mvc.IMVCContextVar;
 import net.simpleframework.mvc.component.AbstractComponentHandler;
 
 /**
@@ -12,7 +13,7 @@ import net.simpleframework.mvc.component.AbstractComponentHandler;
  *         http://www.simpleframework.net
  */
 public abstract class AbstractAutocompleteHandler extends AbstractComponentHandler implements
-		IAutocompleteHandler {
+		IAutocompleteHandler, IMVCContextVar {
 
 	protected AutocompleteData createAutocompleteData(final PermissionUser user, final String sepChar) {
 		final String name = user.getName();
@@ -20,7 +21,7 @@ public abstract class AbstractAutocompleteHandler extends AbstractComponentHandl
 				+ name + ")");
 		final StringBuilder txt2 = new StringBuilder();
 
-		final IPermissionHandler permission = getModuleContext().getPermission();
+		final IPermissionHandler permission = mvcContext.getPermission();
 		PermissionDept dept = permission.getDept(user.getDomainId());
 		if (dept.exists()) {
 			txt2.append(dept);
