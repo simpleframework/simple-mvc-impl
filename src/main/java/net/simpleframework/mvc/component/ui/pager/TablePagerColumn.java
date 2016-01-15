@@ -210,6 +210,7 @@ public class TablePagerColumn extends AbstractElementBean {
 
 	public TablePagerColumn setFilterAdvClick(final String filterAdvClick) {
 		this.filterAdvClick = filterAdvClick;
+		setEditable(false);
 		return this;
 	}
 
