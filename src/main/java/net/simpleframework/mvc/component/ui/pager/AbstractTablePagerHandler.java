@@ -366,7 +366,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			cp.setSessionAttr(TablePagerExportProgressBar.MAX_PROGRESS, dQuery.getCount());
 			String exportCharset = (String) cp.getBeanProperty("exportCharset");
 			if (!StringUtils.hasText(exportCharset)) {
-				exportCharset = settings.getCharset();
+				exportCharset = mvcSettings.getCharset();
 			}
 			csvWriter = new CSVWriter(new OutputStreamWriter(cp.getBinaryOutputStream("export.csv"),
 					exportCharset));

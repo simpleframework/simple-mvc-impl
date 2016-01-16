@@ -16,9 +16,9 @@ import net.simpleframework.common.logger.LogFactory;
 import net.simpleframework.common.th.RuntimeExceptionEx;
 import net.simpleframework.mvc.AbstractBasePage;
 import net.simpleframework.mvc.IForward;
-import net.simpleframework.mvc.IMVCContextVar;
 import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.JsonForward;
+import net.simpleframework.mvc.MVCContext;
 import net.simpleframework.mvc.MVCUtils;
 import net.simpleframework.mvc.SessionCache;
 import net.simpleframework.mvc.component.ComponentException;
@@ -30,7 +30,7 @@ import net.simpleframework.mvc.component.ComponentParameter;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class AjaxRequestUtils implements IMVCContextVar {
+public abstract class AjaxRequestUtils {
 	public static final String BEAN_ID = "ajax_@bid";
 
 	static Log log = LogFactory.getLogger(AjaxRequestUtils.class);
@@ -52,7 +52,8 @@ public abstract class AjaxRequestUtils implements IMVCContextVar {
 			}
 		} else {
 			try {
-				forward = mvcContext.getPermission().accessForward(cp, cp.getBeanProperty("role"));
+				forward = MVCContext.get().getPermission()
+						.accessForward(cp, cp.getBeanProperty("role"));
 				if (forward != null) {
 					bPermission = true;
 				}

@@ -4,7 +4,7 @@ import static net.simpleframework.common.I18n.$m;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.JavascriptUtils;
 import net.simpleframework.mvc.IForward;
-import net.simpleframework.mvc.IMVCContextVar;
+import net.simpleframework.mvc.MVCContext;
 import net.simpleframework.mvc.component.AbstractComponentRender.ComponentJavascriptRender;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentRenderUtils;
@@ -16,7 +16,7 @@ import net.simpleframework.mvc.component.ComponentUtils;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public class SubmitRender extends ComponentJavascriptRender implements IMVCContextVar {
+public class SubmitRender extends ComponentJavascriptRender {
 
 	@Override
 	public String getJavascriptCode(final ComponentParameter cp) {
@@ -34,8 +34,8 @@ public class SubmitRender extends ComponentJavascriptRender implements IMVCConte
 		sb.append("var form = $(\"").append(formName).append("\") || document.").append(formName)
 				.append(";");
 		sb.append("if (!form) { alert('").append($m("SubmitRender.0")).append("'); return; }");
-		final IForward forward = mvcContext.getPermission().accessForward(cp,
-				cp.getBeanProperty("role"));
+		final IForward forward = MVCContext.get().getPermission()
+				.accessForward(cp, cp.getBeanProperty("role"));
 		if (forward != null) {
 			sb.append("var win = parent || window;");
 			sb.append("var ele = new Element('DIV'); $(win.document.body).insert(ele);");

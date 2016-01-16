@@ -12,7 +12,7 @@ import net.simpleframework.common.FileUtils;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.common.web.JavascriptUtils;
-import net.simpleframework.mvc.IMVCContextVar;
+import net.simpleframework.mvc.MVCContext;
 import net.simpleframework.mvc.MultipartPageRequest;
 import net.simpleframework.mvc.PageRequestResponse;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -24,7 +24,7 @@ import net.simpleframework.mvc.component.ComponentUtils;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class SwfUploadUtils implements IMVCContextVar {
+public abstract class SwfUploadUtils {
 	public static final String BEAN_ID = "upload_@bid";
 
 	public static ComponentParameter get(final PageRequestResponse rRequest) {
@@ -241,12 +241,11 @@ public abstract class SwfUploadUtils implements IMVCContextVar {
 			try {
 				final int fileSizeLimit = (int) FileUtils.toFileSize((String) nCP
 						.getBeanProperty("fileSizeLimit"));
-				uHandle.upload(
-						nCP,
-						((MultipartPageRequest) (nCP.request = mvcContext.createMultipartPageRequest(
-								request, fileSizeLimit))).getFile("Filedata"), variables);
+				uHandle.upload(nCP, ((MultipartPageRequest) (nCP.request = MVCContext.get()
+						.createMultipartPageRequest(request, fileSizeLimit))).getFile("Filedata"),
+						variables);
 			} catch (final Throwable ex) {
-				variables.add("error", mvcContext.getThrowableMessage(ex));
+				variables.add("error", MVCContext.get().getThrowableMessage(ex));
 			}
 		}
 		return variables.toJSON();

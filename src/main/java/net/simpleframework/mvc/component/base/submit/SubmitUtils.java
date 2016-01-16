@@ -11,7 +11,7 @@ import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.HttpUtils;
 import net.simpleframework.mvc.AbstractBasePage;
 import net.simpleframework.mvc.AbstractUrlForward;
-import net.simpleframework.mvc.IMVCContextVar;
+import net.simpleframework.mvc.MVCContext;
 import net.simpleframework.mvc.PageRequestResponse;
 import net.simpleframework.mvc.UrlForward;
 import net.simpleframework.mvc.component.ComponentException;
@@ -23,7 +23,7 @@ import net.simpleframework.mvc.component.ComponentParameter;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class SubmitUtils implements IMVCContextVar {
+public abstract class SubmitUtils {
 	public static final String BEAN_ID = "submit_@bid";
 
 	public static ComponentParameter get(final PageRequestResponse rRequest) {
@@ -43,7 +43,7 @@ public abstract class SubmitUtils implements IMVCContextVar {
 			final String method = (String) nCP.getBeanProperty("handlerMethod");
 			AbstractUrlForward forward;
 			if ((Boolean) nCP.getBeanProperty("binary")) {
-				nCP.request = mvcContext.createMultipartPageRequest(request,
+				nCP.request = MVCContext.get().createMultipartPageRequest(request,
 						(int) FileUtils.toFileSize((String) nCP.getBeanProperty("fileSizeLimit")));
 			}
 			try {

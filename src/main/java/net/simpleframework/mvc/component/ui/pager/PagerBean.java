@@ -145,7 +145,7 @@ public class PagerBean extends AbstractContainerBean {
 	}
 
 	public String getRole() {
-		return StringUtils.text(role, settings.getDefaultRole());
+		return StringUtils.text(role, mvcSettings.getDefaultRole());
 	}
 
 	public PagerBean setRole(final String role) {

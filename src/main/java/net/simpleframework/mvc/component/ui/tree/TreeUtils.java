@@ -11,8 +11,8 @@ import net.simpleframework.common.logger.Log;
 import net.simpleframework.common.logger.LogFactory;
 import net.simpleframework.common.web.JavascriptUtils;
 import net.simpleframework.mvc.IForward;
-import net.simpleframework.mvc.IMVCContextVar;
 import net.simpleframework.mvc.JsonForward;
+import net.simpleframework.mvc.MVCContext;
 import net.simpleframework.mvc.component.ComponentParameter;
 
 /**
@@ -21,7 +21,7 @@ import net.simpleframework.mvc.component.ComponentParameter;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class TreeUtils implements IMVCContextVar {
+public abstract class TreeUtils {
 	static Log log = LogFactory.getLogger(TreeUtils.class);
 
 	public static final String BEAN_ID = "tree_@bid";
@@ -29,8 +29,8 @@ public abstract class TreeUtils implements IMVCContextVar {
 	public static IForward dropHandler(final ComponentParameter cp) {
 		final JsonForward json = new JsonForward();
 		final String treeName = cp.getComponentName();
-		final IForward forward = mvcContext.getPermission().accessForward(cp,
-				cp.getBeanProperty("roleDrop"));
+		final IForward forward = MVCContext.get().getPermission()
+				.accessForward(cp, cp.getBeanProperty("roleDrop"));
 		if (forward != null) {
 			json.put("responseText", forward.getResponseText(cp));
 			json.put("ajaxRequestId", treeName);

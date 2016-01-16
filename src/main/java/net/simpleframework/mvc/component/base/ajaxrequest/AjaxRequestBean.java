@@ -186,7 +186,7 @@ public class AjaxRequestBean extends AbstractComponentBean {
 	}
 
 	public String getRole() {
-		return StringUtils.hasText(role) ? role : settings.getDefaultRole();
+		return StringUtils.hasText(role) ? role : mvcSettings.getDefaultRole();
 	}
 
 	public AjaxRequestBean setRole(final String role) {

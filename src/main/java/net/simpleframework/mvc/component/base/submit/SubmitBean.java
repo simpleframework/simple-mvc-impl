@@ -70,7 +70,7 @@ public class SubmitBean extends AbstractComponentBean {
 	}
 
 	public String getRole() {
-		return StringUtils.hasText(role) ? role : settings.getDefaultRole();
+		return StringUtils.hasText(role) ? role : mvcSettings.getDefaultRole();
 	}
 
 	public SubmitBean setRole(final String role) {

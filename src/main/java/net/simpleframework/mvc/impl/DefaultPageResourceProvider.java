@@ -31,7 +31,7 @@ public class DefaultPageResourceProvider extends MVCPageResourceProvider {
 	@Override
 	public String[] getJavascriptPath(final PageParameter pp) {
 		final String rPath = getResourceHomePath();
-		final Locale locale = settings.getLocale();
+		final Locale locale = mvcSettings.getLocale();
 		final String[] jsArr = new String[] { rPath + SIZZLE_FILE, rPath + PROTOTYPE_FILE,
 				rPath + EFFECTS_FILE, rPath + "/js/simple_" + locale.toString() + ".js",
 				rPath + "/js/simple.js", rPath + "/js/simple_ui.js" };

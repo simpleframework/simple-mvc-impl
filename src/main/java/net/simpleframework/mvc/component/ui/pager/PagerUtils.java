@@ -12,7 +12,7 @@ import net.simpleframework.common.Convert;
 import net.simpleframework.common.FileUtils;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.CollectionUtils;
-import net.simpleframework.mvc.IMVCConst;
+import net.simpleframework.mvc.MVCConst;
 import net.simpleframework.mvc.MVCUtils;
 import net.simpleframework.mvc.PageRequestResponse;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -96,7 +96,7 @@ public abstract class PagerUtils {
 			final String xmlPath = MVCUtils.doPageUrl(cp, FileUtils.stripFilenameExtension(dataPath)
 					+ ".xml");
 			if (new File(MVCUtils.getRealPath(xmlPath)).exists()) {
-				return IMVCConst.PARAM_XMLPATH + "=" + xmlPath;
+				return MVCConst.PARAM_XMLPATH + "=" + xmlPath;
 			}
 		}
 		return null;
