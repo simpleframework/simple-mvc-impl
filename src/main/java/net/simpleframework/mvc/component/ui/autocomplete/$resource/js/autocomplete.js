@@ -214,6 +214,6 @@ $UI.Autocomplete = Class
         this._setSelected(item);
 
         this._mouse = false;
-        item.scrollIntoView(false);
+        item.scrollIntoView();
       }
     });
