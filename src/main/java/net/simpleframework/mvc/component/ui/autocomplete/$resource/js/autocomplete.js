@@ -183,6 +183,8 @@ $UI.Autocomplete = Class
             (function() {
               input.focus();
             }).delay(0.1);
+          
+          this.currentItem = null;
         }
         Event.stop(ev);
       },
