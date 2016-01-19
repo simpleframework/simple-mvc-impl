@@ -420,6 +420,7 @@ img.photo_icon {
 .form_tbl .v {
 	background-color: #fff;
 	padding: 4px;
+	position: relative;
 }
 
 .form_tbl .v>div {  

@@ -154,7 +154,7 @@ $UI.Autocomplete = Class
         if (act.jsVal) {
           act.jsVal(input, txt);
         } else {
-          input.value = txt;
+          $Actions.setValue(input, txt);
         }
       },
 
