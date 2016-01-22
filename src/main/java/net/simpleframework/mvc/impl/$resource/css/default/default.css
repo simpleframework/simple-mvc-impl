@@ -405,7 +405,7 @@ img.photo_icon {
 	border-spacing: 1px;
 	width: 100%;
 	table-layout: fixed;
-	background: #ccc;
+	background-color: #d5d5d5;
 }
 
 .form_tbl .l {
