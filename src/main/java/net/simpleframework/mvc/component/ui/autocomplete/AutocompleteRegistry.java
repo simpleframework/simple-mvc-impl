@@ -1,7 +1,7 @@
 package net.simpleframework.mvc.component.ui.autocomplete;
 
 import java.util.ArrayList;
-import java.util.Enumeration;
+import java.util.Iterator;
 
 import net.simpleframework.common.Convert;
 import net.simpleframework.common.StringUtils;
@@ -65,14 +65,14 @@ public class AutocompleteRegistry extends AbstractComponentRegistry {
 				return json;
 			}
 
-			Enumeration<AutocompleteData> e;
+			Iterator<AutocompleteData> e;
 			final IAutocompleteHandler aHandler = ((IAutocompleteHandler) nCP.getComponentHandler());
 			if (aHandler != null && (e = aHandler.getData(nCP, val, val2)) != null) {
 				final int maxResults = Convert.toInt(nCP.getBeanProperty("maxResults"));
 				final ArrayList<AutocompleteData> l = new ArrayList<AutocompleteData>();
 				int i = 0;
-				while (e.hasMoreElements() && (maxResults <= 0 || i++ < maxResults)) {
-					l.add(e.nextElement());
+				while (e.hasNext() && (maxResults <= 0 || i++ < maxResults)) {
+					l.add(e.next());
 				}
 				json.put("data", l);
 			}

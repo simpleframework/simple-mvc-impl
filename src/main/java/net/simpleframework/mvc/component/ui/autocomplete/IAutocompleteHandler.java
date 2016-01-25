@@ -1,6 +1,6 @@
 package net.simpleframework.mvc.component.ui.autocomplete;
 
-import java.util.Enumeration;
+import java.util.Iterator;
 
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.IComponentHandler;
@@ -19,5 +19,5 @@ public interface IAutocompleteHandler extends IComponentHandler {
 	 * @param val2
 	 * @return
 	 */
-	Enumeration<AutocompleteData> getData(ComponentParameter cp, String val, String val2);
+	Iterator<AutocompleteData> getData(ComponentParameter cp, String val, String val2);
 }
