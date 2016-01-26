@@ -42,7 +42,7 @@
     o.up(".tablepager_export").select("table input[type=checkbox]").each(
         function(box) {
           if (box.checked)
-            checked.push($F(box));
+            checked.push(box.getAttribute("name").substring(4));
         });
     act("filetype=" + $F("tablepager_export_filetype") + "&v="
         + checked.join(";"));

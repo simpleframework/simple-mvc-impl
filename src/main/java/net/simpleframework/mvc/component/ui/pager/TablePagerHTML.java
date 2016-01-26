@@ -17,6 +17,7 @@ import net.simpleframework.mvc.MVCUtils;
 import net.simpleframework.mvc.PageRequestResponse;
 import net.simpleframework.mvc.common.element.AbstractElement;
 import net.simpleframework.mvc.common.element.ETextAlign;
+import net.simpleframework.mvc.common.element.EVerticalAlign;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentUtils;
 
@@ -370,8 +371,8 @@ public abstract class TablePagerHTML implements HtmlConst {
 					}
 				}
 				sb.append("<td");
-				if (handler.isEdit()) {
-					sb.append(" valign=\"top\"");
+				if (handler.isEdit() && pagerColumn.getVerticalAlign() == null) {
+					pagerColumn.setVerticalAlign(EVerticalAlign.top);
 				}
 
 				final Object val = rowData != null ? rowData.get(key) : null;

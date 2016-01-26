@@ -15,6 +15,7 @@ import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.ctx.common.xml.AbstractElementBean;
 import net.simpleframework.mvc.PageRequestResponse;
 import net.simpleframework.mvc.common.element.ETextAlign;
+import net.simpleframework.mvc.common.element.EVerticalAlign;
 import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.common.element.Option;
 
@@ -39,6 +40,8 @@ public class TablePagerColumn extends AbstractElementBean {
 
 	/* 表格列文本的对齐方式 */
 	private ETextAlign textAlign;
+
+	private EVerticalAlign verticalAlign;
 
 	/* 表格列是否可以排序 */
 	private boolean sort = true;
@@ -139,6 +142,15 @@ public class TablePagerColumn extends AbstractElementBean {
 
 	public TablePagerColumn setTextAlign(final ETextAlign textAlign) {
 		this.textAlign = textAlign;
+		return this;
+	}
+
+	public EVerticalAlign getVerticalAlign() {
+		return verticalAlign;
+	}
+
+	public TablePagerColumn setVerticalAlign(final EVerticalAlign verticalAlign) {
+		this.verticalAlign = verticalAlign;
 		return this;
 	}
 
@@ -250,6 +262,11 @@ public class TablePagerColumn extends AbstractElementBean {
 			}
 			set.add("text-align:" + textAlign);
 		}
+		final EVerticalAlign verticalAlign = getVerticalAlign();
+		if (verticalAlign != null) {
+			set.add("vertical-align:" + verticalAlign);
+		}
+
 		final int w = getWidth();
 		if (w > 0) {
 			set.add("width:" + TablePagerHTML.fixWidth(rRequest, w) + "px");
