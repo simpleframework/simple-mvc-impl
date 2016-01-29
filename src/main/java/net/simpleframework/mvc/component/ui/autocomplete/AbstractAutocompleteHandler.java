@@ -1,10 +1,15 @@
 package net.simpleframework.mvc.component.ui.autocomplete;
 
+import java.util.Iterator;
+
+import net.simpleframework.common.StringUtils;
+import net.simpleframework.common.coll.CollectionUtils.AbstractIterator;
 import net.simpleframework.ctx.permission.IPermissionHandler;
 import net.simpleframework.ctx.permission.PermissionDept;
 import net.simpleframework.ctx.permission.PermissionUser;
 import net.simpleframework.mvc.MVCContext;
 import net.simpleframework.mvc.component.AbstractComponentHandler;
+import net.simpleframework.mvc.component.ComponentParameter;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -16,12 +21,44 @@ import net.simpleframework.mvc.component.AbstractComponentHandler;
 public abstract class AbstractAutocompleteHandler extends AbstractComponentHandler implements
 		IAutocompleteHandler {
 
+	protected Iterator<AutocompleteData> newMIterator(final ComponentParameter cp,
+			final Iterator<PermissionUser> it, final String val, final String val2) {
+		final String sepChar = (String) cp.getBeanProperty("sepChar");
+		return new AbstractIterator<AutocompleteData>() {
+			private PermissionUser user;
+
+			@Override
+			public boolean hasNext() {
+				while (it.hasNext()) {
+					final PermissionUser user2 = it.next();
+					if (user2.getName().contains(val2)) {
+						user = user2;
+						return true;
+					}
+				}
+				return false;
+			}
+
+			@Override
+			public AutocompleteData next() {
+				final AutocompleteData data = createAutocompleteData(user, sepChar);
+				String txt = data.getTxt();
+				if (StringUtils.hasText(sepChar)) {
+					txt += sepChar;
+				}
+				return data.setData(txt);
+			}
+		};
+	}
+
 	protected AutocompleteData createAutocompleteData(final PermissionUser user, final String sepChar) {
 		final String name = user.getName();
-		final AutocompleteData data = new AutocompleteData(name + sepChar, user.getText() + " ("
-				+ name + ")");
+		String _name = name;
+		if (StringUtils.hasText(sepChar)) {
+			_name += sepChar;
+		}
+		final AutocompleteData data = new AutocompleteData(_name, user.getText() + " (" + name + ")");
 		final StringBuilder txt2 = new StringBuilder();
-
 		final IPermissionHandler permission = MVCContext.get().getPermission();
 		PermissionDept dept = permission.getDept(user.getDomainId());
 		if (dept.exists()) {

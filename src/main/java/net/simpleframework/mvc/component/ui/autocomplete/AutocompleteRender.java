@@ -1,5 +1,6 @@
 package net.simpleframework.mvc.component.ui.autocomplete;
 
+import net.simpleframework.common.StringUtils;
 import net.simpleframework.mvc.component.AbstractComponentRender.ComponentJavascriptRender;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentRenderUtils;
@@ -19,8 +20,9 @@ public class AutocompleteRender extends ComponentJavascriptRender {
 		sb.append(actionFunc).append(".autocomplete = new $UI.Autocomplete('")
 				.append(cp.getBeanProperty("inputField")).append("', {");
 		sb.append("ajax: 'ajax_").append(cp.getComponentName()).append("',");
-		sb.append("params: '").append(cp.getBeanProperty("parameters")).append("',");
-		sb.append("sepChar: '").append(cp.getBeanProperty("sepChar")).append("',");
+		sb.append("params: '").append(StringUtils.blank(cp.getBeanProperty("parameters")))
+				.append("',");
+		sb.append("sepChar: '").append(StringUtils.blank(cp.getBeanProperty("sepChar"))).append("',");
 		sb.append("width: ").append(cp.getBeanProperty("width")).append(",");
 		sb.append("height: ").append(cp.getBeanProperty("height"));
 		sb.append("});");
