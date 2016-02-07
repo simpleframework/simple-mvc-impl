@@ -752,7 +752,7 @@ ul.simple_tabs.vertical a.active {
 .sech_pane .br {
 	line-height: 28px;
 	line-height: 30px\0; /* ie8+ */
-	padding: 0px 8px 0px 12px;
+	padding: 0 15px 0 18px;
 }
 
 :root
