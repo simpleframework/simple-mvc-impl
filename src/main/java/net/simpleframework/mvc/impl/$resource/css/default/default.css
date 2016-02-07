@@ -710,10 +710,10 @@ ul.simple_tabs.vertical a.active {
 
 .sech_pane input {
 	vertical-align: middle;
+	height: 27px;
+	line-height: 27px;
+	background: #fff url("images/s.png") no-repeat 5px 7px;
 	padding: 1px 1px 1px 24px;
-	height: 25px;
-	line-height: 25px;
-	background: #fff url("images/s.png") no-repeat 5px 6px;
 	border-color: #ccc;
 	-moz-border-radius: 8px 0px 0px 8px;
 	-webkit-border-radius: 8px 0px 0px 8px;
@@ -729,7 +729,7 @@ ul.simple_tabs.vertical a.active {
 .sech_pane .br,
 .sech_pane .ar {
   vertical-align: top;
-	height: 25px;
+	height: 29px;
 }
 
 .sech_pane .btn {
@@ -742,7 +742,7 @@ ul.simple_tabs.vertical a.active {
 	-webkit-border-radius: 0px 4px 4px 0px;
 	border-radius: 0px 4px 4px 0px;
 	vertical-align: middle;
-	height: 27px;
+	height: 29px;
 }
 
 .sech_pane .btn:hover {
@@ -750,22 +750,22 @@ ul.simple_tabs.vertical a.active {
 }
 
 .sech_pane .br {
-	line-height: 26px;
-	line-height: 28px\0; /* ie8+ */
-	padding: 0px 15px 0px 18px;
+	line-height: 28px;
+	line-height: 30px\0; /* ie8+ */
+	padding: 0px 8px 0px 12px;
 }
 
 :root
 .sech_pane .br {
-	line-height: 25px\0; /* ie9 */
+	line-height: 27px\0; /* ie9 */
 }
 
 .sech_pane .ar {
 	background: url("images/sech_adv.png") no-repeat 2px 50%;
 	border-left: 3px double #999;
-	width: 15px;
 	margin-top: -1px;
-  height: 26px;
+	width: 15px;
+  height: 30px;
 }
 
 .sech_pane .ar:hover {
