@@ -29,7 +29,8 @@ public class ValidateCodeRender extends ComponentHtmlRenderEx {
 		sb.append("<div class='simple_validatecode clearfix'>");
 		sb.append("	<div class='b1'>");
 		sb.append(new InputElement().setClassName("ifocus").setId(inputId)
-				.setName((String) cp.getBeanProperty("inputName")));
+				.setName((String) cp.getBeanProperty("inputName"))
+				.setPlaceholder($m("ValidateCodeRender.1")));
 		sb.append("	</div>");
 		sb.append("	<div class='b2'>");
 		sb.append("  <img class='photo_icon' src='")
