@@ -13,7 +13,7 @@ import net.simpleframework.mvc.component.AbstractContainerBean;
  */
 public class SwfUploadBean extends AbstractContainerBean {
 	/* 文件大小限制，单位： B、KB、MB、GB */
-	private String fileSizeLimit;
+	private String fileSizeLimit = BeanDefaults.getString(getClass(), "fileSizeLimit", "10MB");
 	/* 文件队列限制 */
 	private int fileQueueLimit = BeanDefaults.getInt(getClass(), "fileQueueLimit", 0);
 
