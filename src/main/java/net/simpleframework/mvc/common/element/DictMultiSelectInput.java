@@ -53,7 +53,7 @@ public class DictMultiSelectInput extends DictInput {
 			setOnclick(sb.toString());
 		}
 		final StringBuilder sb = new StringBuilder();
-		final boolean readonly = _isReadonly();
+		final boolean readonly = isReadonly();
 		sb.append("<div class='multi_dselect'>");
 		final InputElement val = InputElement.hidden(getId());
 		final boolean hasVal = values != null && values.size() > 0;

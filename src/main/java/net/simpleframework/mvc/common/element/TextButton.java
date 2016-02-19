@@ -48,13 +48,9 @@ public class TextButton extends AbstractInputElement<TextButton> {
 		return this;
 	}
 
-	public boolean _isReadonly() {
-		return super.isReadonly();
-	}
-
 	@Override
-	public boolean isReadonly() {
-		return _isReadonly() || !isEditable();
+	protected boolean isTextReadonly() {
+		return isReadonly() || !isEditable();
 	}
 
 	@Override
@@ -85,7 +81,7 @@ public class TextButton extends AbstractInputElement<TextButton> {
 		sb.append(" <div class='d1'>");
 		sb.append("  <div class='d2'>").append(toInputHTML()).append("</div>");
 		sb.append(" </div>");
-		if (!super.isReadonly()) {
+		if (!isReadonly()) {
 			sb.append("<div class='sbtn'");
 			final String onclick = getOnclick();
 			if (StringUtils.hasText(onclick)) {
