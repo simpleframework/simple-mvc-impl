@@ -48,7 +48,7 @@ public class TextButton extends AbstractInputElement<TextButton> {
 		return this;
 	}
 
-	protected boolean _isReadonly() {
+	public boolean _isReadonly() {
 		return super.isReadonly();
 	}
 
