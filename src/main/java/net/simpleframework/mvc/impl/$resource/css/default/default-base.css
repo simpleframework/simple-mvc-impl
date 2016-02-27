@@ -184,6 +184,7 @@ input[readonly],
 textarea[readonly],
 .text[readonly] {
   cursor: not-allowed;
+  color: #888;
 }
 
 select {
