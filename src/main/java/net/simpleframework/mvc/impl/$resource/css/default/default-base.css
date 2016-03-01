@@ -185,7 +185,8 @@ input[disabled],
 textarea[readonly],
 textarea[disabled],
 .text[readonly],
-.text[disabled] {
+.text[disabled],
+span.readonly {
   cursor: not-allowed;
   color: #888;
 }
