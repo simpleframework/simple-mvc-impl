@@ -355,7 +355,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 	@Override
 	public AbstractElement<?> getExportSelectElement(final ComponentParameter cp) {
 		return InputElement.select("tablepager_export_filetype").addElements(
-				Option.from(EExportFileType.values()));
+				Option.from(EExportFileType.excel, EExportFileType.csv));
 	}
 
 	protected void doCSVExport(final ComponentParameter cp, final IDataQuery<?> dQuery,
