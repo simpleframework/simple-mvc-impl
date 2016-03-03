@@ -222,7 +222,8 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 			exportAction = "$Actions['" + cp.getComponentName() + "'].exportFile();";
 		}
 		if (!"false".equals(exportAction)) {
-			sb.append(new SpanElement().setClassName("export_icon").setOnclick(exportAction));
+			sb.append(new SpanElement().setClassName("export_icon")
+					.setTitle($m("tablepager_export.0")).setOnclick(exportAction));
 		}
 		return sb.toString();
 	}
