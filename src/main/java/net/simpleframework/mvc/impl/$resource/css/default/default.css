@@ -397,6 +397,20 @@ img.photo_icon {
 	background: url(images/icon/nav_0.png) no-repeat 2px center;
 }
 
+.down_menu_image {
+	background: url(images/icon/down_menu.png) no-repeat center center;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	vertical-align: middle;
+	margin-left: 2px;
+}
+
+.down_menu_image:hover {
+	background: url(images/icon/down_menu_hover.png) no-repeat center center;
+}
+
 /***************************************************/
 /*                      form                      */
 /***************************************************/
