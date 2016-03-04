@@ -41,23 +41,19 @@ public abstract class AbstractAutocompleteHandler extends AbstractComponentHandl
 
 			@Override
 			public AutocompleteData next() {
-				final AutocompleteData data = createAutocompleteData(user, sepChar);
-				String txt = data.getTxt();
-				if (StringUtils.hasText(sepChar)) {
-					txt += sepChar;
-				}
-				return data.setData(txt);
+				return createAutocompleteData(user, sepChar);
 			}
 		};
 	}
 
 	protected AutocompleteData createAutocompleteData(final PermissionUser user, final String sepChar) {
 		final String name = user.getName();
-		String _name = name;
+		final String text = user.getText() + " (" + name + ")";
+		String _name = text;
 		if (StringUtils.hasText(sepChar)) {
 			_name += sepChar;
 		}
-		final AutocompleteData data = new AutocompleteData(_name, user.getText() + " (" + name + ")");
+		final AutocompleteData data = new AutocompleteData(_name, text);
 		final StringBuilder txt2 = new StringBuilder();
 		final IPermissionHandler permission = MVCContext.get().getPermission();
 		PermissionDept dept = permission.getDept(user.getDomainId());
