@@ -122,6 +122,11 @@ Object.extend($Actions, {
         element.setValue(v);
       }
       
+      if (tag == "SELECT" && element.hasAttribute('readonly')) {
+        var r = new Element('span', { 'className' : 'readonly' });
+        r.innerHTML = element.options[element.selectedIndex].text;
+        element.replace(r);
+      }
       if (element.getAttribute("autorows") == "true") {
         element.style.height = "0px";
         element.style.height = element.scrollHeight + "px";
