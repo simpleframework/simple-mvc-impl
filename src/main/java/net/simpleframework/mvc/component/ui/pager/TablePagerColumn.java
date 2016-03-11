@@ -385,7 +385,8 @@ public class TablePagerColumn extends AbstractElementBean {
 	}
 
 	public static final TablePagerColumn DESCRIPTION() {
-		return new TablePagerColumn("description", $m("Description")).setFilterSort(false);
+		return new TablePagerColumn("description", $m("Description")).setNowrap(false).setFilterSort(
+				false);
 	}
 
 	public static final TablePagerColumn BOOL(final String columnName, final String columnText) {
