@@ -130,6 +130,7 @@ Object.extend($Actions, {
       if (element.getAttribute("autorows") == "true") {
         element.style.height = "0px";
         element.style.height = element.scrollHeight + "px";
+        element.removeAttribute("autorows");
       }
     }
   },
