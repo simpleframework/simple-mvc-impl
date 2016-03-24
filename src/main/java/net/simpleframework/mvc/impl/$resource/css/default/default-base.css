@@ -177,7 +177,7 @@ textarea {
 	margin: 0;
 	resize: none;
 	font-size: 9.5pt;
-	line-height: 17px;
+	line-height: 1.5;
 }
 
 input[readonly],
