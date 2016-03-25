@@ -33,7 +33,7 @@ a.simple_btn {
 	padding: 0px 12px;
 	text-align: center;
 	vertical-align: middle;
-	background-color: #eee;
+	background-color: #eaeaea;
 	text-shadow: 0 1px 0 #eee;
 	-moz-user-select: none;  
 	-webkit-user-select: none;  
@@ -46,7 +46,7 @@ a.simple_btn {
 }
 
 a.simple_btn.highlight {
-  background-color: #f8f8f8;  
+  background-color: #fafafa;  
 }
 
 a.simple_btn:hover,
