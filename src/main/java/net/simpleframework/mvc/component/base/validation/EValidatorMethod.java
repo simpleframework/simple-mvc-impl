@@ -61,5 +61,7 @@ public enum EValidatorMethod {
 
 	phone,
 
-	mobile_phone
+	mobile_phone,
+
+	custom
 }
