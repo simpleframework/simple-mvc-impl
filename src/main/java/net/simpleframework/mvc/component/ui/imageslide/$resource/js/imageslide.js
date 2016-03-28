@@ -5,7 +5,7 @@ $UI.ImageSlide = Class.create({
 	initialize : function(container, datas, options) {
 		this.options = {
 			titleHeight : 35,
-			titleOpacity : 0.6,
+			titleOpacity : 0.7,
 			frequency : 4,
 			autoStart : true,
 			start : 0,

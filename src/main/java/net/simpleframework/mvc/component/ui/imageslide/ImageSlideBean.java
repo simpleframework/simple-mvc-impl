@@ -15,7 +15,7 @@ public class ImageSlideBean extends AbstractContainerBean {
 
 	private int titleHeight = BeanDefaults.getInt(getClass(), "titleHeight", 48);
 
-	private float titleOpacity = (float) BeanDefaults.getDouble(getClass(), "titleOpacity", 0.6);
+	private float titleOpacity = (float) BeanDefaults.getDouble(getClass(), "titleOpacity", 0.7);
 
 	private float frequency = (float) BeanDefaults.getDouble(getClass(), "frequency", 4);
 
