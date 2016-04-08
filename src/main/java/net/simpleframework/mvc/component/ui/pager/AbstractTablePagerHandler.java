@@ -338,7 +338,11 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 	@Override
 	public void export(final ComponentParameter cp, final EExportFileType filetype,
 			final TablePagerColumns columns) {
-		final IDataQuery<?> dQuery = createDataObjectQuery(cp);
+		doExport(cp, createDataObjectQuery(cp), filetype, columns);
+	}
+
+	protected void doExport(final ComponentParameter cp, final IDataQuery<?> dQuery,
+			final EExportFileType filetype, final TablePagerColumns columns) {
 		dQuery.setFetchSize(0);
 		final AbstractTablePagerSchema tablePagerSchema = getTablePagerSchema(cp);
 		try {
