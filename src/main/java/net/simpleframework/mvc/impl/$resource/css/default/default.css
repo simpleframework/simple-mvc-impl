@@ -120,6 +120,7 @@ a.simple_btn2 {
   -moz-user-select: none;  
 	-webkit-user-select: none;  
 	-ms-user-select: none; 
+	user-select: none;
 }
 
 a.simple_btn2_selected {
