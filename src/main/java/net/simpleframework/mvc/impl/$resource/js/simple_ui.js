@@ -634,6 +634,16 @@ Object.extend($UI, {
 });
 
 Object.extend($UI, {
+  disableBackspace : function() {
+    document.observe('keydown', function(ev) {
+      var code = (ev.which) ? ev.which : ev.keyCode;
+      if (code = Event.KEY_BACKSPACE) {
+        Event.stop(ev);
+        return false;
+      }
+    });
+  },
+  
   hackCheckbox: function(selector) {
     $Elements(selector).each(function(c) {
       c.select("input[type=checkbox]").invoke("observe", "click",
