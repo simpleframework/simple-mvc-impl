@@ -636,8 +636,15 @@ Object.extend($UI, {
 Object.extend($UI, {
   disableBackspace : function() {
     document.observe('keydown', function(ev) {
-      var code = (ev.which) ? ev.which : ev.keyCode;
-      if (code = Event.KEY_BACKSPACE) {
+      var code = (ev.which) ? ev.which : ev.keyCode;      
+      if (code == Event.KEY_BACKSPACE) {
+        var ele = Event.element(ev);       
+        if (Object.isElement(ele) && /input|textarea/i.test(ele.tagName)) {
+          var disabled = ele.disabled || ele.readOnly;
+          if (!disabled) {
+            return true;
+          }
+        }
         Event.stop(ev);
         return false;
       }
