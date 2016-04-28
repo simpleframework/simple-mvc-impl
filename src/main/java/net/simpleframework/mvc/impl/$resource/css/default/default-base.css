@@ -78,6 +78,13 @@ hr {
 
 table {
 	border: 0;
+	border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
 }
 
 a {
