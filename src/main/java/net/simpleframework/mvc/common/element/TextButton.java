@@ -64,7 +64,7 @@ public class TextButton extends AbstractInputElement<TextButton> {
 	protected String toInputHTML() {
 		final StringBuilder sb = new StringBuilder();
 		final InputElement hiddenField = getHiddenField();
-		if (hiddenField != null && !isReadonly()) {
+		if (hiddenField != null && isEditable()) {
 			addAttribute("onkeyup", "this.next().clear();");
 		}
 		sb.append(super.toString());
