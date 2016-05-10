@@ -6,7 +6,8 @@ import net.simpleframework.common.web.html.HtmlEncoder;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class TextButton extends AbstractInputElement<TextButton> {
@@ -15,6 +16,9 @@ public class TextButton extends AbstractInputElement<TextButton> {
 	 * 自动生成一个名字和id一样的隐藏域
 	 */
 	private InputElement hiddenField;
+
+	/* 第二个按钮 */
+	private String onclick2;
 
 	private boolean editable;
 
@@ -36,6 +40,15 @@ public class TextButton extends AbstractInputElement<TextButton> {
 
 	public TextButton setHiddenField(final String hiddenField) {
 		this.hiddenField = InputElement.hidden(hiddenField);
+		return this;
+	}
+
+	public String getOnclick2() {
+		return onclick2;
+	}
+
+	public TextButton setOnclick2(final String onclick2) {
+		this.onclick2 = onclick2;
 		return this;
 	}
 
@@ -74,20 +87,27 @@ public class TextButton extends AbstractInputElement<TextButton> {
 		return sb.toString();
 	}
 
+	protected String toSbtnHTML(final String onclick) {
+		final StringBuilder sb = new StringBuilder();
+		if (StringUtils.hasText(onclick)) {
+			sb.append("<div class='sbtn' onclick=\"");
+			sb.append(HtmlEncoder.text(onclick)).append("\"></div>");
+		}
+		return sb.toString();
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("<div class='text text_button'>");
-		sb.append(" <div class='d1'>");
-		sb.append("  <div class='d2'>").append(toInputHTML()).append("</div>");
+		final int w = StringUtils.hasText(getOnclick2()) ? 42 : 21;
+		sb.append(" <div class='d1' style='margin-right: -").append(w).append("px;'>");
+		sb.append("  <div class='d2' style='margin-right: ").append(w).append("px;'>")
+				.append(toInputHTML()).append("</div>");
 		sb.append(" </div>");
 		if (!isReadonly()) {
-			sb.append("<div class='sbtn'");
-			final String onclick = getOnclick();
-			if (StringUtils.hasText(onclick)) {
-				sb.append(" onclick=\"").append(HtmlEncoder.text(onclick)).append("\"");
-			}
-			sb.append("></div>");
+			sb.append(toSbtnHTML(getOnclick()));
+			sb.append(toSbtnHTML(getOnclick2()));
 		}
 		sb.append("</div>");
 		return sb.toString();

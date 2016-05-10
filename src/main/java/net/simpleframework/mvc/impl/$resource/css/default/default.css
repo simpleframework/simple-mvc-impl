@@ -822,12 +822,12 @@ ul.simple_tabs.vertical a.active {
 
 .text_button .d1 {
 	float: left;
-	margin: 0 -20px 0 0;
+	margin: 0;
 	width: 100%;
 }
 
 .text_button .d2 {
-	margin: 0px 20px 0 0;
+	margin: 0;
 }
 
 .text_file_button {
