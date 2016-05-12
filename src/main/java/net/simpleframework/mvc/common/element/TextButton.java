@@ -99,7 +99,11 @@ public class TextButton extends AbstractInputElement<TextButton> {
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder();
-		sb.append("<div class='text text_button'>");
+		sb.append("<div class='text text_button'");
+		if (isAutoRows()) {
+			sb.append(" style='display: block;'");
+		}
+		sb.append(">");
 		final int w = StringUtils.hasText(getOnclick2()) ? 42 : 21;
 		sb.append(" <div class='d1' style='margin-right: -").append(w).append("px;'>");
 		sb.append("  <div class='d2' style='margin-right: ").append(w).append("px;'>")
