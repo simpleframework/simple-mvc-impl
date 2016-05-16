@@ -6,7 +6,6 @@ import java.util.Map;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.JavascriptUtils;
 import net.simpleframework.common.web.html.HtmlConst;
-import net.simpleframework.common.web.html.HtmlEncoder;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -62,12 +61,8 @@ public class DictMultiSelectInput extends DictInput {
 		}
 		sb.append(val);
 		if (!readonly) {
-			sb.append("<span class='sbtn'");
-			final String onclick = getOnclick();
-			if (StringUtils.hasText(onclick)) {
-				sb.append(" onclick=\"").append(HtmlEncoder.text(onclick)).append("\"");
-			}
-			sb.append("></span>");
+			sb.append(toSbtnHTML(getOnclick()));
+			sb.append(toSbtnHTML(getOnclick2()));
 		}
 		sb.append("</div>");
 		sb.append(HtmlConst.TAG_SCRIPT_START);
