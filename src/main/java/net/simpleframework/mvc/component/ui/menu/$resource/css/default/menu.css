@@ -25,6 +25,7 @@
 }
 
 .menu {
+	text-align: left;
 	cursor: default;
 	position: absolute;
 }
