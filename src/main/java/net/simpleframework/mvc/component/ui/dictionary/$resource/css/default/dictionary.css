@@ -7,7 +7,7 @@
 .dictionary .tree {
   overflow: auto;
   position: relative;
-  padding: 4px 0;
+  padding: 4px;
 }
 
 .dictionary .okcancel {
