@@ -76,7 +76,8 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 	protected TablePagerBean addTablePagerBean(final PageParameter pp, final String name,
 			final Class<? extends ITablePagerHandler> tblClass) {
 		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp, name,
-				TablePagerBean.class).setResize(false).setPageItems(30).setRole(getPageRole(pp));
+				TablePagerBean.class).setResize(false).setPageItems(30).setRole(getPageRole(pp))
+				.setExportAction("false");
 		if (tblClass != null) {
 			tablePager.setHandlerClass(tblClass);
 		}
