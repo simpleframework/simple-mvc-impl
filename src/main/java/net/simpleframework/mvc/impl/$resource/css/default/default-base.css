@@ -248,6 +248,13 @@ button:hover {
 	transition: all 0.4s;
 }
 
+input[type=button]:focus,
+input[type=submit]:focus,
+input[type=reset]:focus,
+button:focus {
+  outline: none;
+}
+
 .button2 {
 	background-color: #38b !important;
 	border-color: #169 !important;
