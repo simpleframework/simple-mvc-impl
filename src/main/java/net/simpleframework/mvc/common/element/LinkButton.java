@@ -13,6 +13,10 @@ public class LinkButton extends AbstractButtonEx<LinkButton> {
 		return new LinkButton(text);
 	}
 
+	public static LinkButton BLANK(final Object text) {
+		return new LinkButton(text).setTarget("_blank");
+	}
+
 	public static final LinkButton okBtn() {
 		return of($m("Button.Ok"));
 	}
