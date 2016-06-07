@@ -20,6 +20,9 @@ public class TextButton extends AbstractInputElement<TextButton> {
 	/* 第二个按钮 */
 	private String onclick2;
 
+	/* 第三个按钮 */
+	private String onclick3;
+
 	private boolean editable;
 
 	public TextButton() {
@@ -49,6 +52,15 @@ public class TextButton extends AbstractInputElement<TextButton> {
 
 	public TextButton setOnclick2(final String onclick2) {
 		this.onclick2 = onclick2;
+		return this;
+	}
+
+	public String getOnclick3() {
+		return onclick3;
+	}
+
+	public TextButton setOnclick3(final String onclick3) {
+		this.onclick3 = onclick3;
 		return this;
 	}
 
@@ -104,7 +116,13 @@ public class TextButton extends AbstractInputElement<TextButton> {
 			sb.append(" style='display: block;'");
 		}
 		sb.append(">");
-		final int w = StringUtils.hasText(getOnclick2()) ? 42 : 21;
+		int w = 21;
+		if (StringUtils.hasText(getOnclick2())) {
+			w = 42;
+			if (StringUtils.hasText(getOnclick3())) {
+				w = 63;
+			}
+		}
 		sb.append(" <div class='d1' style='margin-right: -").append(w).append("px;'>");
 		sb.append("  <div class='d2' style='margin-right: ").append(w).append("px;'>")
 				.append(toInputHTML()).append("</div>");
@@ -112,6 +130,7 @@ public class TextButton extends AbstractInputElement<TextButton> {
 		if (!isReadonly()) {
 			sb.append(toSbtnHTML(getOnclick()));
 			sb.append(toSbtnHTML(getOnclick2()));
+			sb.append(toSbtnHTML(getOnclick3()));
 		}
 		sb.append("</div>");
 		return sb.toString();
