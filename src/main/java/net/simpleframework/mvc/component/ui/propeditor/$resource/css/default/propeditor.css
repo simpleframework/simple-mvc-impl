@@ -80,3 +80,7 @@
   background-image: none;
   background-color: transparent;
 }
+
+.formeditor .text_button.text_comp .d1 {
+  margin-right: -21px;
+}
