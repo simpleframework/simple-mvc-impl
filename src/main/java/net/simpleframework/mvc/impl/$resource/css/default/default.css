@@ -466,6 +466,12 @@ img.photo_icon {
 	box-shadow: 0 0 0;
 }
 
+.form_tbl .v .cke_contents {
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
 .form_tbl .text_button .sbtn {
 	margin-top: 2px;
 }
