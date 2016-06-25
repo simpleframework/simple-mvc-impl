@@ -1139,8 +1139,8 @@ UI.WindowManager = Class.create(UI.Options, {
 
 			if (!this.modalOverlay.opacity)
 				this.modalOverlay.opacity = this.modalOverlay.getOpacity();
-			this.modalOverlay.setStyle("height: " + 
-					document.viewport.getScrollDimensions().height + "px");
+//			this.modalOverlay.setStyle("height: " + 
+//					document.viewport.getScrollDimensions().height + "px");
 			
 			this.modalOverlay.show();
 		}
@@ -1273,15 +1273,13 @@ UI.WindowManager = Class.create(UI.Options, {
 	getLastZIndex : function() {
 		return this.stack.getFrontWindow().lastZIndex + 1;
 	},
-
-	overlayStyle : "position: absolute; top: 0; left: 0; display: none; width: 100%;",
-
+	
 	createOverlays : function() {
 		this.modalOverlay = new Element("div", {
-			style : this.overlayStyle
+			style : "position: fixed; top: 0; bottom: 0; left: 0; right: 0; width: 100%; height: 100%; display: none;"
 		});
 		this.dragOverlay = new Element("div", {
-			style : this.overlayStyle + "height: 100%"
+			style : "position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none;"
 		});
 	},
 
@@ -1327,8 +1325,8 @@ UI.WindowManager = Class.create(UI.Options, {
 		if (this.maximizedWindow)
 			this.maximizedWindow.setSize(area.width, area.height);
 
-		if (this.modalOverlay.visible())
-			this.modalOverlay.setStyle("height:" + area.height + "px");
+//		if (this.modalOverlay.visible())
+//			this.modalOverlay.setStyle("height:" + area.height + "px");
 	},
 
 	handlePosition : function(win) {
