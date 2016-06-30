@@ -343,7 +343,11 @@ public abstract class TablePagerHTML implements HtmlConst {
 				sb.append("<td class=\"cb\">");
 				if (rowAttributes != null) {
 					sb.append("<input type=\"checkbox\" value=\"");
-					sb.append(rowAttributes.get(AbstractTablePagerSchema.ROW_ID)).append("\" />");
+					sb.append(rowAttributes.get(AbstractTablePagerSchema.ROW_ID)).append("\"");
+					if (Convert.toBool(rowData.get("checkVal"))) {
+						sb.append(" checked");
+					}
+					sb.append(" />");
 				}
 				sb.append("</td>");
 			}
