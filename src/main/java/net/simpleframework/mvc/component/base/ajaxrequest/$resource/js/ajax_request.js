@@ -102,10 +102,10 @@ var $Loading = {
 
 function __ajax_actions_init(actionFunc, name) {
 	var triggerAct = function(disabled) {
-		if (!window.trigger) {
+		if (!actionFunc.trigger) {
 			return;
 		}
-		window.trigger.disabled = disabled;
+		actionFunc.trigger.disabled = disabled;
 	};
 	
 	actionFunc.doInit = function(containerId, confirmMessage, parallel,
@@ -114,7 +114,7 @@ function __ajax_actions_init(actionFunc, name) {
 		if (ev) {
       var element = Event.element(ev); 
       if (element && Object.isElement(element))
-        window.trigger = element;
+        actionFunc.trigger = element;
     }
 		
 		var c = actionFunc._container = $(actionFunc.container || containerId);	
@@ -171,7 +171,7 @@ function __ajax_actions_init(actionFunc, name) {
 				} else {
 					actionFunc.__callback(req, responseText, json, trigger);
 				}
-			}).defer(req, rt, rt.isJSON() ? rt.evalJSON() : {}, window.trigger);
+			}).defer(req, rt, rt.isJSON() ? rt.evalJSON() : {}, actionFunc.trigger);
 		} finally {
 			actionFunc.doLoaded(req);
 		}
@@ -181,7 +181,7 @@ function __ajax_actions_init(actionFunc, name) {
 		$Loading.hide();
 		actionFunc.loading = false;
 		if (actionFunc.disabledTriggerAction) {
-			triggerAct();
+		  setTimeout(triggerAct, 500);
 		}
 	};
 }
