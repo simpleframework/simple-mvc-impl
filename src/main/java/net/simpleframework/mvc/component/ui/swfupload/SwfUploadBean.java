@@ -26,7 +26,7 @@ public class SwfUploadBean extends AbstractContainerBean {
 	private boolean multiFileSelected = BeanDefaults.getBool(getClass(), "multiFileSelected", false);
 
 	/* 上传按钮的宽度 */
-	private int btnWidth = BeanDefaults.getInt(getClass(), "btnWidth", 74);
+	private int btnWidth = BeanDefaults.getInt(getClass(), "btnWidth", 75);
 	/* 上传按钮的高度 */
 	private int btnHeight = BeanDefaults.getInt(getClass(), "btnHeight", 24);
 
