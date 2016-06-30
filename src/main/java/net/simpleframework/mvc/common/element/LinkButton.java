@@ -14,7 +14,7 @@ public class LinkButton extends AbstractButtonEx<LinkButton> {
 	}
 
 	public static LinkButton BLANK(final Object text) {
-		return new LinkButton(text).setTarget("_blank");
+		return new LinkButton(text).blank();
 	}
 
 	public static final LinkButton okBtn() {
