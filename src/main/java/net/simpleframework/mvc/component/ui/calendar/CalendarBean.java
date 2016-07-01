@@ -22,6 +22,9 @@ public class CalendarBean extends AbstractContainerBean {
 
 	private boolean clearButton = BeanDefaults.getBool(getClass(), "clearButton", true);
 
+	/* onchange */
+	private String jsChangeCallback;
+	/* 选择事件 */
 	private String jsCloseCallback;
 
 	public String getInputField() {
@@ -60,6 +63,15 @@ public class CalendarBean extends AbstractContainerBean {
 		return this;
 	}
 
+	public String getJsChangeCallback() {
+		return jsChangeCallback;
+	}
+
+	public CalendarBean setJsChangeCallback(final String jsChangeCallback) {
+		this.jsChangeCallback = jsChangeCallback;
+		return this;
+	}
+
 	public String getJsCloseCallback() {
 		return jsCloseCallback;
 	}
@@ -71,6 +83,6 @@ public class CalendarBean extends AbstractContainerBean {
 
 	@Override
 	protected String[] elementAttributes() {
-		return new String[] { "jsCloseCallback" };
+		return new String[] { "jsChangeCallback", "jsCloseCallback" };
 	}
 }

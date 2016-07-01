@@ -18,7 +18,6 @@ public class CalendarRender extends ComponentJavascriptRender {
 		final StringBuilder sb = new StringBuilder();
 		final String actionFunc = ComponentRenderUtils.actionFunc(cp);
 		sb.append(actionFunc).append(".calendar = new CalendarDateSelect({");
-
 		final String dateFormat = (String) cp.getBeanProperty("dateFormat");
 		if (StringUtils.hasText(dateFormat)) {
 			sb.append("dateFormat: \"").append(dateFormat).append("\",");
@@ -27,6 +26,12 @@ public class CalendarRender extends ComponentJavascriptRender {
 		if (StringUtils.hasText(jsCloseCallback)) {
 			sb.append("onclose: function(date) {");
 			sb.append(jsCloseCallback);
+			sb.append("},");
+		}
+		final String jsChangeCallback = (String) cp.getBeanProperty("jsChangeCallback");
+		if (StringUtils.hasText(jsChangeCallback)) {
+			sb.append("onchange: function() {");
+			sb.append(jsChangeCallback);
 			sb.append("},");
 		}
 		sb.append("showTime: ").append(cp.getBeanProperty("showTime")).append(",");
