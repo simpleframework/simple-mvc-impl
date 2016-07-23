@@ -20,48 +20,54 @@ public class SliderBean extends AbstractContainerBean {
 		return xminValue;
 	}
 
-	public void setXminValue(final int xminValue) {
+	public SliderBean setXminValue(final int xminValue) {
 		this.xminValue = xminValue;
+		return this;
 	}
 
 	public int getXmaxValue() {
 		return xmaxValue;
 	}
 
-	public void setXmaxValue(final int xmaxValue) {
+	public SliderBean setXmaxValue(final int xmaxValue) {
 		this.xmaxValue = xmaxValue;
+		return this;
 	}
 
 	public int getYminValue() {
 		return yminValue;
 	}
 
-	public void setYminValue(final int yminValue) {
+	public SliderBean setYminValue(final int yminValue) {
 		this.yminValue = yminValue;
+		return this;
 	}
 
 	public int getYmaxValue() {
 		return ymaxValue;
 	}
 
-	public void setYmaxValue(final int ymaxValue) {
+	public SliderBean setYmaxValue(final int ymaxValue) {
 		this.ymaxValue = ymaxValue;
+		return this;
 	}
 
 	public String getArrowImage() {
 		return arrowImage;
 	}
 
-	public void setArrowImage(final String arrowImage) {
+	public SliderBean setArrowImage(final String arrowImage) {
 		this.arrowImage = arrowImage;
+		return this;
 	}
 
 	public String getJsChangeCallback() {
 		return jsChangeCallback;
 	}
 
-	public void setJsChangeCallback(final String jsChangeCallback) {
+	public SliderBean setJsChangeCallback(final String jsChangeCallback) {
 		this.jsChangeCallback = jsChangeCallback;
+		return this;
 	}
 
 	@Override
