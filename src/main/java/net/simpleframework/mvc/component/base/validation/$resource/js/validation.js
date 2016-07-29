@@ -300,8 +300,8 @@ Validation.prototype = {
 						    $Effect.shake(ele.insertAfter);
             }
 						
-						var pos = Element.cumulativeOffset(ele);
-            window.scrollTo(pos.left, Math.max(pos.top - 50, 0));
+//						var pos = Element.cumulativeOffset(ele);
+//            window.scrollTo(pos.left, Math.max(pos.top - 50, 0));
 						if (ele.htmlEditor) {
 							ele.htmlEditor.focus();
 						} else {
