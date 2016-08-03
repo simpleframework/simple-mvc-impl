@@ -21,10 +21,10 @@
   _zoom: 1;
   z-index: 10;
   background-color: #f4f4f4;
-  background-image: -webkit-linear-gradient(top, #eee, #f4f4f4, #eee);
-  background-image: -moz-linear-gradient(top, #eee, #f4f4f4, #eee);
-  background-image: -ms-linear-gradient(top, #eee, #f4f4f4, #eee);
-  background-image: linear-gradient(to bottom, #eee, #f4f4f4, #eee);
+  background-image: -webkit-linear-gradient(top, #f2f2f2, #f9f9f9, #f2f2f2);
+  background-image: -moz-linear-gradient(top, #f2f2f2, #f9f9f9, #f2f2f2);
+  background-image: -ms-linear-gradient(top, #f2f2f2, #f9f9f9, #f2f2f2);
+  background-image: linear-gradient(to bottom, #f2f2f2, #f9f9f9, #f2f2f2);
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
