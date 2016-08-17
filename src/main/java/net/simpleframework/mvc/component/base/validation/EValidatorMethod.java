@@ -63,5 +63,7 @@ public enum EValidatorMethod {
 
 	mobile_phone,
 
+	idcard,
+
 	custom
 }
