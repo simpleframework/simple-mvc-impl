@@ -2,16 +2,17 @@ package net.simpleframework.mvc.component.ui.listbox;
 
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.component.AbstractComponentBean;
-import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComponentResourceProvider;
+import net.simpleframework.mvc.component.ui.AbstractComponentUIResourceProvider;
 import net.simpleframework.mvc.component.ui.tooltip.TooltipRegistry;
 
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public class ListboxResourceProvider extends AbstractComponentResourceProvider {
+public class ListboxResourceProvider extends AbstractComponentUIResourceProvider {
 
 	@Override
 	public String[] getDependentComponents(final PageParameter pp) {
@@ -29,11 +30,6 @@ public class ListboxResourceProvider extends AbstractComponentResourceProvider {
 		} else {
 			return null;
 		}
-	}
-
-	@Override
-	public String[] getCssPath(final PageParameter pp) {
-		return new String[] { getCssResourceHomePath(pp) + "/listbox.css" };
 	}
 
 	@Override

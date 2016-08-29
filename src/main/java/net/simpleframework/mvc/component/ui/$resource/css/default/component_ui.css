@@ -1,3 +1,148 @@
+/************************listbox***************************/
+.listbox {
+	overflow-y: auto;
+	position: relative;
+}
+
+.listbox .item {
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+	padding: 5px 8px;
+}
+
+.listbox .item:hover {
+	background: #DFEEF3;
+}
+
+.listbox .odd {
+	background: #fefefe;
+}
+
+.listbox .even {
+	background: #f9f9f9;
+}
+
+.listbox .checked {
+	background: #FFF8C2;
+}
+
+.listbox .select {
+	background: #DFEEF3;
+}
+
+.listbox .item .uncheck {
+	width: 16px;
+	height: 16px;
+	padding: 0px;
+	margin: 0px;
+	background: transparent url(images/listbox/check1.gif) no-repeat;
+}
+
+.listbox .item .uncheck:hover {
+	background: transparent url(images/listbox/check_over1.gif) no-repeat;
+}
+
+.listbox .item .check {
+	width: 16px;
+	height: 16px;
+	padding: 0px;
+	margin: 0px;
+	background: transparent url(images/listbox/check2.gif) no-repeat;
+}
+
+.listbox .item .check:hover {
+	background: transparent url(images/listbox/check_over2.gif) no-repeat;
+}
+
+/************************formeditor***************************/
+.formeditor {
+  table-layout: fixed;
+  border: 1px solid #ddd;
+}
+
+.formeditor .validation_insertAfter {
+  margin: 0 0 2px 2px;
+}
+
+.formeditor_title {
+  background: #eee url(images/formeditor/dot.png) no-repeat 4px 50%;
+  position: relative;
+  margin-bottom: 1px;
+  border: 1px solid #aaa;
+  height: 19px;
+  line-height: 19px;
+  padding: 2px 6px 2px 18px;
+}
+
+.formeditor_title .fe_expand {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+}
+
+.formeditor input,
+.formeditor textarea {
+  margin-left: 2px;
+}
+
+.formeditor .fe_row {
+  border-top: 3px double #e9e9e9;
+}
+
+.formeditor .fe_firstrow {
+  border-top: 0px !important;
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-radius-topleft: 5px;
+  border-top-left-radius: 5px;
+}
+
+.formeditor .fe_lastrow {
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-radius-bottomleft: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.formeditor .fe_label {
+  border-right: 1px solid #ddd;
+  text-align: right;
+  color: #BE5106;
+  padding: 6px;
+  background-color: #f9f9f9;
+  letter-spacing: 1px;
+}
+
+.formeditor .fe_value {
+  padding: 2px;
+  background-color: #fff;
+}
+
+.formeditor .fe_value div {
+  color: #666;
+}
+
+.formeditor .text_comp {
+  border: 0px;
+  background-color: transparent;
+  background-image: none;
+}
+
+.formeditor input.text_comp {
+  width: 98%;
+}
+
+.formeditor textarea.text_comp {
+  width: 96%;
+}
+
+.formeditor .text_comp input {
+  background-image: none;
+  background-color: transparent;
+}
+
+.formeditor .text_button.text_comp .d1 {
+  margin-right: -21px;
+}
+
 /************************progressbar***************************/
 .progressbar {
 	padding: 0;
