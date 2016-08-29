@@ -14,7 +14,7 @@ public class TablePagerResourceProvider extends PagerResourceProvider {
 	@Override
 	public String[] getCssPath(final PageParameter pp) {
 		return ArrayUtils.add(super.getCssPath(pp),
-				getCssResourceHomePath(pp, TablePagerResourceProvider.class) + "/tablepager.css");
+				getCssResourceHomePath(pp, TablePagerResourceProvider.class) + "/pager.css");
 	}
 
 	@Override

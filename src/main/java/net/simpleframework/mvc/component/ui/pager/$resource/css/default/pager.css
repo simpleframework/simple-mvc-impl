@@ -146,3 +146,442 @@
 	*display: inline;
 	*zoom: 1;
 }
+
+/**************************************tablepager***************************************/
+.tablepager {
+  background-color: transparent;
+  margin: 0;
+}
+
+.tablepager .icon12 {
+  -moz-border-radius: 14px;
+  -webkit-border-radius: 14px;
+  border-radius: 14px;
+}
+
+.tablepager input[type=checkbox] {
+  vertical-align: middle;
+}
+
+.tablepager .thead {
+  position: relative; /* for scroll */
+  *position: static;
+  border: 1px solid #bbb;
+  overflow: hidden;
+  _zoom: 1;
+  z-index: 10;
+  background-color: #f4f4f4;
+  background-image: -webkit-linear-gradient(top, #f2f2f2, #f9f9f9, #f2f2f2);
+  background-image: -moz-linear-gradient(top, #f2f2f2, #f9f9f9, #f2f2f2);
+  background-image: -ms-linear-gradient(top, #f2f2f2, #f9f9f9, #f2f2f2);
+  background-image: linear-gradient(to bottom, #f2f2f2, #f9f9f9, #f2f2f2);
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.tablepager .thead .add {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 2px;
+  left: 2px;
+  cursor: pointer;
+  background: url(images/add.png) no-repeat 0 0;
+}
+
+.tablepager .thead .add:hover {
+  -webkit-box-shadow: 0 0 2px #666;
+  -webkit-moz-shadow: 0 0 2px #666;
+  box-shadow: 0 0 2px #666;
+}
+
+.tablepager .thead td {
+  padding: 0 3px;
+  border-left: 1px solid transparent;
+  height: 100%;
+  text-shadow: 0 1px 0 #eee;
+  text-align: center;
+  font-size: 9.5pt;
+}
+
+.tablepager .thead td a:HOVER {
+  text-decoration: none;
+}
+
+.tablepager .thead .lbl {
+  padding: 8px 0;
+  overflow: hidden;
+}
+
+.tablepager .thead .sep {
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #fff;
+  height: 100%;
+  position: absolute;
+  left: -4px;
+  top: 0;
+}
+
+.tablepager .thead .box,
+.tablepager .tfilter .box {
+  position: relative;
+}
+
+.tablepager .tfilter .image_filter,
+.tablepager .tfilter .del {
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: -4px;
+  top: 9px;
+  display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.tablepager .tfilter .image_filter {
+  background: url("images/filter.png") no-repeat;
+}
+
+.tablepager .tfilter .del {
+  background: url("images/delete.png") no-repeat;
+}
+
+.tablepager .tfilter {
+  border: 1px solid #ccc;
+  margin-top: -1px;
+  overflow-x: hidden;
+  background-color: #fafafa;
+}
+
+.tablepager .tfilter td {
+  padding-right: 6px;
+  border-left: 1px solid transparent;
+}
+
+.tablepager .tfilter input {
+  height: 22px;
+  line-height: 22px;
+  width: 85%;
+  margin: 2px 0;
+  border: 0;
+  background-image: none;
+  background-color: transparent !important;
+  padding-left: 6px;
+}
+
+.tablepager .tfilter select {
+  width: auto;
+  margin: 2px 0 2px 4px;
+}
+
+.tablepager .rowedit {
+  padding: 4px 0 4px 15px;
+  border: 1px solid #ccc;
+  border-top: 0;
+  background-color: #ffd;
+  text-align: left;
+}
+
+.tablepager .tbody {
+  overflow: auto;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background: #fff;
+  height: 100%; /* ie9 bug */
+}
+
+.tablepager .titem {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;  
+  width: 100%;
+  display: table;
+  border-spacing: 0;
+  position: relative;
+  _zoom: 1;
+}
+
+.tablepager .titem.even {
+  background-color: #fcfcff;
+}
+
+.tablepager .tdetail {
+  line-height: 1.8;
+  padding: 4px;
+  text-align: left;
+}
+
+.tablepager .titem.even:hover,
+.tablepager .titem:hover {
+  -moz-transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  transition: background-color 0.5s;  
+}
+
+.tablepager .titem:hover {
+  background-color: #fdfdff;
+}
+
+.tablepager .titem.even:hover {  
+  background-color: #fafaff;
+}
+
+.tablepager .titem input[type=text] {
+  height: 20px;
+  vertical-align: middle;
+  width: 95%;
+}
+
+.tablepager .titem select {
+  height: 24px;
+  width: 98%;
+  vertical-align: middle;
+}
+
+.tablepager .titem_selected {
+  background-color: #eed !important;
+}
+
+.tablepager .itr>td {
+  padding: 6px 3px;
+  border-left: 1px solid transparent;
+  _border-color: #fff; /* ie6 */
+}
+
+.tablepager .itr>td .lbl {
+  padding: 1px 0;
+}
+
+.tablepager .itr>.vline {
+  border-color: #ddd;
+}
+
+.tablepager .thead td.rownum,
+.tablepager .itr>.rownum {
+  color: #598C06;
+  word-wrap: normal;
+  padding-right: 0;
+  padding-left: 0;
+  text-align: center;
+  font-family: candara;
+}
+
+.tablepager .tfilter td.rownum {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.tablepager .itr>.rownum .del {
+  width: 12px;
+  height: 12px;
+  background: url("images/delete_row.png") no-repeat;
+  margin-top: 6px;
+  cursor: pointer;
+  display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.tablepager .thead .cb,
+.tablepager .tfilter .cb,
+.tablepager .itr>.cb {
+  text-align: center;
+  width: 21px;
+}
+
+.tablepager .thead .plus,
+.tablepager .tfilter .plus,
+.tablepager .itr>.plus {
+  width: 9px;
+}
+
+.tablepager .itr>.plus>img {
+  vertical-align: middle;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 2px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .tablepager .thead .cb,
+  .tablepager .tfilter .cb,
+  .tablepager .itr>.cb {
+    width: 28px;
+  }
+}
+
+.tablepager .hsep {
+  border-top: 1px dashed #ccc;
+  margin-top: 6px;
+  padding-top: 6px;
+}
+
+.tablepager .image_top,
+.tablepager .image_vote,
+.tablepager .image_attach,
+.tablepager .image_pic,
+.tablepager .image_star,
+.tablepager .image_star1,
+.tablepager .image_star2,
+.tablepager .image_star3,
+.tablepager .image_star4,
+.tablepager .image_star5 {
+  margin-left: 4px;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.tablepager .new_gif_image {
+  margin-left: 4px;
+}
+
+.tablepager .image_top {
+  background: url("images/top.png") no-repeat;
+}
+
+.tablepager .image_vote {
+  background: url(images/vote.gif) no-repeat;
+}
+
+.tablepager .image_attach {
+  background: url(images/attach.png) no-repeat;
+}
+
+.tablepager .image_pic {
+  background: url(images/pic.gif) no-repeat;
+}
+
+.tablepager .image_star {
+  background: url("images/star.png") no-repeat;
+}
+
+.tablepager .image_star1 {
+  background: url("images/star_1.png") no-repeat;
+}
+
+.tablepager .image_star2 {
+  background: url("images/star_2.png") no-repeat;
+}
+
+.tablepager .image_star3 {
+  background: url("images/star_3.png") no-repeat;
+}
+
+.tablepager .image_star4 {
+  background: url("images/star_4.png") no-repeat;
+}
+
+.tablepager .image_star5 {
+  background: url("images/star_5.png") no-repeat;
+}
+
+.tablepager .group_t {
+  padding: 6px 3px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f4f4f4;
+}
+
+.tablepager .group_t .t {
+  text-align: left;
+  color: #c66;
+  font-size: 9.5pt;
+}
+
+.tablepager .group_t .toggle {
+  width: 16px;
+  cursor: pointer;
+}
+
+.tablepager .group_t .toggle img {
+}
+
+.tablepager .group_t .toggle div {
+  background: url(images/expand.png) no-repeat center center;
+  height: 16px;
+  width: 16px;
+}
+
+.filter_window {
+  padding: 12px !important;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #aaa;
+}
+
+.filter_window .b {
+  text-align: right; 
+  margin-top: 6px;
+}
+
+.filter_window input[type=text] {
+  border-color: #999;
+  height: 17px;
+  padding: 3px;
+  width: 98%;
+}
+
+.tablepager_export .pbar  {
+  background-color: #eee;
+  margin-bottom: 8px;
+  padding: 8px;
+}
+
+.tablepager_export label {
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+#tablepager_export_pbar {
+  margin: 10px 3px;
+}
+
+.tablepager_export .lbl {
+  text-align: center;
+  color: #C63B08;
+}
+
+.tablepager_export .all {
+  border-bottom: 3px double #ccc;
+  padding: 10px
+}
+
+.tablepager_export table.cols {
+  width: 100%; 
+  border-collapse: separate; 
+  border-spacing: 10px;
+}
+
+.tablepager .thead,
+.pager .pager_block_top,
+.pager .pager_block_bottom {
+  -moz-box-shadow: 1px 1px 0 #fff inset;
+  -webkit-box-shadow: 1px 1px 0 #fff inset;
+  box-shadow: 1px 1px 0 #fff inset;
+}
+
+.pager .pager_block_top,
+.pager .pager_block_bottom {
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.pager .pager_block_top {
+  border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  margin-bottom: -1px;
+}
+
+.pager .pager_block_bottom {
+  margin-top: -1px;
+  border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0 0 4px 4px;
+}
