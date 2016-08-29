@@ -3,7 +3,7 @@ package net.simpleframework.mvc.component.ui.dictionary;
 import net.simpleframework.common.coll.ArrayUtils;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.component.AbstractComponentBean;
-import net.simpleframework.mvc.component.IComponentResourceProvider.AbstractComponentResourceProvider;
+import net.simpleframework.mvc.component.ui.AbstractComponentUIResourceProvider;
 import net.simpleframework.mvc.component.ui.dictionary.DictionaryBean.AbstractDictionaryTypeBean;
 import net.simpleframework.mvc.component.ui.dictionary.DictionaryBean.DictionaryListBean;
 import net.simpleframework.mvc.component.ui.dictionary.DictionaryBean.DictionaryTreeBean;
@@ -15,10 +15,11 @@ import net.simpleframework.mvc.component.ui.window.WindowRegistry;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public class DictionaryResourceProvider extends AbstractComponentResourceProvider {
+public class DictionaryResourceProvider extends AbstractComponentUIResourceProvider {
 
 	@Override
 	public String[] getDependentComponents(final PageParameter pp) {
@@ -48,10 +49,5 @@ public class DictionaryResourceProvider extends AbstractComponentResourceProvide
 			arr = ArrayUtils.add(arr, TooltipRegistry.TOOLTIP);
 		}
 		return arr;
-	}
-
-	@Override
-	public String[] getCssPath(final PageParameter pp) {
-		return new String[] { getCssResourceHomePath(pp, DictionaryBean.class) + "/dictionary.css" };
 	}
 }

@@ -1,0 +1,276 @@
+/************************progressbar***************************/
+.progressbar {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	background-color: #5be; 
+	width: 100%;
+	height: 100%;
+	-moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+	/*
+	-webkit-box-shadow: 2px 2px 4px #A8C7D4;
+	-moz-box-shadow: 2px 2px 4px #A8C7D4;
+	box-shadow: 2px 2px 4px #A8C7D4;
+	*/
+}
+
+.progressbar .bg {
+	height: 100%;
+	top: 0px;
+	position: absolute;
+	background-color: #fcfcfc;
+}
+
+.progressbar .pb_text {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	position: absolute;
+	color: #555;
+	-moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.progressbar .btn {
+	background: url(images/progress/progress_bg.png);
+	width: 10px;
+	height: 100%;
+	right: 0px;
+	position: absolute;
+	border-left: 1px solid #b0b0b0;
+	cursor: pointer;
+}
+
+.progressbar .btn:hover {
+	background: url(images/progress/progress_bg_focus.png);
+}
+
+.progressbar_detail {
+	border-left: 1px solid #b0b0b0;
+	border-right: 1px solid #b0b0b0;
+	border-bottom: 1px solid #b0b0b0;
+	background-color: #f9f9f9;
+	position: relative; 
+	width: 100%;
+	*overflow: auto;
+}
+
+.progressbar_detail .content {
+	padding: 6px 18px 6px 32px;
+	overflow: auto;
+}
+
+.progressbar_detail .menu {
+	position: absolute;
+	background: url(images/progress/menu.png) no-repeat;
+	top: 4px;
+	left: 8px;
+	height: 16px;
+	width: 16px;
+	cursor: pointer;
+	z-index: 200;
+}
+
+.progressbar_detail .msg {
+	border-bottom: 1px dashed #bbb;
+	padding: 12px 4px 4px 26px;
+}
+
+.progressbar_detail .msg.m1 {
+	background: url(images/progress/m2.png) no-repeat 4px 10px;
+}
+
+/************************dictionary***************************/
+.dictionary .toptb {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #aaa;
+  padding: 3px;
+}
+
+.dictionary .tree {
+  overflow: auto;
+  position: relative;
+  padding: 4px;
+}
+
+.dictionary .okcancel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #aaa;
+  background: #f4f4f4;
+  padding: 8px;
+}
+
+div.color_block {
+  float: left;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  padding: 1px;
+  border: 1px dashed #ddd;
+}
+
+.dictionary_smiley {
+  text-align: center;
+  padding-top: 5px;
+}
+
+.dictionary_smiley img {
+  cursor: pointer;
+  border: 1px solid #aaa;
+  margin: 0 1px;
+}
+
+.dictionary_smiley img:hover {
+  border-color: #444;
+  background: #f1f1f1;
+}
+
+.dictionary_font {
+  margin-bottom: 6px;
+}
+
+.dictionary_font .formeditor {
+  border: 0;
+}
+
+.dictionary_font .okcancel {
+  border-top: 1px solid #bbb;
+  padding: 20px 6px 0;
+}
+
+/************************Autocomplete***************************/
+.Autocomplete {
+  overflow: auto;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  position: absolute;
+  z-index: 10000;
+}
+
+.Autocomplete ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.Autocomplete ul li {
+  line-height: 24px;
+  padding: 3px 6px;
+}
+
+.Autocomplete ul .selected {
+  background-color: #eee;
+}
+
+.Autocomplete ul li .match {
+  color: #a00;
+  font-weight: bold;
+}
+
+.Autocomplete ul li .txt2 {
+  color: #888;
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 0;
+  text-align: right;
+}
+
+/************************validatecode***************************/
+.simple_validatecode .b1,
+.simple_validatecode .b2 {
+  float: left;
+}
+
+.simple_validatecode .b2 {
+  margin-left: 8px;
+  line-height: 2.0;
+}
+
+.simple_validatecode .b2 a {
+  display: block;
+}
+
+.simple_validatecode .b1 input {
+  margin-top: 2px;
+  height: 20px;
+  width: 50px;
+  border: 1px solid #bbb;
+}
+
+.simple_validatecode .b1 input:focus {
+  border-color: #999; 
+}
+
+.simple_validatecode .photo_icon {
+  width: 90px;
+  height: 38px;
+}
+
+/************************tabs***************************/
+:root 
+.ui-window .tabs .simple_tabs_content {
+	margin-top: 0\0; /* ie9 */
+}
+
+.ui-window .content .simple_tabs_content {
+  -moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	border-left: 0;
+	border-right: 0; 
+}
+
+.ui-window .content ul.simple_tabs {
+  margin-top: 3px;
+  margin-left: 6px;
+}
+
+/************************swfupload***************************/
+.swfupload .swf_btns {
+	line-height: 1;
+  margin: 6px;
+}
+
+.swfupload .message {
+	color: #8D3212;
+}
+
+.swfupload .queue {
+  border-top: 1px solid #ccc;
+}
+
+.swfupload .queue .message {
+  margin-top: 2px;
+}
+
+.swfupload input[type=button] {
+	vertical-align: text-bottom;
+}
+
+.swfupload .item {
+	border-top: 1px solid #ccc;
+	padding: 6px 0;
+	margin-top: -1px;
+}
+
+.swfupload .item:hover {
+	background: #f2f9f2;
+}
+
+.swfupload .fs {
+	padding-left: 8px;
+	color: #999;
+}
+
+.swfupload .bar {
+	height: 17px;
+	margin: 4px 0px;
+}
