@@ -479,10 +479,11 @@ CalendarDateSelect.prototype = {
 		if (parts.get("day")) {
 			var t_selected_date = this.selected_date, vdc = this.options.oncheck;
 //			for ( var x = 0; x <= 3; x++)
-			t_selected_date.setDate(parts.get("day"));
+			
 			t_selected_date.setYear(parts.get("year"));
 			t_selected_date.setMonth(parts.get("month"));
-
+			t_selected_date.setDate(parts.get("day"));
+			
 			if (vdc && !vdc(t_selected_date.clearTime())) {
 				return false;
 			}
