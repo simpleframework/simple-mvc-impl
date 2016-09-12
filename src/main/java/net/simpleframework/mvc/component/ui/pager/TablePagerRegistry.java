@@ -29,7 +29,8 @@ public class TablePagerRegistry extends PagerRegistry {
 	public static final String TABLEPAGER = "tablePager";
 
 	@Override
-	public AbstractComponentBean createComponentBean(final PageParameter pp, final Object attriData) {
+	public AbstractComponentBean createComponentBean(final PageParameter pp,
+			final Object attriData) {
 		final TablePagerBean tablePager = (TablePagerBean) super.createComponentBean(pp, attriData);
 
 		// 添加表格内部用到的组件
@@ -38,9 +39,8 @@ public class TablePagerRegistry extends PagerRegistry {
 
 		// 导出
 		pp.addComponentBean("tpExportPage_" + hashId, AjaxRequestBean.class)
-				.setUrlForward(
-						ComponentUtils.getResourceHomePath(TablePagerBean.class)
-								+ "/jsp/tablepager_export.jsp");
+				.setUrlForward(ComponentUtils.getResourceHomePath(TablePagerBean.class)
+						+ "/jsp/tablepager_export.jsp");
 		pp.addComponentBean("tpExportWindow_" + hashId, WindowBean.class)
 				.setContentRef("tpExportPage_" + hashId).setResizable(false)
 				.setTitle($m("tablepager_export.0")).setWidth(480).setHeight(360);

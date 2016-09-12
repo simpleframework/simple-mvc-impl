@@ -1,6 +1,7 @@
 package net.simpleframework.mvc;
 
 import static net.simpleframework.common.I18n.$m;
+
 import net.simpleframework.common.ClassUtils;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
@@ -40,8 +41,8 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 
 	/* AjaxRequestBean */
 	protected AjaxRequestBean addAjaxRequest(final PageParameter pp, final String name) {
-		return (AjaxRequestBean) addComponentBean(pp, name, AjaxRequestBean.class).setRole(
-				getPageRole(pp)).setHandlerClass(getClass());
+		return (AjaxRequestBean) addComponentBean(pp, name, AjaxRequestBean.class)
+				.setRole(getPageRole(pp)).setHandlerClass(getClass());
 	}
 
 	/* AjaxRequestBean */
@@ -52,8 +53,8 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 	}
 
 	protected AjaxRequestBean addDeleteAjaxRequest(final PageParameter pp, final String name) {
-		return addAjaxRequest(pp, name).setConfirmMessage($m("Confirm.Delete")).setHandlerMethod(
-				"doDelete");
+		return addAjaxRequest(pp, name).setConfirmMessage($m("Confirm.Delete"))
+				.setHandlerMethod("doDelete");
 	}
 
 	/* ValidationBean */
@@ -77,7 +78,7 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 			final Class<? extends ITablePagerHandler> tblClass) {
 		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp, name,
 				TablePagerBean.class).setResize(false).setPageItems(30).setRole(getPageRole(pp))
-				.setExportAction("false");
+						.setExportAction("false");
 		if (tblClass != null) {
 			tablePager.setHandlerClass(tblClass);
 		}
@@ -119,9 +120,10 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 				final AjaxRequestBean ajaxRequestBean = (AjaxRequestBean) cp.componentBean;
 				final Class<AbstractMVCPage> handlerClass = (Class<AbstractMVCPage>) ClassUtils
 						.forName(ajaxRequestBean.getHandlerClass());
-				return (IForward) handlerClass.getMethod(
-						StringUtils.text(ajaxRequestBean.getHandlerMethod(), "ajaxProcess"),
-						ComponentParameter.class).invoke(AbstractMVCPage.get(cp), cp);
+				return (IForward) handlerClass
+						.getMethod(StringUtils.text(ajaxRequestBean.getHandlerMethod(), "ajaxProcess"),
+								ComponentParameter.class)
+						.invoke(AbstractMVCPage.get(cp), cp);
 			} catch (final Exception e) {
 				throw ComponentHandlerException.of(e);
 			}
@@ -137,8 +139,9 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 				final SubmitBean submitBean = (SubmitBean) cp.componentBean;
 				final Class<AbstractMVCPage> handlerClass = (Class<AbstractMVCPage>) ClassUtils
 						.forName(submitBean.getHandlerClass());
-				return (AbstractUrlForward) handlerClass.getMethod(submitBean.getHandlerMethod(),
-						ComponentParameter.class).invoke(AbstractMVCPage.get(cp), cp);
+				return (AbstractUrlForward) handlerClass
+						.getMethod(submitBean.getHandlerMethod(), ComponentParameter.class)
+						.invoke(AbstractMVCPage.get(cp), cp);
 			} catch (final Exception e) {
 				throw ComponentHandlerException.of(e);
 			}
@@ -154,8 +157,9 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 				final TreeBean treeBean = (TreeBean) cp.componentBean;
 				final Class<AbstractMVCPage> handlerClass = (Class<AbstractMVCPage>) ClassUtils
 						.forName(treeBean.getHandlerClass());
-				return (TreeNodes) handlerClass.getMethod("getTreenodes", ComponentParameter.class,
-						TreeNode.class).invoke(AbstractMVCPage.get(cp), cp, treeNode);
+				return (TreeNodes) handlerClass
+						.getMethod("getTreenodes", ComponentParameter.class, TreeNode.class)
+						.invoke(AbstractMVCPage.get(cp), cp, treeNode);
 			} catch (final Exception e) {
 				throw ComponentHandlerException.of(e);
 			}
@@ -187,8 +191,9 @@ public abstract class AbstractBasePage extends AbstractMVELTemplatePage {
 				final MenuBean menuBean = (MenuBean) cp.componentBean;
 				final Class<AbstractMVCPage> handlerClass = (Class<AbstractMVCPage>) ClassUtils
 						.forName(menuBean.getHandlerClass());
-				return (MenuItems) handlerClass.getMethod("getMenuItems", ComponentParameter.class,
-						MenuItem.class).invoke(AbstractMVCPage.get(cp), cp, menuItem);
+				return (MenuItems) handlerClass
+						.getMethod("getMenuItems", ComponentParameter.class, MenuItem.class)
+						.invoke(AbstractMVCPage.get(cp), cp, menuItem);
 			} catch (final Exception e) {
 				throw ComponentHandlerException.of(e);
 			}

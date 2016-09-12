@@ -29,9 +29,8 @@ public class WindowRender extends ComponentJavascriptRender {
 		final String url = (String) cp.getBeanProperty("url");
 		if (StringUtils.hasText(url)) {
 			sb.append("\"");
-			sb.append(
-					cp.wrapContextPath(MVCUtils.doPageUrl(cp,
-							HttpUtils.addParameters(url, "iframe=true")))).append("\", ");
+			sb.append(cp.wrapContextPath(
+					MVCUtils.doPageUrl(cp, HttpUtils.addParameters(url, "iframe=true")))).append("\", ");
 		} else {
 			sb.append("null, ");
 		}

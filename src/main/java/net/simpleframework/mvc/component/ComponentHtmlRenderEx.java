@@ -47,9 +47,9 @@ public abstract class ComponentHtmlRenderEx extends ComponentHtmlRender {
 
 	public static AjaxRequestBean createAjaxRequest(final ComponentParameter cp) {
 		final AbstractContainerBean containerBean = (AbstractContainerBean) cp.componentBean;
-		final AjaxRequestBean ajaxRequest = (AjaxRequestBean) cp.addComponentBean(
-				"ajaxRequest_" + containerBean.hashId(), AjaxRequestBean.class).setHandlerClass(
-				RefreshAction.class);
+		final AjaxRequestBean ajaxRequest = (AjaxRequestBean) cp
+				.addComponentBean("ajaxRequest_" + containerBean.hashId(), AjaxRequestBean.class)
+				.setHandlerClass(RefreshAction.class);
 		ajaxRequest.setAttr("container", containerBean);
 		containerBean.setAttr("ajaxRequest", ajaxRequest);
 		return ajaxRequest;

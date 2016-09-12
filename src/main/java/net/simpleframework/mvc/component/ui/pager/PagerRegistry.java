@@ -24,7 +24,8 @@ public class PagerRegistry extends AbstractComponentRegistry {
 	public static final String PAGER = "pager";
 
 	@Override
-	public AbstractComponentBean createComponentBean(final PageParameter pp, final Object attriData) {
+	public AbstractComponentBean createComponentBean(final PageParameter pp,
+			final Object attriData) {
 		final PagerBean pagerBean = (PagerBean) super.createComponentBean(pp, attriData);
 
 		final ComponentParameter nCP = ComponentParameter.get(pp, pagerBean);

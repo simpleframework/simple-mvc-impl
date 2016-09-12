@@ -20,8 +20,8 @@ public class TablePagerFilterValidation extends AbstractValidationHandler {
 		final ITablePagerHandler tHandle = (ITablePagerHandler) nCP.getComponentHandler();
 		if (tHandle instanceof AbstractTablePagerHandler) {
 			final TablePagerColumn tpColumn = TablePagerUtils.getSelectedColumn(nCP);
-			final Validators coll = ((AbstractTablePagerHandler) tHandle).getFilterColumnValidators(
-					nCP, tpColumn);
+			final Validators coll = ((AbstractTablePagerHandler) tHandle)
+					.getFilterColumnValidators(nCP, tpColumn);
 			if (coll != null) {
 				coll.addAll(validators);
 			}

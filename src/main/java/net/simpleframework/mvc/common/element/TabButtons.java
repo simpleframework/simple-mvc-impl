@@ -94,8 +94,8 @@ public class TabButtons extends AbstractArrayListEx<TabButtons, TabButton> {
 		}
 		sb.append("\" id=\"").append(id).append("\">");
 
-		final String requestURI = rRequest.stripContextPath(rRequest.stripJSessionId(rRequest
-				.getRequestURI()));
+		final String requestURI = rRequest
+				.stripContextPath(rRequest.stripJSessionId(rRequest.getRequestURI()));
 		final int size = size();
 		if (selectedIndex == 0) {
 			TabButton _tab = null;

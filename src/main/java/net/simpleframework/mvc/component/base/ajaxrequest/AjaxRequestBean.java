@@ -44,8 +44,8 @@ public class AjaxRequestBean extends AbstractComponentBean {
 	private boolean parallel = BeanDefaults.getBool(getClass(), "parallel", false);
 
 	/* 请求时，禁止来源，目的是避免用户的多次点击操作 */
-	private boolean disabledTriggerAction = BeanDefaults.getBool(getClass(),
-			"disabledTriggerAction", true);
+	private boolean disabledTriggerAction = BeanDefaults.getBool(getClass(), "disabledTriggerAction",
+			true);
 
 	/* ajax请求返回的路径，如果定义了该属性，业务hanlder就不需要定义了，优先级也高于业务hanlder */
 	private String urlForward;

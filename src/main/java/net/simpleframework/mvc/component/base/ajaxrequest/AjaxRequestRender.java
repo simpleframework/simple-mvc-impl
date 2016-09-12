@@ -56,8 +56,8 @@ public class AjaxRequestRender extends ComponentJavascriptRender {
 		ComponentRenderUtils.appendParameters(sb, cp, "p");
 		sb.append("p = p.addParameter(arguments[0]);");
 		sb.append("new Ajax.Request(\"");
-		sb.append(ComponentUtils.getResourceHomePath(AjaxRequestBean.class)).append(
-				"/jsp/ajax_request.jsp\", {");
+		sb.append(ComponentUtils.getResourceHomePath(AjaxRequestBean.class))
+				.append("/jsp/ajax_request.jsp\", {");
 		sb.append("postBody: p,");
 
 		final String encoding = (String) cp.getBeanProperty("encoding");

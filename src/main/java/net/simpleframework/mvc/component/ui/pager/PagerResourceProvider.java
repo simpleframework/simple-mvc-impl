@@ -13,11 +13,13 @@ public class PagerResourceProvider extends AbstractComponentResourceProvider {
 
 	@Override
 	public String[] getCssPath(final PageParameter pp) {
-		return new String[] { getCssResourceHomePath(pp, PagerResourceProvider.class) + "/pager.css" };
+		return new String[] {
+				getCssResourceHomePath(pp, PagerResourceProvider.class) + "/pager.css" };
 	}
 
 	@Override
 	public String[] getJavascriptPath(final PageParameter pp) {
-		return new String[] { getResourceHomePath(TablePagerResourceProvider.class) + "/js/pager.js" };
+		return new String[] {
+				getResourceHomePath(TablePagerResourceProvider.class) + "/js/pager.js" };
 	}
 }

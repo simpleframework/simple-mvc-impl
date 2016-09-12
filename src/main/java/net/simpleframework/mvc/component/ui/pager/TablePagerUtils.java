@@ -84,11 +84,12 @@ public abstract class TablePagerUtils {
 	}
 
 	public static TablePagerColumn getSelectedColumn(final ComponentParameter nCP) {
-		return getTablePagerSchema(nCP).getTablePagerColumns(nCP).get(
-				nCP.getParameter(PARAM_FILTER_CUR_COL));
+		return getTablePagerSchema(nCP).getTablePagerColumns(nCP)
+				.get(nCP.getParameter(PARAM_FILTER_CUR_COL));
 	}
 
-	public static void doExport(final HttpServletRequest request, final HttpServletResponse response) {
+	public static void doExport(final HttpServletRequest request,
+			final HttpServletResponse response) {
 		final ComponentParameter nCP = PagerUtils.get(request, response);
 		final ITablePagerHandler tHandle = (ITablePagerHandler) nCP.getComponentHandler();
 		final String[] arr = StringUtils.split(request.getParameter("v"), ";");

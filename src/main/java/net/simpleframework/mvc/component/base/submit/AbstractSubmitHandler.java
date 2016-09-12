@@ -13,8 +13,8 @@ import net.simpleframework.mvc.component.ComponentParameter;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class AbstractSubmitHandler extends AbstractComponentHandler implements
-		ISubmitHandler {
+public abstract class AbstractSubmitHandler extends AbstractComponentHandler
+		implements ISubmitHandler {
 
 	@Override
 	public AbstractUrlForward submit(final ComponentParameter cp) {
@@ -23,7 +23,7 @@ public abstract class AbstractSubmitHandler extends AbstractComponentHandler imp
 
 	protected IMultipartFile getMultipartFile(final PageRequestResponse rRequest,
 			final String filename) {
-		return rRequest.request instanceof MultipartPageRequest ? ((MultipartPageRequest) rRequest.request)
-				.getFile(filename) : null;
+		return rRequest.request instanceof MultipartPageRequest
+				? ((MultipartPageRequest) rRequest.request).getFile(filename) : null;
 	}
 }

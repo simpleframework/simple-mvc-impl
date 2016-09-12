@@ -39,7 +39,8 @@ public abstract class AbstractTablePagerSchema {
 		return getTablePagerColumnsInternal(cp);
 	}
 
-	public TablePagerColumn getTablePagerColumn(final ComponentParameter cp, final String columnName) {
+	public TablePagerColumn getTablePagerColumn(final ComponentParameter cp,
+			final String columnName) {
 		if (columnName != null) {
 			for (final TablePagerColumn col : getTablePagerColumns(cp)) {
 				if (columnName.equals(col.getColumnName())) {
@@ -127,7 +128,8 @@ public abstract class AbstractTablePagerSchema {
 		return kv;
 	}
 
-	public Map<String, Object> getExportRowData(final ComponentParameter cp, final Object dataObject) {
+	public Map<String, Object> getExportRowData(final ComponentParameter cp,
+			final Object dataObject) {
 		return getExportRowData(cp, null, dataObject);
 	}
 
@@ -183,7 +185,8 @@ public abstract class AbstractTablePagerSchema {
 	 * @param dataObject
 	 * @return
 	 */
-	public Map<String, Object> getRowAttributes(final ComponentParameter cp, final Object dataObject) {
+	public Map<String, Object> getRowAttributes(final ComponentParameter cp,
+			final Object dataObject) {
 		final KVMap attributes = new KVMap();
 		final Object id = getVal(dataObject, "id");
 		if (id != null) {

@@ -9,8 +9,8 @@ import net.simpleframework.mvc.component.ComponentParameter;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class AbstractPropEditorHandler extends AbstractComponentHandler implements
-		IPropEditorHandler {
+public abstract class AbstractPropEditorHandler extends AbstractComponentHandler
+		implements IPropEditorHandler {
 
 	@Override
 	public PropFields getFormFields(final ComponentParameter cp) {

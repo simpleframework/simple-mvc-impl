@@ -26,7 +26,8 @@ public abstract class AbstractTreeHandler extends AbstractComponentHandler imple
 	}
 
 	@Override
-	public boolean doDragDrop(final ComponentParameter cp, final TreeNode drag, final TreeNode drop) {
+	public boolean doDragDrop(final ComponentParameter cp, final TreeNode drag,
+			final TreeNode drop) {
 		return false;
 	}
 }

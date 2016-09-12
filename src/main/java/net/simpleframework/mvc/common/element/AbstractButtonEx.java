@@ -10,8 +10,8 @@ import net.simpleframework.mvc.common.element.ElementList.IElementFilter;
  *         http://www.simpleframework.net
  */
 @SuppressWarnings("unchecked")
-public abstract class AbstractButtonEx<T extends AbstractLinkElement<T>> extends
-		AbstractLinkElement<T> {
+public abstract class AbstractButtonEx<T extends AbstractLinkElement<T>>
+		extends AbstractLinkElement<T> {
 	/* 是否选中 */
 	private boolean checked;
 

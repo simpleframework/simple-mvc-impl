@@ -18,8 +18,8 @@ import net.simpleframework.mvc.component.ComponentParameter;
  *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class AbstractAutocompleteHandler extends AbstractComponentHandler implements
-		IAutocompleteHandler {
+public abstract class AbstractAutocompleteHandler extends AbstractComponentHandler
+		implements IAutocompleteHandler {
 
 	protected Iterator<AutocompleteData> newMIterator(final ComponentParameter cp,
 			final Iterator<PermissionUser> it, final String val, final String val2) {
@@ -46,7 +46,8 @@ public abstract class AbstractAutocompleteHandler extends AbstractComponentHandl
 		};
 	}
 
-	protected AutocompleteData createAutocompleteData(final PermissionUser user, final String sepChar) {
+	protected AutocompleteData createAutocompleteData(final PermissionUser user,
+			final String sepChar) {
 		final String name = user.getName();
 		final String text = user.getText() + " (" + name + ")";
 		String _name = text;

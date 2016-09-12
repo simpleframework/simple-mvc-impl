@@ -1,6 +1,7 @@
 package net.simpleframework.mvc.component.ui.swfupload;
 
 import static net.simpleframework.common.I18n.$m;
+
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.bean.BeanDefaults;
 import net.simpleframework.mvc.component.AbstractContainerBean;

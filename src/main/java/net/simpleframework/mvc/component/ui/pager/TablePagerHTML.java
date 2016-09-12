@@ -56,10 +56,12 @@ public abstract class TablePagerHTML implements HtmlConst {
 		return width;
 	}
 
-	static int getRownumWidth(final ComponentParameter cp, final int pageNumber, final int pageItems) {
-		return fixWidth(cp, Math.max(
-				String.valueOf(
-						Math.max(pageNumber, 1) * pageItems == Integer.MAX_VALUE ? 999 : pageItems)
+	static int getRownumWidth(final ComponentParameter cp, final int pageNumber,
+			final int pageItems) {
+		return fixWidth(cp,
+				Math.max(String
+						.valueOf(
+								Math.max(pageNumber, 1) * pageItems == Integer.MAX_VALUE ? 999 : pageItems)
 						.length() * 8, 12));
 	}
 
@@ -83,7 +85,8 @@ public abstract class TablePagerHTML implements HtmlConst {
 
 	static class RenderTable {
 
-		String renderHeader(final ComponentParameter cp, final AbstractTablePagerSchema tablePagerData) {
+		String renderHeader(final ComponentParameter cp,
+				final AbstractTablePagerSchema tablePagerData) {
 			final ITablePagerHandler pHandle = (ITablePagerHandler) cp.getComponentHandler();
 			final StringBuilder sb = new StringBuilder();
 
@@ -220,11 +223,12 @@ public abstract class TablePagerHTML implements HtmlConst {
 					sb.append("><div class=\"box\">");
 					if (pagerColumn.isFilter()) {
 						String val = null;
-						final String val2 = columnName.equals(cp
-								.getParameter(TablePagerUtils.PARAM_FILTER_CUR_COL)) ? cp
-								.getParameter(TablePagerUtils.PARAM_FILTER) : cp
-								.getParameter(filterColumnKey(columnName));
-						if (StringUtils.hasText(val2) && !TablePagerUtils.PARAM_FILTER_NONE.equals(val2)) {
+						final String val2 = columnName
+								.equals(cp.getParameter(TablePagerUtils.PARAM_FILTER_CUR_COL))
+										? cp.getParameter(TablePagerUtils.PARAM_FILTER)
+										: cp.getParameter(filterColumnKey(columnName));
+						if (StringUtils.hasText(val2)
+								&& !TablePagerUtils.PARAM_FILTER_NONE.equals(val2)) {
 							val = filterDecode(StringUtils.split(val2)[1]);
 						}
 						final AbstractElement<?> filterElement = pHandle.toFilterHTML(cp, pagerColumn,
@@ -259,7 +263,8 @@ public abstract class TablePagerHTML implements HtmlConst {
 			sb.append(">");
 		}
 
-		String renderBody(final ComponentParameter cp, final AbstractTablePagerSchema tablePagerData) {
+		String renderBody(final ComponentParameter cp,
+				final AbstractTablePagerSchema tablePagerData) {
 			final List<?> data = PagerUtils.getCurrentPageData(cp);
 			final StringBuilder sb = new StringBuilder();
 			appendTbody(cp, data.size(), sb);
@@ -275,8 +280,8 @@ public abstract class TablePagerHTML implements HtmlConst {
 
 		String buildRow(final ComponentParameter cp, final Object oBean,
 				final AbstractTablePagerSchema tablePagerData, final RowHandler handler) {
-			final Map<String, Object> rowData = (oBean == null) ? null : tablePagerData.getRowData(cp,
-					oBean);
+			final Map<String, Object> rowData = (oBean == null) ? null
+					: tablePagerData.getRowData(cp, oBean);
 			if (rowData == null && !handler.isEdit()) {
 				return null;
 			}
@@ -294,8 +299,8 @@ public abstract class TablePagerHTML implements HtmlConst {
 			sb.append("\" style=\"margin-top: ");
 			sb.append(-1 + (Integer) cp.getBeanProperty("rowMargin")).append("px;\"");
 
-			final Map<String, Object> rowAttributes = (oBean == null) ? null : tablePagerData
-					.getRowAttributes(cp, oBean);
+			final Map<String, Object> rowAttributes = (oBean == null) ? null
+					: tablePagerData.getRowAttributes(cp, oBean);
 			if (rowAttributes != null) {
 				for (final Map.Entry<String, Object> entry : rowAttributes.entrySet()) {
 					sb.append(" ").append(entry.getKey()).append("=");
@@ -382,7 +387,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 				final Object val = rowData != null ? rowData.get(key) : null;
 				final ETextAlign defaultTextAlign = val instanceof Number || val instanceof Boolean
 						|| val instanceof Date || val instanceof Enum ? ETextAlign.center
-						: ETextAlign.left;
+								: ETextAlign.left;
 				final String style = pagerColumn.toStyle(cp, defaultTextAlign);
 				if (StringUtils.hasText(style)) {
 					sb.append(" style=\"").append(style).append("\"");
@@ -448,7 +453,8 @@ public abstract class TablePagerHTML implements HtmlConst {
 	static class RenderGroupTable extends RenderTable {
 
 		@Override
-		String renderBody(final ComponentParameter cp, final AbstractTablePagerSchema tablePagerData) {
+		String renderBody(final ComponentParameter cp,
+				final AbstractTablePagerSchema tablePagerData) {
 			final List<?> data = PagerUtils.getCurrentPageData(cp);
 			if (data == null) {
 				return "";

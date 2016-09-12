@@ -12,8 +12,8 @@ import net.simpleframework.mvc.component.ComponentParameter;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class AbstractListboxHandler extends AbstractComponentHandler implements
-		IListboxHandler {
+public abstract class AbstractListboxHandler extends AbstractComponentHandler
+		implements IListboxHandler {
 
 	@Override
 	public Map<String, Object> getListItemAttributes(final ComponentParameter cp,

@@ -54,8 +54,8 @@ import net.simpleframework.mvc.component.ui.menu.MenuItems;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class AbstractTablePagerHandler extends AbstractPagerHandler implements
-		ITablePagerHandler {
+public abstract class AbstractTablePagerHandler extends AbstractPagerHandler
+		implements ITablePagerHandler {
 
 	@Override
 	public String toTableHTML(final ComponentParameter cp) {
@@ -175,16 +175,16 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			return null;
 		}
 
-		final HashSet<String> sets = new LinkedHashSet<String>(ArrayUtils.asList(StringUtils
-				.split(col)));
+		final HashSet<String> sets = new LinkedHashSet<String>(
+				ArrayUtils.asList(StringUtils.split(col)));
 		String filter = null;
 		if (StringUtils.hasText(ccol)) {
 			filter = cp.getParameter(TablePagerUtils.PARAM_FILTER);
 			if (TablePagerUtils.PARAM_FILTER_NONE.equals(filter)) {
 				sets.remove(ccol);
 			} else {
-				filter = StringUtils
-						.text(filter, cp.getParameter(TablePagerHTML.filterColumnKey(ccol)));
+				filter = StringUtils.text(filter,
+						cp.getParameter(TablePagerHTML.filterColumnKey(ccol)));
 				if (StringUtils.hasText(filter)) {
 					sets.add(ccol);
 				} else {
@@ -203,8 +203,8 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			if (oCol == null) {
 				continue;
 			}
-			final String vStr = str.equals(ccol) ? filter : cp.getParameter(TablePagerHTML
-					.filterColumnKey(str));
+			final String vStr = str.equals(ccol) ? filter
+					: cp.getParameter(TablePagerHTML.filterColumnKey(str));
 			final String[] vals = StringUtils.split(vStr);
 			if (vals.length < 2) {
 				continue;
@@ -358,8 +358,8 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 
 	@Override
 	public AbstractElement<?> getExportSelectElement(final ComponentParameter cp) {
-		return InputElement.select("tablepager_export_filetype").addElements(
-				Option.from(EExportFileType.excel, EExportFileType.csv));
+		return InputElement.select("tablepager_export_filetype")
+				.addElements(Option.from(EExportFileType.excel, EExportFileType.csv));
 	}
 
 	protected void doCSVExport(final ComponentParameter cp, final IDataQuery<?> dQuery,
@@ -372,8 +372,8 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			if (!StringUtils.hasText(exportCharset)) {
 				exportCharset = mvcSettings.getCharset();
 			}
-			csvWriter = new CSVWriter(new OutputStreamWriter(cp.getBinaryOutputStream("export.csv"),
-					exportCharset));
+			csvWriter = new CSVWriter(
+					new OutputStreamWriter(cp.getBinaryOutputStream("export.csv"), exportCharset));
 			final ArrayList<String> al = new ArrayList<String>();
 			for (final TablePagerColumn column : columns) {
 				al.add(column.getColumnText());
@@ -493,15 +493,12 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 	public ElementList toSaveButtons(final ComponentParameter cp) {
 		final String componentName = cp.getComponentName();
 		final String act = "$Actions['" + componentName + "']";
-		return ElementList
-				.of()
-				.append(
-						new ButtonElement($m("TablePagerAction.2")).setHighlight(true).setOnclick(
-								act + ".save_rows(this);"))
+		return ElementList.of()
+				.append(new ButtonElement($m("TablePagerAction.2")).setHighlight(true)
+						.setOnclick(act + ".save_rows(this);"))
 				.append(SpanElement.SPACE)
-				.append(
-						new ButtonElement($m("TablePagerAction.1")).setOnclick("if (!confirm('"
-								+ $m("TablePagerAction.3") + "')) return;" + act + ".uneditAll(this);"))
+				.append(new ButtonElement($m("TablePagerAction.1")).setOnclick("if (!confirm('"
+						+ $m("TablePagerAction.3") + "')) return;" + act + ".uneditAll(this);"))
 				.append(SpanElement.SPACE).append(new SpanElement($m("TablePagerAction.4")));
 	}
 
@@ -520,11 +517,11 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 					+ TablePagerUtils.PARAM_FILTER_CUR_COL + "=" + columnName + "&"
 					+ TablePagerUtils.PARAM_FILTER + "=%3D;' + $F(this));";
 			input.setOnchange(onchange);
-			input.addElements(new Option(TablePagerUtils.PARAM_FILTER_NONE,
-					$m("AbstractTablePagerHandler.1")));
+			input.addElements(
+					new Option(TablePagerUtils.PARAM_FILTER_NONE, $m("AbstractTablePagerHandler.1")));
 			if (bool) {
-				input.addElements(Option.TRUE().setSelected("true".equals(val)), Option.FALSE()
-						.setSelected("false".equals(val)));
+				input.addElements(Option.TRUE().setSelected("true".equals(val)),
+						Option.FALSE().setSelected("false".equals(val)));
 			} else {
 				for (final Option opt : arr) {
 					opt.setSelected(opt.getName().equals(val));
@@ -547,12 +544,9 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler imp
 			final LinkElement link = new LinkElement();
 			final Map<String, ColumnData> filterColumns = getFilterColumns(cp);
 			if (filterColumns != null && filterColumns.containsKey(columnName)) {
-				link.setClassName("del")
-						.addStyle("float: left;")
-						.setTitle("#(TablePagerUtils.8)")
-						.setOnclick(
-								"$Actions['" + componentName + "'].filterDelete(this, '"
-										+ TablePagerUtils.PARAM_FILTER_CUR_COL + "=" + columnName + "');");
+				link.setClassName("del").addStyle("float: left;").setTitle("#(TablePagerUtils.8)")
+						.setOnclick("$Actions['" + componentName + "'].filterDelete(this, '"
+								+ TablePagerUtils.PARAM_FILTER_CUR_COL + "=" + columnName + "');");
 			} else {
 				link.setClassName("image_filter").setTitle("#(TablePagerUtils.7)");
 				final String advClick = pagerColumn.getFilterAdvClick();

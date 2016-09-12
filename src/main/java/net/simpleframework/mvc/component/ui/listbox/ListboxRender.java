@@ -37,16 +37,10 @@ public class ListboxRender extends ComponentJavascriptRender {
 
 		// event
 		final String actionFunc = ComponentRenderUtils.actionFunc(cp);
-		sb.append(actionFunc)
-				.append(".")
-				.append(
-						eventClick(EVENT_CLICK, (String) cp.getBeanProperty("jsClickCallback"),
-								actionFunc));
-		sb.append(actionFunc)
-				.append(".")
-				.append(
-						eventClick(EVENT_DBLCLICK, (String) cp.getBeanProperty("jsDblclickCallback"),
-								actionFunc));
+		sb.append(actionFunc).append(".").append(
+				eventClick(EVENT_CLICK, (String) cp.getBeanProperty("jsClickCallback"), actionFunc));
+		sb.append(actionFunc).append(".").append(eventClick(EVENT_DBLCLICK,
+				(String) cp.getBeanProperty("jsDblclickCallback"), actionFunc));
 		// new
 		sb.append(actionFunc).append(".listbox = new $UI.ListBox(")
 				.append(ComponentRenderUtils.VAR_CONTAINER).append(", [");
@@ -101,7 +95,8 @@ public class ListboxRender extends ComponentJavascriptRender {
 		return sb.toString();
 	}
 
-	protected String eventClick(final String event, final String defaultBody, final String actionFunc) {
+	protected String eventClick(final String event, final String defaultBody,
+			final String actionFunc) {
 		final StringBuilder sb = new StringBuilder();
 		sb.append(event).append("=").append("function(item, ev) {");
 		sb.append("var cb = function(id, text, item, json, ev) {");

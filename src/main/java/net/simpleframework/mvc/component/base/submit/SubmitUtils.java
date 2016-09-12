@@ -55,10 +55,8 @@ public abstract class SubmitUtils {
 					forward = submitHandle.submit(nCP);
 				}
 				if (forward != null) {
-					nCP.loc(HttpUtils.addParameters(
-							forward.getUrl(),
-							AbstractUrlForward.putRequestData(nCP,
-									(String) nCP.getBeanProperty("includeRequestData"))));
+					nCP.loc(HttpUtils.addParameters(forward.getUrl(), AbstractUrlForward
+							.putRequestData(nCP, (String) nCP.getBeanProperty("includeRequestData"))));
 				}
 			} catch (final Exception e) {
 				throw ComponentException.of(e);

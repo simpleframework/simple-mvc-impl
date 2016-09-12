@@ -47,13 +47,13 @@ public abstract class AjaxRequestUtils {
 				forward = new JavascriptForward("if (confirm('").append($m("AjaxRequestUtils.1"))
 						.append("')) { $Actions.reloc(); }");
 			} else {
-				forward = new JsonForward("exception", MVCUtils.createException(cp,
-						ComponentException.of($m("AjaxRequestUtils.0"))));
+				forward = new JsonForward("exception",
+						MVCUtils.createException(cp, ComponentException.of($m("AjaxRequestUtils.0"))));
 			}
 		} else {
 			try {
-				forward = MVCContext.get().getPermission()
-						.accessForward(cp, cp.getBeanProperty("role"));
+				forward = MVCContext.get().getPermission().accessForward(cp,
+						cp.getBeanProperty("role"));
 				if (forward != null) {
 					bPermission = true;
 				}

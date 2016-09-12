@@ -22,8 +22,8 @@ public class PageIncludeRegistry extends AbstractComponentRegistry {
 
 	@Override
 	public PageIncludeBean createComponentBean(final PageParameter pp, final Object attriData) {
-		final PageIncludeBean pageInclude = (PageIncludeBean) super
-				.createComponentBean(pp, attriData);
+		final PageIncludeBean pageInclude = (PageIncludeBean) super.createComponentBean(pp,
+				attriData);
 		ComponentHtmlRenderEx.createAjaxRequest(ComponentParameter.get(pp, pageInclude));
 		return pageInclude;
 	}

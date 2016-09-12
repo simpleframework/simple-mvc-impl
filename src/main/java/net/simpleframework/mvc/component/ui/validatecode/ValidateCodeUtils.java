@@ -26,7 +26,8 @@ public abstract class ValidateCodeUtils {
 
 	public static final String BEAN_ID = "validateCode_@bid";
 
-	public static void doRender(final HttpServletRequest request, final HttpServletResponse response) {
+	public static void doRender(final HttpServletRequest request,
+			final HttpServletResponse response) {
 		OutputStream outputStream = null;
 		try {
 			outputStream = response.getOutputStream();
@@ -57,8 +58,8 @@ public abstract class ValidateCodeUtils {
 
 	public static boolean isValidateCode(final HttpServletRequest request, final String inputName) {
 		final String validateCode = request.getParameter(inputName);
-		return validateCode != null ? validateCode.equalsIgnoreCase(getValidateCode(request
-				.getSession())) : true;
+		return validateCode != null
+				? validateCode.equalsIgnoreCase(getValidateCode(request.getSession())) : true;
 	}
 
 	public static String getErrorString() {

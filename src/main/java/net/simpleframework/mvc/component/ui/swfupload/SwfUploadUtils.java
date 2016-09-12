@@ -136,7 +136,8 @@ public abstract class SwfUploadUtils {
 		sb.append("},");
 
 		// file_dialog_complete_handler
-		sb.append("file_dialog_complete_handler: function(numFilesSelected, numFilesQueued, numFilesInQueue) {");
+		sb.append(
+				"file_dialog_complete_handler: function(numFilesSelected, numFilesQueued, numFilesInQueue) {");
 		sb.append("act.startUpload();");
 		sb.append("},");
 
@@ -240,10 +241,11 @@ public abstract class SwfUploadUtils {
 			} catch (final UnsupportedEncodingException e) {
 			}
 			try {
-				final int fileSizeLimit = (int) FileUtils.toFileSize((String) nCP
-						.getBeanProperty("fileSizeLimit"));
-				uHandle.upload(nCP, ((MultipartPageRequest) (nCP.request = MVCContext.get()
-						.createMultipartPageRequest(request, fileSizeLimit))).getFile("Filedata"),
+				final int fileSizeLimit = (int) FileUtils
+						.toFileSize((String) nCP.getBeanProperty("fileSizeLimit"));
+				uHandle.upload(nCP,
+						((MultipartPageRequest) (nCP.request = MVCContext.get()
+								.createMultipartPageRequest(request, fileSizeLimit))).getFile("Filedata"),
 						variables);
 			} catch (final Throwable ex) {
 				variables.add("error", MVCContext.get().getThrowableMessage(ex));

@@ -73,9 +73,9 @@ public class TablePagerFilterPageLoad extends DefaultPageHandler {
 
 		// 加入验证
 		pp.addComponentBean(ValidationBean.class, TablePagerFilterValidation.class)
-				.setTriggerSelector("#idTablePagerFilterSave")
-				.setWarnType(EWarnType.insertAfter)
-				.addValidators(new Validator(EValidatorMethod.required, "#tp_filter_v1, #tp_filter_v2"));
+				.setTriggerSelector("#idTablePagerFilterSave").setWarnType(EWarnType.insertAfter)
+				.addValidators(
+						new Validator(EValidatorMethod.required, "#tp_filter_v1, #tp_filter_v2"));
 
 		// 加入日期
 		pp.addComponentBean("calendarTablePagerFilter", CalendarBean.class).setShowTime(true);

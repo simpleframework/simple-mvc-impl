@@ -193,7 +193,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 	protected AbstractElement<?> createHeadStatElement(final int count, final String pTitle) {
 		return new SpanElement(
 				$m("pager_head.1", new SpanElement(count).setClassName("num2"), pTitle))
-				.addStyle("margin-left: 6px;");
+						.addStyle("margin-left: 6px;");
 	}
 
 	@Override
@@ -222,8 +222,8 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 			exportAction = "$Actions['" + cp.getComponentName() + "'].exportFile();";
 		}
 		if (!"false".equals(exportAction)) {
-			sb.append(new SpanElement().setClassName("export_icon")
-					.setTitle($m("tablepager_export.0")).setOnclick(exportAction));
+			sb.append(new SpanElement().setClassName("export_icon").setTitle($m("tablepager_export.0"))
+					.setOnclick(exportAction));
 		}
 		return sb.toString();
 	}
@@ -241,9 +241,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 			onchange = "$Actions.loc('" + HttpUtils.addParameters(href, pageItemsParameterName + "=")
 					+ "' + $F(this));";
 		}
-		final InputElement input = InputElement
-				.select()
-				.setTitle("#(pager_head.0)")
+		final InputElement input = InputElement.select().setTitle("#(pager_head.0)")
 				.addElements(new Option("15").setSelected(pageItems == 15),
 						new Option("30").setSelected(pageItems == 30),
 						new Option("50").setSelected(pageItems == 50),

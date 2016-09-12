@@ -1,6 +1,7 @@
 package net.simpleframework.mvc.component.ui.dictionary;
 
 import static net.simpleframework.common.I18n.$m;
+
 import net.simpleframework.common.Convert;
 import net.simpleframework.mvc.DefaultPageHandler;
 import net.simpleframework.mvc.PageParameter;
@@ -48,8 +49,8 @@ public class DictionaryLoad extends DefaultPageHandler {
 			} else if (dictionaryType instanceof DictionaryListBean) {
 				key = multiple ? "getElementTips.2" : "getElementTips.3";
 			}
-			tooltip.addTip(new TipBean(tooltip).setSelector("#help" + nCP.hashId())
-					.setContent($m(key)).setStem(ETipPosition.leftTop)
+			tooltip.addTip(new TipBean(tooltip).setSelector("#help" + nCP.hashId()).setContent($m(key))
+					.setStem(ETipPosition.leftTop)
 					.setHook(new Hook(ETipPosition.topRight, ETipPosition.topLeft))
 					.setHideOn(new HideOn(ETipElement.tip, EElementEvent.mouseover)).setWidth(240));
 		}

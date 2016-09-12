@@ -79,15 +79,15 @@ public class TreeRender extends ComponentJavascriptRender {
 		sb.append("}));");
 
 		// event
-		sb.append(TreeUtils.genEvent2(treeBean, (actionFunc + ".tree."), new String[] {
-				"jsClickCallback", "jsDblclickCallback", "jsCheckCallback" }));
+		sb.append(TreeUtils.genEvent2(treeBean, (actionFunc + ".tree."),
+				new String[] { "jsClickCallback", "jsDblclickCallback", "jsCheckCallback" }));
 
 		sb.append("};");
 		sb.append("try { ").append(actionFunc).append(".createTree(");
 		sb.append(jsonData(cp)).append("); }");
 		sb.append("catch(e) { }");
-		return ComponentRenderUtils.genActionWrapper(cp, sb.toString(), "__tree_actions_init("
-				+ actionFunc + ");");
+		return ComponentRenderUtils.genActionWrapper(cp, sb.toString(),
+				"__tree_actions_init(" + actionFunc + ");");
 	}
 
 	public String jsonData(final ComponentParameter cp) {
@@ -187,8 +187,8 @@ public class TreeRender extends ComponentJavascriptRender {
 						.append(ComponentRenderUtils.actionFunc(cp))
 						.append(").treeUrl(\"ajax_node.jsp\", \"nodeId=")
 						.append(HttpUtils.encodeUrl(child.nodeId())).append("\"),");
-				sb.append("\"onopenpopulate\": ").append(
-						"function(branch, response) { return response; }");
+				sb.append("\"onopenpopulate\": ")
+						.append("function(branch, response) { return response; }");
 			} else {
 				sb.append("\"items\": ").append(jsonData(cp, items));
 			}

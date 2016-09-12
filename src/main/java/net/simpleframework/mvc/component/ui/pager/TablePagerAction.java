@@ -32,8 +32,8 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 	public IForward doExport(final ComponentParameter cp) {
 		final JavascriptForward js = new JavascriptForward();
 		js.append("$Actions.loc('");
-		js.append(ComponentUtils.getResourceHomePath(PagerBean.class)).append(
-				"/jsp/tablepager_export_dl.jsp");
+		js.append(ComponentUtils.getResourceHomePath(PagerBean.class))
+				.append("/jsp/tablepager_export_dl.jsp");
 		js.append(";jsessionid=").append(cp.getSession().getId()).append("?");
 		js.append(AbstractUrlForward.putRequestData(cp, "p", true));
 		js.append("&filetype=").append(cp.getParameter("filetype"));
@@ -43,8 +43,8 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 
 	public IForward doFilter(final ComponentParameter cp) {
 		final ComponentParameter nCP = PagerUtils.get(cp);
-		final JavascriptForward js = new JavascriptForward("$Actions['tpFilterWindow_").append(
-				nCP.hashId()).append("'].close();");
+		final JavascriptForward js = new JavascriptForward("$Actions['tpFilterWindow_")
+				.append(nCP.hashId()).append("'].close();");
 		js.append("$Actions['").append(nCP.getComponentName()).append("']('")
 				.append(TablePagerUtils.PARAM_FILTER_CUR_COL).append("=")
 				.append(cp.getParameter(TablePagerUtils.PARAM_FILTER_CUR_COL));
@@ -174,7 +174,7 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 			}
 		}
 		final JavascriptForward js = hdl.doRowSave(nCP, insertRows, updateRows);
-		return js != null ? js : new JavascriptForward("$Actions['").append(nCP.getComponentName())
-				.append("']();");
+		return js != null ? js
+				: new JavascriptForward("$Actions['").append(nCP.getComponentName()).append("']();");
 	}
 }

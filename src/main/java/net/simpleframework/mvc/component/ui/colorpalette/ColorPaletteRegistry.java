@@ -24,7 +24,8 @@ public class ColorPaletteRegistry extends AbstractComponentRegistry {
 	public static final String COLORPALETTE = "colorpalette";
 
 	@Override
-	public AbstractComponentBean createComponentBean(final PageParameter pp, final Object attriData) {
+	public AbstractComponentBean createComponentBean(final PageParameter pp,
+			final Object attriData) {
 		final ColorPaletteBean colorPalette = (ColorPaletteBean) super.createComponentBean(pp,
 				attriData);
 		ComponentHtmlRenderEx.createAjaxRequest(ComponentParameter.get(pp, colorPalette));

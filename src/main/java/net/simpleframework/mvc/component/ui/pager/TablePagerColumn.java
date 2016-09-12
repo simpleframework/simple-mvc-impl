@@ -145,6 +145,10 @@ public class TablePagerColumn extends AbstractElementBean {
 		return this;
 	}
 
+	public TablePagerColumn center() {
+		return setTextAlign(ETextAlign.center);
+	}
+
 	public EVerticalAlign getVerticalAlign() {
 		return verticalAlign;
 	}
@@ -360,23 +364,24 @@ public class TablePagerColumn extends AbstractElementBean {
 	}
 
 	public static TablePagerColumn DATE(final String columnName, final String columnText) {
-		return new TablePagerColumn(columnName, columnText).setWidth(115)
-				.setTextAlign(ETextAlign.center).setPropertyClass(Date.class);
+		return new TablePagerColumn(columnName, columnText).setWidth(115).center()
+				.setPropertyClass(Date.class);
 	}
 
 	public static final TablePagerColumn OPE(final int width) {
-		return new TablePagerColumn(OPE, $m("OPE")).setWidth(width).setTextAlign(ETextAlign.center)
-				.setNowrap(false).setFilterSort(false).setExport(false).setEditable(false);
+		return new TablePagerColumn(OPE, $m("OPE")).setWidth(width).center().setNowrap(false)
+				.setFilterSort(false).setExport(false).setEditable(false);
 	}
 
 	public static final TablePagerColumn ACTION() {
-		return new TablePagerColumn(ACTION, new LinkElement().setClassName("m2 down_menu_image")
-				.toString()).setWidth(22).setFilterSort(false).setExport(false).setEditable(false);
+		return new TablePagerColumn(ACTION,
+				new LinkElement().setClassName("m2 down_menu_image").toString()).setWidth(22)
+						.setFilterSort(false).setExport(false).setEditable(false);
 	}
 
 	public static final TablePagerColumn ICON() {
 		return new TablePagerColumn(ICON, HtmlConst.NBSP).setWidth(20).setFilterSort(false)
-				.setResize(false).setTextAlign(ETextAlign.center).setExport(false).setEditable(false);
+				.setResize(false).center().setExport(false).setEditable(false);
 	}
 
 	public static final TablePagerColumn BLANK() {
@@ -391,7 +396,7 @@ public class TablePagerColumn extends AbstractElementBean {
 
 	public static final TablePagerColumn BOOL(final String columnName, final String columnText) {
 		return new TablePagerColumn(columnName, columnText, 40).setPropertyClass(Boolean.class)
-				.setTextAlign(ETextAlign.center).setFilterSort(false);
+				.center().setFilterSort(false);
 	}
 
 	public static final String OPE = "ope";

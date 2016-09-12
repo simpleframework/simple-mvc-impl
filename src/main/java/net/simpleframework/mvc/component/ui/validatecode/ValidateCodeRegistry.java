@@ -25,7 +25,8 @@ public class ValidateCodeRegistry extends AbstractComponentRegistry {
 	public static final String VALIDATECODE = "validateCode";
 
 	@Override
-	public AbstractComponentBean createComponentBean(final PageParameter pp, final Object attriData) {
+	public AbstractComponentBean createComponentBean(final PageParameter pp,
+			final Object attriData) {
 		final ValidateCodeBean validateCode = (ValidateCodeBean) super.createComponentBean(pp,
 				attriData);
 		ComponentHtmlRenderEx.createAjaxRequest(ComponentParameter.get(pp, validateCode));

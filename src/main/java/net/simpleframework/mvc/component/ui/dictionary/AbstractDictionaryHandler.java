@@ -12,8 +12,8 @@ import net.simpleframework.mvc.component.ui.window.AbstractWindowHandler;
  * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-public abstract class AbstractDictionaryHandler extends AbstractWindowHandler implements
-		IDictionaryHandle {
+public abstract class AbstractDictionaryHandler extends AbstractWindowHandler
+		implements IDictionaryHandle {
 
 	@Override
 	public void doDictionaryLoad(final ComponentParameter cp,

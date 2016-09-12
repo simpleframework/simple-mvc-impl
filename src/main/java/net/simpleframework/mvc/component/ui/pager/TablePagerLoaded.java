@@ -83,8 +83,8 @@ public class TablePagerLoaded extends PagerLoaded {
 					.setHandlerMethod("doFilter2").setHandlerClass(TablePagerAction.class);
 
 			// 过滤高级窗口
-			nCP.addComponentBean("tpFilterPage_" + hashId, AjaxRequestBean.class).setUrlForward(
-					ComponentUtils.getResourceHomePath(TablePagerBean.class)
+			nCP.addComponentBean("tpFilterPage_" + hashId, AjaxRequestBean.class)
+					.setUrlForward(ComponentUtils.getResourceHomePath(TablePagerBean.class)
 							+ "/jsp/tablepager_filter.jsp");
 			nCP.addComponentBean("tpFilterWindow_" + hashId, WindowBean.class)
 					.setContentRef("tpFilterPage_" + hashId).setTitle($m("TablePagerLoaded.0"))

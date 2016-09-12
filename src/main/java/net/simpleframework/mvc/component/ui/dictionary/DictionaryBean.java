@@ -1,6 +1,7 @@
 package net.simpleframework.mvc.component.ui.dictionary;
 
 import static net.simpleframework.common.I18n.$m;
+
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.ArrayUtils;
 import net.simpleframework.ctx.common.bean.BeanDefaults;

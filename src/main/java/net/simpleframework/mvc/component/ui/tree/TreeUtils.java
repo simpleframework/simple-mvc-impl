@@ -29,8 +29,8 @@ public abstract class TreeUtils {
 	public static IForward dropHandler(final ComponentParameter cp) {
 		final JsonForward json = new JsonForward();
 		final String treeName = cp.getComponentName();
-		final IForward forward = MVCContext.get().getPermission()
-				.accessForward(cp, cp.getBeanProperty("roleDrop"));
+		final IForward forward = MVCContext.get().getPermission().accessForward(cp,
+				cp.getBeanProperty("roleDrop"));
 		if (forward != null) {
 			json.put("responseText", forward.getResponseText(cp));
 			json.put("ajaxRequestId", treeName);
@@ -84,8 +84,8 @@ public abstract class TreeUtils {
 	}
 
 	public static TreeNode getTreenodeById(final ComponentParameter cp, final String id) {
-		return findTreenode(cp,
-				new LinkedList<String>(ArrayUtils.asList(StringUtils.split(id, "_"))), getTreenodes(cp));
+		return findTreenode(cp, new LinkedList<String>(ArrayUtils.asList(StringUtils.split(id, "_"))),
+				getTreenodes(cp));
 	}
 
 	private static TreeNode findTreenode(final ComponentParameter cp, final LinkedList<String> ll,
