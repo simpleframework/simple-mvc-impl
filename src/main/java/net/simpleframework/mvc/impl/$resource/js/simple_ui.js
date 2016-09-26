@@ -647,8 +647,13 @@ Object.extend($UI, {
     }
 
     var setVal = function(obj) {
-      obj.value = _sent.txt + "(" + (_sent.min--) + ")";
-      obj.disable();
+      if (_sent.min == 0) {
+        obj.value = _sent.txt;
+        obj.enable();
+      } else {
+        obj.value = _sent.txt + "(" + (_sent.min--) + ")";
+        obj.disable();
+      }
     }
     if (_sent.min > 0) {
       setVal(_obj);
@@ -660,15 +665,11 @@ Object.extend($UI, {
         if (!_obj) {
           return;
         }
-
         if (_sent.min == 0) {
-          _obj.value = _sent.txt;
-          _obj.enable();
           clearTimeout(_sent.hdl);
           _sent.hdl = null;
-        } else {
-          setVal(_obj);
         }
+        setVal(_obj);
       }, 1000);
     }
   }
