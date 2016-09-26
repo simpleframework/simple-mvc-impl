@@ -630,6 +630,47 @@ Object.extend($UI, {
         }
       });
     });
+  },
+  
+  doMobileSentInterval : function(obj, create) {
+    var _obj = $(obj);
+    if (create) {
+      window._sent = {
+        min : 60,
+        txt : _obj.value
+      };
+    }
+
+    var _sent = window._sent;
+    if (!_sent) {
+      return;
+    }
+
+    var setVal = function(obj) {
+      obj.value = _sent.txt + "(" + (_sent.min--) + ")";
+      obj.disable();
+    }
+    if (_sent.min > 0) {
+      setVal(_obj);
+    }
+
+    if (!_sent.hdl) {
+      _sent.hdl = setInterval(function() {
+        var _obj = $(obj.identify());
+        if (!_obj) {
+          return;
+        }
+
+        if (_sent.min == 0) {
+          _obj.value = _sent.txt;
+          _obj.enable();
+          clearTimeout(_sent.hdl);
+          _sent.hdl = null;
+        } else {
+          setVal(_obj);
+        }
+      }, 1000);
+    }
   }
 });
 
