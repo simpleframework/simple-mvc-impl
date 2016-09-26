@@ -633,45 +633,40 @@ Object.extend($UI, {
   },
   
   doMobileSentInterval : function(obj, create) {
-    var _obj = $(obj);
+    var id = (typeof obj == "string") ? obj : obj.identify();
+    var _obj = $(id);
+    var _sent;
     if (create) {
-      window._sent = {
+      _sent = window['_sent_' + id] = {
         min : 60,
         txt : _obj.value
       };
     }
-
-    var _sent = window._sent;
+    
     if (!_sent) {
       return;
     }
-
-    var setVal = function(obj) {
-      if (_sent.min == 0) {
-        obj.value = _sent.txt;
-        obj.enable();
-      } else {
-        obj.value = _sent.txt + "(" + (_sent.min--) + ")";
-        obj.disable();
-      }
-    }
-    if (_sent.min > 0) {
-      setVal(_obj);
-    }
-
+    
     if (!_sent.hdl) {
       _sent.hdl = setInterval(function() {
-        var _obj = $(obj.identify());
+        _sent.min--;
+        var _obj = $(id);
         if (!_obj) {
           return;
         }
+        
         if (_sent.min == 0) {
+          _obj.value = _sent.txt;
+          _obj.enable();
+          
           clearTimeout(_sent.hdl);
           _sent.hdl = null;
+        } else {
+          _obj.value = _sent.txt + "(" + _sent.min + ")";
+          _obj.disable();
         }
-        setVal(_obj);
       }, 1000);
-    }
+    } 
   }
 });
 
