@@ -17,7 +17,7 @@ public class SubmitBean extends AbstractComponentBean {
 	private boolean binary;
 
 	// 单位： B、KB、MB、GB
-	private String fileSizeLimit = BeanDefaults.getString(getClass(), "fileSizeLimit", "1MB");
+	private String fileSizeLimit = BeanDefaults.getString(getClass(), "fileSizeLimit", "20MB");
 
 	private String handlerMethod;
 
@@ -56,8 +56,9 @@ public class SubmitBean extends AbstractComponentBean {
 		return fileSizeLimit;
 	}
 
-	public void setFileSizeLimit(final String fileSizeLimit) {
+	public SubmitBean setFileSizeLimit(final String fileSizeLimit) {
 		this.fileSizeLimit = fileSizeLimit;
+		return this;
 	}
 
 	public String getConfirmMessage() {
