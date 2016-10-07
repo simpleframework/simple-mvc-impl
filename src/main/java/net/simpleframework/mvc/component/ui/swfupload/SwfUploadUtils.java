@@ -49,9 +49,14 @@ public abstract class SwfUploadUtils {
 		sb.append("var act = $Actions['" + cp.getComponentName() + "'];");
 		sb.append("var swf=").append("new SWFUpload({");
 		sb.append("upload_url: \"").append(homePath).append("/jsp/swfupload_action.jsp;jsessionid=")
-				.append(cp.getSessionId()).append("\",");
-		// sb.append("?").append(BEAN_ID).append("=").append(beanId);
-		// sb.append("\",");
+				.append(cp.getSessionId());
+		// slb
+		final String serverid = cp.getCookie("SERVERID");
+		if (StringUtils.hasText(serverid)) {
+			sb.append("?SERVERID=").append(serverid);
+		}
+		sb.append("\",");
+
 		sb.append("flash_url: \"").append(homePath).append("/flash/swfupload.swf\",");
 		sb.append("use_query_string: true,");
 
