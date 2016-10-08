@@ -331,6 +331,7 @@
   background: #fff;
   overflow: auto;
   font-size: 9pt;
+  max-width: 100%;
 }
 
 /*Button*/
