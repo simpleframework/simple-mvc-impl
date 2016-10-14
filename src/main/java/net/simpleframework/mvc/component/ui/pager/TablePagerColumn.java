@@ -22,7 +22,8 @@ import net.simpleframework.mvc.common.element.Option;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class TablePagerColumn extends AbstractElementBean {
@@ -410,4 +411,6 @@ public class TablePagerColumn extends AbstractElementBean {
 		defaultFormats = new HashMap<Class<?>, String>();
 		defaultFormats.put(Date.class, Convert.defaultDatePattern);
 	}
+
+	private static final long serialVersionUID = 1602297615549580124L;
 }

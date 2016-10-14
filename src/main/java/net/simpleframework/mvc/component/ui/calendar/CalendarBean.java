@@ -11,6 +11,7 @@ import net.simpleframework.mvc.component.AbstractContainerBean;
  *         http://www.simpleframework.net
  */
 public class CalendarBean extends AbstractContainerBean {
+	private static final long serialVersionUID = -7050227142993520451L;
 
 	/* 选择目标 */
 	private String inputField;

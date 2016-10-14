@@ -10,10 +10,12 @@ import net.simpleframework.mvc.component.AbstractContainerBean;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class PagerBean extends AbstractContainerBean {
+	private static final long serialVersionUID = 6593524434932631930L;
 
 	/* 定义按钮栏(分页按钮,导出按钮等)所在的位置, 具体含义见EPagerBarLayout */
 	private EPagerBarLayout pagerBarLayout = (EPagerBarLayout) BeanDefaults.get(getClass(),

@@ -11,6 +11,7 @@ import net.simpleframework.mvc.component.AbstractComponentBean;
  *         http://www.simpleframework.net
  */
 public class AjaxRequestBean extends AbstractComponentBean {
+	private static final long serialVersionUID = -5523796137958833097L;
 
 	/* 定义组件在业务handler中的执行方法，缺省为ajaxProcess。要注意的是参数和返回值必须和ajaxProcess的定义一样 */
 	private String handlerMethod;

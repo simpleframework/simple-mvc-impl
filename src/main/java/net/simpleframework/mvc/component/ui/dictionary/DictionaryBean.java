@@ -18,10 +18,13 @@ import net.simpleframework.mvc.component.ui.window.WindowBean;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class DictionaryBean extends WindowBean {
+	private static final long serialVersionUID = -4669599756806856304L;
+
 	private String bindingId;
 
 	private String bindingText;
@@ -232,6 +235,7 @@ public class DictionaryBean extends WindowBean {
 	}
 
 	public static class DictionaryListBean extends AbstractDictionaryTypeBean {
+		private static final long serialVersionUID = -6426964059839058052L;
 
 		private String ref;
 
@@ -254,6 +258,7 @@ public class DictionaryBean extends WindowBean {
 	}
 
 	public static class DictionaryTreeBean extends AbstractDictionaryTypeBean {
+		private static final long serialVersionUID = 5735592737546008857L;
 
 		private String ref;
 
@@ -276,6 +281,7 @@ public class DictionaryBean extends WindowBean {
 	}
 
 	public static class DictionaryColorBean extends AbstractDictionaryTypeBean {
+		private static final long serialVersionUID = -4108438883233830909L;
 
 		private String ref;
 
@@ -298,6 +304,7 @@ public class DictionaryBean extends WindowBean {
 	}
 
 	public static class DictionaryFontBean extends AbstractDictionaryTypeBean {
+		private static final long serialVersionUID = -1276242196159376150L;
 
 		public DictionaryFontBean(final DictionaryBean dictionaryBean, final XmlElement element) {
 			super(dictionaryBean, element);
@@ -309,6 +316,7 @@ public class DictionaryBean extends WindowBean {
 	}
 
 	public static class DictionarySmileyBean extends AbstractDictionaryTypeBean {
+		private static final long serialVersionUID = -4732011402582503437L;
 
 		public DictionarySmileyBean(final DictionaryBean dictionaryBean, final XmlElement element) {
 			super(dictionaryBean, element);
@@ -319,6 +327,7 @@ public class DictionaryBean extends WindowBean {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	static abstract class AbstractDictionaryTypeBean extends AbstractElementBean {
 		private final DictionaryBean dictionaryBean;
 

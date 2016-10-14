@@ -6,10 +6,13 @@ import net.simpleframework.mvc.component.AbstractContainerBean;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class ProgressBarBean extends AbstractContainerBean {
+	private static final long serialVersionUID = 6122930524008553225L;
+
 	private float interval = (float) BeanDefaults.getDouble(getClass(), "interval", 0.5);
 
 	private int maxProgressValue = BeanDefaults.getInt(getClass(), "maxProgressValue", 100);

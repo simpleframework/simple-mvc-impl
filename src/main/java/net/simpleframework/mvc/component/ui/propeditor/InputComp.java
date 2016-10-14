@@ -10,10 +10,12 @@ import net.simpleframework.mvc.common.element.EElementEvent;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class InputComp extends AbstractElementBean {
+	private static final long serialVersionUID = -8427883054166783029L;
 
 	public static InputComp select(final String name) {
 		return new InputComp(name).setType(EInputCompType.select);

@@ -9,10 +9,13 @@ import net.simpleframework.mvc.component.AbstractContainerBean;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class SwfUploadBean extends AbstractContainerBean {
+	private static final long serialVersionUID = 7966186549060752903L;
+
 	/* 文件大小限制，单位： B、KB、MB、GB */
 	private String fileSizeLimit = BeanDefaults.getString(getClass(), "fileSizeLimit", "10MB");
 	/* 文件队列限制 */

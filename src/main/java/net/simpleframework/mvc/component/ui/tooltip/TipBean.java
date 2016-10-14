@@ -8,10 +8,12 @@ import net.simpleframework.mvc.common.element.EElementEvent;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class TipBean extends AbstractElementBean {
+	private static final long serialVersionUID = 816661272003096578L;
 
 	public TipBean(final XmlElement element, final TooltipBean tooltipBean) {
 		super(element);
@@ -236,6 +238,7 @@ public class TipBean extends AbstractElementBean {
 	}
 
 	public static class HideOn extends AbstractElementBean {
+		private static final long serialVersionUID = 2398854457159465566L;
 
 		public HideOn(final XmlElement element) {
 			super(element);
@@ -275,6 +278,7 @@ public class TipBean extends AbstractElementBean {
 	}
 
 	public static class Hook extends AbstractElementBean {
+		private static final long serialVersionUID = -2178396544578854471L;
 
 		public Hook() {
 		}
