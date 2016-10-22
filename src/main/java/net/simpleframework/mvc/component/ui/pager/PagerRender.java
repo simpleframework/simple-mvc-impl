@@ -1,5 +1,7 @@
 package net.simpleframework.mvc.component.ui.pager;
 
+import static net.simpleframework.common.I18n.$m;
+
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.HttpUtils;
 import net.simpleframework.mvc.IForward;
@@ -51,9 +53,22 @@ public class PagerRender extends ComponentHtmlRenderEx {
 		sb.append(super.getHtmlJavascriptCode(cp));
 
 		sb.append(ComponentRenderUtils.actionFunc(cp)).append(".doPager = function(to, params) {");
-		sb.append("var p = to.up(\".pager\");");
 		sb.append("var af = $Actions[\"__doPager\"];");
-		sb.append("af.container = p.up();");
+		if (cp.isMobile()) {
+			sb.append("af.jsCompleteCallback = function(req, responseText, json) {");
+			sb.append(" to.insert({");
+			sb.append("  'before' : responseText");
+			sb.append(" });");
+			sb.append(" if (responseText == '') {");
+			sb.append("  to.innerHTML = '").append($m("pager.3")).append("';");
+			sb.append(" } else {");
+			sb.append("  to.pn++;");
+			sb.append(" }");
+			sb.append("};");
+		} else {
+			sb.append("var p = to.up(\".pager\");");
+			sb.append("af.container = p.up();");
+		}
 		sb.append("af.selector = \"").append(cp.getBeanProperty("selector")).append("\";");
 		sb.append("af(\"").append(PagerUtils.BEAN_ID).append("=");
 		sb.append(cp.hashId()).append("\".addParameter(params));");

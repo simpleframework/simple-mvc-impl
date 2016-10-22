@@ -1,8 +1,11 @@
 package net.simpleframework.mvc.component.ui.pager;
 
+import java.util.List;
+
 import net.simpleframework.common.Convert;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.mvc.IForward;
+import net.simpleframework.mvc.TextForward;
 import net.simpleframework.mvc.UrlForward;
 import net.simpleframework.mvc.component.ComponentHtmlRenderEx;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -28,12 +31,22 @@ public class PagerAction extends ComponentHtmlRenderEx.RefreshAction {
 		if (pageItems > 0) {
 			PagerUtils.setPageAttributes(nCP, pageItemsParameterName, pageItems);
 		}
-		final StringBuilder sb = new StringBuilder();
-		sb.append(ComponentUtils.getResourceHomePath(PagerBean.class)).append("/jsp/pager.jsp");
-		final String xpParameter = PagerUtils.getXmlPathParameter(nCP);
-		if (StringUtils.hasText(xpParameter)) {
-			sb.append("?").append(xpParameter);
+
+		if (cp.isMobile()) {
+			final AbstractPagerHandler pHdl = (AbstractPagerHandler) nCP.getComponentHandler();
+			final List<?> data = pHdl.getData(nCP, pageNumber * pageItems);
+			if (data.size() > 0) {
+				return new TextForward(pHdl.toPagerHTML(nCP, data));
+			}
+			return null;
+		} else {
+			final StringBuilder sb = new StringBuilder();
+			sb.append(ComponentUtils.getResourceHomePath(PagerBean.class)).append("/jsp/pager.jsp");
+			final String xpParameter = PagerUtils.getXmlPathParameter(nCP);
+			if (StringUtils.hasText(xpParameter)) {
+				sb.append("?").append(xpParameter);
+			}
+			return new UrlForward(sb.toString());
 		}
-		return new UrlForward(sb.toString());
 	}
 }

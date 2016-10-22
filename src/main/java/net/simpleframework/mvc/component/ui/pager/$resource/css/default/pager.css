@@ -147,6 +147,13 @@
 	*zoom: 1;
 }
 
+.pager .mmore {
+  font-size: 9.5pt;
+  padding: 10px 0;
+  text-align: center;
+  cursor: pointer;
+}
+
 /**************************************tablepager***************************************/
 .tablepager {
   background-color: transparent;

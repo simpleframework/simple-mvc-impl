@@ -15,15 +15,16 @@
 <%
 	final ComponentParameter cp = PagerUtils.get(request, response);
 	final IPagerHandler hdl = (IPagerHandler) cp.getComponentHandler();
-  if (hdl == null) {
-    throw ComponentHandlerException.of(I18n.$m("pager.1", cp.getComponentName()));
-  }
-  
+	if (hdl == null) {
+		throw ComponentHandlerException.of(I18n.$m("pager.1", cp.getComponentName()));
+	}
+
 	final int count = hdl.getCount(cp);
 	final int pageNumber = PagerUtils.getPageNumber(cp);
+  final int pageItems = PagerUtils.getPageItems(cp);
 	int start;
 	if (pageNumber > 1) {
-		start = (pageNumber - 1) * PagerUtils.getPageItems(cp);
+		start = (pageNumber - 1) * pageItems;
 		if (start >= count) {
 			start = 0;
 			PagerUtils.resetPageNumber(cp);
@@ -33,16 +34,13 @@
 	}
 	HttpUtils.putParameter(request, "pager.offset", start);
 	hdl.process(cp, start);
-	final EPagerBarLayout layout = (EPagerBarLayout) cp
-			.getBeanProperty("pagerBarLayout");
+	final EPagerBarLayout layout = (EPagerBarLayout) cp.getBeanProperty("pagerBarLayout");
 %>
-<div class="pager"
-  style="width:<%=StringUtils.text((String) cp.getBeanProperty("width"),
-					"100%")%>">
+<div class="pager" style="width:<%=StringUtils.text((String) cp.getBeanProperty("width"), "100%")%>">
   <%
   	out.write(ComponentRenderUtils.genParameters(cp));
   	final String title = (String) cp.getBeanProperty("title");
-  	final boolean top = count > 0
+  	final boolean top = count > 0 && !cp.isMobile()
   			&& (layout == EPagerBarLayout.top || layout == EPagerBarLayout.both);
   	if (top || StringUtils.hasText(title)) {
   %>
@@ -62,21 +60,27 @@
   	}
   	String dataPath = (String) cp.getBeanProperty("dataPath");
   	if (StringUtils.hasText(dataPath)) {
-  		dataPath = HttpUtils.stripContextPath(request,
-  				MVCUtils.doPageUrl(cp, dataPath));
+  		dataPath = HttpUtils.stripContextPath(request, MVCUtils.doPageUrl(cp, dataPath));
   %><jsp:include page="<%=dataPath%>" flush="true"></jsp:include>
   <%
   	} else {
-  		final String dataHtml = hdl.toPagerHTML(cp,
-  				PagerUtils.getCurrentPageData(cp));
+  		final String dataHtml = hdl.toPagerHTML(cp, PagerUtils.getCurrentPageData(cp));
   		if (StringUtils.hasText(dataHtml)) {
   			out.write(dataHtml);
   		}
   	}
-  	final boolean bottom = count > 0
-  			&& (layout == EPagerBarLayout.bottom || layout == EPagerBarLayout.both);
+  	final boolean bottom = count > 0 && (layout == EPagerBarLayout.bottom || layout == EPagerBarLayout.both);
   	final String stat = (String) cp.getBeanProperty("stat");
   	if (bottom || StringUtils.hasText(stat)) {
+  		if (cp.isMobile()) {
+  %>
+  <div class="mmore" 
+    onclick="$Actions['<%=cp.
+      getComponentName()%>'].doPager(this, '<%=cp.
+      getBeanProperty("pageItemsParameterName")%>=<%=pageItems%>&<%=cp.
+      getBeanProperty("pageNumberParameterName")%>=' + (this.pn + 1));">#(pager.2)</div>
+  <%
+  	} else {
   %><div class="pager_block_bottom clearfix">
     <div class="pager_title"><%=StringUtils.blank(stat)%></div>
     <%
@@ -92,13 +96,12 @@
   </div>
   <%
   	}
+  	}
   %>
 </div>
 <%
 	Object noResultDesc;
-	if (count == 0
-			&& StringUtils.hasObject(noResultDesc = cp
-					.getBeanProperty("noResultDesc"))) {
+	if (count == 0 && StringUtils.hasObject(noResultDesc = cp.getBeanProperty("noResultDesc"))) {
 %>
 <div class="pager_no_result"><%=noResultDesc%></div>
 <%
@@ -115,6 +118,11 @@
     action.pager = ele;
     action.hasData = <%=count > 0%>;
     action.beanId = "<%=beanId%>";
+    
+    var mmore = ele.down('.mmore');
+    if (mmore) {
+      mmore.pn = <%=PagerUtils.getPageNumber(cp)%>;
+    }
     
     ele.action = action;
     $call(window.pager_init_<%=beanId%>, action);
