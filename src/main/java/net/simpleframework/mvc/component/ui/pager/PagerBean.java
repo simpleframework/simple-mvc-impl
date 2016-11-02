@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.ui.pager;
 
 import static net.simpleframework.common.I18n.$m;
-
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.ctx.common.bean.BeanDefaults;
 import net.simpleframework.ctx.permission.PermissionConst;
@@ -60,6 +59,8 @@ public class PagerBean extends AbstractContainerBean {
 	private String pageItemsParameterName = BeanDefaults.getString(getClass(),
 			"pageItemsParameterName", "pageItems");
 
+	/* 是否缓存pageNumber */
+	private boolean cachePageNumber = BeanDefaults.getBool(getClass(), "cachePageNumber", false);
 	/* 定义分页组件的角色 */
 	private String role;
 
@@ -190,6 +191,14 @@ public class PagerBean extends AbstractContainerBean {
 	public PagerBean setPageItemsParameterName(final String pageItemsParameterName) {
 		this.pageItemsParameterName = pageItemsParameterName;
 		return this;
+	}
+
+	public boolean isCachePageNumber() {
+		return cachePageNumber;
+	}
+
+	public void setCachePageNumber(final boolean cachePageNumber) {
+		this.cachePageNumber = cachePageNumber;
 	}
 
 	public boolean isShowLoading() {
