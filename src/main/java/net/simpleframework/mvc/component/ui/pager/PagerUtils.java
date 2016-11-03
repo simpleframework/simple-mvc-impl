@@ -53,8 +53,8 @@ public abstract class PagerUtils {
 
 	private static Object _getPageAttributes(final ComponentParameter nCP, final String key) {
 		@SuppressWarnings("unchecked")
-		final Map<String, Object> attributes = (Map<String, Object>) nCP.getSessionAttr("attributes_"
-				+ nCP.hashId());
+		final Map<String, Object> attributes = (Map<String, Object>) nCP
+				.getSessionAttr("attributes_" + nCP.hashId());
 		return attributes != null ? attributes.get(key) : null;
 	}
 
@@ -97,8 +97,8 @@ public abstract class PagerUtils {
 	static String getXmlPathParameter(final ComponentParameter cp) {
 		final String dataPath = (String) cp.getBeanProperty("dataPath");
 		if (StringUtils.hasText(dataPath)) {
-			final String xmlPath = MVCUtils.doPageUrl(cp, FileUtils.stripFilenameExtension(dataPath)
-					+ ".xml");
+			final String xmlPath = MVCUtils.doPageUrl(cp,
+					FileUtils.stripFilenameExtension(dataPath) + ".xml");
 			if (new File(MVCUtils.getRealPath(xmlPath)).exists()) {
 				return MVCConst.PARAM_XMLPATH + "=" + xmlPath;
 			}
