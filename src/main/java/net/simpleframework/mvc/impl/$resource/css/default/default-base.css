@@ -195,7 +195,7 @@ textarea[disabled],
 .text[disabled],
 span.readonly {
   cursor: not-allowed;
-  color: #888;
+  color: #888 !important;
 }
 
 select {
