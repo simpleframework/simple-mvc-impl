@@ -112,7 +112,13 @@ blockquote {
 
 pre {
   white-space: pre-wrap; /* CSS 2.1 */
-  word-wrap: break-word; /* IE7 */
+}
+
+pre,
+p,
+div {
+  word-break: break-all;
+  word-wrap: break-word;
 }
 
 sup {
