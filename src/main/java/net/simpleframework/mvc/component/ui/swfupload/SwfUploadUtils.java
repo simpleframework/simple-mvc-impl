@@ -26,7 +26,7 @@ import net.simpleframework.mvc.component.ComponentUtils;
  *         http://www.simpleframework.net
  */
 public abstract class SwfUploadUtils {
-	public static final String BEAN_ID = "upload_@bid";
+	public static final String BEAN_ID = "swfupload_@bid";
 
 	public static ComponentParameter get(final PageRequestResponse rRequest) {
 		return ComponentParameter.get(rRequest, BEAN_ID);
