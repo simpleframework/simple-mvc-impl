@@ -37,7 +37,7 @@ public abstract class SwfUploadUtils {
 		return ComponentParameter.get(request, response, BEAN_ID);
 	}
 
-	private static String msg(final String message, final Object... args) {
+	public static String msg(final String message, final Object... args) {
 		return JavascriptUtils.escape($m(message, args));
 	}
 
