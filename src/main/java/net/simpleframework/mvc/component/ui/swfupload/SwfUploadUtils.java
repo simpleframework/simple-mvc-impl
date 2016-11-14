@@ -226,7 +226,7 @@ public abstract class SwfUploadUtils {
 		sb.append("};");
 
 		sb.append("act.startUpload = function() {");
-		sb.append("var params = \"").append(SwfUploadUtils.BEAN_ID).append("=").append(beanId)
+		sb.append("var params = \"").append(BEAN_ID).append("=").append(beanId)
 				.append("\".addSelectorParameter(\"");
 		sb.append(cp.getBeanProperty("selector")).append("\");");
 		sb.append("swf.setPostParams(params.toQueryParams());");
@@ -238,19 +238,24 @@ public abstract class SwfUploadUtils {
 
 	public static String upload(final HttpServletRequest request, final HttpServletResponse response)
 			throws IOException {
+		return upload(get(request, response));
+	}
+
+	public static String upload(final ComponentParameter cp) throws IOException {
+		final ISwfUploadHandler uHandle = (ISwfUploadHandler) cp.getComponentHandler();
 		final KVMap variables = new KVMap();
-		final ComponentParameter nCP = get(request, response);
-		final ISwfUploadHandler uHandle = (ISwfUploadHandler) nCP.getComponentHandler();
 		if (uHandle != null) {
+			final HttpServletRequest request = cp.request;
 			try {
 				request.setCharacterEncoding("UTF-8");
 			} catch (final UnsupportedEncodingException e) {
 			}
+
 			try {
 				final int fileSizeLimit = (int) FileUtils
-						.toFileSize((String) nCP.getBeanProperty("fileSizeLimit"));
-				uHandle.upload(nCP,
-						((MultipartPageRequest) (nCP.request = MVCContext.get()
+						.toFileSize((String) cp.getBeanProperty("fileSizeLimit"));
+				uHandle.upload(cp,
+						((MultipartPageRequest) (cp.request = MVCContext.get()
 								.createMultipartPageRequest(request, fileSizeLimit))).getFile("Filedata"),
 						variables);
 			} catch (final Throwable ex) {
