@@ -93,7 +93,7 @@ public abstract class SwfUploadUtils {
 					.append(cp.getRequestHeader("User-Agent").indexOf("AppleWebKit/") > -1 ? 4 : 2)
 					.append(",");
 		}
-		if (swfUpload.isMultiFileSelected()) {
+		if ((Boolean) cp.getBeanProperty("multiFileSelected")) {
 			sb.append("button_action: SWFUpload.BUTTON_ACTION.SELECT_FILES,");
 		} else {
 			sb.append("button_action: SWFUpload.BUTTON_ACTION.SELECT_FILE,");
