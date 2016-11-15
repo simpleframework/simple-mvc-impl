@@ -132,6 +132,8 @@ sup {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
+	word-break: keep-all;
+  word-wrap: normal;
 }
 
 sup.highlight {
