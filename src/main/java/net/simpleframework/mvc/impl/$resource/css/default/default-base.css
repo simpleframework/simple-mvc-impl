@@ -116,7 +116,8 @@ pre {
 
 pre,
 p,
-div {
+div,
+.wrap_text {
   word-break: break-all;
   word-wrap: break-word;
 }
@@ -132,7 +133,7 @@ sup {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
-	word-break: keep-all;
+	word-break: normal;
   word-wrap: normal;
 }
 
