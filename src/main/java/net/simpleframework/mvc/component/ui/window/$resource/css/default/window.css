@@ -244,9 +244,9 @@
 .window_base_overlay,
 .popup_overlay {
   background-color: #aaa;
-  filter: alpha(opacity = 50);
-  -moz-opacity: 0.5;
-  opacity: 0.5;
+  filter: alpha(opacity = 30);
+  -moz-opacity: 0.3;
+  opacity: 0.3;
 }
 
 .window_default_wired {
