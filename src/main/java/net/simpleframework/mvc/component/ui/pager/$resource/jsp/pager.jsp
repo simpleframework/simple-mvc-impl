@@ -40,7 +40,7 @@
   <%
   	out.write(ComponentRenderUtils.genParameters(cp));
   	final String title = (String) cp.getBeanProperty("title");
-  	final boolean top = count > 0 && !cp.isMobile()
+  	final boolean top = count > 0 && !PagerUtils.isMoreLoad(cp)
   			&& (layout == EPagerBarLayout.top || layout == EPagerBarLayout.both);
   	if (top || StringUtils.hasText(title)) {
   %>
@@ -72,7 +72,7 @@
   	final boolean bottom = count > 0 && (layout == EPagerBarLayout.bottom || layout == EPagerBarLayout.both);
   	final String stat = (String) cp.getBeanProperty("stat");
   	if (bottom || StringUtils.hasText(stat)) {
-  		if (cp.isMobile()) {
+  		if (PagerUtils.isMoreLoad(cp)) {
   %>
   <div class="mmore" 
     onclick="$Actions['<%=cp.
@@ -122,6 +122,9 @@
     var mmore = ele.down('.mmore');
     if (mmore) {
       mmore.pn = <%=PagerUtils.getPageNumber(cp)%>;
+      if (<%=cp.getBeanProperty("scrollautoLoad")%>) {
+      	pager_autoload(mmore);
+      }
     }
     
     ele.action = action;

@@ -54,13 +54,15 @@ public class PagerRender extends ComponentHtmlRenderEx {
 
 		sb.append(ComponentRenderUtils.actionFunc(cp)).append(".doPager = function(to, params) {");
 		sb.append("var af = $Actions[\"__doPager\"];");
-		if (cp.isMobile()) {
+		if (PagerUtils.isMoreLoad(cp)) {
 			sb.append("af.jsCompleteCallback = function(req, responseText, json) {");
 			sb.append(" to.insert({");
 			sb.append("  'before' : responseText");
 			sb.append(" });");
+			sb.append(" to._top = to.cumulativeOffset().top;");
 			sb.append(" if (responseText == '') {");
 			sb.append("  to.innerHTML = '").append($m("pager.3")).append("';");
+			sb.append("  to.removeAttribute('onclick');");
 			sb.append(" } else {");
 			sb.append("  to.pn++;");
 			sb.append(" }");

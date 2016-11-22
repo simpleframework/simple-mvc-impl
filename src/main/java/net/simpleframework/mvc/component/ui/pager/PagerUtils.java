@@ -92,6 +92,10 @@ public abstract class PagerUtils {
 		setPageAttributes(nCP, pageNumberParameterName, 0);
 	}
 
+	public static boolean isMoreLoad(final ComponentParameter cp) {
+		return cp.isMobile() || (Boolean) cp.getBeanProperty("moreload");
+	}
+
 	/***************************** utils for jsp ****************************/
 
 	static String getXmlPathParameter(final ComponentParameter cp) {

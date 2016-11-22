@@ -68,6 +68,11 @@ public class PagerBean extends AbstractContainerBean {
 	/* 当分页组件被装载完后，触发的前端js事件 */
 	private String jsLoadedCallback;
 
+	/* 更多方式加载，移动端固定采用更多方式加载，无需设置此参数 */
+	private boolean moreload = BeanDefaults.getBool(getClass(), "moreload", false);
+	/* 滚动时自动装载 */
+	private boolean scrollautoLoad = BeanDefaults.getBool(getClass(), "scrollautoLoad", true);
+
 	public String getTitle() {
 		return title;
 	}
@@ -217,6 +222,24 @@ public class PagerBean extends AbstractContainerBean {
 
 	public PagerBean setLoadingModal(final boolean loadingModal) {
 		this.loadingModal = loadingModal;
+		return this;
+	}
+
+	public boolean isMoreload() {
+		return moreload;
+	}
+
+	public PagerBean setMoreload(final boolean moreload) {
+		this.moreload = moreload;
+		return this;
+	}
+
+	public boolean isScrollautoLoad() {
+		return scrollautoLoad;
+	}
+
+	public PagerBean setScrollautoLoad(final boolean scrollautoLoad) {
+		this.scrollautoLoad = scrollautoLoad;
 		return this;
 	}
 
