@@ -5,7 +5,7 @@ var $pager_action = function(item) {
   return act;
 };
 
-function pager_autoload(mmore) {
+function pager_autoload(mmore, lmsg) {
   var top = mmore.cumulativeOffset().top;
   Event.observe(window, "scroll", function() {
     var scrollTop = document.documentElement.scrollTop
@@ -15,9 +15,10 @@ function pager_autoload(mmore) {
       return;
     }
     if (scrollTop + document.viewport.getHeight() > _top) {
-      top = null;
       mmore._top = null;
-      mmore.simulate("click");    
+      mmore.innerHTML = lmsg;
+      top = null;
+      mmore.simulate("click");
     }
   });
 };

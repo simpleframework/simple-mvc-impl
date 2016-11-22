@@ -1,7 +1,6 @@
 package net.simpleframework.mvc.component.ui.pager;
 
 import static net.simpleframework.common.I18n.$m;
-
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.HttpUtils;
 import net.simpleframework.mvc.IForward;
@@ -59,12 +58,14 @@ public class PagerRender extends ComponentHtmlRenderEx {
 			sb.append(" to.insert({");
 			sb.append("  'before' : responseText");
 			sb.append(" });");
-			sb.append(" to._top = to.cumulativeOffset().top;");
 			sb.append(" if (responseText == '') {");
 			sb.append("  to.innerHTML = '").append($m("pager.3")).append("';");
 			sb.append("  to.removeAttribute('onclick');");
+			sb.append("  to._top = null;");
 			sb.append(" } else {");
+			sb.append("  to.innerHTML = '").append($m("pager.2")).append("';");
 			sb.append("  to.pn++;");
+			sb.append("  to._top = to.cumulativeOffset().top;");
 			sb.append(" }");
 			sb.append("};");
 		} else {
