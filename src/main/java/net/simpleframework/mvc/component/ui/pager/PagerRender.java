@@ -1,6 +1,7 @@
 package net.simpleframework.mvc.component.ui.pager;
 
 import static net.simpleframework.common.I18n.$m;
+
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.HttpUtils;
 import net.simpleframework.mvc.IForward;
