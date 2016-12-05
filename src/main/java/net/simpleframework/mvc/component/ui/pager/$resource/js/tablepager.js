@@ -358,6 +358,7 @@ function $table_pager_addMethods(pa) {
 			$UI.addBackgroundTitle(txt, title);
 			$UI.addReturnEvent(txt, function(ev) {
 				var v = $F(txt);
+				v = v.stripScripts();
 				if (v == "") {
 				  pa.filterDelete(txt, txt.getAttribute("params"));
 				} else if (v != title) {
