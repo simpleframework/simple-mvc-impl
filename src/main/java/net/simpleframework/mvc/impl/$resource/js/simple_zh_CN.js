@@ -19,7 +19,7 @@ var $MessageConst = {
 	"ValidateCode.0"         : "\u770B\u4E0D\u6E05\u695A\uFF0C\u518D\u6362\u4E00\u5F20",
 	"Table.Draggable.0"      : "\u6B63\u5728\u62D6\u52A8",
 	"Table.Draggable.1"      : "\u4E2A\u9879\u76EE",
-	"TablePager.0"           : "\u8fd9\u91cc\u8f93\u5165\u5217\u8fc7\u6ee4\u6761\u4ef6",  
+	"TablePager.0"           : "\u8F93\u5165\u6761\u4EF6",  
 	"TablePager.1"           : "\u8bf7\u9009\u62e9\u8981\u64cd\u4f5c\u7684\u6761\u76ee\uff01",
 	"Progressbar.0"          : "\u4E2D\u6B62",
 	"Progressbar.1"          : "\u8BE6\u7EC6\u4FE1\u606F",
