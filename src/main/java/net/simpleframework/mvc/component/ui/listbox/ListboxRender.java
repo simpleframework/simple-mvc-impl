@@ -5,6 +5,7 @@ import java.util.Map;
 import net.simpleframework.common.JsonUtils;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.JavascriptUtils;
+import net.simpleframework.common.web.html.HtmlEncoder;
 import net.simpleframework.mvc.common.ItemUIBean;
 import net.simpleframework.mvc.component.AbstractComponentRender.ComponentJavascriptRender;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -52,11 +53,13 @@ public class ListboxRender extends ComponentJavascriptRender {
 			sb.append("{");
 			final String text = listItem.getText();
 			if (StringUtils.hasText(text)) {
-				sb.append("text: \"").append(JavascriptUtils.escape(text)).append("\",");
+				sb.append("text: \"").append(JavascriptUtils.escape(HtmlEncoder.text(text)))
+						.append("\",");
 			}
 			final String tip = listItem.getTooltip();
 			if (StringUtils.hasText(tip)) {
-				sb.append("tip: \"").append(JavascriptUtils.escape(tip)).append("\",");
+				sb.append("tip: \"").append(JavascriptUtils.escape(HtmlEncoder.text(tip)))
+						.append("\",");
 			}
 			if (lHandle != null) {
 				final Map<String, Object> attributes = lHandle.getListItemAttributes(cp, listItem);
