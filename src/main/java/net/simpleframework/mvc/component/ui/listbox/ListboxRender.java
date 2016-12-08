@@ -5,7 +5,6 @@ import java.util.Map;
 import net.simpleframework.common.JsonUtils;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.JavascriptUtils;
-import net.simpleframework.common.web.html.HtmlEncoder;
 import net.simpleframework.mvc.common.ItemUIBean;
 import net.simpleframework.mvc.component.AbstractComponentRender.ComponentJavascriptRender;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -14,7 +13,8 @@ import net.simpleframework.mvc.component.ComponentRenderUtils;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class ListboxRender extends ComponentJavascriptRender {
@@ -53,13 +53,11 @@ public class ListboxRender extends ComponentJavascriptRender {
 			sb.append("{");
 			final String text = listItem.getText();
 			if (StringUtils.hasText(text)) {
-				sb.append("text: \"").append(JavascriptUtils.escape(HtmlEncoder.text(text)))
-						.append("\",");
+				sb.append("text: \"").append(JavascriptUtils.escape(text)).append("\",");
 			}
 			final String tip = listItem.getTooltip();
 			if (StringUtils.hasText(tip)) {
-				sb.append("tip: \"").append(JavascriptUtils.escape(HtmlEncoder.text(tip)))
-						.append("\",");
+				sb.append("tip: \"").append(JavascriptUtils.escape(tip)).append("\",");
 			}
 			if (lHandle != null) {
 				final Map<String, Object> attributes = lHandle.getListItemAttributes(cp, listItem);
