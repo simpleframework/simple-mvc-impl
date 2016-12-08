@@ -42,7 +42,7 @@ public abstract class PagerUtils {
 
 	public static void setPageAttributes(final ComponentParameter nCP, final String key,
 			final Object value) {
-		final String sk = "attributes_" + nCP.hashId();
+		final String sk = "attributes_" + nCP.getComponentName();
 		@SuppressWarnings("unchecked")
 		Map<String, Object> attributes = (Map<String, Object>) nCP.getSessionAttr(sk);
 		if (attributes == null) {
@@ -54,7 +54,7 @@ public abstract class PagerUtils {
 	private static Object _getPageAttributes(final ComponentParameter nCP, final String key) {
 		@SuppressWarnings("unchecked")
 		final Map<String, Object> attributes = (Map<String, Object>) nCP
-				.getSessionAttr("attributes_" + nCP.hashId());
+				.getSessionAttr("attributes_" + nCP.getComponentName());
 		return attributes != null ? attributes.get(key) : null;
 	}
 
