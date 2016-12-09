@@ -5,7 +5,7 @@ var $pager_action = function(item) {
   return act;
 };
 
-function pager_autoload(mmore, lmsg) {
+function pager_autoload(mmore) {
   var top = mmore.cumulativeOffset().top;
   Event.observe(window, "scroll", function() {
     var scrollTop = document.documentElement.scrollTop
@@ -16,7 +16,6 @@ function pager_autoload(mmore, lmsg) {
     }
     if (scrollTop + document.viewport.getHeight() > _top) {
       mmore._top = null;
-      mmore.innerHTML = lmsg;
       top = null;
       mmore.simulate("click");
     }

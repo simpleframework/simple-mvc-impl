@@ -154,6 +154,16 @@
   cursor: pointer;
 }
 
+.pager .mmore img,
+.pager .mmore span {
+  vertical-align: middle;  
+}
+
+.pager .mmore img {
+  width: 18px;
+  margin-right: 4px;
+}
+
 /**************************************tablepager***************************************/
 .tablepager {
   background-color: transparent;

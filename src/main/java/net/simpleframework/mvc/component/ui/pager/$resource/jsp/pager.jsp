@@ -123,7 +123,7 @@
     if (mmore) {
       mmore.pn = <%=PagerUtils.getPageNumber(cp)%>;
       if (<%=cp.getBeanProperty("scrollautoLoad")%>) {
-      	pager_autoload(mmore, '#(pager.4)');
+      	pager_autoload(mmore);
       }
     }
     

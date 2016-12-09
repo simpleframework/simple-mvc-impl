@@ -4,8 +4,11 @@ import static net.simpleframework.common.I18n.$m;
 
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.web.HttpUtils;
+import net.simpleframework.common.web.JavascriptUtils;
 import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.UrlForward;
+import net.simpleframework.mvc.common.element.ImageElement;
+import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.component.ComponentHtmlRenderEx;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentRenderUtils;
@@ -15,7 +18,8 @@ import net.simpleframework.mvc.component.base.ajaxrequest.AjaxRequestBean;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class PagerRender extends ComponentHtmlRenderEx {
@@ -47,14 +51,22 @@ public class PagerRender extends ComponentHtmlRenderEx {
 		return new UrlForward(url);
 	}
 
+	private String getLoadingText(final ComponentParameter cp) {
+		final StringBuilder sb = new StringBuilder();
+		sb.append(new ImageElement(cp.getCssResourceHomePath(PagerUtils.class) + "/images/load.gif"));
+		sb.append(new SpanElement($m("pager.4")));
+		return sb.toString();
+	}
+
 	@Override
 	public String getHtmlJavascriptCode(final ComponentParameter cp) {
 		final StringBuilder sb = new StringBuilder();
 		sb.append(super.getHtmlJavascriptCode(cp));
-
 		sb.append(ComponentRenderUtils.actionFunc(cp)).append(".doPager = function(to, params) {");
 		sb.append("var af = $Actions[\"__doPager\"];");
 		if (PagerUtils.isMoreLoad(cp)) {
+			sb.append("to.innerHTML = '").append(JavascriptUtils.escape(getLoadingText(cp)))
+					.append("';");
 			sb.append("af.jsCompleteCallback = function(req, responseText, json) {");
 			sb.append(" to.insert({");
 			sb.append("  'before' : responseText");
