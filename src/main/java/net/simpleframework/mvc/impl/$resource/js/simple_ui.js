@@ -163,7 +163,7 @@
 		/**
 		 * 覆盖alert的实现
 		 */
-		var $alert_bak = window.alert;
+		var $alert_bak = window._alert = window.alert;
 		window.alert = function(msg) {
 			if (!WINDOW_UI_ENABLE)
 				$alert_bak(msg);
