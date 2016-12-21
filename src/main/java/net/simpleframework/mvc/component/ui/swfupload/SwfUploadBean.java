@@ -16,6 +16,7 @@ import net.simpleframework.mvc.component.AbstractContainerBean;
 public class SwfUploadBean extends AbstractContainerBean {
 	private static final long serialVersionUID = 7966186549060752903L;
 
+	public static String IMAGES_FILETYPES = "*.jpg;*.jpeg;*.gif;*.png;*.bmp";
 	/* 文件大小限制，单位： B、KB、MB、GB */
 	private String fileSizeLimit = BeanDefaults.getString(getClass(), "fileSizeLimit", "10MB");
 	/* 文件队列限制 */
