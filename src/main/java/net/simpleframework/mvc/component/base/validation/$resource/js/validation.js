@@ -292,7 +292,11 @@ Validation.prototype = {
 					}
 					if (!this.getMethod(method)(fv, args)) {
 					  var message = Validation.format(validator['message'], args);
-						$Effect.highlight(ele, "#FFEEEE");
+					  var highlight = ele.getAttribute("highlight");
+					  if (highlight != "none") {
+					    $Effect.highlight(ele, 
+					        (highlight && highlight.startsWith("#")) ? highlight : "#FFEEEE");
+					  }
 						var wt = validator['warnType'] || this.options.warnType;
 						if (wt == 'alert') {
 							alert(message);
