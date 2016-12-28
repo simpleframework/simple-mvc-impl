@@ -541,28 +541,38 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler
 			if (Date.class.isAssignableFrom(pClass) || !pagerColumn.isEditable()) {
 				input.setReadonly(true);
 			}
+			element.addElements(input, createFilterImage(cp, pagerColumn));
+		}
+		return element;
+	}
 
-			final LinkElement link = new LinkElement();
-			final Map<String, ColumnData> filterColumns = getFilterColumns(cp);
-			if (filterColumns != null && filterColumns.containsKey(columnName)) {
-				link.setClassName("del").addStyle("float: left;").setTitle("#(TablePagerUtils.8)")
-						.setOnclick("$Actions['" + componentName + "'].filterDelete(this, '"
-								+ TablePagerUtils.PARAM_FILTER_CUR_COL + "=" + columnName + "');");
+	protected AbstractElement<?> createFilterImage(final ComponentParameter cp,
+			final TablePagerColumn pagerColumn) {
+		final String componentName = cp.getComponentName();
+		final String columnName = pagerColumn.getColumnName();
+		final LinkElement link = new LinkElement();
+		final Map<String, ColumnData> filterColumns = getFilterColumns(cp);
+		if (filterColumns != null && filterColumns.containsKey(columnName)) {
+			link.setClassName("del").addStyle("float: left;").setTitle("#(TablePagerUtils.8)")
+					.setOnclick("$Actions['" + componentName + "'].filterDelete(this, '"
+							+ TablePagerUtils.PARAM_FILTER_CUR_COL + "=" + columnName + "');");
+		} else {
+			link.setClassName("image_filter").setTitle("#(TablePagerUtils.7)");
+			final String advClick = pagerColumn.getFilterAdvClick();
+			if (StringUtils.hasText(advClick)) {
+				link.setOnclick(advClick);
 			} else {
-				link.setClassName("image_filter").setTitle("#(TablePagerUtils.7)");
-				final String advClick = pagerColumn.getFilterAdvClick();
-				if (StringUtils.hasText(advClick)) {
-					link.setOnclick(advClick);
-				} else {
+				if ((Boolean) cp.getBeanProperty("filterWindow")) {
 					link.setOnclick("$Actions['" + componentName + "'].filterWindow(this, '"
 							+ TablePagerUtils.PARAM_FILTER_CUR_COL + "=" + columnName + "&"
 							+ TablePagerUtils.PARAM_FILTER + "=" + TablePagerUtils.PARAM_FILTER_NONE
 							+ "');");
+				} else {
+					link.setOnclick("$Actions['" + componentName + "'].doReturn(this.previous());");
 				}
 			}
-			element.addElements(input, link);
 		}
-		return element;
+		return link;
 	}
 
 	@Override

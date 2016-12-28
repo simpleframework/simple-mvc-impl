@@ -351,25 +351,29 @@ function $table_pager_addMethods(pa) {
 	// filter
 	var tfilter = thead.next(".tfilter");
 	if (tfilter) {
+   pa.doReturn = function(txt) {
+      var v = $F(txt);
+      v = v.stripScripts();
+      if (v == "") {
+        pa.filterDelete(txt, txt.getAttribute("params"));
+      } else if (v != title) {       
+        var act = $Actions["tpFilter_" + pa.beanId];
+        act.jsCompleteCallback = function(req, responseText, json) {
+          pa(json["filter"]);
+        };
+        act(txt.readAttribute("params") + "&v=" + v);
+      }
+      // 获取td的位置
+      pa.focusIndex = tfilter.select("td").indexOf(txt.up("td"));
+    };
+    
 		var title = $MessageConst["TablePager.0"];
 		tfilter.select("input").each(function(txt) {
 		  if (txt.readOnly)
 		    return;
 			$UI.addBackgroundTitle(txt, title);
 			$UI.addReturnEvent(txt, function(ev) {
-				var v = $F(txt);
-				v = v.stripScripts();
-				if (v == "") {
-				  pa.filterDelete(txt, txt.getAttribute("params"));
-				} else if (v != title) {
-				  // 获取td的位置
-				  pa.focusIndex = tfilter.select("td").indexOf(txt.up("td"));
-					var act = $Actions["tpFilter_" + pa.beanId];
-					act.jsCompleteCallback = function(req, responseText, json) {
-						pa(json["filter"]);
-					};
-					act(txt.readAttribute("params") + "&v=" + v);
-				}
+			  pa.doReturn(txt);
 			});
 		});
 		

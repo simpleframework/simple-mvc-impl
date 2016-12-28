@@ -19,6 +19,9 @@ public class TablePagerBean extends PagerBean {
 	/* 是否显示竖线及边框 */
 	private boolean showVerticalLine = BeanDefaults.getBool(getClass(), "showVerticalLine", false);
 
+	/* 过滤是否弹出window */
+	private boolean filterWindow = BeanDefaults.getBool(getClass(), "filterWindow", false);
+
 	/* 是否显示行号 */
 	private boolean showLineNo = BeanDefaults.getBool(getClass(), "showLineNo", false);
 
@@ -97,6 +100,15 @@ public class TablePagerBean extends PagerBean {
 
 	public TablePagerBean setShowVerticalLine(final boolean showVerticalLine) {
 		this.showVerticalLine = showVerticalLine;
+		return this;
+	}
+
+	public boolean isFilterWindow() {
+		return filterWindow;
+	}
+
+	public TablePagerBean setFilterWindow(final boolean filterWindow) {
+		this.filterWindow = filterWindow;
 		return this;
 	}
 

@@ -105,7 +105,19 @@ function __ajax_actions_init(actionFunc, name) {
 		if (!actionFunc.trigger) {
 			return;
 		}
-		actionFunc.trigger.disabled = disabled;
+		var t = actionFunc.trigger;
+		if (t.tagName == 'INPUT') {
+		  t.disabled = disabled;
+		} else {
+		  if (disabled) {
+		    t._onclick = t.getAttribute('onclick');
+		    t.removeAttribute("onclick");
+		  } else {
+		    if (t._onclick) {
+		      t.setAttribute('onclick', t._onclick);
+		    }
+		  }
+		}
 	};
 	
 	actionFunc.doInit = function(containerId, confirmMessage, parallel,
