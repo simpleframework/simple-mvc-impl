@@ -110,11 +110,13 @@ function __ajax_actions_init(actionFunc, name) {
 		  t.disabled = disabled;
 		} else {
 		  if (disabled) {
-		    t._onclick = t.getAttribute('onclick');
-		    t.removeAttribute("onclick");
+		    this._onclick = t.getAttribute('onclick');
+		    if (this._onclick) {
+		      t.removeAttribute("onclick");
+		    }
 		  } else {
-		    if (t._onclick) {
-		      t.setAttribute('onclick', t._onclick);
+		    if (this._onclick) {
+		      t.setAttribute('onclick', this._onclick);
 		    }
 		  }
 		}
