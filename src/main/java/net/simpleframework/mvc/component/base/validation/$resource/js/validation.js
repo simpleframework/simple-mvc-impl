@@ -301,7 +301,9 @@ Validation.prototype = {
 						if (wt == 'alert') {
 							alert(message);
 							ele.title = message;
-						} else {
+						} if (wt == 'placeholder') {
+						  ele.setAttribute("placeholder", message);
+						} else {						
 						  Validation.insertAfter(ele, message, wt == 'insertLast');
 						  if (ele.insertAfter)
 						    $Effect.shake(ele.insertAfter);

@@ -21,5 +21,7 @@ public enum EWarnType {
 	/**
 	 * 插入到验证元素所在层的最后
 	 */
-	insertLast
+	insertLast,
+
+	placeholder
 }
