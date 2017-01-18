@@ -36,7 +36,7 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 		js.append(ComponentUtils.getResourceHomePath(PagerBean.class))
 				.append("/jsp/tablepager_export_dl.jsp");
 		js.append(";jsessionid=").append(cp.getSession().getId()).append("?");
-		js.append(AbstractUrlForward.putRequestData(cp, "p", true));
+		js.append(AbstractUrlForward.putRequestData(cp, "p"));
 		js.append("&filetype=").append(cp.getParameter("filetype"));
 		js.append("&v=").append(cp.getParameter("v")).append("');");
 		return js;
