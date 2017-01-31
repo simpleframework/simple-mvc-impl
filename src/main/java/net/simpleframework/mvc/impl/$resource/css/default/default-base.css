@@ -301,11 +301,11 @@ button:focus {
 }
 
 ::-webkit-input-placeholder {
-	color: #ddd;
+	color: #aaa;
 }
 
-:-moz-placeholder {
-	color: #ddd;
+::-moz-placeholder {
+	color: #aaa;
 }
 
 ::-moz-focus-inner {
