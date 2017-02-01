@@ -619,14 +619,15 @@ ul.simple_tabs.vertical a.active {
 	background-image: url("images/error2.png");
 	background-position: 8px 11px;
 	background-repeat: no-repeat;
-	background-color: #fafafa;
-	border-bottom: 1px solid #bbb; 
 }
 
 .sy_error_dialog div.eb {
-	height: 30px;
-	line-height: 30px;
-	padding: 3px 6px 15px;
+  padding: 8px 12px;
+  background-color: #f4f4f4;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .sy_error_dialog .ta {
