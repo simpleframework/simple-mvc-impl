@@ -23,7 +23,7 @@
 		var c = ("<div class='sy_alert_dialog'>"
 				+ "<div class='top'><div class='img'></div>"
 				+ "<div class='txt wrap_text' style='height: " 
-				+ (w.options.height - 105) + "px;'>" + msg 
+				+ (w.options.height - 113) + "px;'>" + msg 
 				+ "</div></div><div class='btn'></div></div>").makeElement();
 		c.down(".btn").insert(new Element("input", {
 			type : "button",
