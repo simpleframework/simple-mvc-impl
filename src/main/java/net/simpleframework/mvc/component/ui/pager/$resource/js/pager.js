@@ -8,8 +8,7 @@ var $pager_action = function(item) {
 function pager_autoload(mmore) {
   var top = mmore.cumulativeOffset().top;
   Event.observe(window, "scroll", function() {
-    var scrollTop = document.documentElement.scrollTop
-        || document.body.scrollTop;
+    var scrollTop = $UI.scrollTop();
     var _top = top || mmore._top;
     if (!_top) {
       return;
