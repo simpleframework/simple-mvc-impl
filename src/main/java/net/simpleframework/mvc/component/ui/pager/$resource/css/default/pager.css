@@ -21,12 +21,6 @@
   text-align: left;
 }
 
-#tp_filter_r1,
-#tp_filter_r2 {
-  padding: 2px; 
-  width: 95%;
-}
-
 .pager .pager_title {
   float: left;
   margin-top: 2px;
@@ -526,6 +520,12 @@
   width: 16px;
 }
 
+#tp_filter_r1,
+#tp_filter_r2 {
+  padding: 3px; 
+  width: 95%;
+}
+
 .filter_window {
   padding: 12px !important;
   background-color: #f9f9f9;
@@ -540,8 +540,25 @@
 .filter_window input[type=text] {
   border-color: #999;
   height: 17px;
-  padding: 3px;
+  padding: 4px;
   width: 98%;
+}
+
+.filter_window input[type=text],
+.filter_window select,
+.filter_window .text {
+  background-image: none;
+  border-color: #222;
+}
+
+.filter_window .text_button .sbtn {
+  margin-right: 1px;
+  margin-top: 4px;
+}
+
+.filter_window table {
+  border-collapse: separate;
+  border-spacing: 4px;
 }
 
 .tablepager_export .pbar  {

@@ -15,6 +15,7 @@ import net.simpleframework.mvc.JavascriptForward;
 import net.simpleframework.mvc.JsonForward;
 import net.simpleframework.mvc.common.element.AbstractElement;
 import net.simpleframework.mvc.common.element.ElementList;
+import net.simpleframework.mvc.component.AbstractComponentBean;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentUtils;
 import net.simpleframework.mvc.component.base.ajaxrequest.DefaultAjaxRequestHandler;
@@ -43,7 +44,8 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 	}
 
 	public IForward doFilter(final ComponentParameter cp) {
-		final ComponentParameter nCP = PagerUtils.get(cp);
+		final ComponentParameter nCP = ComponentParameter.get(cp,
+				(AbstractComponentBean) cp.componentBean.getAttr("_TablePager"));
 		final JavascriptForward js = new JavascriptForward("$Actions['tpFilterWindow_")
 				.append(nCP.hashId()).append("'].close();");
 		js.append("$Actions['").append(nCP.getComponentName()).append("']('")

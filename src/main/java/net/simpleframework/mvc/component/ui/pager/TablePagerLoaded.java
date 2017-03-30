@@ -89,7 +89,7 @@ public class TablePagerLoaded extends PagerLoaded {
 							+ "/jsp/tablepager_filter.jsp");
 			nCP.addComponentBean("tpFilterWindow_" + hashId, WindowBean.class)
 					.setContentRef("tpFilterPage_" + hashId).setTitle($m("TablePagerLoaded.0"))
-					.setHeight(220).setWidth(420);
+					.setHeight(240).setWidth(420);
 		}
 
 		if ((Boolean) nCP.getBeanProperty("editable")) {
