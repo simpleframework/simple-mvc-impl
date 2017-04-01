@@ -405,9 +405,9 @@ CalendarDateSelect.prototype = {
 
 	dayHover : function(element) {
 		var hover_date = new Date(this.selected_date);
-		hover_date.setYear(element.year);
-		hover_date.setMonth(element.month);
 		hover_date.setDate(element.day);
+		hover_date.setMonth(element.month);
+		hover_date.setYear(element.year);
 		this.updateFooter(hover_date.format(this.options.dateFormat));
 	},
 
