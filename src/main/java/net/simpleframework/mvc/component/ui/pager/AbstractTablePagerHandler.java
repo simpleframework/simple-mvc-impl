@@ -36,8 +36,8 @@ import net.simpleframework.mvc.common.element.BlockElement;
 import net.simpleframework.mvc.common.element.ButtonElement;
 import net.simpleframework.mvc.common.element.EInputType;
 import net.simpleframework.mvc.common.element.ElementList;
+import net.simpleframework.mvc.common.element.ImageElement;
 import net.simpleframework.mvc.common.element.InputElement;
-import net.simpleframework.mvc.common.element.LinkElement;
 import net.simpleframework.mvc.common.element.Option;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.component.ComponentHandlerException;
@@ -554,14 +554,16 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler
 			final TablePagerColumn pagerColumn) {
 		final String componentName = cp.getComponentName();
 		final String columnName = pagerColumn.getColumnName();
-		final LinkElement link = new LinkElement();
+		final ImageElement link = new ImageElement().setClassName("fbtn");
 		final Map<String, ColumnData> filterColumns = getFilterColumns(cp);
+		final String ipath = cp.getCssResourceHomePath(AbstractTablePagerHandler.class) + "/images/";
 		if (filterColumns != null && filterColumns.containsKey(columnName)) {
-			link.setClassName("del").addStyle("float: left;").setTitle("#(TablePagerUtils.8)")
+			link.setSrc(ipath + "delete.png");
+			link.setTitle("#(TablePagerUtils.8)")
 					.setOnclick("$Actions['" + componentName + "'].filterDelete(this, '"
 							+ TablePagerUtils.PARAM_FILTER_CUR_COL + "=" + columnName + "');");
 		} else {
-			link.setClassName("image_filter").setTitle("#(TablePagerUtils.7)");
+			link.setSrc(ipath + "filter.png").setTitle("#(TablePagerUtils.7)");
 			final String advClick = pagerColumn.getFilterAdvClick();
 			if (StringUtils.hasText(advClick)) {
 				link.setOnclick(advClick);

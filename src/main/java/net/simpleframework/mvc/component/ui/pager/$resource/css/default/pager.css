@@ -240,8 +240,7 @@
   position: relative;
 }
 
-.tablepager .tfilter .image_filter,
-.tablepager .tfilter .del {
+.tablepager .tfilter img.fbtn {
   cursor: pointer;
   width: 10px;
   height: 10px;
@@ -251,14 +250,8 @@
   display: inline-block;
 	*display: inline;
 	*zoom: 1;
-}
-
-.tablepager .tfilter .image_filter {
-  background: url("images/filter.png") no-repeat;
-}
-
-.tablepager .tfilter .del {
-  background: url("images/delete.png") no-repeat;
+	width: 10px;
+	height: 10px;
 }
 
 .tablepager .tfilter {
