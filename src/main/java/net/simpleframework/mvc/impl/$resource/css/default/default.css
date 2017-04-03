@@ -660,6 +660,7 @@ ul.simple_tabs.vertical a.active {
 
 .sy_alert_dialog .img {
 	background: url(images/info.png) no-repeat;
+	background-size: 48px 48px;
 }
 
 .sy_alert_dialog .txt,
