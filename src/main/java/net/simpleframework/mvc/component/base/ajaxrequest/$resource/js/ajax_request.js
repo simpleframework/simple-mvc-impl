@@ -102,21 +102,22 @@ var $Loading = {
 
 function __ajax_actions_init(actionFunc, name) {
 	var triggerAct = function(disabled) {
-		if (!actionFunc.trigger) {
+	  var t = actionFunc.trigger;
+		if (!t) {
 			return;
 		}
-		var t = actionFunc.trigger;
+		
 		if (t.tagName == 'INPUT') {
 		  t.disabled = disabled;
 		} else {
 		  if (disabled) {
-		    this._onclick = t.getAttribute('onclick');
-		    if (this._onclick) {
+		    t._onclick = t.getAttribute('onclick');
+		    if (t._onclick) {
 		      t.removeAttribute("onclick");
 		    }
 		  } else {
-		    if (this._onclick) {
-		      t.setAttribute('onclick', this._onclick);
+		    if (t._onclick) {
+		      t.setAttribute('onclick', t._onclick);
 		    }
 		  }
 		}
