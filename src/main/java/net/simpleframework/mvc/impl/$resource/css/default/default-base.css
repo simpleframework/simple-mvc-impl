@@ -127,9 +127,9 @@ div,
 sup {
   top: -5px;
   color: #900;
-	line-height: normal;
+	line-height: 1;
 	font-weight: normal;
-	font-size: 9px;
+	font-size: 8pt;
 	text-align: center;
 	cursor: default;
 	display: inline-block;
@@ -143,12 +143,11 @@ sup.highlight {
   top: -8px;
   color: white;
   background-color: #d00;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
   min-width: 9px;
-  padding: 0 4px;
-  padding: 1px 4px\0; /* ie8+ */
+  padding: 2px 4px;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
