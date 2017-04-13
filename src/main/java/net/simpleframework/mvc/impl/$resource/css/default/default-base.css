@@ -127,7 +127,9 @@ div,
 sup {
   top: -5px;
   color: #900;
-	line-height: 1;
+	height: 10px;
+  line-height: 9px;
+  width: 10px;
 	font-weight: normal;
 	font-size: 8pt;
 	text-align: center;
@@ -143,24 +145,23 @@ sup.highlight {
   top: -8px;
   color: white;
   background-color: #d00;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
   min-width: 9px;
-  padding: 2px 4px;
+  padding: 3px;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   sup {
-    text-align: justify;
-    font-size: 12px;
+    font-size: 9.5pt;
     -webkit-transform: scale(0.75);
     -webkit-transform-origin-x: 0;
     -webkit-text-size-adjust: none;
   }
   
   sup.highlight {
-     padding: 1px 5px;
+     padding: 4px;
   }
 }
 
