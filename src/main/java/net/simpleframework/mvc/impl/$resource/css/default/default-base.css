@@ -129,7 +129,7 @@ sup {
   color: #900;
 	height: 10px;
   line-height: 9px;
-  width: 10px;
+  min-width: 10px;
 	font-weight: normal;
 	text-align: center;
 	cursor: default;
@@ -147,8 +147,7 @@ sup.highlight {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  min-width: 9px;
-  padding: 2px;
+  padding: 3px;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
