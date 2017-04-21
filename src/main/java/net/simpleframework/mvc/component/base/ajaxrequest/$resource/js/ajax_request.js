@@ -110,15 +110,19 @@ function __ajax_actions_init(actionFunc, name) {
 		if (t.tagName == 'INPUT') {
 		  t.disabled = disabled;
 		} else {
-		  if (disabled) {
-		    t._onclick = t.getAttribute('onclick');
-		    if (t._onclick) {
-		      t.removeAttribute("onclick");
-		    }
+		  if (Browser.IEVersion <= 8) {
+		    // ie8
 		  } else {
-		    if (t._onclick) {
-		      t.setAttribute('onclick', t._onclick);
-		    }
+		    if (disabled) {
+	        t._onclick = t.getAttribute('onclick');
+	        if (t._onclick) {
+	          t.removeAttribute("onclick");
+	        }
+	      } else {
+	        if (t._onclick) {
+	          t.setAttribute('onclick', t._onclick);
+	        }
+	      }
 		  }
 		}
 	};
