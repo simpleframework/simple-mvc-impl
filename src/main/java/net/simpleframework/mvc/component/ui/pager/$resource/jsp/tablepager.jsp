@@ -9,8 +9,7 @@
 	out.write(tphdl.toTableHTML(nCP));
 %>
 <script type="text/javascript">
-  var pager_init_<%=nCP.hashId()%>
-  = function(action) {
+  var pager_init_<%=nCP.hashId()%> = function(action) {
     $table_pager_addMethods(action);
   };
 </script>
