@@ -135,7 +135,7 @@ Validation.methods = {
 	},
 	'mobile_phone' : function(v, args) {
 		args[0] = v.length;
-		return Validation.isEmpty(v) || /(^0?[1][3578][0-9]{9}$)/.test(v);
+		return Validation.isEmpty(v) || /(^0?[1][34578][0-9]{9}$)/.test(v);
 	},
 	'phone' : function(v, args) {
 		args[0] = v.length;
