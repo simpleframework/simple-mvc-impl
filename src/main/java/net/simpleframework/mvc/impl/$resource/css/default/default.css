@@ -266,9 +266,13 @@ a.link_menuicon:hover .micon {
 /*     components...                               */
 /*     ajax-request,validation                     */
 /***************************************************/
-#ajax_request_loading {
-	position: absolute;
-	right: 6px;
+.loading_ajax,
+.loading_m_ajax {
+  position: absolute;
+	z-index: 10000;
+}
+
+.loading_ajax {	
 	background: #FEFEE1 url(images/loading.gif) 8px center no-repeat;
 	height: 25px;
 	line-height: 25px;
@@ -282,7 +286,15 @@ a.link_menuicon:hover .micon {
 	box-shadow: 2px 2px 3px #aaa;
 	-webkit-box-shadow: 2px 2px 3px #aaa;
 	-moz-box-shadow: 2px 2px 3px #aaa;
-	z-index: 10000;
+	right: 6px;
+}
+
+.loading_m_ajax {
+  background: url(images/loading2.gif) no-repeat;
+  background-size: 28px 28px;
+  width: 28px;
+  height: 28px;
+  right: 10px;
 }
 
 .loading_overlay {
