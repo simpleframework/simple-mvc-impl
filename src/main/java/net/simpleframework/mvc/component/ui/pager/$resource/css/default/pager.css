@@ -493,6 +493,10 @@
   background-color: #f4f4f4;
 }
 
+.tablepager .group_t>div {
+  display: table-cell;
+}
+
 .tablepager .group_t .t {
   text-align: left;
   color: #c66;

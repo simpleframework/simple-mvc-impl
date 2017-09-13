@@ -18,6 +18,7 @@ import net.simpleframework.mvc.PageRequestResponse;
 import net.simpleframework.mvc.common.element.AbstractElement;
 import net.simpleframework.mvc.common.element.ETextAlign;
 import net.simpleframework.mvc.common.element.EVerticalAlign;
+import net.simpleframework.mvc.common.element.ImageElement;
 import net.simpleframework.mvc.component.ComponentParameter;
 import net.simpleframework.mvc.component.ComponentUtils;
 
@@ -486,11 +487,13 @@ public abstract class TablePagerHTML implements HtmlConst {
 			for (final Object groupVal : groupVals) {
 				final GroupWrapper gw = wrappers.get(groupVal);
 				sb.append("<div class=\"group_t\">");
-				sb.append("<table style=\"width: 100%;\" cellpadding=\"0\"><tr>");
-				sb.append("<td class=\"toggle\"><img src=\"").append(imgPath);
-				sb.append("/images/p_toggle.png\" /></td>");
-				sb.append("<td class=\"t\">").append(gw).append("</td>");
-				sb.append("</tr></table></div>");
+				if (gw.isToggle()) {
+					sb.append(" <div class=\"toggle\">");
+					sb.append(new ImageElement(imgPath + "/images/p_toggle.png"));
+					sb.append(" </div>");
+				}
+				sb.append(" <div class=\"t\">").append(gw).append("</div>");
+				sb.append("</div>");
 				final List<Object> gData = gw.getData();
 				if (gData != null) {
 					sb.append("<div class=\"group_c\">");

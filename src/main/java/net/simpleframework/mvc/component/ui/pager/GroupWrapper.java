@@ -18,6 +18,8 @@ public class GroupWrapper extends DescriptionObject<GroupWrapper> {
 
 	private Object groupVal;
 
+	private boolean toggle = true;
+
 	private List<Object> data;
 
 	public GroupWrapper(final Object groupVal) {
@@ -33,6 +35,15 @@ public class GroupWrapper extends DescriptionObject<GroupWrapper> {
 
 	public GroupWrapper setGroupVal(final Object groupVal) {
 		this.groupVal = groupVal;
+		return this;
+	}
+
+	public boolean isToggle() {
+		return toggle;
+	}
+
+	public GroupWrapper setToggle(final boolean toggle) {
+		this.toggle = toggle;
 		return this;
 	}
 
