@@ -20,6 +20,8 @@ public class GroupWrapper extends DescriptionObject<GroupWrapper> {
 
 	private boolean toggle = true;
 
+	private boolean showNums = true;
+
 	private List<Object> data;
 
 	public GroupWrapper(final Object groupVal) {
@@ -47,6 +49,15 @@ public class GroupWrapper extends DescriptionObject<GroupWrapper> {
 		return this;
 	}
 
+	public boolean isShowNums() {
+		return showNums;
+	}
+
+	public GroupWrapper setShowNums(final boolean showNums) {
+		this.showNums = showNums;
+		return this;
+	}
+
 	public List<Object> getData() {
 		if (data == null) {
 			data = new ArrayList<Object>();
@@ -68,7 +79,9 @@ public class GroupWrapper extends DescriptionObject<GroupWrapper> {
 	public String toString() {
 		final StringBuilder sb = new StringBuilder();
 		sb.append(new LabelElement(getGroupVal()).setTitle(getDescription()));
-		sb.append(toCountHTML());
+		if (isShowNums()) {
+			sb.append(toCountHTML());
+		}
 		return sb.toString();
 	}
 }
