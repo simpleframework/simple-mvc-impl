@@ -113,7 +113,11 @@ public class TextButton extends AbstractInputElement<TextButton> {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("<div class='text text_button'");
 		if (isAutoRows()) {
-			sb.append(" style='display: block;'");
+			addStyle("display: block;");
+		}
+		final String style = getStyle();
+		if (StringUtils.hasText(style)) {
+			sb.append(" style='").append(style).append("'");
 		}
 		sb.append(">");
 		int w = 21;

@@ -10,7 +10,8 @@ import net.simpleframework.common.web.html.HtmlConst;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class DictMultiSelectInput extends DictInput {
@@ -53,7 +54,12 @@ public class DictMultiSelectInput extends DictInput {
 		}
 		final StringBuilder sb = new StringBuilder();
 		final boolean readonly = isReadonly();
-		sb.append("<div class='multi_dselect'>");
+		sb.append("<div class='multi_dselect'");
+		final String style = getStyle();
+		if (StringUtils.hasText(style)) {
+			sb.append(" style='").append(style).append("'");
+		}
+		sb.append(">");
 		final InputElement val = InputElement.hidden(getId());
 		final boolean hasVal = values != null && values.size() > 0;
 		if (hasVal) {
