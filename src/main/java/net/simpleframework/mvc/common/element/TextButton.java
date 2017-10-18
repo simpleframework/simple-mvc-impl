@@ -25,6 +25,8 @@ public class TextButton extends AbstractInputElement<TextButton> {
 
 	private boolean editable;
 
+	private int bwidth;
+
 	public TextButton() {
 	}
 
@@ -73,6 +75,15 @@ public class TextButton extends AbstractInputElement<TextButton> {
 		return this;
 	}
 
+	public int getBwidth() {
+		return bwidth;
+	}
+
+	public TextButton setBwidth(final int bwidth) {
+		this.bwidth = bwidth;
+		return this;
+	}
+
 	@Override
 	protected boolean isTextReadonly() {
 		return isReadonly() || !isEditable();
@@ -102,7 +113,7 @@ public class TextButton extends AbstractInputElement<TextButton> {
 	protected String toSbtnHTML(final String onclick) {
 		final StringBuilder sb = new StringBuilder();
 		if (StringUtils.hasText(onclick)) {
-			sb.append("<div class='sbtn' onclick=\"");
+			sb.append("<div class='sbtn'  onclick=\"");
 			sb.append(HtmlEncoder.text(onclick)).append("\"></div>");
 		}
 		return sb.toString();
@@ -120,11 +131,11 @@ public class TextButton extends AbstractInputElement<TextButton> {
 			sb.append(" style='").append(style).append("'");
 		}
 		sb.append(">");
-		int w = 21;
+		int w = getBwidth();
 		if (StringUtils.hasText(getOnclick2())) {
-			w = 42;
+			w = w * 2;
 			if (StringUtils.hasText(getOnclick3())) {
-				w = 63;
+				w = w * 3;
 			}
 		}
 		sb.append(" <div class='d1' style='margin-right: -").append(w).append("px;'>");
