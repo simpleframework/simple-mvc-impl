@@ -197,7 +197,7 @@ public class TreeNode extends ItemUIBean<TreeNode> {
 		if (parent == null) {
 			return getId();
 		} else {
-			final LinkedList<String> ll = new LinkedList<String>();
+			final LinkedList<String> ll = new LinkedList<>();
 			ll.addFirst(getId());
 			while (parent != null) {
 				ll.addFirst(parent.getId());

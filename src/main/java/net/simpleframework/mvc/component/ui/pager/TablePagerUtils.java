@@ -62,7 +62,7 @@ public abstract class TablePagerUtils {
 	 */
 	public static <T extends Serializable> T[] getExchangeBeans(final PageParameter pp,
 			final IDbBeanService<T> service) {
-		final List<T> list = new ArrayList<T>();
+		final List<T> list = new ArrayList<>();
 		for (final String id : StringUtils.split(pp.getParameter("rowIds"), ";")) {
 			final T t = service.getBean(id);
 			if (t != null) {

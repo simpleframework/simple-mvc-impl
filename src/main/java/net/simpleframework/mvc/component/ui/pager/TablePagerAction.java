@@ -152,8 +152,8 @@ public class TablePagerAction extends DefaultAjaxRequestHandler {
 		final TablePagerColumns columns = TablePagerUtils.getTablePagerSchema(nCP)
 				.getTablePagerColumns(nCP);
 
-		final Map<String, Map<String, Object>> insertRows = new LinkedHashMap<String, Map<String, Object>>();
-		final Map<String, Map<String, Object>> updateRows = new LinkedHashMap<String, Map<String, Object>>();
+		final Map<String, Map<String, Object>> insertRows = new LinkedHashMap<>();
+		final Map<String, Map<String, Object>> updateRows = new LinkedHashMap<>();
 		final Enumeration<String> names = cp.getParameterNames();
 		while (names.hasMoreElements()) {
 			final String pkey = names.nextElement();

@@ -47,7 +47,7 @@ public abstract class PagerUtils {
 		@SuppressWarnings("unchecked")
 		Map<String, Object> attributes = (Map<String, Object>) nCP.getSessionAttr(sk);
 		if (attributes == null) {
-			nCP.setSessionAttr(sk, attributes = new HashMap<String, Object>());
+			nCP.setSessionAttr(sk, attributes = new HashMap<>());
 		}
 		attributes.put(key, value);
 	}

@@ -85,7 +85,7 @@ public abstract class TreeUtils {
 	}
 
 	public static TreeNode getTreenodeById(final ComponentParameter cp, final String id) {
-		return findTreenode(cp, new LinkedList<String>(ArrayUtils.asList(StringUtils.split(id, "_"))),
+		return findTreenode(cp, new LinkedList<>(ArrayUtils.asList(StringUtils.split(id, "_"))),
 				getTreenodes(cp));
 	}
 

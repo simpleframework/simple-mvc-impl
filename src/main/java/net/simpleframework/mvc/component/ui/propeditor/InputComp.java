@@ -122,7 +122,7 @@ public class InputComp extends AbstractElementBean {
 
 	public Map<EElementEvent, String> getEventCallback() {
 		if (eventCallback == null) {
-			eventCallback = new ConcurrentHashMap<EElementEvent, String>();
+			eventCallback = new ConcurrentHashMap<>();
 		}
 		return eventCallback;
 	}

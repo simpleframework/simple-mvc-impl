@@ -77,7 +77,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 	}
 
 	protected List<?> getData(final ComponentParameter cp, final int start) {
-		final List<Object> data = new ArrayList<Object>();
+		final List<Object> data = new ArrayList<>();
 		final IDataQuery<?> dataQuery = getDataObjectQuery(cp);
 		if (dataQuery != null) {
 			dataQuery.move(start - 1);

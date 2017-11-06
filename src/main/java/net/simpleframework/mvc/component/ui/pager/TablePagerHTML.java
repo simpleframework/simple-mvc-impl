@@ -466,7 +466,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 			final IGroupTablePagerHandler gHandle = (IGroupTablePagerHandler) cp.getComponentHandler();
 			final String groupColumn = (String) cp.getBeanProperty("groupColumn");
 			final StringBuilder sb = new StringBuilder();
-			final Map<Object, GroupWrapper> wrappers = new LinkedHashMap<Object, GroupWrapper>();
+			final Map<Object, GroupWrapper> wrappers = new LinkedHashMap<>();
 			for (final Object bean : data) {
 				Object groupVal = gHandle.getGroupValue(cp, bean, groupColumn);
 				if (!StringUtils.hasObject(groupVal)) {

@@ -185,7 +185,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler
 			return null;
 		}
 
-		final HashSet<String> sets = new LinkedHashSet<String>(
+		final HashSet<String> sets = new LinkedHashSet<>(
 				ArrayUtils.asList(StringUtils.split(col)));
 		String filter = null;
 		if (StringUtils.hasText(ccol)) {
@@ -207,7 +207,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler
 		}
 
 		final TablePagerColumns tableColumns = getTablePagerSchema(cp).getTablePagerColumns(cp);
-		dbColumns = new LinkedHashMap<String, ColumnData>();
+		dbColumns = new LinkedHashMap<>();
 		for (final String str : sets) {
 			final TablePagerColumn oCol = tableColumns.get(str);
 			if (oCol == null) {
@@ -388,7 +388,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler
 			}
 			csvWriter = new CSVWriter(
 					new OutputStreamWriter(cp.getBinaryOutputStream("export.csv"), exportCharset));
-			final ArrayList<String> al = new ArrayList<String>();
+			final ArrayList<String> al = new ArrayList<>();
 			for (final TablePagerColumn column : columns) {
 				al.add(column.getColumnText());
 			}

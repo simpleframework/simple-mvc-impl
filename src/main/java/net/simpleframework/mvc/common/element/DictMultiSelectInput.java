@@ -26,7 +26,7 @@ public class DictMultiSelectInput extends DictInput {
 
 	public DictMultiSelectInput addValue(final String id, final String text) {
 		if (values == null) {
-			values = new HashMap<String, String>();
+			values = new HashMap<>();
 		}
 		values.put(id, text);
 		return this;

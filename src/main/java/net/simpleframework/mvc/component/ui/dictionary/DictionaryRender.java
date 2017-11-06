@@ -20,7 +20,7 @@ public class DictionaryRender extends WindowRender {
 	public static String getActions(final ComponentParameter cp) {
 		final DictionaryBean dictionaryBean = (DictionaryBean) cp.componentBean;
 
-		final ArrayList<String> al = new ArrayList<String>();
+		final ArrayList<String> al = new ArrayList<>();
 		final String hashThis = dictionaryBean.hashId();
 		final String clearAction = dictionaryBean.getClearAction(cp);
 		if (StringUtils.hasText(clearAction)) {

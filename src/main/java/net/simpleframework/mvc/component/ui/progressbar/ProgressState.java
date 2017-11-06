@@ -16,7 +16,7 @@ public class ProgressState implements Serializable {
 
 	public int step;
 
-	public ArrayList<Object> messages = new ArrayList<Object>();
+	public ArrayList<Object> messages = new ArrayList<>();
 
 	public boolean abort;
 

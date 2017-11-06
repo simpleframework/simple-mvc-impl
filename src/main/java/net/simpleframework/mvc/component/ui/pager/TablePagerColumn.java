@@ -259,7 +259,7 @@ public class TablePagerColumn extends AbstractElementBean {
 	}
 
 	String toStyle(final PageRequestResponse rRequest, final ETextAlign defaultTextAlign) {
-		final HashSet<String> set = new HashSet<String>();
+		final HashSet<String> set = new HashSet<>();
 		if (defaultTextAlign != null) {
 			ETextAlign textAlign = getTextAlign();
 			if (textAlign == null) {
@@ -408,7 +408,7 @@ public class TablePagerColumn extends AbstractElementBean {
 
 	private static Map<Class<?>, String> defaultFormats;
 	static {
-		defaultFormats = new HashMap<Class<?>, String>();
+		defaultFormats = new HashMap<>();
 		defaultFormats.put(Date.class, Convert.defaultDatePattern);
 	}
 

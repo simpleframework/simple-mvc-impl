@@ -19,7 +19,7 @@ public class TooltipBean extends AbstractComponentBean {
 
 	public Collection<TipBean> getTips() {
 		if (tips == null) {
-			tips = new ArrayList<TipBean>();
+			tips = new ArrayList<>();
 		}
 		return tips;
 	}

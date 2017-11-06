@@ -69,7 +69,7 @@ public class AutocompleteRegistry extends AbstractComponentRegistry {
 			final IAutocompleteHandler aHandler = ((IAutocompleteHandler) nCP.getComponentHandler());
 			if (aHandler != null && (e = aHandler.getData(nCP, val, val2)) != null) {
 				final int maxResults = Convert.toInt(nCP.getBeanProperty("maxResults"));
-				final ArrayList<AutocompleteData> l = new ArrayList<AutocompleteData>();
+				final ArrayList<AutocompleteData> l = new ArrayList<>();
 				int i = 0;
 				while (e.hasNext() && (maxResults <= 0 || i++ < maxResults)) {
 					l.add(e.next());

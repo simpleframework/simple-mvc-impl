@@ -69,7 +69,7 @@ public class ValidationRender extends ComponentJavascriptRender {
 		return ComponentRenderUtils.genActionWrapper(cp, sb.toString());
 	}
 
-	static Map<String, String> defaultMessages = new HashMap<String, String>();
+	static Map<String, String> defaultMessages = new HashMap<>();
 	static {
 		for (final EValidatorMethod method : EValidatorMethod.values()) {
 			final String key = method.name();

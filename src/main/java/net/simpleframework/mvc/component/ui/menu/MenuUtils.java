@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public abstract class MenuUtils {
 
 	public static void removeDblSeparator(final ArrayList<MenuItem> menuItems) {
-		final ArrayList<MenuItem> removes = new ArrayList<MenuItem>();
+		final ArrayList<MenuItem> removes = new ArrayList<>();
 		final int size = menuItems.size();
 		for (int i = 0; i < size; i++) {
 			final MenuItem menuItem = menuItems.get(i);

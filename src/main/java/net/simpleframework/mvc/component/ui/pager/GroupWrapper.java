@@ -60,7 +60,7 @@ public class GroupWrapper extends DescriptionObject<GroupWrapper> {
 
 	public List<Object> getData() {
 		if (data == null) {
-			data = new ArrayList<Object>();
+			data = new ArrayList<>();
 		}
 		return data;
 	}
