@@ -185,8 +185,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler
 			return null;
 		}
 
-		final HashSet<String> sets = new LinkedHashSet<>(
-				ArrayUtils.asList(StringUtils.split(col)));
+		final HashSet<String> sets = new LinkedHashSet<>(ArrayUtils.asList(StringUtils.split(col)));
 		String filter = null;
 		if (StringUtils.hasText(ccol)) {
 			filter = cp.getParameter(TablePagerUtils.PARAM_FILTER);
