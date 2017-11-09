@@ -1,6 +1,6 @@
 @import url("normalize.css");
 
-body {
+html, body {
   font-size: 9pt;
   color: #222;
   font-family: Verdana, "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB",
