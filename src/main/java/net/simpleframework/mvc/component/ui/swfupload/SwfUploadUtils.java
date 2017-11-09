@@ -264,4 +264,8 @@ public abstract class SwfUploadUtils {
 		}
 		return variables.toJSON();
 	}
+
+	public static String genBtnsHTML(final ComponentParameter cp) {
+		return ((ISwfUploadHandler) cp.getComponentHandler()).toBtnsHTML(cp);
+	}
 }

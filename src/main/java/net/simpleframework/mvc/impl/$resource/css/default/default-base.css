@@ -3,8 +3,9 @@
 html, body {
   font-size: 9pt;
   color: #222;
-  font-family: Verdana, "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB",
-    "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: Verdana, 'PingFang SC', 'Helvetica Neue', 
+               'Microsoft YaHei UI', 'Microsoft YaHei',
+               'Noto Sans CJK SC', Sathu, EucrosiaUPC, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {

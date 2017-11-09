@@ -10,7 +10,7 @@
 <div class="swfupload">
   <%=ComponentRenderUtils.genParameters(nCP)%>
   <div class="swf_btns">
-    <span id="placeholder_<%=beanId%>"></span>
+    <%=SwfUploadUtils.genBtnsHTML(nCP)%>
   </div>
   <div id="message_<%=beanId%>" class="message"></div>
   <div id="fileQueue_<%=beanId%>" class="queue"></div>

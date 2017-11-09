@@ -26,4 +26,6 @@ public interface ISwfUploadHandler extends IComponentHandler {
 	 */
 	void upload(ComponentParameter cp, IMultipartFile multipartFile, Map<String, Object> variables)
 			throws Exception;
+
+	String toBtnsHTML(ComponentParameter cp);
 }
