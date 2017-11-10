@@ -30,7 +30,7 @@ public class PagerRegistry extends AbstractComponentRegistry {
 		final PagerBean pagerBean = (PagerBean) super.createComponentBean(pp, attriData);
 
 		final ComponentParameter nCP = ComponentParameter.get(pp, pagerBean);
-		ComponentHtmlRenderEx.createAjaxRequest(nCP);
+		ComponentHtmlRenderEx.createAjaxRequest(nCP).setDisabledTriggerAction(false);
 		PagerRender.createDoPager(nCP);
 
 		return pagerBean;
