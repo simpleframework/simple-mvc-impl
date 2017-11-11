@@ -354,13 +354,15 @@ div.color_block {
 
 .dictionary_smiley {
   text-align: center;
-  padding-top: 5px;
+  padding-top: 10px;
 }
 
 .dictionary_smiley img {
   cursor: pointer;
   border: 1px solid #aaa;
   margin: 0 1px;
+  height: 24px;
+  width: 24px;
 }
 
 .dictionary_smiley img:hover {
