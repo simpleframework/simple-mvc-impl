@@ -3,9 +3,14 @@
 body {
   font-size: 9pt;
   color: #222;
-  font-family: Verdana, 'PingFang SC', 'Helvetica Neue', 
-               'Microsoft YaHei UI', 'Microsoft YaHei',
-               'Noto Sans CJK SC', Sathu, EucrosiaUPC, sans-serif;
+  font-family: "lucida grande", "lucida sans unicode", lucida, 
+                Helvetica, "Hiragino Sans GB", "Microsoft YaHei", 
+               "WenQuanYi Micro Hei", sans-serif;
+  /*
+  font-family: Verdana, "Helvetica Neue", Helvetica, Arial, 
+               "PingFang SC", "Hiragino Sans GB", "Heiti SC", 
+               "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+               */
 }
 
 p {
