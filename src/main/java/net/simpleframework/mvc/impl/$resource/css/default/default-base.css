@@ -144,7 +144,7 @@ sup {
   top: -5px;
   color: #900;
 	height: 10px;
-  line-height: 10px;
+  line-height: 1;
   min-width: 10px;
 	font-weight: normal;
 	text-align: center;
