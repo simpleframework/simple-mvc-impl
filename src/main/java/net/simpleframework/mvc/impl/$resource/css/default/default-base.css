@@ -143,9 +143,7 @@ div,
 sup {
   top: -5px;
   color: #900;
-	height: 10px;
   line-height: 1;
-  min-width: 10px;
 	font-weight: normal;
 	text-align: center;
 	cursor: default;
@@ -159,24 +157,11 @@ sup {
 sup.highlight {
   top: -8px;
   color: white;
-  background-color: #d00;
+  background-color: #e44;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  padding: 3px;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  sup {
-    font-size: 9.5pt;
-    -webkit-transform: scale(0.75);
-    -webkit-transform-origin-x: 0;
-    -webkit-text-size-adjust: none;
-  }
-  
-  sup.highlight {
-     padding: 4px;
-  }
+  padding: 3px 5px;
 }
 
 input, textarea, button, select {
