@@ -144,6 +144,7 @@ sup {
   top: -5px;
   color: #900;
   line-height: 1;
+  font-family: Helvetica;
 	font-weight: normal;
 	text-align: center;
 	cursor: default;
@@ -157,11 +158,11 @@ sup {
 sup.highlight {
   top: -8px;
   color: white;
-  background-color: #e44;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  padding: 3px 5px;
+  background-color: #d44;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  padding: 2px 4px;
 }
 
 input, textarea, button, select {
