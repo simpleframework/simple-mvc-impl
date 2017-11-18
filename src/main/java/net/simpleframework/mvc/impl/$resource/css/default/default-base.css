@@ -144,7 +144,7 @@ sup {
   top: -5px;
   color: #900;
   line-height: 1;
-  font-family: Helvetica;
+  font-family: "Helvetica Neue", Helvetica;
 	font-weight: normal;
 	text-align: center;
 	cursor: default;
@@ -153,15 +153,16 @@ sup {
 	*zoom: 1;
 	word-break: normal;
   word-wrap: normal;
+  opacity: 0.9;
 }
 
 sup.highlight {
   top: -8px;
   color: white;
   background-color: #d44;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
   padding: 2px 4px;
 }
 
