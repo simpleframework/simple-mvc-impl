@@ -391,7 +391,7 @@ public class TablePagerColumn extends AbstractElementBean {
 	}
 
 	public static final TablePagerColumn DESCRIPTION() {
-		return new TablePagerColumn("description", $m("Description")).setFilterSort(false)
+		return new TablePagerColumn(DESCRIPTION, $m("Description")).setFilterSort(false)
 				.setNowrap(false).setTextAlign(ETextAlign.justify);
 	}
 
@@ -400,11 +400,21 @@ public class TablePagerColumn extends AbstractElementBean {
 				.center().setFilterSort(false);
 	}
 
+	public static final TablePagerColumn STATUS(final int width) {
+		return STATUS(width, null);
+	}
+
+	public static final TablePagerColumn STATUS(final int width, final Class<?> propertyClass) {
+		return new TablePagerColumn(STATUS, $m("Status")).setWidth(width)
+				.setPropertyClass(propertyClass).center();
+	}
+
 	public static final String OPE = "ope";
 	public static final String ACTION = "action";
 	public static final String ICON = "icon";
 	public static final String BLANK = "blank";
 	public static final String DESCRIPTION = "description";
+	public static final String STATUS = "status";
 
 	private static Map<Class<?>, String> defaultFormats;
 	static {
