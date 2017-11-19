@@ -413,12 +413,17 @@ public class TablePagerColumn extends AbstractElementBean {
 		return col;
 	}
 
+	public static final TablePagerColumn TOPIC() {
+		return new TablePagerColumn(TOPIC, $m("TablePagerColumn.topic")).setNowrap(false);
+	}
+
 	public static final String OPE = "ope";
 	public static final String ACTION = "action";
 	public static final String ICON = "icon";
 	public static final String BLANK = "blank";
 	public static final String DESCRIPTION = "description";
 	public static final String STATUS = "status";
+	public static final String TOPIC = "topic";
 
 	private static Map<Class<?>, String> defaultFormats;
 	static {
