@@ -414,7 +414,8 @@ public class TablePagerColumn extends AbstractElementBean {
 	}
 
 	public static final TablePagerColumn TOPIC() {
-		return new TablePagerColumn(TOPIC, $m("TablePagerColumn.topic")).setNowrap(false);
+		return new TablePagerColumn(TOPIC, $m("TablePagerColumn.topic")).setNowrap(false)
+				.setTextAlign(ETextAlign.justify);
 	}
 
 	public static final String OPE = "ope";
