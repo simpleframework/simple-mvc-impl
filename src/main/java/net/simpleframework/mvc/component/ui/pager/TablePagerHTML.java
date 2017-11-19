@@ -142,7 +142,8 @@ public abstract class TablePagerHTML implements HtmlConst {
 			final boolean showVerticalLine = (Boolean) cp.getBeanProperty("showVerticalLine");
 
 			int i = 0;
-			for (final TablePagerColumn pagerColumn : tablePagerData.getTablePagerColumns(cp)) {
+			final TablePagerColumns columns = tablePagerData.getTablePagerColumns(cp);
+			for (final TablePagerColumn pagerColumn : columns) {
 				if (!pagerColumn.isVisible()) {
 					continue;
 				}
@@ -212,7 +213,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 					sb.append("<td class=\"cb\">").append(NBSP).append("</td>");
 				}
 
-				for (final TablePagerColumn pagerColumn : tablePagerData.getTablePagerColumns(cp)) {
+				for (final TablePagerColumn pagerColumn : columns) {
 					if (!pagerColumn.isVisible()) {
 						continue;
 					}
