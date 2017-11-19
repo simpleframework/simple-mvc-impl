@@ -405,8 +405,12 @@ public class TablePagerColumn extends AbstractElementBean {
 	}
 
 	public static final TablePagerColumn STATUS(final int width, final Class<?> propertyClass) {
-		return new TablePagerColumn(STATUS, $m("Status")).setWidth(width)
-				.setPropertyClass(propertyClass).center();
+		final TablePagerColumn col = new TablePagerColumn(STATUS, $m("Status")).setWidth(width)
+				.center();
+		if (propertyClass != null) {
+			col.setPropertyClass(propertyClass);
+		}
+		return col;
 	}
 
 	public static final String OPE = "ope";
