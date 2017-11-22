@@ -114,7 +114,6 @@ a.simple_btn2 {
   border: 1px solid transparent;
   display: inline-block;
   padding: 2px 4px;
-  line-height: 1;
   font-size: 9pt;
   text-decoration: none;
   -moz-border-radius: 3px;
@@ -139,15 +138,11 @@ a.simple_btn2.disabled {
 }
 
 a.simple_btn2:HOVER {
-  background-color: #c77;
-  border-color: #b66;
+  background-color: #e77;
+  border-color: #e44;
   color: #eee;
-  -webkit-box-shadow: 0px 0px 5px #bbb;
+  -webkit-box-shadow: 0px 0px 5px #eee;
 	box-shadow: 0px 0px 5px #bbb;
-  -moz-transition: all 0.3s;
-  -webkit-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  transition: all 0.3s;
 }
 
 a.simple_btn2.disabled:HOVER {
