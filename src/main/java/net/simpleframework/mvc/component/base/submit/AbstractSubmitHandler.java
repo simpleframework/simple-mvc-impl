@@ -24,6 +24,7 @@ public abstract class AbstractSubmitHandler extends AbstractComponentHandler
 	protected IMultipartFile getMultipartFile(final PageRequestResponse rRequest,
 			final String filename) {
 		return rRequest.request instanceof MultipartPageRequest
-				? ((MultipartPageRequest) rRequest.request).getFile(filename) : null;
+				? ((MultipartPageRequest) rRequest.request).getFile(filename)
+				: null;
 	}
 }

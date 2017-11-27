@@ -507,8 +507,8 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler
 		final String componentName = cp.getComponentName();
 		final String act = "$Actions['" + componentName + "']";
 		return ElementList.of()
-				.append(new ButtonElement($m("TablePagerAction.2")).setHighlight(true)
-						.setOnclick(act + ".save_rows(this);"))
+				.append(new ButtonElement($m("TablePagerAction.2"))
+						.setHighlight(true).setOnclick(act + ".save_rows(this);"))
 				.append(SpanElement.SPACE)
 				.append(new ButtonElement($m("TablePagerAction.1")).setOnclick("if (!confirm('"
 						+ $m("TablePagerAction.3") + "')) return;" + act + ".uneditAll(this);"))

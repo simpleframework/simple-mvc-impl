@@ -59,7 +59,8 @@ public abstract class ValidateCodeUtils {
 	public static boolean isValidateCode(final HttpServletRequest request, final String inputName) {
 		final String validateCode = request.getParameter(inputName);
 		return validateCode != null
-				? validateCode.equalsIgnoreCase(getValidateCode(request.getSession())) : true;
+				? validateCode.equalsIgnoreCase(getValidateCode(request.getSession()))
+				: true;
 	}
 
 	public static String getErrorString() {
