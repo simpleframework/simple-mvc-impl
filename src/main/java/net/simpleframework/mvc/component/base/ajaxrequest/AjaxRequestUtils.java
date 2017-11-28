@@ -118,6 +118,7 @@ public abstract class AjaxRequestUtils {
 		json.add("hasPermission", bPermission);
 		PrintWriter out;
 		try {
+			response.setHeader("Content-Type", "application/json");
 			out = response.getWriter();
 		} catch (final IOException e) {
 			throw ComponentException.of(e);
