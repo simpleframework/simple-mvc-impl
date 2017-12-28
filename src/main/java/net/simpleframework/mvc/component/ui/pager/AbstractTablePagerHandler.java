@@ -329,7 +329,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler
 
 	@Override
 	protected List<?> getData(final ComponentParameter cp, final int start) {
-		final IDataQuery<?> dataQuery = getDataObjectQuery(cp);
+		final IDataQuery<?> dataQuery = _getDataObjectQuery(cp);
 		if (dataQuery instanceof ListDataQuery) {
 			final ColumnData dbColumn = getSortColumn(cp);
 			if (dbColumn != null) {

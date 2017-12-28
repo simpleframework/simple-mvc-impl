@@ -50,7 +50,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 		return null;
 	}
 
-	protected IDataQuery<?> getDataObjectQuery(final ComponentParameter cp) {
+	protected IDataQuery<?> _getDataObjectQuery(final ComponentParameter cp) {
 		return cp.getRequestCache("@query_cache", new CacheV<IDataQuery<?>>() {
 			@Override
 			public IDataQuery<?> get() {
@@ -65,7 +65,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 
 	@Override
 	public int getCount(final ComponentParameter cp) {
-		final IDataQuery<?> dataQuery = getDataObjectQuery(cp);
+		final IDataQuery<?> dataQuery = _getDataObjectQuery(cp);
 		if (dataQuery == null) {
 			return 0;
 		}
@@ -78,7 +78,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 
 	protected List<?> getData(final ComponentParameter cp, final int start) {
 		final List<Object> data = new ArrayList<>();
-		final IDataQuery<?> dataQuery = getDataObjectQuery(cp);
+		final IDataQuery<?> dataQuery = _getDataObjectQuery(cp);
 		if (dataQuery != null) {
 			dataQuery.move(start - 1);
 			Object object;
