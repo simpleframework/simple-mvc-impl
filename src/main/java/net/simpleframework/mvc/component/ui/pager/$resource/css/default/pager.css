@@ -142,10 +142,12 @@
 }
 
 .pager .mmore {
-  font-size: 9.5pt;
+  font-size: 8.5pt;
   padding: 15px 0;
   text-align: center;
   cursor: pointer;
+  font-weight: bolder;
+  color: #888;
 }
 
 .pager .mmore img,
@@ -154,7 +156,7 @@
 }
 
 .pager .mmore img {
-  width: 18px;
+  width: 12px;
   margin-right: 4px;
 }
 
