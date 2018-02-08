@@ -212,13 +212,13 @@ a.link_menuicon:hover .micon {
   font-size: 9px;
   text-align: center;
   color: #222;
+  display: inline-block;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   .simple_progress .txt {
     font-size: 12px;
     -webkit-transform: scale(0.75);
-    -webkit-transform-origin-x: 0;
     -webkit-text-size-adjust: none;
   }
 }

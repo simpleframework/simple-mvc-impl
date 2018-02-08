@@ -136,7 +136,7 @@ public class ProgressElement extends SpanElement {
 		final SpanElement txt = new SpanElement(_text).setClassName("txt");
 		final int height = getHeight();
 		if (height > 0) {
-			txt.addStyle("line-height: " + height + "px;");
+			txt.addStyle("line-height: " + (height + 1) + "px;");
 		}
 		sb.append(txt).append(ele);
 		return sb.toString();
