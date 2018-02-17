@@ -870,26 +870,30 @@ ul.simple_tabs.vertical a.active {
 	position: relative;
 	border: 1px solid #aaa;
 	margin: 2px;
-	padding: 1px 18px 1px 8px;
+	padding: 2px 22px 2px 12px;
 	height: 17px;
-  line-height: 16px;
+  line-height: 18px;
+ 	display: inline-block;
+  font-size: 8.5pt;
+  font-weight: bolder;
+ 	color: #555;
   vertical-align: middle;
   background-color: #e4e4e4;
   background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
   background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
   background-image: -ms-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
   background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
   box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
   cursor: default;
 }
  
 .multi_dselect .item .del {
 	position: absolute;
-	right: 4px;
-	top: 5px;
+	right: 8px;
+	top: 6px;
 	height: 9px;
 	width: 9px;
 	background: url("images/delete_gray.png") no-repeat 0 0;
