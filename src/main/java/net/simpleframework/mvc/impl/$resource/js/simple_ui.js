@@ -67,7 +67,7 @@
 	};
 
 	window.$error = function(err, alertType) {
-		if (!WINDOW_UI_ENABLE || alertType) {
+		if (!window.WINDOW_UI_ENABLE || alertType) {
 			alert(err.title);
 		} else {
 			if (typeof err == 'string') {
@@ -165,7 +165,7 @@
 		 */
 		var $alert_bak = window._alert = window.alert;
 		window.alert = function(msg) {
-			if (!WINDOW_UI_ENABLE)
+			if (!window.WINDOW_UI_ENABLE)
 				$alert_bak(msg);
 			else
 				$alert(msg);
