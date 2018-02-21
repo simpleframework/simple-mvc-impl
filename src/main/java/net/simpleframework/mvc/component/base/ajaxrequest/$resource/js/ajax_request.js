@@ -121,14 +121,17 @@ function __ajax_actions_init(actionFunc, name) {
         // ie8
       } else {
         if (disabled) {
-          t._onclick = t.getAttribute('onclick');
-          if (t._onclick) {
-            t.removeAttribute("onclick");
-          }
+          t._ajax_onclick = t.onclick;
+          t.onclick = function(e) { Event.stop(ev); };
+//          t._onclick = t.getAttribute('onclick');
+//          if (t._onclick) {
+//            t.removeAttribute("onclick");
+//          }
         } else {
-          if (t._onclick) {
-            t.setAttribute('onclick', t._onclick);
-          }
+          t.onclick = t._ajax_onclick;
+//          if (t._onclick) {
+//            t.setAttribute('onclick', t._onclick);
+//          }
         }
       }
     }

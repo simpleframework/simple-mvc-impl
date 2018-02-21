@@ -213,8 +213,8 @@ Validation.prototype = {
 		if (!trigger)
 			return;
 		$A(trigger).each(function(t) {
-			if (!t._onclick) {
-				t._onclick = t.onclick;
+			if (!t._validator_onclick) {
+				t._validator_onclick = t.onclick;
 			}
 			if (!t.observes) {
 				var registry = Element.retrieve(t, 'prototype_event_registry');
@@ -229,8 +229,8 @@ Validation.prototype = {
 					Event.stop(ev);
 					return;
 				}
-				if (t._onclick)
-					t._onclick(ev);
+				if (t._validator_onclick)
+					t._validator_onclick(ev);
 				if (t.observes) {
 					for ( var i = 0; i < t.observes.length; i++) {
 						t.observes[i](ev);
