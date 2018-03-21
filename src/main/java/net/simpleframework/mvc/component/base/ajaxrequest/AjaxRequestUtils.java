@@ -14,6 +14,9 @@ import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.common.logger.Log;
 import net.simpleframework.common.logger.LogFactory;
 import net.simpleframework.common.th.RuntimeExceptionEx;
+import net.simpleframework.common.web.html.HtmlUtils;
+import net.simpleframework.lib.org.jsoup.nodes.Document;
+import net.simpleframework.lib.org.jsoup.nodes.Element;
 import net.simpleframework.mvc.AbstractBasePage;
 import net.simpleframework.mvc.IForward;
 import net.simpleframework.mvc.JavascriptForward;
@@ -21,8 +24,10 @@ import net.simpleframework.mvc.JsonForward;
 import net.simpleframework.mvc.MVCContext;
 import net.simpleframework.mvc.MVCUtils;
 import net.simpleframework.mvc.SessionCache;
+import net.simpleframework.mvc.TextForward;
 import net.simpleframework.mvc.component.ComponentException;
 import net.simpleframework.mvc.component.ComponentParameter;
+import net.simpleframework.mvc.parser.ParserUtils;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -111,7 +116,17 @@ public abstract class AjaxRequestUtils {
 			}
 		}
 
-		final String responseText = forward != null ? forward.getResponseText(cp) : "";
+		String responseText = forward != null ? forward.getResponseText(cp) : "";
+		if (forward != null && forward.getClass().isAssignableFrom(TextForward.class)) {
+			responseText = responseText.trim();
+			if (responseText.startsWith("<") && responseText.endsWith(">")) {
+				final Document doc = HtmlUtils.createHtmlDocument(responseText);
+				for (final Element ele : doc.getAllElements()) {
+					ParserUtils.doNode(doc, ele);
+				}
+				responseText = doc.html();
+			}
+		}
 		json.add("rt", responseText.replace("\t", ""));
 		json.add("isJavascript", forward instanceof JavascriptForward);
 		json.add("isJSON", forward instanceof JsonForward);
