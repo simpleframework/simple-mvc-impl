@@ -122,7 +122,7 @@ function __ajax_actions_init(actionFunc, name) {
       } else {
         if (disabled) {
           t._ajax_onclick = t.onclick;
-          t.onclick = function(e) { Event.stop(ev); };
+          t.onclick = function(e) { Event.stop(e); };
 //          t._onclick = t.getAttribute('onclick');
 //          if (t._onclick) {
 //            t.removeAttribute("onclick");
