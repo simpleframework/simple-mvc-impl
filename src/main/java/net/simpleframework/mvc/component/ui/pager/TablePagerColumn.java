@@ -404,6 +404,11 @@ public class TablePagerColumn extends AbstractElementBean {
 		return STATUS(width, null);
 	}
 
+	public static final TablePagerColumn PHOTO(final int width) {
+		return new TablePagerColumn("photo", "&nbsp;", width).center().setFilterSort(false)
+				.setNowrap(false);
+	}
+
 	public static final TablePagerColumn STATUS(final int width, final Class<?> propertyClass) {
 		final TablePagerColumn col = new TablePagerColumn(STATUS, $m("Status")).setWidth(width)
 				.center();
