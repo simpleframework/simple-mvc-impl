@@ -30,7 +30,7 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 	@Override
 	public Map<String, Object> getFormParameters(final ComponentParameter cp) {
 		final Map<String, Object> parameters = super.getFormParameters(cp);
-		for (final String k : new String[] { PagerUtils.BEAN_ID,
+		for (final String k : new String[] { PagerUtils.BEAN_ID, "_mobile_preview",
 				(String) cp.getBeanProperty("pageNumberParameterName"),
 				(String) cp.getBeanProperty("pageItemsParameterName") }) {
 			parameters.put(k, cp.getParameter(k));
