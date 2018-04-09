@@ -7,6 +7,29 @@
 	/**
 	 * 覆盖系统的alert, confirm等函数
 	 */
+  if (isMobile.ios()) {
+    var createIframe = function() {
+      var iframe = document.createElement("IFRAME");
+      iframe.style.display = "none";
+      iframe.setAttribute("src", 'data:text/plain,');
+      document.documentElement.appendChild(iframe);
+      return iframe;
+    };
+    
+    window.alert = function(message) {
+      var iframe = createIframe();
+      iframe.contentWindow.window.alert(message);
+      iframe.parentNode.removeChild(iframe);
+    };
+
+    window.confirm = function(message) {
+      var iframe = createIframe();
+      var result = iframe.contentWindow.window.confirm(message);
+      iframe.parentNode.removeChild(iframe);
+      return result;
+    };
+  }
+  
 	window.$alert = function(msg, title, h) {
 		var w = new UI.Window({
 			minimize : false,
