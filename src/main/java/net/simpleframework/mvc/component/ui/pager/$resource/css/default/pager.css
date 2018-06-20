@@ -521,9 +521,15 @@
 }
 
 #tp_filter_r1,
-#tp_filter_r2 {
-  padding: 3px; 
+#tp_filter_r2 { 
   width: 95%;
+  line-height: 30px;
+  height: 30px;
+}
+
+#tp_filter_r1[disabled], 
+#tp_filter_r2[disabled] {
+  color: #bbb;
 }
 
 .filter_window {
@@ -538,8 +544,8 @@
 }
 
 .filter_window input[type=text] {
-  border-color: #999;
-  height: 17px;
+  height: 20px;
+  line-height: 20px;
   padding: 4px;
   width: 98%;
 }
@@ -548,12 +554,16 @@
 .filter_window select,
 .filter_window .text {
   background-image: none;
-  border-color: #222;
+  border-color: #aaa;
+}
+
+.filter_window .text_button .d1 {
+  margin-right: -22px;
 }
 
 .filter_window .text_button .sbtn {
-  margin-right: 1px;
-  margin-top: 4px;
+  margin-right: 2px;
+  margin-top: 6px;
 }
 
 .filter_window table {
