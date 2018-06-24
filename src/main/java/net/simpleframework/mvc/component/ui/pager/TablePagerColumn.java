@@ -406,7 +406,7 @@ public class TablePagerColumn extends AbstractElementBean {
 
 	public static final TablePagerColumn PHOTO(final int width) {
 		return new TablePagerColumn("photo", "&nbsp;", width).center().setFilterSort(false)
-				.setNowrap(false);
+				.setNowrap(false).setLblStyle("line-height: 1.1;");
 	}
 
 	public static final TablePagerColumn STATUS(final int width, final Class<?> propertyClass) {
