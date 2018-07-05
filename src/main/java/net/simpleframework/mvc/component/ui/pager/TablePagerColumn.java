@@ -411,7 +411,7 @@ public class TablePagerColumn extends AbstractElementBean {
 
 	public static final TablePagerColumn STATUS(final int width, final Class<?> propertyClass) {
 		final TablePagerColumn col = new TablePagerColumn(STATUS, $m("Status")).setWidth(width)
-				.center();
+				.setSort(false).setFilter(false).center();
 		if (propertyClass != null) {
 			col.setPropertyClass(propertyClass);
 		}
