@@ -3,7 +3,6 @@ package net.simpleframework.mvc.component.ui.imageslide;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.component.ui.AbstractComponentUIResourceProvider;
 import net.simpleframework.mvc.component.ui.menu.MenuRegistry;
-import net.simpleframework.mvc.impl.DefaultPageResourceProvider;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -22,8 +21,8 @@ public class ImageSlideResourceProvider extends AbstractComponentUIResourceProvi
 	@Override
 	public String[] getJavascriptPath(final PageParameter pp) {
 		return new String[] {
-				getResourceHomePath(DefaultPageResourceProvider.class)
-						+ DefaultPageResourceProvider.EFFECTS_FILE,
+				// getResourceHomePath(DefaultPageResourceProvider.class)
+				// + DefaultPageResourceProvider.EFFECTS_FILE,
 				getResourceHomePath() + "/js/imageslide.js" };
 	}
 }

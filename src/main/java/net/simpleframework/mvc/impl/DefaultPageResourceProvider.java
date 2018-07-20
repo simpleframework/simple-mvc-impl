@@ -14,11 +14,11 @@ import net.simpleframework.mvc.PageParameter;
 public class DefaultPageResourceProvider extends MVCPageResourceProvider {
 	// final static String S2_FILE = "/js/s2.js?v=2.0.0_b1";
 
-	public final static String SIZZLE_FILE = "/js/sizzle.js";
+	// public final static String SIZZLE_FILE = "/js/sizzle.js";
 
-	public final static String PROTOTYPE_FILE = "/js/prototype.js?v=1.7.3";
+	// public final static String PROTOTYPE_FILE = "/js/prototype.js?v=1.7.3";
 
-	public final static String EFFECTS_FILE = "/js/effects.js?v=1.9";
+	// public final static String EFFECTS_FILE = "/js/effects.js?v=1.9";
 
 	public final static String DRAGDROP_FILE = "/js/dragdrop.js?v=1.9";
 

@@ -8,7 +8,8 @@ import net.simpleframework.mvc.impl.DefaultPageResourceProvider;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class TreeResourceProvider extends AbstractComponentResourceProvider {
@@ -26,7 +27,8 @@ public class TreeResourceProvider extends AbstractComponentResourceProvider {
 	@Override
 	public String[] getJavascriptPath(final PageParameter pp) {
 		final String rPath = getResourceHomePath(DefaultPageResourceProvider.class);
-		return new String[] { rPath + DefaultPageResourceProvider.EFFECTS_FILE,
+		return new String[] {
+				// rPath + DefaultPageResourceProvider.EFFECTS_FILE,
 				rPath + DefaultPageResourceProvider.DRAGDROP_FILE,
 				getResourceHomePath() + "/js/tree.js" };
 	}
