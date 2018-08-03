@@ -831,8 +831,9 @@ ul.simple_tabs.vertical a.active {
 	float: right;
 }
 
-.text_button .sbtn:hover {
-	background: url(images/form_hover.png) no-repeat center center;
+.text_button .sbtn:hover,
+.multi_dselect .sbtn:hover {
+	background-image: url(images/form_hover.png);
 }
 
 .text_button .d1 {
