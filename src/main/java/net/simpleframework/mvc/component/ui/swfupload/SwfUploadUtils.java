@@ -256,7 +256,7 @@ public abstract class SwfUploadUtils {
 						.toFileSize((String) cp.getBeanProperty("fileSizeLimit"));
 				uHandle.upload(cp,
 						((MultipartPageRequest) (cp.request = MVCContext.get()
-								.createMultipartPageRequest(request, fileSizeLimit))).getFile("Filedata"),
+								.createMultipartPageRequest(cp, fileSizeLimit))).getFile("Filedata"),
 						variables);
 			} catch (final Throwable ex) {
 				variables.add("error", MVCContext.get().getThrowableMessage(ex));

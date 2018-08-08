@@ -44,7 +44,7 @@ public abstract class SubmitUtils {
 			final String method = (String) nCP.getBeanProperty("handlerMethod");
 			AbstractUrlForward forward;
 			if ((Boolean) nCP.getBeanProperty("binary")) {
-				nCP.request = MVCContext.get().createMultipartPageRequest(request,
+				nCP.request = MVCContext.get().createMultipartPageRequest(nCP,
 						(int) FileUtils.toFileSize((String) nCP.getBeanProperty("fileSizeLimit")));
 			}
 			try {
