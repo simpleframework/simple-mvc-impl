@@ -369,6 +369,18 @@ public class TablePagerColumn extends AbstractElementBean {
 				.setPropertyClass(Date.class);
 	}
 
+	public static TablePagerColumn MONEY(final String columnName, final String columnText,
+			final int width) {
+		return new TablePagerColumn(columnName, columnText).setWidth(width).center()
+				.setPropertyClass(Double.class);
+	}
+
+	public static TablePagerColumn INT(final String columnName, final String columnText,
+			final int width) {
+		return new TablePagerColumn(columnName, columnText).setWidth(width).center()
+				.setPropertyClass(Integer.class);
+	}
+
 	public static final TablePagerColumn OPE(final int width) {
 		return new TablePagerColumn(OPE, $m("OPE")).setWidth(width).center().setNowrap(false)
 				.setFilterSort(false).setExport(false).setEditable(false);
