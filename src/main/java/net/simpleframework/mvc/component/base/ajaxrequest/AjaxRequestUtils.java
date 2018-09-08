@@ -94,8 +94,20 @@ public abstract class AjaxRequestUtils {
 							}
 						} catch (Throwable th) {
 							th = MVCUtils.convertThrowable(th);
-							if (th instanceof RuntimeExceptionEx && th.getCause() == null) {
-								log.error(th.getClass().getName() + ": " + th.getMessage());
+							if (th instanceof RuntimeExceptionEx) {
+								while (th instanceof RuntimeExceptionEx) {
+									final Throwable cause = th.getCause();
+									if (cause == null) {
+										log.error(th);
+										break;
+									} else {
+										final String msg = th.getMessage();
+										if (StringUtils.hasText(msg)) {
+											log.error(th.getClass().getName() + ": " + msg);
+										}
+										th = cause;
+									}
+								}
 							} else {
 								log.error(th);
 							}
