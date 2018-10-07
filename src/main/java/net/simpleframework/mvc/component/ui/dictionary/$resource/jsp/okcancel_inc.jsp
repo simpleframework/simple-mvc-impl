@@ -11,7 +11,7 @@
 	final String beanId = nCP.hashId();
 	final String name = (String) nCP.getComponentName();
 %>
-<div class="okcancel clear_float">
+<div class="okcancel clearfix">
   <div style="float: right">
     <span style="margin-right: 4px;"><%=DictionaryRender.getActions(nCP)%></span> <input
       type="button" class="button2" value="#(Button.Ok)" onclick="selected<%=beanId%>();" /> <input
