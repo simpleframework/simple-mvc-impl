@@ -94,21 +94,25 @@ public abstract class AjaxRequestUtils {
 							}
 						} catch (Throwable th) {
 							th = MVCUtils.convertThrowable(th);
+							boolean out = false;
 							if (th instanceof RuntimeExceptionEx) {
 								while (th instanceof RuntimeExceptionEx) {
 									final Throwable cause = th.getCause();
 									if (cause == null) {
 										log.error(th);
+										out = true;
 										break;
 									} else {
 										final String msg = th.getMessage();
 										if (StringUtils.hasText(msg)) {
 											log.error(th.getClass().getName() + ": " + msg);
+											out = true;
 										}
 										th = cause;
 									}
 								}
-							} else {
+							}
+							if (!out) {
 								log.error(th);
 							}
 							forward = new JsonForward("exception", MVCUtils.createException(cp, th));
