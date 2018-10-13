@@ -111,9 +111,9 @@ a.simple_btn .left_icon {
 }
   
 a.simple_btn2 {
-  border: 1px solid transparent;
   display: inline-block;
-  padding: 2px 4px;
+  line-height: 1.1;
+	padding: 3px 5px;
   font-size: 9pt;
   text-decoration: none;
   -moz-border-radius: 3px;
@@ -127,7 +127,6 @@ a.simple_btn2 {
 
 a.simple_btn2_selected {
   background-color: #aaa;
-  border-color: #888;
   color: #fff;
   -webkit-box-shadow: 0px 0px 2px #bbb;
 	box-shadow: 0px 0px 2px #bbb;
@@ -138,9 +137,8 @@ a.simple_btn2.disabled {
 }
 
 a.simple_btn2:HOVER {
-  background-color: #e77;
-  border-color: #e44;
-  color: #eee;
+  background-color: #e55;
+  color: #fff;
   -webkit-box-shadow: 0px 0px 5px #eee;
 	box-shadow: 0px 0px 5px #bbb;
 }
