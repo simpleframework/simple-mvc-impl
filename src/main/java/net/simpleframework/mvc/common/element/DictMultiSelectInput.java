@@ -22,13 +22,22 @@ public class DictMultiSelectInput extends DictInput {
 		super(id);
 	}
 
-	private Map<String, String> values;
+	private Map<String, String[]> values;
 
 	public DictMultiSelectInput addValue(final String id, final String text) {
+		return addValue(id, text, null);
+	}
+
+	public DictMultiSelectInput addValue(final String id, final String text,
+			final String className) {
 		if (values == null) {
 			values = new HashMap<>();
 		}
-		values.put(id, text);
+		if (StringUtils.hasText(className)) {
+			values.put(id, new String[] { text, className });
+		} else {
+			values.put(id, new String[] { text });
+		}
 		return this;
 	}
 
@@ -79,9 +88,14 @@ public class DictMultiSelectInput extends DictInput {
 		sb.append(" r = r.up('.multi_dselect');");
 		sb.append(" $UI.multiSelectInputField_init(r, ").append(readonly).append(");");
 		if (hasVal) {
-			for (final Map.Entry<String, String> entry : values.entrySet()) {
+			for (final Map.Entry<String, String[]> entry : values.entrySet()) {
+				final String[] vals = entry.getValue();
 				sb.append("r.insertItem('").append(entry.getKey());
-				sb.append("', '").append(entry.getValue()).append("');");
+				sb.append("', '").append(vals[0]).append("'");
+				if (vals.length > 1) {
+					sb.append(", '").append(vals[1]).append("'");
+				}
+				sb.append(");");
 			}
 		}
 		if (hasComp) {

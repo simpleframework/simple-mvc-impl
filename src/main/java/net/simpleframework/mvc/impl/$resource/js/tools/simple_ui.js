@@ -556,7 +556,7 @@ Object.extend($UI, {
       }).join(";");
     };
     
-    r.insertItem = function(id, txt) {
+    r.insertItem = function(id, txt, className) {
       if (r.select(".item").find(function(o) {
         return o.id == id;
       })) {
@@ -565,7 +565,7 @@ Object.extend($UI, {
       
       var item;
       r.insert(item = new Element("SPAN", {
-        className : "item",
+        className : "item" + (className ? " " + className : ""),
         id : id
       }).update(txt));
       
