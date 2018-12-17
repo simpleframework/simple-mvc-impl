@@ -11,7 +11,6 @@ import net.simpleframework.common.web.html.HtmlEncoder;
  *         http://www.simpleframework.net
  */
 public class TextButton extends AbstractInputElement<TextButton> {
-
 	/**
 	 * 自动生成一个名字和id一样的隐藏域
 	 */
@@ -150,4 +149,6 @@ public class TextButton extends AbstractInputElement<TextButton> {
 		sb.append("</div>");
 		return sb.toString();
 	}
+
+	private static final long serialVersionUID = 8089943714058746956L;
 }

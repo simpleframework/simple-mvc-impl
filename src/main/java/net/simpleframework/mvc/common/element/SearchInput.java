@@ -13,7 +13,6 @@ import net.simpleframework.common.StringUtils;
  *         http://www.simpleframework.net
  */
 public class SearchInput extends AbstractInputElement<SearchInput> {
-
 	/* 查找 */
 	private String onSearchClick;
 
@@ -94,4 +93,6 @@ public class SearchInput extends AbstractInputElement<SearchInput> {
 		sb.append("</span>");
 		return sb.toString();
 	}
+
+	private static final long serialVersionUID = -8181927985211538665L;
 }

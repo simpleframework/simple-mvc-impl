@@ -96,4 +96,6 @@ public class DictMultiSelectInput extends DictInput {
 		sb.append(HtmlConst.TAG_SCRIPT_END);
 		return sb.toString();
 	}
+
+	private static final long serialVersionUID = -767649178010677281L;
 }

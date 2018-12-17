@@ -5,10 +5,12 @@ import net.simpleframework.common.StringUtils;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class CalendarInput extends TextButton {
+
 	private String calendarComponent;
 
 	private String dateFormat;
@@ -54,4 +56,6 @@ public class CalendarInput extends TextButton {
 		}
 		return super.toString();
 	}
+
+	private static final long serialVersionUID = 4021341684622147530L;
 }

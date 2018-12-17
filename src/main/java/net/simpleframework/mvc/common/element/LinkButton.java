@@ -79,4 +79,6 @@ public class LinkButton extends AbstractButtonEx<LinkButton> {
 		}
 		super.doAttri(sb);
 	}
+
+	private static final long serialVersionUID = 7885455462570112882L;
 }

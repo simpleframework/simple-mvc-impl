@@ -3,7 +3,8 @@ package net.simpleframework.mvc.common.element;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class LinkElementEx extends LinkElement {
@@ -60,4 +61,6 @@ public class LinkElementEx extends LinkElement {
 		}
 		super.doAttri(sb);
 	}
+
+	private static final long serialVersionUID = 7605905189331132400L;
 }

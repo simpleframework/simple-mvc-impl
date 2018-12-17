@@ -8,7 +8,8 @@ import net.simpleframework.common.StringUtils;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class ProgressElement extends SpanElement {
@@ -155,4 +156,6 @@ public class ProgressElement extends SpanElement {
 		}
 		super.doAttri(sb);
 	}
+
+	private static final long serialVersionUID = 332945882911168711L;
 }

@@ -14,6 +14,7 @@ import net.simpleframework.common.web.HttpUtils;
  *         http://www.simpleframework.net
  */
 public class DictInput extends TextButton {
+
 	private String dictComponent;
 
 	private String parameters;
@@ -89,4 +90,6 @@ public class DictInput extends TextButton {
 		}
 		return super.toString();
 	}
+
+	private static final long serialVersionUID = 1073099147893945825L;
 }

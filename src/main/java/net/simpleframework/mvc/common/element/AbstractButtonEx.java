@@ -10,7 +10,7 @@ import net.simpleframework.mvc.common.element.ElementList.IElementFilter;
  *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({ "unchecked", "serial" })
 public abstract class AbstractButtonEx<T extends AbstractLinkElement<T>>
 		extends AbstractLinkElement<T> {
 	/* 是否选中 */
