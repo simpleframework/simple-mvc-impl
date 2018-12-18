@@ -115,7 +115,7 @@ public abstract class AjaxRequestUtils {
 								}
 							}
 							if (!out) {
-								log.error(MVCContext.get().getThrowableMessage(th));
+								log.error(th);
 							}
 							forward = new JsonForward("exception", MVCUtils.createException(cp, th));
 						} finally {
