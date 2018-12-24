@@ -143,7 +143,6 @@ div,
 sup {
   top: -5px;
   color: #900;
-  line-height: 1;
   font-family: "Helvetica Neue", Helvetica;
 	font-weight: normal;
 	text-align: center;
@@ -154,16 +153,19 @@ sup {
 	word-break: normal;
   word-wrap: normal;
   opacity: 0.9;
+  line-height: 1.1;
+  font-size: 8pt;
+  vertical-align: middle;
 }
 
 sup.highlight {
   top: -8px;
   color: white;
-  background-color: #d44;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
-  border-radius: 50px;
-  padding: 2px 4px;
+  background-color: #e33;
+  padding: 2px 5px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 
 input, textarea, button, select {
