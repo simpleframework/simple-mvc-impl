@@ -149,7 +149,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 				}
 				final String columnName = pagerColumn.getColumnName();
 				sb.append("<td");
-				final String style = pagerColumn.toStyle(cp, null);
+				final String style = pagerColumn.toStyle(cp, null, true);
 				if (StringUtils.hasText(style)) {
 					sb.append(" style=\"").append(style).append("\"");
 				}
@@ -219,7 +219,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 					}
 					final String columnName = pagerColumn.getColumnName();
 					sb.append("<td");
-					final String style = pagerColumn.toStyle(cp, null);
+					final String style = pagerColumn.toStyle(cp, null, true);
 					if (StringUtils.hasText(style)) {
 						sb.append(" style=\"").append(style).append("\"");
 					}
@@ -391,7 +391,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 				final ETextAlign defaultTextAlign = val instanceof Number || val instanceof Boolean
 						|| val instanceof Date || val instanceof Enum ? ETextAlign.center
 								: ETextAlign.left;
-				final String style = pagerColumn.toStyle(cp, defaultTextAlign);
+				final String style = pagerColumn.toStyle(cp, defaultTextAlign, false);
 				if (StringUtils.hasText(style)) {
 					sb.append(" style=\"").append(style).append("\"");
 				}

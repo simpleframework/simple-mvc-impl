@@ -66,6 +66,8 @@ public class TablePagerColumn extends AbstractElementBean {
 
 	/* 表格列是否wrap超出列大小的数据内容 */
 	private boolean nowrap = true;
+	/* 字体颜色 */
+	private String txtColor;
 
 	private boolean relative;
 
@@ -249,6 +251,15 @@ public class TablePagerColumn extends AbstractElementBean {
 		return this;
 	}
 
+	public String getTxtColor() {
+		return txtColor;
+	}
+
+	public TablePagerColumn setTxtColor(final String txtColor) {
+		this.txtColor = txtColor;
+		return this;
+	}
+
 	public boolean isRelative() {
 		return relative;
 	}
@@ -258,29 +269,35 @@ public class TablePagerColumn extends AbstractElementBean {
 		return this;
 	}
 
-	String toStyle(final PageRequestResponse rRequest, final ETextAlign defaultTextAlign) {
+	String toStyle(final PageRequestResponse rRequest, final ETextAlign defaultTextAlign,
+			final boolean head) {
 		final HashSet<String> set = new HashSet<>();
-		if (defaultTextAlign != null) {
-			ETextAlign textAlign = getTextAlign();
-			if (textAlign == null) {
-				textAlign = defaultTextAlign;
-			}
-			set.add("text-align:" + textAlign);
+		final int w = getWidth();
+		if (w > 0) {
+			set.add("width:" + TablePagerHTML.fixWidth(rRequest, w) + "px");
+		}
+		if (isRelative()) {
+			set.add("position: relative");
 		}
 		final EVerticalAlign verticalAlign = getVerticalAlign();
 		if (verticalAlign != null) {
 			set.add("vertical-align:" + verticalAlign);
 		}
-
-		final int w = getWidth();
-		if (w > 0) {
-			set.add("width:" + TablePagerHTML.fixWidth(rRequest, w) + "px");
-		}
-		if (isNowrap()) {
-			set.add("white-space: nowrap");
-		}
-		if (isRelative()) {
-			set.add("position: relative");
+		if (!head) {
+			if (defaultTextAlign != null) {
+				ETextAlign textAlign = getTextAlign();
+				if (textAlign == null) {
+					textAlign = defaultTextAlign;
+				}
+				set.add("text-align:" + textAlign);
+			}
+			final String txtColor = getTxtColor();
+			if (StringUtils.hasText(txtColor)) {
+				set.add("color: " + txtColor);
+			}
+			if (isNowrap()) {
+				set.add("white-space: nowrap");
+			}
 		}
 		return set.size() > 0 ? StringUtils.join(set, ";") : null;
 	}
