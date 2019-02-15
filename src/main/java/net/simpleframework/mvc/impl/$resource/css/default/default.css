@@ -49,7 +49,7 @@ a.simple_btn.highlight {
   background-color: #fafafa;  
 }
 
-a.simple_btn:hover,
+a.simple_btn:active,
 a.simple_btn_checked {
 	background-color: #38b;
 	color: #fff;
