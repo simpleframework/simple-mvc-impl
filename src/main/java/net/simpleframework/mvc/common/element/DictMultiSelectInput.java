@@ -69,7 +69,7 @@ public class DictMultiSelectInput extends DictInput {
 			sb.append(" style='").append(style).append("'");
 		}
 		sb.append(">");
-		final String placeholder = getPlaceholder();
+		String placeholder = getPlaceholder();
 		if (StringUtils.hasText(placeholder)) {
 			sb.append("<span class='placeholder'>").append(placeholder).append("</span>");
 		}
