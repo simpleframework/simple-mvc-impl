@@ -550,10 +550,20 @@ Object.extend($UI, {
 	
 	multiSelectInputField_init : function(r, readonly) {
 	  var updateHidden = function() {
-	    r.down("input").value = r.select(".item").inject([], function(ret, o) {
+	    var hInput = r.down("input");
+	    hInput.value = r.select(".item").inject([], function(ret, o) {
         ret.push(o.id);
         return ret;
       }).join(";");
+	    
+	    var placeholder = r.down(".placeholder");
+	    if (placeholder) {
+	      if (hInput.value == '') {
+	        placeholder.show();
+	      } else {
+	        placeholder.hide();
+	      }
+	    }
     };
     
     r.insertItem = function(id, txt, className) {

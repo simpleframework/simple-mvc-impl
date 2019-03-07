@@ -863,9 +863,19 @@ ul.simple_tabs.vertical a.active {
 }
 
 .multi_dselect {
-	border: 1px solid #ccc;
-	padding: 3px 0 3px 3px;
-	overflow: hidden;
+  border: 1px solid #ccc;
+  padding: 3px 0 3px 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.multi_dselect .placeholder {
+  color: #aaa;
+  display: inline-block;
+  line-height: 1;
+  position: absolute;
+  left: 8px;
+  top: 12px;
 }
 
 .form_tbl .v .multi_dselect {
