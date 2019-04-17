@@ -58,6 +58,10 @@
 		w.center().show(true).activate();
 	};
 
+	var WINDOW_UI_ENABLE = function() {
+	  return window.UI && window.UI.Window;
+	};
+	
 	window.$confirm = function(msg, okCallback, cancleCallback) {
 		var w = new UI.Window({
 			minimize : false,
@@ -90,7 +94,7 @@
 	};
 
 	window.$error = function(err, alertType) {
-		if (!window.WINDOW_UI_ENABLE || alertType) {
+		if (!WINDOW_UI_ENABLE() || alertType) {
 			alert(err.title);
 		} else {
 			if (typeof err == 'string') {
@@ -179,21 +183,17 @@
 			w.center().show(true).activate();
 		}
 	};
-
-	$ready(function() {
-		window.WINDOW_UI_ENABLE = window.UI && window.UI.Window;
-
-		/**
-		 * 覆盖alert的实现
-		 */
-		var $alert_bak = window._alert = window.alert;
-		window.alert = function(msg) {
-			if (!window.WINDOW_UI_ENABLE)
-				$alert_bak(msg);
-			else
-				$alert(msg);
-		};
-	});
+	
+  /**
+   * 覆盖alert的实现
+   */
+  var $alert_bak = window._alert = window.alert;
+  window.alert = function(msg) {
+    if (!WINDOW_UI_ENABLE())
+      $alert_bak(msg);
+    else
+      $alert(msg);
+  };
 })();
 
 /**
