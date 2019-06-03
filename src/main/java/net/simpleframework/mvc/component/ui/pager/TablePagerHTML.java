@@ -283,6 +283,7 @@ public abstract class TablePagerHTML implements HtmlConst {
 
 		String buildRow(final ComponentParameter cp, final Object oBean,
 				final AbstractTablePagerSchema tablePagerData, final RowHandler handler) {
+			cp.setRequestAttr("rowIndex", handler.getIndex());
 			final Map<String, Object> rowData = (oBean == null) ? null
 					: tablePagerData.getRowData(cp, oBean);
 			if (rowData == null && !handler.isEdit()) {
