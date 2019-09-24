@@ -94,7 +94,7 @@ public abstract class PagerUtils {
 	}
 
 	public static boolean isMoreLoad(final ComponentParameter cp) {
-		return cp.isMobile(true) || (Boolean) cp.getBeanProperty("moreload");
+		return cp.isMobile() || (Boolean) cp.getBeanProperty("moreload");
 	}
 
 	/***************************** utils for jsp ****************************/
