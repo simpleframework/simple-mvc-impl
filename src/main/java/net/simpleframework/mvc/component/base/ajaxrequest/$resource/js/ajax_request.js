@@ -48,18 +48,7 @@ var $Loading = {
         style : 'display: none;'
       });
       ele.id = this.id;
-      if (isMobile.any()) {
-      	if (centerLoading) {
-      		ele.addClassName("loading_m_ajax2");
-      		ele.appendText(centerLoading);
-      	} else {
-      		ele.addClassName("loading_m_ajax");
-      	}
-      } else {
-        ele.addClassName("loading_ajax");
-        ele.appendText($MessageConst['$Loading.0']);
-      }
-      
+
       document.body.appendChild(ele);
       Event.observe(window, 'scroll', function() {
         if (ele.visible()) {
@@ -77,11 +66,23 @@ var $Loading = {
       ele.executer = null;
     }
     if (!ele.visible()) {
-      f();
+    	if (isMobile.any()) {
+      	if (centerLoading) {
+      		ele.className = "loading_m_ajax2";
+      		ele.innerHTML = centerLoading;
+      	} else {
+      		ele.className = "loading_m_ajax";
+      	}
+      } else {
+        ele.className = "loading_ajax";
+        ele.innerHTML = $MessageConst['$Loading.0'];
+      }
+    	
+    	f();
       ele.showing = true;
       if (loadingModal) {
-        ele.modalOverlay.setStyle("height: "
-            + document.viewport.getScrollDimensions().height + "px");
+//        ele.modalOverlay.setStyle("height: "
+//            + document.viewport.getScrollDimensions().height + "px");
         ele.modalOverlay.show();
       }
       $Effect.show(ele, {
