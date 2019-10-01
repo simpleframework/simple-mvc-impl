@@ -35,8 +35,14 @@ public class AjaxRequestRender extends ComponentJavascriptRender {
 		}
 		sb.append(cp.getBeanProperty("parallel")).append(", ")
 				.append(cp.getBeanProperty("showLoading")).append(", ")
-				.append(cp.getBeanProperty("loadingModal")).append(", ")
-				.append(cp.getBeanProperty("disabledTriggerAction"));
+				.append(cp.getBeanProperty("loadingModal")).append(", ");
+		final String centerLoading = (String) cp.getBeanProperty("centerLoading");
+		if (StringUtils.hasText(centerLoading)) {
+			sb.append("\"").append(JavascriptUtils.escape(centerLoading)).append("\", ");
+		} else {
+			sb.append("null, ");
+		}
+		sb.append(cp.getBeanProperty("disabledTriggerAction"));
 		sb.append(")) return;");
 
 		// doComplete

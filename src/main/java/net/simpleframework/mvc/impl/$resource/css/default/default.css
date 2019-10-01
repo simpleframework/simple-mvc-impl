@@ -267,7 +267,8 @@ a.link_menuicon:hover .micon {
 /*     ajax-request,validation                     */
 /***************************************************/
 .loading_ajax,
-.loading_m_ajax {
+.loading_m_ajax,
+.loading_m_ajax2 {
   position: absolute;
 	z-index: 10000;
 }
@@ -295,6 +296,21 @@ a.link_menuicon:hover .micon {
   width: 28px;
   height: 28px;
   right: 10px;
+}
+
+.loading_m_ajax2 {
+	width: 150px;
+	padding: 48px 10px 20px 10px;
+	top: 40% !important;
+	left: calc(50% - 85px);
+	text-align: center;
+	background: url(images/loading2.gif) no-repeat;
+  background-size: 24px 24px;
+	background-position: 50% 18px;
+	background-color: #f9f9f9;
+	color: #222;
+	box-shadow: 0 0 10px #bbb;
+	border-radius: 5px;
 }
 
 .loading_overlay {

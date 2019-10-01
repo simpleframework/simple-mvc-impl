@@ -38,7 +38,7 @@ $UI.AjaxRequest = Class.create({
 var $Loading = {
   id : 'ajax_request_loading',
   
-  show : function(modal) {
+  show : function(loadingModal, centerLoading) {
     var ele = $(this.id);
     var f = function() {
       ele.style.top = (document.viewport.getScrollOffsets().top + 4) + "px";
@@ -49,7 +49,12 @@ var $Loading = {
       });
       ele.id = this.id;
       if (isMobile.any()) {
-        ele.addClassName("loading_m_ajax");
+      	if (centerLoading) {
+      		ele.addClassName("loading_m_ajax2");
+      		ele.appendText(centerLoading);
+      	} else {
+      		ele.addClassName("loading_m_ajax");
+      	}
       } else {
         ele.addClassName("loading_ajax");
         ele.appendText($MessageConst['$Loading.0']);
@@ -74,7 +79,7 @@ var $Loading = {
     if (!ele.visible()) {
       f();
       ele.showing = true;
-      if (modal) {
+      if (loadingModal) {
         ele.modalOverlay.setStyle("height: "
             + document.viewport.getScrollDimensions().height + "px");
         ele.modalOverlay.show();
@@ -138,7 +143,7 @@ function __ajax_actions_init(actionFunc, name) {
   };
 
   actionFunc.doInit = function(containerId, confirmMessage, parallel,
-      showLoading, loadingModal, disabledTriggerAction) {
+      showLoading, loadingModal, centerLoading, disabledTriggerAction) {
     var ev = document.getEvent();
     if (ev) {
       var element = Event.element(ev);
@@ -159,7 +164,7 @@ function __ajax_actions_init(actionFunc, name) {
     if (!parallel && actionFunc.loading)
       return true;
     if (showLoading)
-      $Loading.show(loadingModal);
+      $Loading.show(loadingModal, centerLoading);
     if (!parallel)
       actionFunc.loading = true;
 
