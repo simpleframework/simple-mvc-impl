@@ -38,14 +38,6 @@ public abstract class AbstractPagerHandler extends ComponentHandlerEx implements
 		return parameters;
 	}
 
-	@Override
-	public Object getBeanProperty(final ComponentParameter cp, final String beanProperty) {
-		if ("showLoading".equals(beanProperty)) {
-			return !PagerUtils.isMoreLoad(cp);
-		}
-		return super.getBeanProperty(cp, beanProperty);
-	}
-
 	public IDataQuery<?> createDataObjectQuery(final ComponentParameter cp) {
 		return null;
 	}

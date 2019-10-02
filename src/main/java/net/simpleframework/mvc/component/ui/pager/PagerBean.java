@@ -50,7 +50,8 @@ public class PagerBean extends AbstractContainerBean {
 
 	/* 定义是否显示装载进度提示，一般会在浏览器的右上角加上进度提示条 */
 	private boolean showLoading = BeanDefaults.getBool(getClass(), "showLoading", true);
-
+	/* 定义是否以居中装载方式显示，showLoading=true有效 */
+	private String centerLoading;
 	/* 装载时，使页面模态，即不能点击任何页面内容 */
 	private boolean loadingModal = BeanDefaults.getBool(getClass(), "loadingModal", false);
 
@@ -213,6 +214,15 @@ public class PagerBean extends AbstractContainerBean {
 
 	public PagerBean setShowLoading(final boolean showLoading) {
 		this.showLoading = showLoading;
+		return this;
+	}
+
+	public String getCenterLoading() {
+		return centerLoading;
+	}
+
+	public PagerBean setCenterLoading(final String centerLoading) {
+		this.centerLoading = centerLoading;
 		return this;
 	}
 

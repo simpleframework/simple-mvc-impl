@@ -148,8 +148,12 @@ function __ajax_actions_init(actionFunc, name) {
     var ev = document.getEvent();
     if (ev) {
       var element = Event.element(ev);
-      if (element && Object.isElement(element))
+      if (element && Object.isElement(element)) {
         actionFunc.trigger = element;
+        if (element.hasClassName("mmore")) {
+        	showLoading = false;
+        }
+      }
     }
 
     var c = actionFunc._container = $(actionFunc.container || containerId);

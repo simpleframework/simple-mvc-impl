@@ -58,7 +58,8 @@ public abstract class ComponentHtmlRenderEx extends ComponentHtmlRender {
 	public static class RefreshAction extends DefaultAjaxRequestHandler {
 		@Override
 		public Object getBeanProperty(final ComponentParameter cp, final String beanProperty) {
-			if ("showLoading".equals(beanProperty) || "loadingModal".equals(beanProperty)) {
+			if ("showLoading".equals(beanProperty) || "centerLoading".equals(beanProperty)
+					|| "loadingModal".equals(beanProperty)) {
 				final AbstractContainerBean containerBean = (AbstractContainerBean) cp.componentBean
 						.getAttr("container");
 				if (BeanUtils.hasProperty(containerBean, beanProperty)) {
