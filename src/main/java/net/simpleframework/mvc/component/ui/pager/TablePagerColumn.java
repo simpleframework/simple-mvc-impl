@@ -408,6 +408,11 @@ public class TablePagerColumn extends AbstractElementBean {
 		return OPE(48);
 	}
 
+	public static final TablePagerColumn OPE2() {
+		// 缺省二个按钮
+		return OPE(70);
+	}
+
 	public static final TablePagerColumn ACTION() {
 		return new TablePagerColumn(ACTION,
 				new LinkElement().setClassName("m2 down_menu_image").toString()).setWidth(22)
