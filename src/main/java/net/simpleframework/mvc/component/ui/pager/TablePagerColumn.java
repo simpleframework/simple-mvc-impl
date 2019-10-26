@@ -403,12 +403,12 @@ public class TablePagerColumn extends AbstractElementBean {
 				.setFilterSort(false).setExport(false).setEditable(false);
 	}
 
-	public static final TablePagerColumn OPE1() {
+	public static final TablePagerColumn OPE48() {
 		// 缺省一个按钮
 		return OPE(48);
 	}
 
-	public static final TablePagerColumn OPE2() {
+	public static final TablePagerColumn OPE70() {
 		// 缺省二个按钮
 		return OPE(70);
 	}
@@ -446,6 +446,10 @@ public class TablePagerColumn extends AbstractElementBean {
 	public static final TablePagerColumn PHOTO(final int width) {
 		return new TablePagerColumn("photo", "&nbsp;", width).center().setFilterSort(false)
 				.setNowrap(true).setLblStyle("line-height: 1.1;");
+	}
+
+	public static final TablePagerColumn PHOTO50() {
+		return PHOTO(50);
 	}
 
 	public static final TablePagerColumn STATUS(final int width, final Class<?> propertyClass) {
