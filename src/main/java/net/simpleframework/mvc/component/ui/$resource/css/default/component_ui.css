@@ -96,8 +96,8 @@
 
 .listbox .item {
 	overflow: hidden;
-	border-bottom: 1px solid #ccc;
-	padding: 8px;
+	border-bottom: 1px solid #e4e4e4;
+	padding: 10px 8px;
 }
 
 .listbox .item:hover {
