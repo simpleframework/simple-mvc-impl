@@ -1505,6 +1505,7 @@ function __window_actions_init(actionFunc, name, single) {
 		
 		var win = actionFunc.window = url ? new UI.URLWindow(actionFunc.options)
 				: new UI.Window(actionFunc.options);
+		win.actionFunc = actionFunc;
 		win.observe("shown", function(e) {
 		  actionFunc.loading = undefined;
     });
