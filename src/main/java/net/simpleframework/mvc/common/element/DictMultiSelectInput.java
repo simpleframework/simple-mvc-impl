@@ -80,9 +80,9 @@ public class DictMultiSelectInput extends DictInput {
 		}
 		sb.append(val);
 		if (!readonly) {
-			sb.append(toSbtnHTML(getOnclick()));
-			sb.append(toSbtnHTML(getOnclick2()));
-			sb.append(toSbtnHTML(getOnclick3()));
+			sb.append(toSbtnHTML(getOnclick(), 0));
+			sb.append(toSbtnHTML(getOnclick2(), 1));
+			sb.append(toSbtnHTML(getOnclick3(), 2));
 		}
 		sb.append("</div>");
 		sb.append(HtmlConst.TAG_SCRIPT_START);

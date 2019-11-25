@@ -109,10 +109,10 @@ public class TextButton extends AbstractInputElement<TextButton> {
 		return sb.toString();
 	}
 
-	protected String toSbtnHTML(final String onclick) {
+	protected String toSbtnHTML(final String onclick, final int i) {
 		final StringBuilder sb = new StringBuilder();
 		if (StringUtils.hasText(onclick)) {
-			sb.append("<div class='sbtn'  onclick=\"");
+			sb.append("<div class='sbtn' onclick=\"");
 			sb.append(HtmlEncoder.text(onclick)).append("\"></div>");
 		}
 		return sb.toString();
@@ -142,9 +142,9 @@ public class TextButton extends AbstractInputElement<TextButton> {
 				.append(toInputHTML()).append("</div>");
 		sb.append(" </div>");
 		if (!isReadonly()) {
-			sb.append(toSbtnHTML(getOnclick()));
-			sb.append(toSbtnHTML(getOnclick2()));
-			sb.append(toSbtnHTML(getOnclick3()));
+			sb.append(toSbtnHTML(getOnclick(), 0));
+			sb.append(toSbtnHTML(getOnclick2(), 1));
+			sb.append(toSbtnHTML(getOnclick3(), 2));
 		}
 		sb.append("</div>");
 		return sb.toString();
