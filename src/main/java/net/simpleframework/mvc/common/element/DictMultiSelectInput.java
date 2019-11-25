@@ -1,6 +1,6 @@
 package net.simpleframework.mvc.common.element;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import net.simpleframework.common.StringUtils;
@@ -31,7 +31,7 @@ public class DictMultiSelectInput extends DictInput {
 	public DictMultiSelectInput addValue(final String id, final String text,
 			final String className) {
 		if (values == null) {
-			values = new HashMap<>();
+			values = new LinkedHashMap<>();
 		}
 		if (StringUtils.hasText(className)) {
 			values.put(id, new String[] { text, className });
