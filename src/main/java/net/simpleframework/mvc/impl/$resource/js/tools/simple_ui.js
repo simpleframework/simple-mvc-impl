@@ -104,8 +104,8 @@
 			if (!this.errWindows) {
 				this.errWindows = {};
 			}
-			var _WIDTH = 600;
-			var _HEIGHT = 160;
+			var _WIDTH = 510;
+			var _HEIGHT = 180;
 			var w;
 			if (this.errWindows[err.hash]) {
 				w = this.errWindows[err.hash];
