@@ -14,7 +14,8 @@ import net.simpleframework.mvc.PageRequestResponse;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885)
+ *         https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public class TabButtons extends AbstractArrayListEx<TabButtons, TabButton> {
@@ -64,6 +65,13 @@ public class TabButtons extends AbstractArrayListEx<TabButtons, TabButton> {
 
 	public TabButtons setTextAlign(final ETextAlign textAlign) {
 		this.textAlign = textAlign;
+		return this;
+	}
+
+	public TabButtons setTabMatch(final ETabMatch tabMatch) {
+		for (final TabButton tab : this) {
+			tab.setTabMatch(tabMatch);
+		}
 		return this;
 	}
 
