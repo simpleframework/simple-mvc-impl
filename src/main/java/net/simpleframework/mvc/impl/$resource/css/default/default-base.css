@@ -162,10 +162,13 @@ sup.highlight {
   top: -8px;
   color: white;
   background-color: #e33;
-  padding: 2px 5px;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
+  line-height: 15px;
+	height: 15px;
+	min-width: 7px;
+	padding: 0 4px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
 }
 
 input, textarea, button, select {
