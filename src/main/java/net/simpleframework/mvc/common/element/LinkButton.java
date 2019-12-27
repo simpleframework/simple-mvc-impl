@@ -54,6 +54,10 @@ public class LinkButton extends AbstractButtonEx<LinkButton> {
 		return of(text).corner();
 	}
 
+	public static LinkButton plus(final Object text) {
+		return corner("＋" + text);
+	}
+
 	public static LinkButton menu(final Object text) {
 		return of(text).setMenuIcon(true);
 	}
