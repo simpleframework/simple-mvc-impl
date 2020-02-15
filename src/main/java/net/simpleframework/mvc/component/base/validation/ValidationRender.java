@@ -47,7 +47,7 @@ public class ValidationRender extends ComponentJavascriptRender {
 			sb.append("selector: \"").append(validator.getSelector()).append("\", ");
 			final String args = validator.getArgs();
 			if (StringUtils.hasText(args)) {
-				sb.append("args: \"").append(args).append("\", ");
+				sb.append("args: \"").append(JavascriptUtils.escape(args)).append("\", ");
 			}
 			final String method = validator.getMethod().name();
 			String message = validator.getMessage();
