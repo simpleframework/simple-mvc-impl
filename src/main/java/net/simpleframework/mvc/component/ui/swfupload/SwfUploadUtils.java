@@ -161,19 +161,25 @@ public abstract class SwfUploadUtils {
 
 		// file_queue_error_handler
 		sb.append("file_queue_error_handler: function(file, errorCode, message) {");
-		sb.append("  var msgc = $(\"message_").append(beanId).append("\");");
+		sb.append("  var _msg;");
 		sb.append("  if (errorCode == SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT) {");
-		sb.append("    msgc.update('\"' + file.name + '\" ")
-				.append(msg("SwfUploadUtils.2", fileSizeLimit)).append("');");
+		sb.append("    _msg = '\"' + file.name + '\" ").append(msg("SwfUploadUtils.2", fileSizeLimit))
+				.append("';");
 		sb.append("  } else if (errorCode == SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE) {");
-		sb.append("    msgc.update(\"").append(msg("SwfUploadUtils.3")).append("\");");
+		sb.append("    _msg = \"").append(msg("SwfUploadUtils.3")).append("\";");
 		sb.append("  } else if (errorCode == SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED) {");
-		sb.append("    msgc.update(\"").append(msg("SwfUploadUtils.4")).append("\");");
+		sb.append("    _msg = \"").append(msg("SwfUploadUtils.4")).append("\";");
 		sb.append("  } else {");
-		sb.append("    msgc.update(message);");
+		sb.append("    _msg = message;");
 		sb.append("  }");
-		sb.append("  $Effect.shake(msgc);");
-		sb.append("  (function() { msgc.update(\"\"); }).delay(2);");
+		if ((Boolean) cp.getBeanProperty("alertError")) {
+			sb.append("  alert(_msg);");
+		} else {
+			sb.append("  var msgc = $(\"message_").append(beanId).append("\");");
+			sb.append("  msgc.update(_msg);");
+			sb.append("  $Effect.shake(msgc);");
+			sb.append("  (function() { msgc.update(\"\"); }).delay(2);");
+		}
 		sb.append("},");
 
 		// upload_error_handler

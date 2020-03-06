@@ -35,6 +35,8 @@ public class SwfUploadBean extends AbstractContainerBean {
 	/* 上传按钮的高度 */
 	private int btnHeight = BeanDefaults.getInt(getClass(), "btnHeight", 24);
 
+	/* alert方式显示错误 */
+	private boolean alertError;
 	/* 按钮背景图片 */
 	private String btnImageUrl;
 
@@ -133,6 +135,15 @@ public class SwfUploadBean extends AbstractContainerBean {
 
 	public SwfUploadBean setJsCompleteCallback(final String jsCompleteCallback) {
 		this.jsCompleteCallback = jsCompleteCallback;
+		return this;
+	}
+
+	public boolean isAlertError() {
+		return alertError;
+	}
+
+	public SwfUploadBean setAlertError(final boolean alertError) {
+		this.alertError = alertError;
 		return this;
 	}
 
