@@ -172,7 +172,7 @@ public abstract class SwfUploadUtils {
 		sb.append("  } else {");
 		sb.append("    _msg = message;");
 		sb.append("  }");
-		if ((Boolean) cp.getBeanProperty("alertError")) {
+		if ((Boolean) cp.getBeanProperty("alertMode")) {
 			sb.append("  alert(_msg);");
 		} else {
 			sb.append("  var msgc = $(\"message_").append(beanId).append("\");");
