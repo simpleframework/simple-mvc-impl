@@ -100,7 +100,7 @@ public abstract class AjaxRequestUtils {
 								final String msg = th.getMessage();
 								if (cause == null) {
 									if (StringUtils.hasText(msg)) {
-										log.error(th.getClass().getName() + ": " + msg);
+										log.error(getThrowableClass(th) + ": " + msg);
 									} else {
 										log.error(th);
 									}
@@ -108,7 +108,7 @@ public abstract class AjaxRequestUtils {
 									break;
 								} else {
 									if (StringUtils.hasText(msg)) {
-										log.error(th.getClass().getName() + ": " + msg);
+										log.error(getThrowableClass(th) + ": " + msg);
 										out = true;
 									}
 									th = cause;
@@ -158,5 +158,20 @@ public abstract class AjaxRequestUtils {
 		}
 		out.write(json.toJSON());
 		out.flush();
+	}
+
+	public static String getThrowableClass(final Throwable th) {
+		String thClassName = th.getClass().getName();
+		boolean ok = false;
+		for (final StackTraceElement trace : th.getStackTrace()) {
+			if (ok) {
+				thClassName = trace.getClassName();
+				break;
+			}
+			if (trace.getClassName().equals(thClassName)) {
+				ok = true;
+			}
+		}
+		return thClassName;
 	}
 }
