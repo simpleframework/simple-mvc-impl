@@ -34,7 +34,8 @@ public class DefaultPageResourceProvider extends MVCPageResourceProvider {
 		final String[] jsArr = new String[] {
 				// rPath + SIZZLE_FILE, rPath + PROTOTYPE_FILE, rPath +
 				// EFFECTS_FILE,
-				rPath + "/js/default.impl.js", rPath + "/js/simple.impl.js"
+				rPath + "/js/default.impl.js"
+				// rPath + "/js/simple.impl.js"
 				// rPath + "/js/simple_" + locale.toString() + ".js",
 				// rPath + "/js/simple.js", rPath + "/js/simple_ui.js"
 		};

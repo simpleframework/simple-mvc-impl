@@ -19,6 +19,6 @@ public class CalendarResourceProvider extends AbstractComponentResourceProvider 
 	@Override
 	public String[] getJavascriptPath(final PageParameter pp) {
 		final String rPath = getResourceHomePath();
-		return new String[] { rPath + "/js/date.js", rPath + "/js/calendar.js" };
+		return new String[] { rPath + "/js/calendar.js" };
 	}
 }
