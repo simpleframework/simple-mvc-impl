@@ -400,8 +400,9 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler
 			if (!StringUtils.hasText(exportCharset)) {
 				exportCharset = mvcSettings.getCharset();
 			}
-			csvWriter = new CSVWriter(
-					new OutputStreamWriter(cp.getBinaryOutputStream("export.csv"), exportCharset));
+			final OutputStreamWriter writer = new OutputStreamWriter(
+					cp.getBinaryOutputStream("export.csv"), exportCharset);
+			csvWriter = new CSVWriter(writer);
 			final ArrayList<String> al = new ArrayList<>();
 			for (final TablePagerColumn column : columns) {
 				al.add(column.getColumnText());
