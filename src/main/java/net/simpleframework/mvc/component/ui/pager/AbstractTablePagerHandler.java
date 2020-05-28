@@ -402,6 +402,7 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler
 			}
 			final OutputStreamWriter writer = new OutputStreamWriter(
 					cp.getBinaryOutputStream("export.csv"), exportCharset);
+			writer.append('\ufeff'); // BOM
 			csvWriter = new CSVWriter(writer);
 			final ArrayList<String> al = new ArrayList<>();
 			for (final TablePagerColumn column : columns) {
