@@ -413,8 +413,9 @@ public abstract class AbstractTablePagerHandler extends AbstractPagerHandler
 			int i = 1;
 			while ((object = dQuery.next()) != null) {
 				al.clear();
-				for (final Object o : tablePagerData.getExportRowData(cp, columns, object).values()) {
-					al.add(StringUtils.blank(o));
+				final Map<String, Object> data = tablePagerData.getExportRowData(cp, columns, object);
+				for (final TablePagerColumn column : columns) {
+					al.add(StringUtils.blank(data.get(column.getColumnName())));
 				}
 				csvWriter.writeNext(al.toArray(new String[al.size()]));
 				cp.setSessionAttr(TablePagerExportProgressBar.STEP, i++);
