@@ -97,7 +97,7 @@ public abstract class TablePagerUtils {
 		TablePagerColumns columns = null;
 		if (arr.length > 0) {
 			columns = TablePagerColumns.of();
-			final TablePagerColumns all = getTablePagerSchema(nCP).getTablePagerColumns(nCP);
+			final TablePagerColumns all = getTablePagerSchema(nCP).getTablePagerExportColumns(nCP);
 			for (final String v : arr) {
 				final TablePagerColumn oCol = all.get(v);
 				if (oCol != null) {
