@@ -883,9 +883,29 @@ ul.simple_tabs.vertical a.active {
 
 .multi_dselect {
   border: 1px solid #ccc;
-  padding: 3px 0 3px 3px;
+  padding: 2px 0 2px 15px;
   overflow: hidden;
   position: relative;
+}
+
+.multi_dselect>div.group {
+	border-bottom: 1px dashed #e1e1e1;
+	width: calc(100% - 15px);
+}
+
+.multi_dselect>div.group:last-child {
+	border-bottom : 0;
+}
+
+.multi_dselect>div.group .lbl {
+	width: 60px;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: right;
+	padding-right: 5px;
+	font-size: 7.5pt;
+	font-weight: bolder;
+	color: #522;
 }
 
 .multi_dselect .placeholder {

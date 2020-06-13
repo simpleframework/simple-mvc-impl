@@ -28,13 +28,12 @@ public class DictMultiSelectInput extends DictInput {
 		return addValue(id, text, null);
 	}
 
-	public DictMultiSelectInput addValue(final String id, final String text,
-			final String className) {
+	public DictMultiSelectInput addValue(final String id, final String text, final String gtext) {
 		if (values == null) {
 			values = new LinkedHashMap<>();
 		}
-		if (StringUtils.hasText(className)) {
-			values.put(id, new String[] { text, className });
+		if (StringUtils.hasText(gtext)) {
+			values.put(id, new String[] { text, gtext });
 		} else {
 			values.put(id, new String[] { text });
 		}

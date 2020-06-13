@@ -37,7 +37,8 @@ public class DefaultPageResourceProvider extends MVCPageResourceProvider {
 				rPath + "/js/default.impl.js"
 				// rPath + "/js/simple.impl.js"
 				// rPath + "/js/simple_" + locale.toString() + ".js",
-				// rPath + "/js/simple.js", rPath + "/js/simple_ui.js"
+				// rPath + "/js/simple.js"
+				// , rPath + "/js/tools/simple_ui.js"
 		};
 		// final UserAgentParser parser = pp.getUserAgentParser();
 		// if (parser.isIE() && parser.getBrowserFloatVersion() <= 8) {

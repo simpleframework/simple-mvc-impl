@@ -566,32 +566,49 @@ Object.extend($UI, {
 	    }
     };
     
-    r.insertItem = function(id, txt, className) {
-      if (r.select(".item").find(function(o) {
-        return o.id == id;
-      })) {
-        return;
-      }    
-      
-      var item;
-      r.insert(item = new Element("SPAN", {
-        className : "item" + (className ? " " + className : ""),
-        id : id
-      }).update(txt));
-      
-      if (!readonly) {
-        item.insert(new Element("SPAN", {
-          className : "del"
-        }).observe("click", function(ev) {
-          item.remove();
-          updateHidden();
-        }));
-      } else {
-        item.setStyle("padding-right: 8px;");
-      }
-      
-      updateHidden();
-    };
+    r.insertItem = function(id, txt, gtxt) {
+			if (r.select(".item").find(function(o) {
+				return o.id == id;
+			})) {
+				return;
+			}
+
+			var item = new Element("SPAN", {
+				"className" : "item",
+				id : id
+			}).update(txt);
+			if (gtxt) {
+				var gid = gtxt.md5();
+				var cc = r.down("div[gid='" + gid + "']");
+				if (!cc) {
+					r.insert(cc = new Element("DIV", {
+						"className" : "group",
+						"gid" : gid
+					}).insert(new Element("SPAN", {
+						"className" : "lbl"
+					}).update(gtxt)));
+				}
+				cc.insert(item);
+			} else {
+				r.insert(item);
+			}
+
+			if (!readonly) {
+				item.insert(new Element("SPAN", {
+					"className" : "del"
+				}).observe("click", function(ev) {
+					var group = item.up(".group");
+					item.remove();
+					if (group && group.select(".item").length == 0)
+						group.remove();
+					updateHidden();
+				}));
+			} else {
+				item.setStyle("padding-right: 8px;");
+			}
+
+			updateHidden();
+		};
 	},
 	
 	pwdStrength_update : function(m, input, effects) {
