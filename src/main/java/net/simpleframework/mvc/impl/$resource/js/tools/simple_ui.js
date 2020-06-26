@@ -598,9 +598,22 @@ Object.extend($UI, {
 					"className" : "del"
 				}).observe("click", function(ev) {
 					var group = item.up(".group");
+					
+					var _id = item.id;
+					var p = _id.indexOf(":");
+					if (p > -1) {
+						var rid = _id.substring(p + 1);
+						item.up(".multi_dselect").select(".item").each(function(_item) {
+							if (item != _item && _item.id.indexOf(rid) > -1) {
+								_item.remove();
+							}
+						});
+					}
 					item.remove();
+					
 					if (group && group.select(".item").length == 0)
 						group.remove();
+					
 					updateHidden();
 				}));
 			} else {
