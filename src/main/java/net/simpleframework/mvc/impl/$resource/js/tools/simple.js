@@ -131,6 +131,7 @@ Object.extend($Actions, {
         element.style.height = "0px";
         element.style.height = element.scrollHeight + "px";
       }
+      element.focus();
     }
   },
 

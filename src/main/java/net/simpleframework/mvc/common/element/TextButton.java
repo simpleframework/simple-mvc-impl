@@ -1,6 +1,7 @@
 package net.simpleframework.mvc.common.element;
 
 import net.simpleframework.common.StringUtils;
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.common.web.html.HtmlEncoder;
 
 /**
@@ -25,6 +26,9 @@ public class TextButton extends AbstractInputElement<TextButton> {
 	private boolean editable;
 
 	private int bwidth;
+
+	/* 显示清除按钮 */
+	private boolean showClearButton;
 
 	public TextButton() {
 	}
@@ -80,6 +84,15 @@ public class TextButton extends AbstractInputElement<TextButton> {
 
 	public TextButton setBwidth(final int bwidth) {
 		this.bwidth = bwidth;
+		return this;
+	}
+
+	public boolean isShowClearButton() {
+		return showClearButton && !isEditable();
+	}
+
+	public TextButton setShowClearButton(final boolean showClearButton) {
+		this.showClearButton = showClearButton;
 		return this;
 	}
 
@@ -141,12 +154,32 @@ public class TextButton extends AbstractInputElement<TextButton> {
 		sb.append("  <div class='d2' style='margin-right: ").append(w).append("px;'>")
 				.append(toInputHTML()).append("</div>");
 		sb.append(" </div>");
+		boolean clearButton = false;
 		if (!isReadonly()) {
+			if (isShowClearButton()) {
+				sb.append("<div class='sbtn del'></div>");
+				clearButton = true;
+			}
 			sb.append(toSbtnHTML(getOnclick(), 0));
 			sb.append(toSbtnHTML(getOnclick2(), 1));
 			sb.append(toSbtnHTML(getOnclick3(), 2));
 		}
 		sb.append("</div>");
+		if (clearButton) {
+			sb.append(HtmlConst.TAG_SCRIPT_START);
+			sb.append("(function() {");
+			sb.append(" var r = $('").append(getId()).append("');");
+			sb.append(" if (!r) return;");
+			sb.append(" var del = r.up('.text_button').down('.del');");
+			sb.append(" if (!del) return;");
+			sb.append(" del.observe('click', function(evn) { ")
+					.append("r.clear(); var n=r.next(); if (n) n.clear(); del.hide();").append(" });");
+			sb.append(" var f = function(evn) { ")
+					.append("if (r.value.length > 0) del.show(); else del.hide();").append(" }; f();");
+			sb.append(" r.observe('input', f).observe('focus', f);");
+			sb.append("})();");
+			sb.append(HtmlConst.TAG_SCRIPT_END);
+		}
 		return sb.toString();
 	}
 

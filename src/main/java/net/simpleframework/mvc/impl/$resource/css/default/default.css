@@ -858,6 +858,14 @@ ul.simple_tabs.vertical a.active {
 	background-image: url(images/form_hover.png);
 }
 
+.text_button .sbtn.del {
+	background-image: url(images/icon/delete.png);
+}
+
+.text_button .sbtn.del:hover {
+	background-image: url(images/icon/delete_hover.png);
+}
+
 .text_button .d1 {
 	float: left;
 	margin: 0;
