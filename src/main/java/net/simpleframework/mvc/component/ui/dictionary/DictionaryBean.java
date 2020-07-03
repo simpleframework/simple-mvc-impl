@@ -122,8 +122,8 @@ public class DictionaryBean extends WindowBean {
 			setTitle($m("createComponentBean.1"));
 		} else if (dictionaryTypeBean instanceof DictionarySmileyBean) {
 			setResizable(false);
-			setWidth(440);
-			setHeight(230);
+			setWidth(340);
+			setHeight(325);
 			setTitle($m("createComponentBean.2"));
 		}
 		return this;
