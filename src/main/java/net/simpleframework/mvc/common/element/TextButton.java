@@ -126,7 +126,12 @@ public class TextButton extends AbstractInputElement<TextButton> {
 		final StringBuilder sb = new StringBuilder();
 		if (StringUtils.hasText(onclick)) {
 			sb.append("<div class='sbtn' onclick=\"");
-			sb.append(HtmlEncoder.text(onclick)).append("\"></div>");
+			sb.append(HtmlEncoder.text(onclick)).append("\"");
+			final int w = getBwidth();
+			if (w > 0) {
+				sb.append(" style=\"width: ").append(w).append("px;\"");
+			}
+			sb.append("></div>");
 		}
 		return sb.toString();
 	}
