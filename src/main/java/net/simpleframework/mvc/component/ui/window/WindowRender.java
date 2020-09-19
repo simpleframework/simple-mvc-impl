@@ -94,6 +94,7 @@ public class WindowRender extends ComponentJavascriptRender {
 			sb.append("theme: \"popup\",");
 		}
 
+		sb.append("id: \"iw").append(cp.getBeanProperty("name")).append("\",");
 		sb.append("top: ").append(cp.getBeanProperty("top")).append(",");
 		sb.append("left: ").append(cp.getBeanProperty("left")).append(",");
 		sb.append("width: ").append(cp.getBeanProperty("width")).append(",");
