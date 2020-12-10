@@ -33,8 +33,7 @@ import net.simpleframework.mvc.component.ComponentParameter;
 /**
  * Licensed under the Apache License, Version 2.0
  * 
- * @author 陈侃(cknet@126.com, 13910090885)
- *         https://github.com/simpleframework
+ * @author 陈侃(cknet@126.com, 13910090885) https://github.com/simpleframework
  *         http://www.simpleframework.net
  */
 public abstract class TablePagerUtils {
@@ -75,8 +74,7 @@ public abstract class TablePagerUtils {
 	}
 
 	public static AbstractTablePagerSchema getTablePagerSchema(final ComponentParameter cp) {
-		AbstractTablePagerSchema tablePagerData = (AbstractTablePagerSchema) cp
-				.getRequestAttr("table_pager_data");
+		AbstractTablePagerSchema tablePagerData = (AbstractTablePagerSchema) cp.getRequestAttr("table_pager_data");
 		if (tablePagerData == null) {
 			final ITablePagerHandler pHandle = (ITablePagerHandler) cp.getComponentHandler();
 			cp.setRequestAttr("table_pager_data", tablePagerData = pHandle.createTablePagerSchema());
@@ -85,12 +83,10 @@ public abstract class TablePagerUtils {
 	}
 
 	public static TablePagerColumn getSelectedColumn(final ComponentParameter nCP) {
-		return getTablePagerSchema(nCP).getTablePagerColumns(nCP)
-				.get(nCP.getParameter(PARAM_FILTER_CUR_COL));
+		return getTablePagerSchema(nCP).getTablePagerColumns(nCP).get(nCP.getParameter(PARAM_FILTER_CUR_COL));
 	}
 
-	public static void doExport(final HttpServletRequest request,
-			final HttpServletResponse response) {
+	public static void doExport(final HttpServletRequest request, final HttpServletResponse response) {
 		final ComponentParameter nCP = PagerUtils.get(request, response);
 		final ITablePagerHandler tHandle = (ITablePagerHandler) nCP.getComponentHandler();
 		final String[] arr = StringUtils.split(request.getParameter("v"), ";");
@@ -105,8 +101,7 @@ public abstract class TablePagerUtils {
 				}
 			}
 		}
-		tHandle.export(nCP, Convert.toEnum(EExportFileType.class, request.getParameter("filetype")),
-				columns);
+		tHandle.export(nCP, Convert.toEnum(EExportFileType.class, request.getParameter("filetype")), columns);
 	}
 
 	static boolean isGroup(final ComponentParameter cp) {
@@ -137,7 +132,7 @@ public abstract class TablePagerUtils {
 		final StringBuilder sb = new StringBuilder();
 		if (Date.class.isAssignableFrom(col.propertyClass())) {
 			sb.append(new CalendarInput(id).setCalendarComponent("calendarTablePagerFilter")
-					.setDateFormat(col.getFormat()).setBwidth(22));
+					.setDateFormat(col.getFormat()));
 		} else {
 			sb.append(new InputElement(id));
 		}
@@ -162,8 +157,7 @@ public abstract class TablePagerUtils {
 		sb.append(new Checkbox("col_check_all", $m("tablepager_export.4")));
 		sb.append("</div>");
 		sb.append("<table class='cols'>");
-		final TablePagerColumns columns = TablePagerUtils.getTablePagerSchema(cp)
-				.getTablePagerExportColumns(cp);
+		final TablePagerColumns columns = TablePagerUtils.getTablePagerSchema(cp).getTablePagerExportColumns(cp);
 		int i = 0;
 		for (final TablePagerColumn oCol : columns) {
 			final String name = oCol.getColumnName();
@@ -182,8 +176,8 @@ public abstract class TablePagerUtils {
 		return sb.toString();
 	}
 
-	public static LinkButton act_btn(final String tbl, final String act, final String title,
-			final String idKey, final String params) {
+	public static LinkButton act_btn(final String tbl, final String act, final String title, final String idKey,
+			final String params) {
 		final StringBuilder click = new StringBuilder();
 		click.append("$Actions['").append(tbl).append("'].doAct('").append(act).append("', ");
 		if (StringUtils.hasText(idKey)) {
