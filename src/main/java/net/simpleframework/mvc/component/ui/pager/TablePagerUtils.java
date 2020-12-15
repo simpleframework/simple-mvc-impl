@@ -132,7 +132,7 @@ public abstract class TablePagerUtils {
 		final StringBuilder sb = new StringBuilder();
 		if (Date.class.isAssignableFrom(col.propertyClass())) {
 			sb.append(new CalendarInput(id).setCalendarComponent("calendarTablePagerFilter")
-					.setDateFormat(col.getFormat()));
+					.setDateFormat(col.getFormat()).setBwidth(22));
 		} else {
 			sb.append(new InputElement(id));
 		}
