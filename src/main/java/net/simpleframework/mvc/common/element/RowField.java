@@ -2,6 +2,8 @@ package net.simpleframework.mvc.common.element;
 
 import java.util.Map;
 
+import net.simpleframework.common.web.html.HtmlUtils;
+
 /**
  * Licensed under the Apache License, Version 2.0
  * 
@@ -59,9 +61,9 @@ public class RowField {
 	}
 
 	public RowField addElementsStyle(final String elementsStyle) {
-		final Map<String, String> s1 = AbstractElement.toStyle(getElementsStyle());
-		s1.putAll(AbstractElement.toStyle(elementsStyle));
-		this.elementsStyle = AbstractElement.joinStyle(s1);
+		final Map<String, String> s1 = HtmlUtils.toStyle(getElementsStyle());
+		s1.putAll(HtmlUtils.toStyle(elementsStyle));
+		this.elementsStyle = HtmlUtils.joinStyle(s1);
 		return this;
 	}
 
@@ -86,9 +88,9 @@ public class RowField {
 	}
 
 	public RowField addLabelStyle(final String labelStyle) {
-		final Map<String, String> s1 = AbstractElement.toStyle(getLabelStyle());
-		s1.putAll(AbstractElement.toStyle(labelStyle));
-		this.labelStyle = AbstractElement.joinStyle(s1);
+		final Map<String, String> s1 = HtmlUtils.toStyle(getLabelStyle());
+		s1.putAll(HtmlUtils.toStyle(labelStyle));
+		this.labelStyle = HtmlUtils.joinStyle(s1);
 		return this;
 	}
 }
